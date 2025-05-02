@@ -1,0 +1,132 @@
+[
+  {
+    "business_name": "Colin's Seafood & Grill",
+    "location": "1728 E. Northern Parkway, Baltimore, MD 21239",
+    "contact_name": "",
+    "tel": "443-708-1680",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "BARS & LOUNGES"
+  },
+  {
+    "business_name": "Bertha's Soul Food Bar & Grill",
+    "location": "4201 Belair Rd, Baltimore, MD 21206",
+    "contact_name": "",
+    "tel": "443-759-9701",
+    "email": "",
+    "description": "",
+    "website": "berthassoulfoood.com",
+    "category": "BARS & LOUNGES"
+  },
+  {
+    "business_name": "Rosie's Bar & Lounge",
+    "location": "482 S Bentalou St, Baltimore, MD 21223",
+    "contact_name": "",
+    "tel": "410-945-1977",
+    "email": "williamsdumplin@msn.com",
+    "description": "",
+    "website": "",
+    "category": "BARS & LOUNGES"
+  },
+  {
+    "business_name": "The New Five Mile House",
+    "location": "5302 Reisterstown Rd, Baltimore, MD 21215",
+    "contact_name": "",
+    "tel": "410-578-8831",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "BARS & LOUNGES"
+  },
+  {
+    "business_name": "Baltimore Studio of Hair Design",
+    "location": "318 N. Howard St., Baltimore, MD 21201",
+    "contact_name": "",
+    "tel": "410-539-1935",
+    "email": "admissions@baltimorestudio.com",
+    "description": "Located in Heart of Baltimore City",
+    "website": "www.baltimorestudio.com",
+    "category": "BEAUTY ACADEMIES & SALONS"
+  },
+  {
+    "business_name": "Maryland Beauty Academy",
+    "location": "East Point, 7930 Eastern Avenue, Baltimore, MD 21224",
+    "contact_name": "",
+    "tel": "",
+    "email": "",
+    "description": "Located in East Point",
+    "website": "",
+    "category": "BEAUTY ACADEMIES & SALONS"
+  },
+  {
+    "business_name": "Hairoglyphics Day Spa",
+    "location": "638 Frederick Rd., Catonsville, MD 21228",
+    "contact_name": "",
+    "tel": "410-744-7888",
+    "email": "",
+    "description": "",
+    "website": "www.hairoglyphics.net",
+    "category": "BEAUTY ACADEMIES & SALONS"
+  },
+  {
+    "business_name": "Liz's Place Hair and Nails",
+    "location": "5345 Sanford Place, Baltimore, MD 21217",
+    "contact_name": "",
+    "tel": "443-857-8587",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "BEAUTY ACADEMIES & SALONS"
+  },
+  {
+    "business_name": "The Purple Peach Nail, Weave and Lash Bar",
+    "location": "2118 N. Charles St., Baltimore, MD 21218",
+    "contact_name": "",
+    "tel": "443-743-6673",
+    "email": "thepurplepeachnailbar.com",
+    "description": "",
+    "website": "",
+    "category": "BEAUTY ACADEMIES & SALONS"
+  },
+  {
+    "business_name": "X Cetra Unisex Salon",
+    "location": "2927 Hamilton Ave., Baltimore, MD 21214",
+    "contact_name": "",
+    "tel": "410-365-9313",
+    "email": "xcetra91@gmail.com",
+    "description": "",
+    "website": "",
+    "category": "BEAUTY ACADEMIES & SALONS"
+  },
+  {
+    "business_name": "Beaningful Services",
+    "location": "2613 Orchard Oriole Way, Odenton, MD 21113",
+    "contact_name": "",
+    "tel": "410-929-1625",
+    "email": "will@beaningfulservices.com",
+    "description": "",
+    "website": "beaningfulservices.com",
+    "category": "BEVERAGE DISPENSER"
+  },
+  {
+    "business_name": "Heritage Bookkeeping & Accounting Service",
+    "location": "2613 Orchard Oriole Way, Odenton, MD 21113",
+    "contact_name": "",
+    "tel": "443-297-2596",
+    "email": "hughesrickey751@gmail.com",
+    "description": "Christian owned and operated.",
+    "website": "",
+    "category": "ACCOUNTING"
+  },
+  {
+    "business_name": "Hair 4Life",
+    "location": "",
+    "contact_name": "",
+    "tel": "202-510-0337",
+    "email": "",
+    "description": "",
+    "website": "shophair4life.com",
+    "category": "BEAUTY ACADEMIES & SALONS"
+  }
+]

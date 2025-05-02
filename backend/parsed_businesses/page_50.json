@@ -1,0 +1,72 @@
+[
+  {
+    "business_name": "Leathia D. Moore Foundation",
+    "location": "8108 Harford Road Suite A, Baltimore, MD 21234",
+    "contact_name": "",
+    "tel": "443-442-6043",
+    "email": "mcollins@ldmfoundation.org",
+    "description": "Services: Resume Writing, Credit Counseling, Professional Interview Preparedness, Financial Literacy, CPR and First Aid, Medication Technician, Certified Nursing Assistant.",
+    "website": "www.ldmfoundation.org",
+    "category": "PROFESSIONAL SERVICES"
+  },
+  {
+    "business_name": "Mobile Cleaners",
+    "location": "",
+    "contact_name": "Thomas Richardson",
+    "tel": "443-740-5594",
+    "email": "tom223618@gmail.com",
+    "description": "Professional Quality Service at Affordable Rates.",
+    "website": "",
+    "category": "CLEANING SERVICES"
+  },
+  {
+    "business_name": "New Tabernacle Baptist Church",
+    "location": "2101-03 Frederick Avenue, Baltimore, MD 21223",
+    "contact_name": "",
+    "tel": "410-566-2620",
+    "email": "Darryl.Watts@newtabernaclebaptist.org",
+    "description": "",
+    "website": "www.newtabernaclebaptist.org",
+    "category": "CHURCHES"
+  },
+  {
+    "business_name": "AMES United Methodist Church",
+    "location": "112 Baltimore Pike, Bel Air, MD 21014",
+    "contact_name": "",
+    "tel": "443-629-7363",
+    "email": "mintigman816@gmail.com",
+    "description": "Methodist Church",
+    "website": "",
+    "category": "CHURCHES"
+  },
+  {
+    "business_name": "C. Morton Mobile Dry Cleaners",
+    "location": "9867 Whiskey Run, Laurel, MD 20723",
+    "contact_name": "",
+    "tel": "410-984-8645",
+    "email": "cmortonmobile@gmail.com",
+    "description": "",
+    "website": "www.cmortonmobile.com",
+    "category": "DRY CLEANERS"
+  },
+  {
+    "business_name": "Alzheimer's Association",
+    "location": "1850 York Rd., Timonium, MD 21093",
+    "contact_name": "",
+    "tel": "410-561-9099",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "CHARITABLE ORGANIZATIONS"
+  },
+  {
+    "business_name": "Associated Black Charities",
+    "location": "2 Hamill Rd, 272 N. Quadrangle, Baltimore, MD 21210",
+    "contact_name": "",
+    "tel": "410-659-0000",
+    "email": "",
+    "description": "",
+    "website": "www.abc-md.org",
+    "category": "CHARITABLE ORGANIZATIONS"
+  }
+]

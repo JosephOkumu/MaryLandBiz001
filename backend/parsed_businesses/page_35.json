@@ -1,0 +1,112 @@
+[
+  {
+    "business_name": "My Office Tax & Business Services",
+    "location": "6659 Belair Road, Baltimore, Maryland 21206",
+    "contact_name": "Fred Williams CPA, MBA, Enrolled Agent",
+    "tel": "410-426-1644",
+    "email": "wil2230@yahoo.com",
+    "description": "Small Business Consultant, Accounting-Bookkeeping, Income Tax Electronic Filing",
+    "website": "",
+    "category": "ACCOUNTING & TAX SERVICES"
+  },
+  {
+    "business_name": "N. Jean Lema Accountant Tax Consultant",
+    "location": "228 E. 25th St, Suite 1, Baltimore, MD 21218",
+    "contact_name": "N. Jean Lema",
+    "tel": "410-366-5705",
+    "email": "njlema@njlema.net",
+    "description": "Accounting & Tax Service, Personal & Business",
+    "website": "www.njlema.net",
+    "category": "ACCOUNTING & TAX SERVICES"
+  },
+  {
+    "business_name": "Newby's Tax Consultant Services",
+    "location": "6315 Windsor Mill Rd, Baltimore, MD 21207",
+    "contact_name": "",
+    "tel": "410-298-6403",
+    "email": "newbystax@gmail.com",
+    "description": "",
+    "website": "",
+    "category": "ACCOUNTING & TAX SERVICES"
+  },
+  {
+    "business_name": "Pinnacle Wireless",
+    "location": "8627 Liberty Road - Suite 1B, Baltimore, MD 21133",
+    "contact_name": "Darius Hughes",
+    "tel": "443-272-7689",
+    "email": "pinnaclwireless@gmail.com",
+    "description": "",
+    "website": "",
+    "category": "TELECOMMUNICATIONS"
+  },
+  {
+    "business_name": "Reisterstown Tax & Accounting Services",
+    "location": "408 Main St, Reisterstown, MD 21136",
+    "contact_name": "",
+    "tel": "410-833-2655",
+    "email": "rtas1040@comcast.net",
+    "description": "",
+    "website": "",
+    "category": "ACCOUNTING & TAX SERVICES"
+  },
+  {
+    "business_name": "Thornton & Associates",
+    "location": "3 Greenwood Pl - Suite 303, Baltimore, MD 21208",
+    "contact_name": "",
+    "tel": "410-559-6883",
+    "email": "thorncepp@comcast.net",
+    "description": "",
+    "website": "",
+    "category": "ACCOUNTING & TAX SERVICES"
+  },
+  {
+    "business_name": "Acupuncture Works, LLC",
+    "location": "3679 Offutt Rd. Randallstown, MD 21133",
+    "contact_name": "",
+    "tel": "410-521-1857",
+    "email": "info@acupunctureworksmd.com",
+    "description": "",
+    "website": "acupunctureworksmd.com",
+    "category": "HEALTHCARE SERVICES"
+  },
+  {
+    "business_name": "Ma Fa Holistic",
+    "location": "9199 Reisterstown Rd - Suite 208B, Owings Mills, MD 21117",
+    "contact_name": "",
+    "tel": "443-824-3487",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "HEALTHCARE SERVICES"
+  },
+  {
+    "business_name": "Minority Business Directory",
+    "location": "PO Box 67193, Baltimore, MD 21215",
+    "contact_name": "",
+    "tel": "443-224-2343",
+    "email": "cwashingtonmbd@gmail.com",
+    "description": "",
+    "website": "minoritybusinessdirectory.com",
+    "category": "BUSINESS SERVICES"
+  },
+  {
+    "business_name": "Publish Your Way",
+    "location": "1420 North Potomac Street, Baltimore, MD 21213",
+    "contact_name": "",
+    "tel": "443-599-6176",
+    "email": "Letspublishyourway@gmail.com",
+    "description": "",
+    "website": "www.getpublishedyourway.com",
+    "category": "PUBLISHING SERVICES"
+  },
+  {
+    "business_name": "Air Purifier",
+    "location": "Aerus Electrolux, 6050 Rossville Blvd.",
+    "contact_name": "",
+    "tel": "443-857-3860",
+    "email": "frbaltimoremd1@aerusline.com",
+    "description": "",
+    "website": "",
+    "category": "HOME APPLIANCES & SERVICES"
+  }
+]

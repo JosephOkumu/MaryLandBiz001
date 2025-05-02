@@ -1,0 +1,72 @@
+[
+  {
+    "business_name": "Carpet for Pennies, Inc.",
+    "location": "",
+    "contact_name": "Marvin Jackson",
+    "tel": "410-977-8568",
+    "email": "cfpgroup1@gmail.com",
+    "description": "Residential & Commercial. Carpet Cleaning, Hardwood, Tile, Vinyl, Carpentry, Epoxy Flooring. Luxury Vinyl Composite Tile",
+    "website": "",
+    "category": "CARPET SALES & INSTALLATION"
+  },
+  {
+    "business_name": "Morgan's Supernatural Carpet Cleaning",
+    "location": "Glen Burnie, MD 21061",
+    "contact_name": "",
+    "tel": "443-889-3976",
+    "email": "morgansscc@aol.com",
+    "description": "",
+    "website": "www.morgansscc.vpweb.com",
+    "category": "CARPET CLEANING"
+  },
+  {
+    "business_name": "V & W Carpet Sales, LLC",
+    "location": "1740 W. North Ave., Baltimore, MD 21217",
+    "contact_name": "",
+    "tel": "410-669-5682",
+    "email": "carpetmanlou@aol.com",
+    "description": "We Roll for You",
+    "website": "",
+    "category": "CARPET SALES"
+  },
+  {
+    "business_name": "Salsa Grill",
+    "location": "6644 Security Blvd, Gwynn Oak, MD 21207",
+    "contact_name": "",
+    "tel": "410-265-5552",
+    "email": "salsagrill@msn.com",
+    "description": "",
+    "website": "",
+    "category": "RESTAURANTS"
+  },
+  {
+    "business_name": "Xquisite Catering LLC",
+    "location": "1502 Joh Ave., Suite 160, Halethorpe, MD 21227",
+    "contact_name": "",
+    "tel": "410-274-2601",
+    "email": "events@xquistecatering.com",
+    "description": "",
+    "website": "xquistecateringmd.com",
+    "category": "CATERING SERVICES"
+  },
+  {
+    "business_name": "Mackey's Crab House & Seafood Catering",
+    "location": "4203 Sanner Avenue, Baltimore, MD 21206",
+    "contact_name": "",
+    "tel": "410-483-2722",
+    "email": "",
+    "description": "Located @ the corner of Belair Rd & Moravia Rd",
+    "website": "",
+    "category": "CATERING SERVICES"
+  },
+  {
+    "business_name": "Pinnacle Wireless",
+    "location": "8627 Liberty Rd. Suite 1B, Randallstown, MD 21117",
+    "contact_name": "",
+    "tel": "443-272-7689",
+    "email": "pinnaclewireless@gmail.com",
+    "description": "",
+    "website": "",
+    "category": "CELL PHONE"
+  }
+]

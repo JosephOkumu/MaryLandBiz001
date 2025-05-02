@@ -1,0 +1,122 @@
+[
+  {
+    "business_name": "The Myles Group, LLC",
+    "location": "4328 Plainfield Avenue, Baltimore, MD 21206",
+    "contact_name": "",
+    "tel": "410-241-7533",
+    "email": "info@themylesgroup.biz",
+    "description": "",
+    "website": "www.TheMylesGroup.biz",
+    "category": "BUSINESS SERVICES"
+  },
+  {
+    "business_name": "B-More Enterprise",
+    "location": "6617 Harford Road, Baltimore, MD 21214",
+    "contact_name": "",
+    "tel": "410-982-9995",
+    "email": "natashabmore@gmail.com",
+    "description": "A collaborative venture with food entrepreneurs, featuring spacious indoor fast casual dinning for breakfast, lunch, dinner and dessert.",
+    "website": "www.cafe@bmore.com",
+    "category": "CAFE"
+  },
+  {
+    "business_name": "H & H Outdoors",
+    "location": "5406 Harford Road, Baltimore, MD 21214",
+    "contact_name": "",
+    "tel": "410-752-2580",
+    "email": "HHsurplus@outlook.com",
+    "description": "Army-Navy since 1947. Security Gear: Uniforms, Boots & Equipment, Sweaters, BDU's. Workwear: Dickies, Carhartt, Boots, Rainwear. Military Collector: Medals, Insignia, Memorabilia, GI Surplus. Footwear: Duty, Work, Steel Toe, Insulated, Rubber. Bags: Luggage, Duffle, Book & Sports. Outerwear: Insulated Coats, Coveralls & Overalls. Open Tuesday through Saturday",
+    "website": "HHsurplus.net",
+    "category": "CAMPING EQUIPMENT"
+  },
+  {
+    "business_name": "AASIM Security Agency",
+    "location": "3400 Garrison Blvd., Baltimore, MD 21215",
+    "contact_name": "",
+    "tel": "443-414-1746",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "SECURITY"
+  },
+  {
+    "business_name": "Anne Arundel County Police Department",
+    "location": "8495 Veterans Hwy., Millersville, MD 21108",
+    "contact_name": "",
+    "tel": "410-222-8672",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "SECURITY"
+  },
+  {
+    "business_name": "Baltimore County Chamber of Commerce",
+    "location": "102 W. Pennsylvania Ave., Suite 101, Towson, MD 21204",
+    "contact_name": "",
+    "tel": "410-825-6200",
+    "email": "",
+    "description": "",
+    "website": "www.baltcountychamber.com",
+    "category": "BUSINESS RESOURCES"
+  },
+  {
+    "business_name": "Baltimore County Police Department",
+    "location": "700 E. Joppa Road, Towson, MD 21286",
+    "contact_name": "",
+    "tel": "410-887-5542",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "SECURITY"
+  },
+  {
+    "business_name": "Baltimore Urban League",
+    "location": "512 Orchard St., Baltimore, MD 21201",
+    "contact_name": "",
+    "tel": "410-523-8150",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": ""
+  },
+  {
+    "business_name": "Coleman Security Services",
+    "location": "1210 W. Walter Ave., Baltimore, MD 21239",
+    "contact_name": "",
+    "tel": "410-608-3303",
+    "email": "",
+    "description": "",
+    "website": "www.cssgov.biz",
+    "category": "SECURITY"
+  },
+  {
+    "business_name": "Department of Planning and Neighborhood Development",
+    "location": "505 W. Chesapeake Ave., Suite 201, Towson, MD 21204",
+    "contact_name": "",
+    "tel": "410-887-3311",
+    "email": "eglenn@baltimorecountymd.gov",
+    "description": "",
+    "website": "",
+    "category": "GOVERNMENT"
+  },
+  {
+    "business_name": "MD Transportation Authority",
+    "location": "Hanover, MD",
+    "contact_name": "Sergeant Kevin Dueling",
+    "tel": "410-537-7641",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "TRANSPORT"
+  },
+  {
+    "business_name": "University of Maryland Medical Center Midtown",
+    "location": "22 South Greene St., Baltimore, MD 21201",
+    "contact_name": "",
+    "tel": "410-328-8667",
+    "email": "abessent@umm.edu",
+    "description": "",
+    "website": "",
+    "category": "HEALTHCARE"
+  }
+]

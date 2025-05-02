@@ -1,0 +1,122 @@
+[
+  {
+    "business_name": "New Beginning Bail Bonds",
+    "location": "2315 Windsor Avenue, Baltimore, MD 21216",
+    "contact_name": "",
+    "tel": "410-462-1488",
+    "email": "",
+    "description": "Bail Bonds",
+    "website": "",
+    "category": "BAIL BOND"
+  },
+  {
+    "business_name": "B-More Enterprise",
+    "location": "6617 Harford Road, Baltimore, MD 21214",
+    "contact_name": "",
+    "tel": "410-982-9995",
+    "email": "natashabmore@gmail.com",
+    "description": "",
+    "website": "",
+    "category": "BAKERY"
+  },
+  {
+    "business_name": "The Avenue Bakery",
+    "location": "2229 Pennsylvania Ave, Baltimore, MD 21217",
+    "contact_name": "",
+    "tel": "410-225-3881",
+    "email": "",
+    "description": "",
+    "website": "theavenuebakery.com",
+    "category": "BAKERY"
+  },
+  {
+    "business_name": "Harbor Bank of Maryland",
+    "location": "25 W. Fayette St., Baltimore, MD 21201",
+    "contact_name": "",
+    "tel": "410-528-1800",
+    "email": "",
+    "description": "Personal banking and business banking.",
+    "website": "",
+    "category": "BANKS"
+  },
+  {
+    "business_name": "Family Unisex",
+    "location": "1512 Ramsey St., Baltimore, MD 21223",
+    "contact_name": "",
+    "tel": "410-566-1270",
+    "email": "tyrone_7@live.com",
+    "description": "",
+    "website": "",
+    "category": "BARBER SHOPS"
+  },
+  {
+    "business_name": "Gary Fields Barbershop",
+    "location": "3635 Edmondson Avenue, Baltimore, MD 21223",
+    "contact_name": "",
+    "tel": "410-362-2455",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "BARBER SHOPS"
+  },
+  {
+    "business_name": "Hairoglyphics Day Spa",
+    "location": "638 Frederick Rd., Catonsville, MD",
+    "contact_name": "",
+    "tel": "410-744-7888",
+    "email": "",
+    "description": "",
+    "website": "www.hairoglyphics.net",
+    "category": "BARBER SHOPS"
+  },
+  {
+    "business_name": "Mr. Do Hair Design",
+    "location": "1501 N. Patterson Park Ave, Baltimore, MD 21213",
+    "contact_name": "",
+    "tel": "410-675-8525",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "BARBER SHOPS"
+  },
+  {
+    "business_name": "Ricky's Barbershop",
+    "location": "703 Lyndhurst St., Baltimore, MD 21229",
+    "contact_name": "",
+    "tel": "410-598-0107",
+    "email": "rickeyphaison@verizon.net",
+    "description": "",
+    "website": "",
+    "category": "BARBER SHOPS"
+  },
+  {
+    "business_name": "Theo' Z Barber Shop",
+    "location": "9405 Liberty Rd., Randallstown, MD 21133",
+    "contact_name": "",
+    "tel": "410-521-8337",
+    "email": "Rodell1978@gmail.com",
+    "description": "",
+    "website": "",
+    "category": "BARBER SHOPS"
+  },
+  {
+    "business_name": "Brooks Clinton Center",
+    "location": "9968 Liberty Rd, Randallstown, MD 21133",
+    "contact_name": "",
+    "tel": "410-921-2004",
+    "email": "brookclintoncenter@gmail.com",
+    "description": "",
+    "website": "",
+    "category": "BANQUET HALLS EVENT RENTALS"
+  },
+  {
+    "business_name": "Slate The Venue",
+    "location": "3925 Gough Street - Suite #1, Baltimore, MD 21224",
+    "contact_name": "",
+    "tel": "443-869-2431",
+    "email": "info@slatethevenue.com",
+    "description": "",
+    "website": "www.slatethevenue.com",
+    "category": "BANQUET HALLS EVENT RENTALS"
+  }
+]

@@ -1,0 +1,72 @@
+[
+  {
+    "business_name": "IMS Auto Clinic",
+    "location": "2701 Frederick Avenue, Suite 1, Baltimore, MD 21223",
+    "contact_name": "",
+    "tel": "410-635-0456, Cell 410-908-1385",
+    "email": "imsautoclinic@gmail.com",
+    "description": "TOWING SERVICE • AUTO BODY COLLISION, TUNE-UPS & OIL SERVICE • ELECTRICAL TROUBLESHOOTING",
+    "website": "",
+    "category": "Automotive"
+  },
+  {
+    "business_name": "Peas & Sliders Auto Body",
+    "location": "4025 Belvedere Ave., Baltimore, MD 21215",
+    "contact_name": "Rice Maxwell (Manager), Peas Maxwell (President)",
+    "tel": "410-367-0119",
+    "email": "PeasandSliderAutomotive@yahoo.com",
+    "description": "AUTO BODY & AUTOMOTIVE SERVICES, 24 Hour Towing",
+    "website": "",
+    "category": "Automotive"
+  },
+  {
+    "business_name": "Leading Edge Auto Body & Mechanical Repair",
+    "location": "5807 Falls Road, Baltimore, MD 21209",
+    "contact_name": "Jeff Siegel",
+    "tel": "410-433-6433",
+    "email": "",
+    "description": "Auto body and mechanical repair",
+    "website": "www.leadingedgeautobody.com",
+    "category": "Automotive"
+  },
+  {
+    "business_name": "M&G Customs",
+    "location": "3111 Frederick Avenue, Baltimore, MD 21229",
+    "contact_name": "",
+    "tel": "410-362-1741",
+    "email": "mgcustoms@comcast.net",
+    "description": "Custom automotive services",
+    "website": "www.mandgcustoms.com",
+    "category": "Automotive"
+  },
+  {
+    "business_name": "Marvin's Muffler Works",
+    "location": "6027 Ritchie Highway, Baltimore, MD 21225",
+    "contact_name": "",
+    "tel": "410-636-9616",
+    "email": "MBTurb31@gmail.com",
+    "description": "Exhaust repair services",
+    "website": "",
+    "category": "Automotive"
+  },
+  {
+    "business_name": "Peas & Sliders Auto Body",
+    "location": "4025 West Belvedere Ave., Baltimore, MD 21215",
+    "contact_name": "",
+    "tel": "410-367-0119",
+    "email": "maxwelltems@gmail.com",
+    "description": "Auto body repair services",
+    "website": "",
+    "category": "Automotive"
+  },
+  {
+    "business_name": "Unique Auto Mart Inc",
+    "location": "3300-3308 E. Fayette St., Baltimore, MD 21224",
+    "contact_name": "",
+    "tel": "410-558-1827",
+    "email": "",
+    "description": "Auto dealer",
+    "website": "uniqueautomartinc.com",
+    "category": "Automotive"
+  }
+]

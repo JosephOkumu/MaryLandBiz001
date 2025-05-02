@@ -1,0 +1,72 @@
+[
+  {
+    "business_name": "A1 Taxperts",
+    "location": "9546 Belair Rd, Suite A, Nottingham, MD 21236",
+    "contact_name": "Rod Smith, E.A.",
+    "tel": "(410) 484-9944",
+    "email": "rodsmith@a1taxperts.com",
+    "description": "Accounting & Financial Services, Professional, Local, Convenient Service to Assist You",
+    "website": "www.a1taxperts.com",
+    "category": "ACCOUNTING & TAX SERVICES"
+  },
+  {
+    "business_name": "A Little Faith Accounting & Tax Services, LLC",
+    "location": "4324 York Road, Suite 103, Baltimore, MD 21212",
+    "contact_name": "Michael J. Jackson",
+    "tel": "410-467-3800",
+    "email": "info@alittlefaithaccounting.com",
+    "description": "Tax, Bookkeeping, Payroll, and CFO Services",
+    "website": "www.alittlefaithaccounting.com",
+    "category": "ACCOUNTING & TAX SERVICES"
+  },
+  {
+    "business_name": "The Brockington Firm LLC",
+    "location": "201 International Circle - Suite 230, Hunt Valley, MD 21030",
+    "contact_name": "",
+    "tel": "443-991-4146",
+    "email": "info@brockingtonfirmllc.com",
+    "description": "www.thebrockingtonfirmllc.com",
+    "website": "www.thebrockingtonfirmllc.com",
+    "category": "ACCOUNTING & TAX SERVICES"
+  },
+  {
+    "business_name": "Heritage Bookkeeping & Accounting Service",
+    "location": "2112 McCulloh Street,Baltimore, MD 21217",
+    "contact_name": "",
+    "tel": "443-297-2596",
+    "email": "Hughesrickey751@gmail.com",
+    "description": "",
+    "website": "",
+    "category": "ACCOUNTING & TAX SERVICES"
+  },
+  {
+    "business_name": "Briscoe & Associates",
+    "location": "2526 St. Paul Street, Baltimore, MD 21218",
+    "contact_name": "",
+    "tel": "",
+    "email": "mrfloydwright@gmail.com",
+    "description": "",
+    "website": "",
+    "category": "ACCOUNTING & TAX SERVICES"
+  },
+  {
+    "business_name": "Sankofa African & World Bazaar",
+    "location": "4330 Pimlico Road,Baltimore, MD 21215",
+    "contact_name": "",
+    "tel": "443-708-7046",
+    "email": "sankofa@aceweb.com",
+    "description": "sankofaafricanbazaar.com",
+    "website": "sankofaafricanbazaar.com",
+    "category": "RETAIL & GIFT SHOPS"
+  },
+  {
+    "business_name": "Carolyyn Gwynn Income Tax",
+    "location": "4324 York Road, Suite 103",
+    "contact_name": "",
+    "tel": "410-467-3800",
+    "email": "info@carolyyn.com",
+    "description": "",
+    "website": "",
+    "category": "ACCOUNTING & TAX SERVICES"
+  }
+]

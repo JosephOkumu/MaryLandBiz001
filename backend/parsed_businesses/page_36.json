@@ -1,0 +1,102 @@
+[
+    {
+      "business_name": "Harris-Kupfer Architects, Inc.",
+      "location": "422 N. Howard Street, Baltimore, MD 21201",
+      "contact_name": "Leslie Harris (President/Principal)",
+      "tel": "410.244.8255",
+      "email": "leslie@harriskupferarchitects.com",
+      "description": "PROJECT TYPES: Healthcare, Multi-Family Housing, Affordable Housing, Assisted Living Facilities, Commercial, Restaurants, Green Design",
+      "website": "www.harriskupferarchitects.com",
+      "category": "ARCHITECTS"
+    },
+    {
+      "business_name": "AAA Appliance Services, Inc.",
+      "location": "36B East 25th Street – 2nd Floor, Baltimore, MD 21218",
+      "contact_name": "",
+      "tel": "443-462-6927, 410-702-8509",
+      "email": "AAAApplianceservices1@gmail.com",
+      "description": "Provide quality repair services for all major appliances.",
+      "website": "",
+      "category": "APPLIANCE SERVICE"
+    },
+    {
+      "business_name": "SP Arch, Inc.",
+      "location": "3613 Milford Mill Rd., Windsor Mill, MD 21244",
+      "contact_name": "",
+      "tel": "443-565-0432",
+      "email": "info@spa-corp.com",
+      "description": "Appliance / Landscape & Landscape",
+      "website": "www.spa-corp.com",
+      "category": "ARCHITECTS"
+    },
+    {
+      "business_name": "Picassew Firm, LLC",
+      "location": "1509 East Baltimore Street, Suite B, Baltimore, MD 21231",
+      "contact_name": "",
+      "tel": "443-473-8416",
+      "email": "shannel@picassewfirm.com",
+      "description": "ALTERATIONS",
+      "website": "www.picassewfirm.com",
+      "category": "ALTERATIONS"
+    },
+    {
+      "business_name": "MIMAR Architects & Engineers",
+      "location": "1320 Hollins Street, Baltimore, MD 21223",
+      "contact_name": "",
+      "tel": "443-759-9393 (office), 410-499-8025 (cell)",
+      "email": "jmurphy@mimarch.net",
+      "description": "ARCHITECTURE/DESIGN",
+      "website": "www.mimarch.net",
+      "category": "ARCHITECTS"
+    },
+    {
+      "business_name": "Sankofa African & World Bazaar",
+      "location": "4330 Pimlico Road, Baltimore, MD 21201",
+      "contact_name": "",
+      "tel": "443-708-7046",
+      "email": "sankofa@aceweb.com",
+      "description": "ART DEALERS, CURATORS, CUSTOM, & GALLERY",
+      "website": "www.sankofaafricanbazaar.com",
+      "category": "ART DEALERS"
+    },
+    {
+      "business_name": "Absolute Solutions & Associates",
+      "location": "10 W. Enger St. – Suite 326, Baltimore, MD 21201",
+      "contact_name": "",
+      "tel": "240-460-3503",
+      "email": "service@absolute-saa.com",
+      "description": "APPLIANCE SERVICE",
+      "website": "absolute-saa.com",
+      "category": "APPLIANCE SERVICE"
+    },
+    {
+      "business_name": "Community Care Nursing Services",
+      "location": "8108 Harford Rd, Baltimore, MD 21234",
+      "contact_name": "",
+      "tel": "410-665-7566, 877-276-6898",
+      "email": "",
+      "description": "ASSISTED LIVING",
+      "website": "communitycarenursing.net",
+      "category": "ASSISTED LIVING"
+    },
+    {
+        "business_name": "BCS Supply & Services",
+        "location": "10 W. Enger Street – Suite 326, Baltimore, MD 21201",
+        "contact_name": "",
+        "tel": "240-460-3503",
+        "email": "bwcsystemslic@gmail.com",
+        "description": "APPLIANCE SERVICE",
+        "website": "www.bwcsystemslc.com",
+        "category": "APPLIANCE SERVICE"
+      },
+    {
+      "business_name": "Lacy's Assisted Living",
+      "location": "5117 Ardmore Way, Baltimore, MD 21206",
+      "contact_name": "",
+      "tel": "410-483-0198",
+      "email": "debbiern21@verizon.net",
+      "description": "ASSISTED LIVING",
+      "website": "lacyassistedliving.com",
+      "category": "ASSISTED LIVING"
+    }
+  ]

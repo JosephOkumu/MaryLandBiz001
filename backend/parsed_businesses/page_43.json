@@ -1,0 +1,82 @@
+[
+  {
+    "business_name": "Storm Clothing Boutique & Hair Extensions #2",
+    "location": "6901 Security Blvd., Baltimore, MD 21244",
+    "contact_name": "",
+    "tel": "443-316-8967",
+    "email": "stormboutique@gmail.com",
+    "description": "",
+    "website": "www.shopstorms.com",
+    "category": "BOUTIQUES"
+  },
+  {
+    "business_name": "Supreme Impressions",
+    "location": "3019-21 Greenmount Ave., Baltimore, MD 21218",
+    "contact_name": "",
+    "tel": "410-805-6401",
+    "email": "Rhaden01@yahoo.com",
+    "description": "",
+    "website": "",
+    "category": "BOUTIQUES"
+  },
+  {
+    "business_name": "Waverly Main Street Hats",
+    "location": "3019-21 Greenmount Ave., Baltimore, MD 21218",
+    "contact_name": "",
+    "tel": "410-235-5272",
+    "email": "mainstreethats@gmail.com",
+    "description": "By appointment only",
+    "website": "www.mainstreethats.co",
+    "category": "HATS"
+  },
+  {
+    "business_name": "Crystal's Bridal & Tuxedo",
+    "location": "7718 Belair Road - Suite 100, Overlea, MD 21236",
+    "contact_name": "",
+    "tel": "410-342-7433",
+    "email": "crystalsbridalandtuxedo@gmail.com",
+    "description": "",
+    "website": "crystalsbridalandtuxedo.net",
+    "category": "BRIDAL"
+  },
+  {
+    "business_name": "A.S Midway Tours",
+    "location": "3834 Lewin Ave, Baltimore, MD 21215",
+    "contact_name": "",
+    "tel": "410-367-6900",
+    "email": "midwaylimo1@aol.com",
+    "description": "",
+    "website": "www.midwaylimo.com",
+    "category": "BUS SERVICES"
+  },
+  {
+    "business_name": "City Wide Bus Company",
+    "location": "2505 Aisquith St, Baltimore, MD 21218",
+    "contact_name": "",
+    "tel": "410-889-4900",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "TRANSPORT SERVICES"
+  },
+  {
+    "business_name": "MD Trans Authority",
+    "location": "Hanover, MD",
+    "contact_name": "Sergeant Kevin Dueling",
+    "tel": "410-537-7641",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "TRANSPORT SERVICES"
+  },
+  {
+    "business_name": "Nixon Bus Company Inc.",
+    "location": "7745 Hartwell Rd., Glen Burnie, MD 21060",
+    "contact_name": "",
+    "tel": "410-255-3978",
+    "email": "nixonbusinc@aol.com",
+    "description": "Professional, Reliable Bus Service Since 1973. Charters by School Bus, Team Transportation, Church Outings, School Routes & Field Trips/Weddings, Event Shuttles, Airport Transfers",
+    "website": "www.nixonbus.net",
+    "category": "TRANSPORT SERVICES"
+  }
+]

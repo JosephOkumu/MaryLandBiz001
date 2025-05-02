@@ -1,0 +1,52 @@
+[
+  {
+    "business_name": "Our Community Our Money",
+    "location": "2801 Park Center Drive, Alexandria, VA 22302",
+    "contact_name": "",
+    "tel": "301-755-8394",
+    "email": "amcole4656@gmail.com",
+    "description": "",
+    "website": "",
+    "category": "BUSINESS SERVICES"
+  },
+  {
+    "business_name": "Meridian Management Group",
+    "location": "826 E. Baltimore St, Baltimore, MD 21202",
+    "contact_name": "",
+    "tel": "410-333-2548",
+    "email": "mmgdal@mmgroup.com",
+    "description": "",
+    "website": "www.mmgcapitalgroup.com",
+    "category": "BUSINESS SERVICES/CONSULTING"
+  },
+  {
+    "business_name": "SJT Media, LLC",
+    "location": "Baltimore, MD 21218",
+    "contact_name": "",
+    "tel": "443-530-4900",
+    "email": "stepjeritai@gmail.com",
+    "description": "",
+    "website": "",
+    "category": "MEDIA"
+  },
+  {
+    "business_name": "Small Business Resource Center Baltimore City",
+    "location": "Park Circle Office Park, 3000 Druid Park Drive Suite 3000B, Baltimore, MD 21215",
+    "contact_name": "",
+    "tel": "443-451-7160",
+    "email": "info@sbrcbaltimore.com",
+    "description": "",
+    "website": "www.sbrcbaltimore.com",
+    "category": "BUSINESS RESOURCES"
+  },
+  {
+    "business_name": "Small Business Resource Center Baltimore County",
+    "location": "102 W. Pennsylvania Ave. Suite 101, Towson, MD 21204",
+    "contact_name": "",
+    "tel": "410-825-6200",
+    "email": "",
+    "description": "",
+    "website": "www.baltcountychamber.com",
+    "category": "BUSINESS RESOURCES"
+  }
+]

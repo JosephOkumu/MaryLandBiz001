@@ -1,0 +1,22 @@
+[
+  {
+    "business_name": "Moore's Income Tax Service",
+    "location": "1827 Woodlawn Drive, Baltimore, MD 21207",
+    "contact_name": "",
+    "tel": "410-944-3581",
+    "email": "mooresincometax@gmail.com",
+    "description": "Tax Preparation, Payrolls, Bookkeeping, Notary",
+    "website": "mooresincometaxservices.com",
+    "category": "ACCOUNTING & TAX SERVICES"
+  },
+  {
+    "business_name": "Brownstone Tax & Financial Services",
+    "location": "10 W. Eager Street, Suite 310, Baltimore, MD 21201",
+    "contact_name": "",
+    "tel": "443-992-3768",
+    "email": "info@brownstonetfs.com",
+    "description": "Tax and Financial Services, Business Consulting, Risk Management & Insurance",
+    "website": "www.brownstonetfs.com",
+    "category": "ACCOUNTING & TAX SERVICES"
+  }
+]

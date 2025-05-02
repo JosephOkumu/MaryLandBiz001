@@ -1,0 +1,112 @@
+[
+  {
+    "business_name": "Media Support Services, Inc.",
+    "location": "2901 Druid Park Drive - Suite C-105 Baltimore, MD 21215",
+    "contact_name": "",
+    "tel": "410-669-1100",
+    "email": "jleee@mssav.com",
+    "description": "AUDIOVISUAL SERVICES & EQUIPMENT RENTALS",
+    "website": "www.mssav.com",
+    "category": "Audiovisual"
+  },
+  {
+    "business_name": "B-More Customs",
+    "location": "1706 Frederick Avenue Baltimore, MD 21223",
+    "contact_name": "",
+    "tel": "443-277-6115",
+    "email": "bmorecustoms69@yahoo.com",
+    "description": "AUTOMOTIVE",
+    "website": "",
+    "category": "Automotive"
+  },
+  {
+    "business_name": "Brunson Healthcare Consultants Group",
+    "location": "5209 Cedgate Road Baltimore, MD 21206",
+    "contact_name": "",
+    "tel": "410-935-0232",
+    "email": "info@brunsonhealthcareconsultants.com",
+    "description": "Healthcare consultancy",
+    "website": "www.brunsonhealthcare.com",
+    "category": "Healthcare"
+  },
+  {
+    "business_name": "The Law Office of Shari Fleming",
+    "location": "10821 Red Run Blvd. – Suite 1611 Owings Mills, MD 21117",
+    "contact_name": "Shari Fleming",
+    "tel": "410-316-6800",
+    "email": "info@sharifleming.com",
+    "description": "Legal services",
+    "website": "www.ShariFleming.com",
+    "category": "Legal"
+  },
+  {
+    "business_name": "Charing Cross Car Center",
+    "location": "5204 Baltimore National Pike Baltimore, MD 21229",
+    "contact_name": "",
+    "tel": "410-788-6111",
+    "email": "charingcross@verizon.net",
+    "description": "Automotive services",
+    "website": "charingcrosscarcare.com",
+    "category": "Automotive"
+  },
+  {
+    "business_name": "Law Office of Carlton Moss",
+    "location": "728 Rock Spring Rd Bel Air, MD 21014",
+    "contact_name": "Carlton Moss",
+    "tel": "410-838-6100",
+    "email": "carltonmosslaw@yahoo.com",
+    "description": "Attorney services",
+    "website": "www.carltonmosslaw.com",
+    "category": "Legal"
+  },
+  {
+    "business_name": "Law Offices of Kim Parker",
+    "location": "2123 Maryland Ave. Baltimore, MD 21218",
+    "contact_name": "Kim Parker",
+    "tel": "410-234-2621",
+    "email": "kp@kimparkerlaw.com",
+    "description": "Legal services",
+    "website": "www.kimparkerlaw.com",
+    "category": "Legal"
+  },
+  {
+    "business_name": "Epic Auto Detailers, Tag, & Title",
+    "location": "1000 Pulaski Highway Joppa, MD 21085",
+    "contact_name": "",
+    "tel": "410-671-9237",
+    "email": "empireautodetailersinfo@gmail.com",
+    "description": "Auto detailing and title services",
+    "website": "",
+    "category": "Automotive"
+  },
+  {
+    "business_name": "Law Office of Jessie Crawford",
+    "location": "2601 Maryland Ave. Baltimore, MD 21218",
+    "contact_name": "Jessie Crawford",
+    "tel": "410-662-1230",
+    "email": "AttorneyJLCrawford@verizon.net",
+    "description": "Attorney services",
+    "website": "criminalawbaltimore.com",
+    "category": "Legal"
+  },
+  {
+    "business_name": "Sybblis Law Firm, LLC",
+    "location": "400 Renfro Drive – Suite 106 Glen Burnie, MD 21060",
+    "contact_name": "",
+    "tel": "410-760-2838",
+    "email": "nickola@sybblislaw.com",
+    "description": "Legal services",
+    "website": "www.sybblislaw.com",
+    "category": "Legal"
+  },
+  {
+    "business_name": "Herman's Auto Body Repair Shop",
+    "location": "5213 Fairlawn Ave Baltimore, MD 21215",
+    "contact_name": "",
+    "tel": "410-466-6314",
+    "email": "hermansautobody@aol.com",
+    "description": "Auto body repair services",
+    "website": "hermansautobodyshop.com",
+    "category": "Automotive"
+  }
+]

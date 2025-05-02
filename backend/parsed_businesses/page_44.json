@@ -1,0 +1,92 @@
+[
+  {
+    "business_name": "The Hariri Group",
+    "location": "Baltimore and the DMV area",
+    "contact_name": "Monica Hariri",
+    "tel": "202-379-8858",
+    "email": "info@theharigroup.com",
+    "description": "Experienced Business & Personal Consulting. Professional consulting firm established in 2019, owned and solely operated by Monica Hariri. Former contracting officer with expertise in government and commercial procurement practices. Provides solutions to small businesses with reliable, affordable and trustworthy services.",
+    "website": "theharirigroup.com",
+    "category": "BUSINESS CONSULTING"
+  },
+  {
+    "business_name": "Better Business Bureau of Greater Maryland (BBB)",
+    "location": "502 South Sharp Street #1200, Baltimore, MD 21201",
+    "contact_name": "Angie Barnett, President & CEO",
+    "tel": "410-347-3990",
+    "email": "",
+    "description": "Business accreditation and rating service",
+    "website": "www.bbb.org",
+    "category": "BUSINESS SERVICES"
+  },
+  {
+    "business_name": "Expand-Now LLC",
+    "location": "8 East Mulberry Street, Baltimore, MD 21201",
+    "contact_name": "",
+    "tel": "443-461-GROW (4769)",
+    "email": "lori@expand-now.com",
+    "description": "",
+    "website": "expand-now.com",
+    "category": "BUSINESS SERVICES"
+  },
+  {
+    "business_name": "Governor's Office of Small, Minority, & Women Business Affairs",
+    "location": "100 Community Place, Crownsville, MD 21032",
+    "contact_name": "",
+    "tel": "410-697-9600",
+    "email": "info@goMDsmallbiz@maryland.gov",
+    "description": "",
+    "website": "www.goMDsmallbiz.maryland.gov",
+    "category": "GOVERNMENT"
+  },
+  {
+    "business_name": "We Live VIP Transportation",
+    "location": "1919 Heathfield Rd., Baltimore, MD 21239",
+    "contact_name": "",
+    "tel": "443-865-9921",
+    "email": "weelivee1@gmail.com",
+    "description": "",
+    "website": "",
+    "category": "TRANSPORT SERVICES"
+  },
+  {
+    "business_name": "Allocated Formula Group",
+    "location": "300 St. Paul Pl.Baltimore, MD 21202",
+    "contact_name": "",
+    "tel": "410-499-7364",
+    "email": "info@allocatedformula.com",
+    "description": "",
+    "website": "allocatedformula.com",
+    "category": "BUSINESS SERVICES/CONSULTING"
+  },
+  {
+    "business_name": "Baltimore Main Streets",
+    "location": "3000 Druid Park Drive, Baltimore, MD 21215",
+    "contact_name": "",
+    "tel": "443-451-7201",
+    "email": "p.taylor@baltimorecity.gov",
+    "description": "",
+    "website": "mwbd.baltimorecity.gov/baltimoremain-streets",
+    "category": "GOVERNMENT"
+  },
+  {
+    "business_name": "Sheila Lee & Associates",
+    "location": "5000 Sunnyside Avenue, Suite 105, Beltsville, MD 20705",
+    "contact_name": "",
+    "tel": "410-233-6922",
+    "email": "sheilalee@learningeverywhere.com",
+    "description": "",
+    "website": "www.learningeverywhere.com",
+    "category": "BUSINESS "
+  },
+  {
+    "business_name": "Mayor's Office of Minority & Woman-Owned Business Development",
+    "location": "100 N. Holiday St, Suite 629, Baltimore, MD 21202",
+    "contact_name": "",
+    "tel": "410-396-3818",
+    "email": "p.taylor@baltimorecity.gov",
+    "description": "",
+    "website": "",
+    "category": "GOVERNMENT"
+  }
+]
