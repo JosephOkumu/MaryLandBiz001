@@ -1,1 +1,92 @@
-[]
+[
+  {
+    "business_name": "Admiral Elevator",
+    "location": "900 N. Lehigh St., Baltimore, MD 21205",
+    "contact_name": "",
+    "tel": "410-732-1102",
+    "email": "virving@admiralevator.com",
+    "description": "",
+    "website": "",
+    "category": "ELEVATOR SERVICE"
+  },
+  {
+    "business_name": "Universal Elevator Service",
+    "location": "703 Dorchester Rd, Catonsville, MD 21228",
+    "contact_name": "",
+    "tel": "410-419-7094",
+    "email": "Antpotillo12@gmail.com",
+    "description": "",
+    "website": "",
+    "category": "ELEVATOR SERVICE"
+  },
+  {
+    "business_name": "BC's Unlimited Promotions",
+    "location": "2652 W. Patapsco Ave., Baltimore, MD 21230",
+    "contact_name": "",
+    "tel": "410-599-7075",
+    "email": "BCTeez@msn.com",
+    "description": "",
+    "website": "",
+    "category": "EMBROIDERY"
+  },
+  {
+    "business_name": "Kre8ing Your Ideas",
+    "location": "129 Slade Ave, Pikesville, MD 21208",
+    "contact_name": "",
+    "tel": "410-265-6200",
+    "email": "Kre8ingYourIdeaS@yahoo.com",
+    "description": "",
+    "website": "www.shopkyis.com",
+    "category": "EMBROIDERY"
+  },
+  {
+    "business_name": "Specialty Marketing & Printing",
+    "location": "2707 N. Rolling Rd, Suite 112, Baltimore, MD 21244",
+    "contact_name": "",
+    "tel": "410-944-8500",
+    "email": "gbragg@smpshop.com",
+    "description": "",
+    "website": "www.smpshop.com",
+    "category": "MARKETING"
+  },
+  {
+    "business_name": "All-Pro Placement Service, Inc.",
+    "location": "116 Old Padonia Road, Cockeysville, MD 21030",
+    "contact_name": "",
+    "tel": "410-308-9050",
+    "email": "jobs@allproplacement.com",
+    "description": "",
+    "website": "www.allproplacement.com",
+    "category": "EMPLOYMENT AGENCIES"
+  },
+  {
+    "business_name": "Bizybee Professional Staffing",
+    "location": "8181 Professional Place, Suite 205, Hyattsville, MD 20785",
+    "contact_name": "",
+    "tel": "301-459-1233",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "EMPLOYMENT AGENCIES"
+  },
+  {
+    "business_name": "BPM (Black Professional Men)",
+    "location": "830 E. Pratt St., Baltimore, MD 21202",
+    "contact_name": "",
+    "tel": "410-977-0235",
+    "email": "joinbpm@bpminc.org",
+    "description": "",
+    "website": "",
+    "category": "EMPLOYMENT SERVICES"
+  },
+  {
+    "business_name": "Bring the Talent Staffing",
+    "location": "1600 Providence Rd, Towson, MD 21286",
+    "contact_name": "",
+    "tel": "443-824-2793",
+    "email": "bryanh@bringthetalented.com",
+    "description": "",
+    "website": "bringthetalented.com",
+    "category": "EMPLOYMENT AGENCIES"
+  }
+]

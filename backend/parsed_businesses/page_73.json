@@ -1,1 +1,102 @@
-[]
+[
+  {
+    "business_name": "Picassew Firm, LLC",
+    "location": "1509 East Baltimore Street, Suite B, Baltimore, MD 21231",
+    "contact_name": "",
+    "tel": "443-473-8416",
+    "email": "shannell@picassewfirm.com",
+    "description": "Custom clothing",
+    "website": "www.picassewfirm.com",
+    "category": "CLOTHING"
+  },
+  {
+    "business_name": "CLH Courier Services",
+    "location": "209 W. Fayette St. 6th FI., Baltimore, MD 21202",
+    "contact_name": "",
+    "tel": "443-384-7869",
+    "email": "Carl.henderson2@gmail.com",
+    "description": "Courier services",
+    "website": "",
+    "category": "COURIER"
+  },
+  {
+    "business_name": "Applied Integrated Technologies, Inc.",
+    "location": "6711 Columbia Gate Drive, Suite 109, Columbia, MD 21046 | 7120 Samuel Morse Drive Suite 150 Columbia MD 21046",
+    "contact_name": "",
+    "tel": "410-300-8348 | 410-872-0022",
+    "email": "info@ait-i.com | ron.massengill@ait-i.com",
+    "description": "Cybersecurity",
+    "website": "www.ait-i.com",
+    "category": "CYBERSECURITY"
+  },
+  {
+    "business_name": "A Family Affair",
+    "location": "9215 Old Harford Rd., Parkville, MD 21234",
+    "contact_name": "",
+    "tel": "410-668-7451",
+    "email": "Daycare centers",
+    "description": "",
+    "website": "",
+    "category": "DAYCARE"
+  },
+  {
+    "business_name": "Bright Stars Learning Center",
+    "location": "3915 Greenmount Avenue, Baltimore, MD 21218",
+    "contact_name": "",
+    "tel": "410-532-8057",
+    "email": "brightstars2021@yahoo.com",
+    "description": "Creating Bright Minds for Bright Futures. Age: 2 - 12. Before and After-School Care. Transportation available. Childcare Scholarship Accepted.",
+    "website": "Daycare center",
+    "category": "DAYCARE"
+  },
+  {
+    "business_name": "Crowns & Tiaras Child Care Center",
+    "location": "2335 Mosher St., Baltimore, MD 21217",
+    "contact_name": "",
+    "tel": "443-423-0811",
+    "email": "llerrehs@yahoo.com",
+    "description": "Daycare center",
+    "website": "",
+    "category": "DAYCARE"
+  },
+  {
+    "business_name": "Heaven Helpers",
+    "location": "1102 Culloden Ct., Abingdon, MD 21009",
+    "contact_name": "",
+    "tel": "410-327-8000",
+    "email": "tcrinehart@yahoo.com",
+    "description": "Daycare center",
+    "website": "",
+    "category": "DAYCARE"
+  },
+  {
+    "business_name": "Little Angels Learning Palace",
+    "location": "239 S. Conking St., Baltimore, MD 21224",
+    "contact_name": "",
+    "tel": "410-327-8000 (Office)",
+    "email": "lcrinetart@yahoo.com",
+    "description": "",
+    "website": "",
+    "category": "DAYCARE CENTERS"
+  },
+  {
+    "business_name": "Loftin Love Christian Learning Center",
+    "location": "3527 N. Rolling Rd, Suite 9,10, 11 & 13, Windsor Mill, MD 21244",
+    "contact_name": "",
+    "tel": "410-655-2738",
+    "email": "Teachyouth.love@gmail.com",
+    "description": "Christian learning center",
+    "website": "www.loftinlove.com",
+    "category": "LEARNING CENTER"
+  },
+  {
+    "business_name": "Millford Mill Church",
+    "location": "915 Milford Mill Rd., Pikesville, MD 21208",
+    "contact_name": "",
+    "tel": "410-486-5548",
+    "email": "milfordmillchild@verizon.net",
+    "description": "Church",
+    "website": "",
+    "category": "CHURCHES"
+  }
+]

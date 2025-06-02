@@ -1,1 +1,72 @@
-[]
+[
+  {
+    "business_name": "FPIA Solutions LC",
+    "location": "6400 Baltimore National Pike #506, Catonsville, MD 21228",
+    "contact_name": "",
+    "tel": "301-266-4216",
+    "email": "fphilipp@fpa-solutions.com",
+    "description": "",
+    "website": "fpa-solutions.com",
+    "category": "BUSINESS SOLUTIONS"
+  },
+  {
+    "business_name": "Leading Through Change, Inc.",
+    "location": "1532 Havenwood Rd., Suite #206, Baltimore, MD 21218",
+    "contact_name": "",
+    "tel": "301-982-6200",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "ORGANIZATIONAL DEVELOPMENT"
+  },
+  {
+    "business_name": "Reasonable Tech Solutions, Inc.",
+    "location": "101 East Chesapeake Ave., Suite LL-1, Towson, MD 21286",
+    "contact_name": "",
+    "tel": "410-823-4500, 410-501-9257",
+    "email": "info@ReasonableTechSolutions.com",
+    "description": "",
+    "website": "reasonabletechsolutions.com",
+    "category": "TECHNOLOGY SERVICES"
+  },
+  {
+    "business_name": "Speedy Computer Inc.",
+    "location": "",
+    "contact_name": "",
+    "tel": "443-939-8222",
+    "email": "Jmills114@gmail.com",
+    "description": "",
+    "website": "",
+    "category": "COMPUTER SERVICES"
+  },
+  {
+    "business_name": "Oasis Outreach Productivity Systems (OOPS)",
+    "location": "P.O. Box 68364, Baltimore, MD 21215",
+    "contact_name": "",
+    "tel": "443-629-9430",
+    "email": "OOPSResolution@gmail.com",
+    "description": "Conflict Management Training & Resolution",
+    "website": "",
+    "category": "CONFLICT RESOLUTION SERVICES"
+  },
+   {
+    "business_name": "M & C Thompson Services, LLC",
+    "location": "",
+    "contact_name": "",
+    "tel": "443-253-7494",  
+    "email": "mcthompsonseservices@gmail.com",
+    "description": "Commercial-Residential Property Clean-Out",
+    "website": "",
+    "category": "PROPERTY CLEANOUT SERVICES"
+  },
+  {
+    "business_name": "Data Flow Computers",
+    "location": "1265 E. Fayette St., Baltimore, MD 21202",
+    "contact_name": "",
+    "tel": "410-563-3282",
+    "email": "",
+    "description": "Computers: Sales, Services, Support & Training",
+    "website": "",
+    "category": "COMPUTER SALES & SERVICES"
+  }
+]

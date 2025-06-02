@@ -1,1 +1,82 @@
-[]
+[
+  {
+    "business_name": "BJ Borden Realtor",
+    "location": "8221 Ritchie Hwy, Suite 101, Pasadena, MD 21122",
+    "contact_name": "BJ Borden",
+    "tel": "Cell: 443-790-4768 | Office: 410-255-3690",
+    "email": "BjBorden@Douglasrealty.com",
+    "description": "Seller Representative Specialist",
+    "website": "www.bjesllsmaryland.com",
+    "category": "REAL ESTATE"
+  },
+  {
+    "business_name": "Winkler Invester Group LLC",
+    "location": "3221 Belair Rd., Baltimore, MD 21213",
+    "contact_name": "",
+    "tel": "443-333-2970",
+    "email": "info@winklerinvestorgroup.com",
+    "description": "Real estate agency.",
+    "website": "www.winklerinvestorgroup.com",
+    "category": "REAL ESTATE AGENCIES"
+  },
+  {
+    "business_name": "A1 Realty, LLC",
+    "location": "9546 Belair Rd, Suite A, Nottingham, MD 21236",
+    "contact_name": "Rod Smith",
+    "tel": "410-484-9944",
+    "email": "rodsmith@execuhome.com",
+    "description": "Real estate agent.",
+    "website": "www.exeuhome.com",
+    "category": "REAL ESTATE"
+  },
+  {
+    "business_name": "Andrea Scott, Realtor",
+    "location": "10 W. Eager St. Ste 310, Baltimore, MD 21201",
+    "contact_name": "Andrea Scott",
+    "tel": "443-290-6650",
+    "email": "andreascottrealtor@gmail.com",
+    "description": "Real estate agent",
+    "website": "andreascott.samsonproperties.net",
+    "category": "REAL ESTATE"
+  },
+  {
+    "business_name": "Cornerstone Real Estate",
+    "location": "1441 Light St, Baltimore, MD 21230",
+    "contact_name": "Nicole Brooks",
+    "tel": "Office: 410-547-1001 | Cell: 410-977-9613",
+    "email": "Nbrooks37@gmail.com | YourCornerStoneRealty.com",
+    "description": "",
+    "website": "",
+    "category": "REAL ESTATE"
+  },
+  {
+    "business_name": "Century 21 Downtown",
+    "location": "1010 Light Street, Baltimore, MD 21230",
+    "contact_name": "Merrick Thompson",
+    "tel": "443-253-7211",
+    "email": "MerrickThompson@gmail.com",
+    "description": "Real estate agency.",
+    "website": "",
+    "category": "REAL ESTATE"
+  },
+  {
+    "business_name": "Douglas Realty - BJ Borden Realtor",
+    "location": "8585 Fort Smallwood Rd, Pasadena, MD 21122",
+    "contact_name": "BJ Borden",
+    "tel": "Cell: 443-790-4768 | Office: 410-255-3690",
+    "email": "bjborden@douglasrealty.com",
+    "description": "Real estate agency.",
+    "website": "www.bjsellsmaryland.com",
+    "category": "REAL ESTATE"
+  },
+  {
+    "business_name": "Execuhome Realty",
+    "location": "8917 Old Frederick Rd., Ellicott City, MD 21043",
+    "contact_name": "Greg Daniels",
+    "tel": "443-757-3400 | 443-801-6151",
+    "email": "gregorydaniels443@gmail.com",
+    "description": "",
+    "website": "www.execuhome.com",
+    "category": "REAL ESTATE"
+  }
+]

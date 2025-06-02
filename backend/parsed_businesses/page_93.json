@@ -1,1 +1,42 @@
-[]
+[
+  {
+    "business_name": "Military Memorabilia",
+    "location": "117 North Greene Street, Baltimore, MD 21201",
+    "contact_name": "",
+    "tel": "410-752-8110",
+    "email": "mixedbouquets1@ad.com",
+    "description": "Specializes in military memorabilia including pins, patches, caps, statues, gifts, accessories, clothing, and footwear.",
+    "website": "",
+    "category": "GIFT SHOPS"
+  },
+  {
+    "business_name": "Waverly Designer Glass & Mirror Co., Inc.",
+    "location": "7429 Harford Rd., Baltimore, MD 21234",
+    "contact_name": "",
+    "tel": "410-426-2992",
+    "email": "",
+    "description": "Glass and mirror design services.",
+    "website": "",
+    "category": "GLASS DESIGNERS"
+  },
+  {
+    "business_name": "Organogold – Tea, Coffee & Hot Chocolate",
+    "location": "4310 Cedergarden Rd., Baltimore, MD 21229",
+    "contact_name": "",
+    "tel": "410-209-9687",
+    "email": "haki.ammi@yahoo.com",
+    "description": "Gourmet tea, coffee, and hot chocolate products.",
+    "website": "www.harambeeradio.com",
+    "category": "GOURMET PRODUCTS"
+  },
+  {
+    "business_name": "Berries by Quicha",
+    "location": "Federal Hill: 920 Light Street, Baltimore, MD 21230 | Canton/Fells Point: 5625 O’Donnell St, Baltimore, MD 21224",
+    "contact_name": "",
+    "tel": "410-440-3239",
+    "email": "berriesbyquicha@gmail.com",
+    "description": "Gourmet berry products.",
+    "website": "www.berriesbyquicha.com",
+    "category": "GOURMET PRODUCTS"
+  }
+]

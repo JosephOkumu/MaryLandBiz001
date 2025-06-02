@@ -1,1 +1,52 @@
-[]
+[
+  {
+    "business_name": "SD Security Consultants",
+    "location": "1023 Silver Marble Circle, Seven Valley, PA 17360",
+    "contact_name": "",
+    "tel": "443-257-8844",
+    "email": "perrystandfield@gmail.com",
+    "description": "Protection services",
+    "website": "",
+    "category": "SECURITY"
+  },
+  {
+    "business_name": "The Watkins Group",
+    "location": "2901 Druid Hill Dr. Suite A106, Baltimore, MD 21215",
+    "contact_name": "",
+    "tel": "410-523-5080 ext 101 | 410-523-9820",
+    "email": "",
+    "description": "Protection services",
+    "website": "www.thewatkinsgroup.com",
+    "category": "SECURITY"
+  },
+  {
+    "business_name": "Vision Healthcare Services Inc.",
+    "location": "6609 York Rd., Suite 100, Baltimore, MD 21212",
+    "contact_name": "",
+    "tel": "410-377-0154 | 410-377-0130",
+    "email": "lawaga@visionhealthcare.org, info@visionhealthcare.org",
+    "description": "Psychiatric rehabilitation program",
+    "website": "www.visionhealthcare.org",
+    "category": "REHABILITATION"
+  },
+  {
+    "business_name": "Magic 95.9",
+    "location": "1705 Whitehead Rd., Baltimore, MD 21207",
+    "contact_name": "",
+    "tel": "410-332-4600",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "RADIO STATIONS"
+  },
+  {
+    "business_name": "WERQ 92Q",
+    "location": "1705 Whitehead Rd., Baltimore, MD 21207",
+    "contact_name": "",
+    "tel": "410-332-4600",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "RADIO STATIONS"
+  }
+]

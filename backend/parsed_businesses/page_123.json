@@ -1,1 +1,82 @@
-[]
+[
+  {
+    "business_name": "Baltimore Cable Access Corporation",
+    "location": "Coppin State College, 2500 W. North Ave., Baltimore, MD 21216",
+    "contact_name": "",
+    "tel": "410-383-5556",
+    "email": "",
+    "description": "Television, cable, and satellite services",
+    "website": "",
+    "category": "TELEVISION"
+  },
+  {
+    "business_name": "Ariel's Transport LLC",
+    "location": "1119 Cummings Ave., Catonsville, MD 21228",
+    "contact_name": "",
+    "tel": "443-800-9605 | 667-310-9007",
+    "email": "mswanson1965@gmail.com",
+    "description": "Towing services",
+    "website": "",
+    "category": "TOWING"
+  },
+  {
+    "business_name": "Universal Towing",
+    "location": "2560 Laurette Ave., Baltimore, MD 21223",
+    "contact_name": "",
+    "tel": "410-984-7768",
+    "email": "Universaltowing@yahoo.com",
+    "description": "Towing services",
+    "website": "Universaltowingbaltimore.com",
+    "category": "TOWING"
+  },
+  {
+    "business_name": "MTA MBE Program",
+    "location": "6 Saint Paul St. 12th floor, Baltimore, MD 21202",
+    "contact_name": "",
+    "tel": "410-767-8364",
+    "email": "",
+    "description": "Transportation",
+    "website": "",
+    "category": "TRANSPORTATION"
+  },
+  {
+    "business_name": "Travel & Events Extraordinaire LLC",
+    "location": "P.O. Box 1231, Columbia, MD 21044",
+    "contact_name": "",
+    "tel": "443-250-2666",
+    "email": "asmith@teetravels.com",
+    "description": "Travel and event planning",
+    "website": "teetravels.com",
+    "category": "TRAVEL"
+  },
+  {
+    "business_name": "Visionary Entertainment & Travel",
+    "location": "3003 Ottawa Ave., Baltimore, MD 21230",
+    "contact_name": "",
+    "tel": "443-850-3793",
+    "email": "dennishall50@gmail.com",
+    "description": "Entertainment and travel services",
+    "website": "",
+    "category": "TRAVEL"
+  },
+  {
+    "business_name": "Basil Tree Service",
+    "location": "2407 Harlem Ave., Baltimore, MD 21216",
+    "contact_name": "",
+    "tel": "443-562-6987",
+    "email": "",
+    "description": "Tree services",
+    "website": "",
+    "category": "ENVIRONMENT"
+  },
+  {
+    "business_name": "Legacy Awards & Recognition",
+    "location": "2105- 1/2 Gwynn Oak Avenue, Baltimore, MD 21207",
+    "contact_name": "Josh Mann",
+    "tel": "443-316-8795",
+    "email": "legacyawardsandrec@gmail.com",
+    "description": "Trophies and awards",
+    "website": "",
+    "category": "AWARDS"
+  }
+]

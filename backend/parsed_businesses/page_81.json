@@ -1,1 +1,32 @@
-[]
+[
+  {
+    "business_name": "Trustworthy Staffing Solutions",
+    "location": "3 Greenwood Pl., Suite 304, Pikesville, MD 21208",
+    "contact_name": "",
+    "tel": "410-484-4156",
+    "email": "info@trustworthystaffing.com",
+    "description": "Employment agency",
+    "website": "www.trustworthystaffing.com",
+    "category": "STAFFING"
+  },
+  {
+    "business_name": "Digital Design & Analysis Incorporated",
+    "location": "3217 Mayfield Road, Baltimore, MD 21207",
+    "contact_name": "",
+    "tel": "410-298-8382",
+    "email": "osborne@ddatech.com",
+    "description": "",
+    "website": "www.ddatech.com",
+    "category": ""
+  },
+  {
+    "business_name": "Johnson Consulting Engineers",
+    "location": "130 W., 25th St., Baltimore, MD 21218",
+    "contact_name": "",
+    "tel": "410-235-0057",
+    "email": "info@jcengineers.net",
+    "description": "",
+    "website": "",
+    "category": "ENGINEERING"
+  }
+]

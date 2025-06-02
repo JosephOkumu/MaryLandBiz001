@@ -1,1 +1,42 @@
-[]
+[
+  {
+    "business_name": "G & G Real Estate",
+    "location": "1429 Hallwood Rd., Catonsville, MD 21228",
+    "contact_name": "",
+    "tel": "410-746-5870",
+    "email": "gpgross1429@aol.com",
+    "description": "Property management",
+    "website": "",
+    "category": "REALESTATE"
+  },
+  {
+    "business_name": "KS & D Home Improvement & Construction",
+    "location": "4209 Darrell Rd., Baltimore, MD 21236",
+    "contact_name": "",
+    "tel": "",
+    "email": "kwesimillington@yahoo.com",
+    "description": "",
+    "website": "",
+    "category": "HOME IMPROVEMENT"
+  },
+  {
+    "business_name": "Paul's Lead Inspection",
+    "location": "538 N. Fulton Ave., Baltimore, MD 21223",
+    "contact_name": "",
+    "tel": "410-814-0301",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "LEAD INSPECTION"
+  },
+  {
+    "business_name": "Wise Building Group",
+    "location": "2308 East Chase Street, Baltimore, Maryland 21213",
+    "contact_name": "",
+    "tel": "443-762-7216",
+    "email": "wisebuildinggroupllc@gmail.com",
+    "description": "",
+    "website": "",
+    "category": ""
+  }
+]

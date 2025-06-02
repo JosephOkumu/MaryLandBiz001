@@ -1,1 +1,33 @@
-[]
+[
+    {
+        "business_name": "B.I. Finishes LLC",
+        "location": "8104 Quarterfield Rd, Severn, MD 21144",
+        "contact_name": "",
+        "tel": "410-551-3120",
+        "email": "bifinishes@gmail.com",
+        "description": "",
+        "website": "",
+        "category": "GENERAL CONTRACTORS"
+    },
+    {
+        "business_name": "Brooks Contracting",
+        "location": "4903 sNADER Ave., Baltimore, MD 21215",
+        "contact_name": "",
+        "tel": "410-977-6665",
+        "email": "brookscontractinginc@gmail.com",
+        "description": "",
+        "website": "brooksasphaltpaving.com",
+        "category": "GENERAL CONTRACTORS"
+    },
+    {
+        "business_name": "Entry Control Systems, Inc",
+        "location": "4145 Haywood Ave. Baltimore, MD 21215",
+        "contact_name": "",
+        "tel": "410-466-0738",
+        "email": "",
+        "description": "Gate operators",
+        "website": "",
+        "category": "GATE OPERATORS"
+    }
+]
+

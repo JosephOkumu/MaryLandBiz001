@@ -30,16 +30,6 @@
     "category": "ACCOUNTING & TAX SERVICES"
   },
   {
-    "business_name": "Pinnacle Wireless",
-    "location": "8627 Liberty Road - Suite 1B, Baltimore, MD 21133",
-    "contact_name": "Darius Hughes",
-    "tel": "443-272-7689",
-    "email": "pinnaclwireless@gmail.com",
-    "description": "",
-    "website": "",
-    "category": "TELECOMMUNICATIONS"
-  },
-  {
     "business_name": "Reisterstown Tax & Accounting Services",
     "location": "408 Main St, Reisterstown, MD 21136",
     "contact_name": "",
@@ -100,13 +90,13 @@
     "category": "PUBLISHING SERVICES"
   },
   {
-    "business_name": "Air Purifier",
-    "location": "Aerus Electrolux, 6050 Rossville Blvd.",
+    "business_name": "Aerus Electrolux",
+    "location": "6050 Rossville Blvd., Essex, MD 21221",
     "contact_name": "",
     "tel": "443-857-3860",
     "email": "frbaltimoremd1@aerusline.com",
-    "description": "",
+    "description": "Home appliances",
     "website": "",
-    "category": "HOME APPLIANCES & SERVICES"
+    "category": "HOME APPLIANCES"
   }
 ]

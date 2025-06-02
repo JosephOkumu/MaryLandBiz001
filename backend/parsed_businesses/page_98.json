@@ -1,1 +1,52 @@
-[]
+[
+  {
+    "business_name": "Exceed Home Health Care Services",
+    "location": "8025 Philadelphia Rd 2nd Fl., Baltimore, MD 21237",
+    "contact_name": "",
+    "tel": "410-238-3179",
+    "email": "frank@exceedhcs.com",
+    "description": "",
+    "website": "www.exceedhcs.com",
+    "category": "HEALTH"
+  },
+  {
+    "business_name": "Forbes Home Improvement & Construction Inc.",
+    "location": "1230 E. North Ave., Baltimore, MD 21202",
+    "contact_name": "",
+    "tel": "443-506-7888 ",
+    "email": "forbeshome7@comcast.net | anishkaf@gmail.com",
+    "description": "",
+    "website": "",
+    "category": "HOME IMPROVEMENT"
+  },
+  {
+    "business_name": "Lee Newton and Sons Co. Inc",
+    "location": "2719 Pennsylvania Ave., Baltimore, MD 21217",
+    "contact_name": "",
+    "tel": "410-728-5585",
+    "email": "leenewtoncoinc@yahoo.com",
+    "description": "",
+    "website": "",
+    "category": ""
+  },
+  {
+    "business_name": "Steirling Shaw Real Property Services, LLC",
+    "location": "4147 The Alameda, Baltimore, MD 21218",
+    "contact_name": "",
+    "tel": "443-413-1679",
+    "email": "shaw21218@yahoo.com",
+    "description": "",
+    "website": "",
+    "category": "PROPERTIES"
+  },
+  {
+    "business_name": "Urban Container Living LLC",
+    "location": "P.O. Box 1152, Baltimore, MD 21203",
+    "contact_name": "",
+    "tel": "443-912-3205",
+    "email": "mark@ucldevelopment.com",
+    "description": "",
+    "website": "www.ucldevelopment.com",
+    "category": "HOUSING"
+  }
+]

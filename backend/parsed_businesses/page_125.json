@@ -1,1 +1,52 @@
-[]
+[
+  {
+    "business_name": "Cunchtime Vending LLC",
+    "location": "11 Charles Woods Court, Gwynn Oak, MD 21207",
+    "contact_name": "",
+    "tel": "410-258-5352",
+    "email": "Cunchtimevending@yahoo.com",
+    "description": "Vending services",
+    "website": "",
+    "category": "VENDOR"
+  },
+  {
+    "business_name": "State the Venue",
+    "location": "3925 Gough Street - Suite #1, Baltimore, MD 21224",
+    "contact_name": "",
+    "tel": "443-869-2431",
+    "email": "info@slatethevenue.com",
+    "description": "Event venue",
+    "website": "www.slatethevenue.com",
+    "category": "EVENTS"
+  },
+  {
+    "business_name": "RPTalentMedia, LLC",
+    "location": "2724 Spring Hill Road, Owings Mills, MD 21117",
+    "contact_name": "",
+    "tel": "410-979-9049",
+    "email": "thekellyhillrosshow@gmail.com",
+    "description": "Video production",
+    "website": "thekellyhillrossnetwork.com",
+    "category": "ENTERTAINMENT"
+  },
+  {
+    "business_name": "A & S Retuse LLC",
+    "location": "230 S. Kresson St., Baltimore, MD 21224",
+    "contact_name": "",
+    "tel": "410-679-8877 | 410-847-9009",
+    "email": "awatson@refuse.com",
+    "description": "Waste removal",
+    "website": "",
+    "category": "WASTE MANAGEMENT"
+  },
+  {
+    "business_name": "C & C Advocacy",
+    "location": "16 W. 25th St., Suite 301, Baltimore, MD 21218",
+    "contact_name": "",
+    "tel": "410-800-2545",
+    "email": "cclarke@ccadvocacy.org",
+    "description": "Youth advocacy",
+    "website": "www.ccadvocacy.org",
+    "category": "ADVOCACY"
+  }
+]

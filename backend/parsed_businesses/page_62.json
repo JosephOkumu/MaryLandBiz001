@@ -1,1 +1,54 @@
-[]
+[
+{
+"business_name": "Work Dirty Construction, LLC",
+"location": "2300 Eskow Avenue, Halethorpe, MD 21227",
+"contact_name": "Wayne Wilson",
+"tel": "443-379-6621",
+"email": "wwilson289@gmail.com",
+"description": "Services Provided: Dump Truck Hauling, Concrete, Dirt, Stone & Asphalt",
+"website": "",
+"category": "EXCAVATION"
+},
+{
+"business_name": "Sterling Shaw Real Property Services, LLC",
+"location": "4147 The Alameda, Baltimore, MD 21218",
+"contact_name": "",
+"tel": "443-413-1679",
+"email": "Tshaw21218@yahoo.com",
+"description": "Residential and commercial construction.",
+"website": "",
+"category": "REAL ESTATE"
+},
+{
+"business_name": "Best Fence Company",
+"location": "26 8th St., Baltimore, MD 21061",
+"contact_name": "",
+"tel": "410-768-9227",
+"email": "barry@bestfence.biz",
+"description": "",
+"website": "www.bestfence.biz",
+"category": "FENCES"
+},
+{
+"business_name": "Sparks Quality Fence Company",
+"location": "4919 Erdman Ave., Baltimore, MD 21205",
+"contact_name": "",
+"tel": "410-327-9000, 410-488-5528",
+"email": "s4881850@aol.com",
+"description": "",
+"website": "www.sparksqualityfence.com",
+"category": "FENCES"
+},
+{
+"business_name": "Hamilton Construction Service (H.C.S.), LLC",
+"location": "5000 Sunnyside Avenue -Suite 105, Beltsville, MD 20705",
+"contact_name": "",
+"tel": "410-624-7237",
+"email": "hank@hamiltonconstructionservice.com",
+"description": "",
+"website": "",
+"category": "FLOORING"
+}
+]
+
+

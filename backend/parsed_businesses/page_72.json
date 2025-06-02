@@ -1,1 +1,72 @@
-[]
+[
+  {
+    "business_name": "A & S Refuse LLC",
+    "location": "250 S. Kresson St., Baltimore, MD 21224",
+    "contact_name": "",
+    "tel": "410-679-8877",
+    "email": "awatson@refuse.com",
+    "description": "Waste removal",
+    "website": "",
+    "category": "WASTE MANAGEMENT"
+  },
+  {
+    "business_name": "MAJ General Contracting",
+    "location": "4503 Home Ave., Baltimore, MD 21215",
+    "contact_name": "",
+    "tel": "443-326-2688",
+    "email": "reeses33mj@gmail.com",
+    "description": "Welding",
+    "website": "",
+    "category": "WELDING"
+  },
+  {
+    "business_name": "Maryland & Minority Contractors Association, Inc",
+    "location": "2423 Maryland Ave. Suite 240, Baltimore, MD 21218",
+    "contact_name": "",
+    "tel": "410-235-8303, 410-235-8304",
+    "email": "mmca@gmail.com",
+    "description": "",
+    "website": "www.mmcainc.org",
+    "category": "CONTRACTOR"
+  },
+  {
+    "business_name": "Contractors United",
+    "location": "P.O. Box 27743, Towson, MD 21285",
+    "contact_name": "",
+    "tel": "410-967-9858",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "CONTRACTOR"
+  },
+  {
+    "business_name": "C. William Groce Associates",
+    "location": "",
+    "contact_name": "",
+    "tel": "860-559-8724",
+    "email": "Williamgroce234@gmail.com",
+    "description": "Counseling",
+    "website": "",
+    "category": "COUNSELING"
+  },
+  {
+    "business_name": "Morningstar Baptist Church",
+    "location": "154 Winters Ln., Catonsville, MD 21228",
+    "contact_name": "",
+    "tel": "443-324-8626",
+    "email": "",
+    "description": "Counseling",
+    "website": "",
+    "category": "COUNSELING"
+  },
+  {
+    "business_name": "Hodges window distribution",
+    "location": "850 Middle River Road, Middle River, MD 21220",
+    "contact_name": "",
+    "tel": "410-574-4750",
+    "email": "hodgeswindowdistribution@outlook.com",
+    "description": "Window distribution",
+    "website": "",
+    "category": "WINDOW DISTRIBUTION"
+  }
+]

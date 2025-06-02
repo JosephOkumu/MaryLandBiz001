@@ -1,1 +1,32 @@
-[]
+[
+  {
+    "business_name": "The Chinese",
+    "location": "4815 Seton Dr., Baltimore, MD 21215",
+    "contact_name": "",
+    "tel": "410-655-5903",
+    "email": "mlampner@chimes.org",
+    "description": "",
+    "website": "",
+    "category": ""
+  },
+  {
+    "business_name": "Express Employment Professionals",
+    "location": "10461 Mill Run Circle Suite 820, Owings Mills, MD 21117",
+    "contact_name": "",
+    "tel": "410-998-9500",
+    "email": "jobs.owingsmillsMD@expresspros.com",
+    "description": "Employment Services",
+    "website": "expresspros.com/owngsmillsmd",
+    "category": "EMPLOYMENT SERVICES"
+  },
+  {
+    "business_name": "Human Resource Management Solutions",
+    "location": "",
+    "contact_name": "Patrice Thornton",
+    "tel": "443-907-2979",
+    "email": "pthornton@hrms-services.com",
+    "description": "Human resource services",
+    "website": "www.hrms-services.com",
+    "category": "HUMAN RESOURCES"
+  }
+]

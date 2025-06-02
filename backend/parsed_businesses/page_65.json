@@ -1,1 +1,62 @@
-[]
+[
+  {
+    "business_name": "T.L Brown Contractor LLC",
+    "location": "920 Light Street Baltimore, MD 21230",
+    "contact_name": "Terrence Brown",
+    "tel": "443-629-0278",
+    "email": "tlbrowngc@gmail.com",
+    "description": "Quality, Craftsmanship & Satisfaction Guaranteed. Residential/Commercial services including HVAC Installations, Plumbing, Gas Fitting, Underground Utilities.",
+    "website": "",
+    "category": "PLUMBING & HVAC CONTRACTORS"
+  },
+  {
+    "business_name": "DRE Construction LLC",
+    "location": "1334 Lincoln Woods Dr. Catonsville, MD 21228",
+    "contact_name": "",
+    "tel": "410-382-6900",
+    "email": "dreconstruction@verizon.net",
+    "description": "",
+    "website": "",
+    "category": "CONSTRUCTION"
+  },
+  {
+    "business_name": "Elite General Services, LLC",
+    "location": "4800 E Hoffman Street Baltimore MD 21205",
+    "contact_name": "",
+    "tel": "443-392-1855",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "GENERAL CONTRACTORS"
+  },
+  {
+    "business_name": "Forbes Home Improvement & Construction",
+    "location": "1230 E. North Ave, Baltimore, MD 21202",
+    "contact_name": "",
+    "tel": "443-873-7646",
+    "email": "Forbeshome7@comcast.net",
+    "description": "Fabrication of Construction",
+    "website": "Forbeshomeandconstuction.net",
+    "category": "CONSTRUCTION SERVICES"
+  },
+  {
+    "business_name": "Commercial Interiors",
+    "location": "7464 New Ridge Rd. #5 Hanover, MD 21076",
+    "contact_name": "",
+    "tel": "410-859-4141",
+    "email": "",
+    "description": "General Contractors",
+    "website": "",
+    "category": "CONTRACTORS"
+  },
+  {
+    "business_name": "Harvey Harris Contractors",
+    "location": "8940 Harkate Way, Randallstown, MD 21133",
+    "contact_name": "",
+    "tel": "410-521-6860",
+    "email": "harvwms@gmail.com",
+    "description": "",
+    "website": "",
+    "category": "CONTRACTORS"
+  }
+]

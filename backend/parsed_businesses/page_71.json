@@ -1,1 +1,102 @@
-[]
+[
+  {
+    "business_name": "C & S Jones Group LLC",
+    "location": "405 E. Pratt St. 30th floor, Baltimore, MD 21202",
+    "contact_name": "",
+    "tel": "443-655-4851",
+    "email": "",
+    "description": "Project management",
+    "website": "",
+    "category": "MANAGEMENT"
+  },
+  {
+    "business_name": "L.J.W. Inc.",
+    "location": "P.O. Box 33284, Baltimore, MD 21218",
+    "contact_name": "",
+    "tel": "410-566-2323",
+    "email": "lenzie@ljwinc.com",
+    "description": "",
+    "website": "",
+    "category": ""
+  },
+  {
+    "business_name": "Roane’s Rigging & Transfer, Inc.",
+    "location": "P. O. Box 9903, Baltimore, MD 21224",
+    "contact_name": "",
+    "tel": "410-325-7606",
+    "email": "roanesrigging@gmail.com",
+    "description": "Rigging Recycling",
+    "website": "",
+    "category": "RECYCLING"
+  },
+  {
+    "business_name": "Dunlap & Sons Roofing Inc.",
+    "location": "2624 Sloatfield Ave., Baltimore, MD 21223",
+    "contact_name": "",
+    "tel": "410-947-3939",
+    "email": "",
+    "description": "Roofing",
+    "website": "www.dunlapandsonsroofing.com",
+    "category": "ROOFING"
+  },
+  {
+    "business_name": "I. B. Associates, Inc.",
+    "location": "5006-E Buchanan St., Hyattsville, MD 20781",
+    "contact_name": "",
+    "tel": "301-440-0458",
+    "email": "",
+    "description": "Sheet metal",
+    "website": "",
+    "category": ""
+  },
+  {
+    "business_name": "Miles Ahead Sheet Metal",
+    "location": "3911 Frankford Rd., Baltimore, MD 21206",
+    "contact_name": "",
+    "tel": "443-708-0030",
+    "email": "milesaheadsm@gmail.com",
+    "description": "Sheet metal",
+    "website": "",
+    "category": ""
+  },
+  {
+    "business_name": "Dave WebbeMalill, LLC",
+    "location": "5710 Furnace Ave. #B, Elkridge, MD 21075",
+    "contact_name": "",
+    "tel": "240-398-0899",
+    "email": "Malill1@outlook.com",
+    "description": "Site preparation",
+    "website": "",
+    "category": ""
+  },
+  {
+    "business_name": "A2Z Environmental Group",
+    "location": "250 S. Kresson St., Baltimore, MD 21224",
+    "contact_name": "",
+    "tel": "410-679-8877",
+    "email": "awatson@refuse.com",
+    "description": "Spill response",
+    "website": "",
+    "category": ""
+  },
+  {
+    "business_name": "Pinnacle Wireless Solutions",
+    "location": "8627 Liberty Road, Suite 1B Randallstown, MD 21133",
+    "contact_name": "",
+    "tel": "443-272-7689",
+    "email": "pinnaclewireless@gmail.com",
+    "description": "A simple mobile authorized dealer",
+    "website": "",
+    "category": "WIRELESS SERVICES"
+  },
+  {
+    "business_name": "Carey Hardware",
+    "location": "2102 W. North Avenue Baltimore, Maryland 21217",
+    "contact_name": "",
+    "tel": "410-523-6600",
+    "email": "",
+    "description": "Everything for home or business: window & screen repair, plumbing supplies, tools, paints, keys and more.",
+    "website": "www.careyhardware.net",
+    "category": "HOME SERVICES"
+  }
+]

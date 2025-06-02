@@ -1,1 +1,122 @@
-[]
+[
+    {
+      "business_name": "The Brockington Firm, LLC",
+      "location": "300 Redland Court, Suite 101, Owings Mills, MD 21117",
+      "contact_name": "Karen Brockington, MBA, Chief Accountant",
+      "tel": "443-991-4146",
+      "email": "",
+      "description": "Personal Income Taxes, Business Income Taxes, Business Start-Up Assistance, Business Consulting, Bookkeeping Services.",
+      "website": "www.thebrockingtonfirmllc.com",
+      "category": "ACCOUNTING & TAX SERVICES"
+    },
+    {
+      "business_name": "Blueprint Construction Services, LLC",
+      "location": "",
+      "contact_name": "Donald Thompson",
+      "tel": "443-690-2795",
+      "email": "info@bpc-svcs.com",
+      "description": "Building your dreams from the ground up.",
+      "website": "http://bpc-svcs.com",
+      "category": "CONSTRUCTION SERVICES"
+    },
+    {
+      "business_name": "P.C. Johnson & Son",
+      "location": "4912 Midwood Avenue, Baltimore, MD 21212",
+      "contact_name": "",
+      "tel": "443-690-4018",
+      "email": "mercy830@yahoo.com",
+      "description": "General Contractors",
+      "website": "",
+      "category": "CONTRACTORS"
+    },
+    {
+      "business_name": "J. M. Murphy Enterprises",
+      "location": "1320 Hollins Street",
+      "contact_name": "",
+      "tel": "410-366-1145",
+      "email": "murphyiesse@aol.com",
+      "description": "General Contractors",
+      "website": "",
+      "category": ""
+    },
+    {
+      "business_name": "Native Sons, Ltd",
+      "location": "2603 Roling Rd. - Suite 310, Windsor Mill, MD 21244",
+      "contact_name": "",
+      "tel": "410-298-2208",
+      "email": "",
+      "description": "",
+      "website": "",
+      "category": ""
+    },
+    {
+      "business_name": "New Vision IERC & Sons",
+      "location": "7148 Ambassador Rd. Baltimore, MD 21244",
+      "contact_name": "",
+      "tel": "410-496-6573",
+      "email": "willepps@newvisionierc.com",
+      "description": "",
+      "website": "www.newvisionIERC.com",
+      "category": ""
+    },
+    {
+      "business_name": "The Olive Group",
+      "location": "1404 McCulloh St Baltimore, MD 21217",
+      "contact_name": "",
+      "tel": "443-460-4069",
+      "email": "mt@theolivegroupmanagement.com",
+      "description": "General Contractors",
+      "website": "www.ogcontractors.com",
+      "category": ""
+    },
+    {
+      "business_name": "Permia Construction",
+      "location": "400 W. Franklin St., #301 Baltimore, MD 21201",
+      "contact_name": "",
+      "tel": "410-896-3322",
+      "email": "info@permiaconstruction.com",
+      "description": "",
+      "website": "",
+      "category": ""
+    },
+    {
+      "business_name": "Quality Contractors",
+      "location": "122 Conley Dr., Annapolis, MD 21403",
+      "contact_name": "",
+      "tel": "896-981-6316",
+      "email": "triplegenterprises@yahoo.com",
+      "description": "",
+      "website": "",
+      "category": ""
+    },
+    {
+      "business_name": "Woodmark Builders, LLC",
+      "location": "8917, Old Fredrick Rd, Elicott City, MD 21043",
+      "contact_name": "Greg Daniels",
+      "tel": "443-801-6151 | 443-757-3400",
+      "email": "gregorydaniels443@gmail.com",
+      "description": "",
+      "website": "",
+      "category": "REAL ESTATE"
+    },
+    {
+      "business_name": "Marvin Jackson General Contractors",
+      "location": "3422 Retlaw Road Gwynn Oak, MD 2120",
+      "contact_name": "",
+      "tel": "410-977-8568",
+      "email": "Cfgroup1@gmail.com",
+      "description": "",
+      "website": "",
+      "category": ""
+    },
+    {
+      "business_name": "Lee Newton & Sons Co., Inc.",
+      "location": "2719 Pennsylvania Ave Baltimore, MD 21217",
+      "contact_name": "Tony Newton",
+      "tel": "410-728-5585",
+      "email": "leenewtoncoinc@yahoo.com",
+      "description": "",
+      "website": "",
+      "category": ""
+    }
+  ]

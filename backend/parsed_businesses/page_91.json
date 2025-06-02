@@ -1,1 +1,63 @@
-[]
+[
+  {
+    "business_name": "Speedy Computers Inc.",
+    "location": "",
+    "contact_name": "Joseph H. Mills",
+    "tel": "443-939-8222",
+    "email": "jmills114@gmail.com",
+    "description": "If we can't fix it, it isn't broke!",
+    "website": "",
+    "category": "COMPUTER SERVICES"
+  },
+  {
+    "business_name": "Gary P. March",
+    "location": "2701 Fred Hilton Pass, Baltimore, MD 21229",
+    "contact_name": "Gary P. March",
+    "tel": "410-945-1100",
+    "email": "gpmort7@hotmail.com",
+    "description": "",
+    "website": "",
+    "category": ""
+  },
+  {
+    "business_name": "Williams, John L.",
+    "location": "4517 Park Heights Ave, Baltimore, MD 21215 | 1721 Monroe St., Baltimore, MD 21215",
+    "contact_name": "John L. Williams",
+    "tel": "410-542-4400",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "FUNERAL SERVICES",
+    "note": ""
+  },
+  {
+    "business_name": "Wylie, Albert P. Funeral Home",
+    "location": "638 N. Gilmor Ave., Baltimore, MD 21217 | 9200 Liberty Rd., Baltimore, MD 21133",
+    "contact_name": "",
+    "tel": "410-462-4070 | 410-655-9200",
+    "email": "",
+    "description": "",
+    "website": "www.wyliefh.com",
+    "category": "FUNERAL SERVICES"
+  },
+  {
+    "business_name": "Beverly D. Cromartie Funeral Services",
+    "location": "119-121 S. Stricker St., Baltimore, MD 21223",
+    "contact_name": "Beverly D. Cromartie",
+    "tel": "410-400-3440",
+    "email": "bcromartieFS@gmail.com",
+    "description": "Funeral service provider.",
+    "website": "",
+    "category": "FUNERAL SERVICES"
+  },
+  {
+    "business_name": "BJ Borden Insurance",
+    "location": "",
+    "contact_name": "BJ Borden",
+    "tel": "443.790.4768 | 410.203.9890",
+    "email": "brandoneandbordeninsurance@gmail.com",
+    "description": "Insurance services for auto, home, life, business, and bonds.",
+    "website": "www.bordeninsurance.com",
+    "category": "INSURANCE"
+  }
+]

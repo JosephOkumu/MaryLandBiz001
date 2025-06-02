@@ -1,1 +1,92 @@
-[]
+[
+  {
+    "business_name": "White Marsh Creative",
+    "location": "",
+    "contact_name": "Susanne Forno",
+    "tel": "410-336-1621",
+    "email": "whitemarshcreative@gmail.com",
+    "description": "Specializing in graphic design, website design & development, print & presentation, business cards & postcards design.",
+    "website": "whitemarshcreative.com",
+    "category": "DESIGN"
+  },
+  {
+    "business_name": "Great Black and Wax Museum",
+    "location": "1693 E. North Ave., Baltimore, MD 21213",
+    "contact_name": "",
+    "tel": "410-563-3404 | 410-563-7809",
+    "email": "",
+    "description": "",
+    "website": "greatblackswax.org",
+    "category": "MUSEUMS"
+  },
+  {
+    "business_name": "Reginald F. Lewis Museum of Maryland African American History & Culture",
+    "location": "19 E. Fayette St., Suite 404, Baltimore, MD 21202",
+    "contact_name": "",
+    "tel": "443-263-1800",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "MUSEUMS"
+  },
+  {
+    "business_name": "Sankofa Children's Museum of African Culture",
+    "location": "4330 Pimlico Road, Baltimore, MD 21215",
+    "contact_name": "",
+    "tel": "443-708-7046",
+    "email": "info@sankofakids.org.com",
+    "description": "",
+    "website": "www.sankofakids.org",
+    "category": "MUSEUMS"
+  },
+  {
+    "business_name": "Focus Movers Relocation",
+    "location": "",
+    "contact_name": "",
+    "tel": "443-506-7905",
+    "email": "focusmovers@gmail.com",
+    "description": "Movers",
+    "website": "www.focus-movers.com",
+    "category": "MOVERS"
+  },
+  {
+    "business_name": "African Art Museum of Maryland",
+    "location": "5430 Vantage Point Rd., Columbia, MD 21044",
+    "contact_name": "",
+    "tel": "",
+    "email": "",
+    "description": "Museum",
+    "website": "",
+    "category": "MUSEUMS"
+  },
+  {
+    "business_name": "Baltimore Museum of Art",
+    "location": "10 Art Museum Dr., Baltimore, MD 21218",
+    "contact_name": "",
+    "tel": "443-573-1700",
+    "email": "",
+    "description": "Museum",
+    "website": "",
+    "category": "MUSEUMS"
+  },
+  {
+    "business_name": "Euble Blake National Jazz Institute and Cultural Center",
+    "location": "847 N. Howard St., Baltimore, MD 21201",
+    "contact_name": "",
+    "tel": "410-225-3130",
+    "email": "",
+    "description": "Cultural center",
+    "website": "",
+    "category": "MUSEUMS"
+  },
+  {
+    "business_name": "Frederick Douglas-Isaac Myers Maritime Park Museum",
+    "location": "1417 Thames St., Baltimore, MD 21231",
+    "contact_name": "",
+    "tel": "410-685-0295",
+    "email": "myers@douglasmyers.org",
+    "description": "Museum",
+    "website": "",
+    "category": "MUSEUMS"
+  }
+]

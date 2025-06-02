@@ -1,1 +1,62 @@
-[]
+[
+  {
+    "business_name": "Gray Transport Inc.",
+    "location": "2855 Lodge Farm Rd., Edgemere, MD 21219",
+    "contact_name": "",
+    "tel": "410-477-5115",
+    "email": "graytrucking@verizon.net",
+    "description": "",
+    "website": "www.graytransport.net",
+    "category": "HEAVY HAULING"
+  },
+  {
+    "business_name": "TNM Trucking",
+    "location": "1313 Northview Rd., Baltimore, MD 21218",
+    "contact_name": "",
+    "tel": "443-552-9657",
+    "email": "omar_moore@gmail.com",
+    "description": "",
+    "website": "",
+    "category": "HEAVY HAULING"
+  },
+  {
+    "business_name": "Affordable Electrical AES",
+    "location": "1523 Charlotte Ave., Baltimore, MD 21224",
+    "contact_name": "",
+    "tel": "443-392-5313",
+    "email": "aes744@gmail.com",
+    "description": "Home Improvement",
+    "website": "",
+    "category": "ELECTRICALS"
+  },
+  {
+    "business_name": "Baltimore’s Finest Home Improvement",
+    "location": "18 S. Arlington Ave., Baltimore, MD 21223",
+    "contact_name": "",
+    "tel": "410-752-6289",
+    "email": "",
+    "description": "",
+    "website": "roofingbaltimoremaryland.com",
+    "category": "ROOFING"
+  },
+  {
+    "business_name": "New Tabernacle Baptist Church",
+    "location": "2101-03 Fredrick Avenue Baltimore, Maryland 21223",
+    "contact_name": "Rev. Darryl O. Watts",
+    "tel": "410-566-2620 (office), 443-452-8707",
+    "email": "darryl.watts@newtabernaclebaptist.org",
+    "description": "",
+    "website": "www.newtabernaclebaptist.org",
+    "category": "CHURCH"
+  },
+  {
+    "business_name": "Kairos Development, LLC",
+    "location": "9 Inglenook Circle Glen Burnie, MD 21060",
+    "contact_name": "Vonnette Harris",
+    "tel": "410-262-0408",
+    "email": "vharris@kairosdevelopmentllc.com",
+    "description": "",
+    "website": "www.kairosdevelopmentllc.com",
+    "category": "CHARITY"
+  }
+]

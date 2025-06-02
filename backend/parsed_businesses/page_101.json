@@ -1,1 +1,72 @@
-[]
+[
+  {
+    "business_name": "Centre Landscaping LLC",
+    "location": "5018 Baltimore National Pike, Baltimore, MD 21229",
+    "contact_name": "",
+    "tel": "443-320-3474",
+    "email": "Carterlandscaping86@gmail.com",
+    "description": "Landscaping company",
+    "website": "",
+    "category": "LANDSCAPING"
+  },
+  {
+    "business_name": "Native Terrain, LLC",
+    "location": "1 North Park Drive, Suite 201, Cockeysville, MD 21030",
+    "contact_name": "",
+    "tel": "410-692-9218 | Fax: 410-692-9214",
+    "email": "office@nativeterrain.com",
+    "description": "",
+    "website": "nativeterrain.com",
+    "category": "LANDSCAPING"
+  },
+  {
+    "business_name": "Sparks Quality Landscaping Company",
+    "location": "4919 Erdman Ave., Baltimore, MD 21205",
+    "contact_name": "",
+    "tel": "Office: 410-327-9000 | Cell: 410-493-8953",
+    "email": "chsparks@yahoo.com",
+    "description": "Landscaping company",
+    "website": "www.sparksqualityfence.com",
+    "category": "LANDSCAPING"
+  },
+  {
+    "business_name": "Lead Paint Contractors, Inc.",
+    "location": "342 E. 27th Street, Baltimore, MD 21218",
+    "contact_name": "",
+    "tel": "410-949-6343",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "LEAD INSPECTION"
+  },
+  {
+    "business_name": "Travis Shaw",
+    "location": "4147 The Alameda, Baltimore, MD 21218",
+    "contact_name": "Travis Shaw",
+    "tel": "443-413-1679",
+    "email": "Tshaw21218@yahoo.com",
+    "description": "",
+    "website": "",
+    "category": "LEAD INSPECTION"
+  },
+  {
+    "business_name": "Maryland Lottery and Gaming Control Agency",
+    "location": "1600 Washington Blvd. Suite 330, Baltimore, MD 21230",
+    "contact_name": "Robert Howells (Procurement Director)",
+    "tel": "410-230-8887",
+    "email": "",
+    "description": "Gaming Control agency",
+    "website": "www.mdlottery.com",
+    "category": "LOTTERY"
+  },
+  {
+    "business_name": "BCS Supply and Services",
+    "location": "4505 Declaimonts Field Dr. Bowie, Maryland 20720",
+    "contact_name": "Kevin Lisenby (President)",
+    "tel": "240-460-3503",
+    "email": "BWCSystemsLLC@gmail.com",
+    "description": "facility supplies and services including cleaning chemicals, electric & lighting supplies, food service equipment, janitorial services, disposables, paint services, plumbing, pressure washers, and recycling systems.",
+    "website": "www.bwcsystemsllc.com",
+    "category": "FACILITY SUPPLIES"
+  }
+]

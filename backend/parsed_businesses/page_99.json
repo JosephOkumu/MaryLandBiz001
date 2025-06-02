@@ -1,1 +1,92 @@
-[]
+[
+  {
+    "business_name": "Allstate Insurance",
+    "location": "9546 Belair Rd, Suite A, Nottingham, MD 21236",
+    "contact_name": "Rod Smith",
+    "tel": "410-456-5500 | 667-275-0991",
+    "email": "rodsmith1@allstate.com",
+    "description": "Insurance company",
+    "website": "",
+    "category": "INSURANCE"
+  },
+  {
+    "business_name": "Ananiah Insurance, LLC",
+    "location": "P. O. Box 1353, Catonsville, MD 21133",
+    "contact_name": "",
+    "tel": "443-612-9010",
+    "email": "",
+    "description": "Retail Insurance Agency Partner",
+    "website": "",
+    "category": "INSURANCE"
+  },
+  {
+    "business_name": "Borden Insurance Agency, Inc.",
+    "location": "5325 Village Center Drive, Suite 241, Columbia, MD 21044",
+    "contact_name": "BJ Borden",
+    "tel": "410-203-9890",
+    "email": "hbordenjr@gmail.com",
+    "description": "",
+    "website": "www.bordeninsurance.com",
+    "category": "INSURANCE"
+  },
+  {
+    "business_name": "Farmers Insurance",
+    "location": "2333 Baltimore Blvd., Finksburg, MD 21048",
+    "contact_name": "",
+    "tel": "443-201-8527",
+    "email": "chickson1@farmersagent.com",
+    "description": "Farmers insurance",
+    "website": "agents.farmers.com/chickson1",
+    "category": "INSURANCE"
+  },
+  {
+    "business_name": "State Farm Insurance",
+    "location": "6711 Belair Rd., Baltimore, MD 21206",
+    "contact_name": "John Bugg",
+    "tel": "410-661-4949 | 410-661-9290",
+    "email": "john.bugg.ppun@statefarm.com",
+    "description": "",
+    "website": "www.johnbugginsurance.com",
+    "category": "INSURANCE"
+  },
+  {
+    "business_name": "Nationwide",
+    "location": "2 W. Rolling Crossroads, Suite 208, Catonsville, MD 21228",
+    "contact_name": "Julian Wright",
+    "tel": "410-747-0700",
+    "email": "julian@thewrightagency4u.com",
+    "description": "For appointment, call Julian Wright.",
+    "website": "",
+    "category": "INSURANCE"
+  },
+  {
+    "business_name": "T.L. Brown Insurance Group, LLC",
+    "location": "6700 Alexander Bell Drive, Suite 200, Columbia, MD 21046",
+    "contact_name": "",
+    "tel": "410-449-1010",
+    "email": "Taymon.brown@tlbigllc.com",
+    "description": "Insurance company",
+    "website": "",
+    "category": "INSURANCE"
+  },
+  {
+    "business_name": "Designer Glass & Mirror Co., Inc.",
+    "location": "7429 Harford Rd, Baltimore, MD 21234",
+    "contact_name": "",
+    "tel": "410-426-2992",
+    "email": "",
+    "description": "Interior decorators",
+    "website": "",
+    "category": "DECORATING"
+  },
+  {
+    "business_name": "Picture Perfect Windows",
+    "location": "6324 Windsor Mill Rd., Woodlavn, MD 21207",
+    "contact_name": "",
+    "tel": "410-944-2005",
+    "email": "",
+    "description": "Interior decorator",
+    "website": "",
+    "category": "DECORATORS"
+  }
+]

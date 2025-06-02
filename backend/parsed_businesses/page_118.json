@@ -1,1 +1,32 @@
-[]
+[
+  {
+    "business_name": "The Chimes",
+    "location": "4815 Seton Dr., Baltimore, MD 21215",
+    "contact_name": "",
+    "tel": "Office: 410-358-4387 | Fax: 410-358-6139 | Toll-free: 1-800-CHINESI | TTY: 410-655-5903",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "REHABILITATION"
+  },
+  {
+    "business_name": "The Crab Queen",
+    "location": "3699 1/2 Offutt Rd., Randallstown, MD 21133",
+    "contact_name": "",
+    "tel": "443-THE-CRAB | 443-843-2722",
+    "email": "event@xquisitecatering.com",
+    "description": "",
+    "website": "crab-queen.com",
+    "category": "RESTAURANTS"
+  },
+  {
+    "business_name": "Humming Bird Carryout",
+    "location": "3217 Belair Rd., Baltimore, MD 21213",
+    "contact_name": "",
+    "tel": "410-732-1411",
+    "email": "Genefer3217@yahoo.com",
+    "description": "",
+    "website": "hummingbirdcarryout.com",
+    "category": "RESTAURANTS"
+  }
+]

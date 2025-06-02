@@ -1,1 +1,112 @@
-[]
+[
+  {
+    "business_name": "CBY Enterprises Inc",
+    "location": "P.O. Box 308, Linthicum, MD 21090",
+    "contact_name": "",
+    "tel": "410-636-0183, 410-636-4650",
+    "email": "cbyentin@aol.com",
+    "description": "Trucking services",
+    "website": "",
+    "category": "TRUCKING"
+  },
+  {
+    "business_name": "J.L. Contracting",
+    "location": "7645 Old Coaling Road, Hanover, MD 21076",
+    "contact_name": "",
+    "tel": "443-750-0533",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": ""
+  },
+  {
+    "business_name": "Kelley's Trucking",
+    "location": "1851 Edison Highway, Baltimore, MD 21213",
+    "contact_name": "",
+    "tel": "410-777-5053",
+    "email": "",
+    "description": "Trucking services",
+    "website": "",
+    "category": "TRUCKING"
+  },
+  {
+    "business_name": "Baltimore City Community College",
+    "location": "2901 Liberty Heights Ave., Baltimore, MD 21215",
+    "contact_name": "",
+    "tel": "410-462-8300",
+    "email": "",
+    "description": "Community college",
+    "website": "www.bccc.edu",
+    "category": "COLLEGE"
+  },
+  {
+    "business_name": "Bowie State College",
+    "location": "Bowie, MD",
+    "contact_name": "",
+    "tel": "301-464-3000",
+    "email": "",
+    "description": "State college",
+    "website": "",
+    "category": "COLLEGE"
+  },
+  {
+    "business_name": "Community Colleges of Baltimore County",
+    "location": "800 S. Rolling Rd.",
+    "contact_name": "",
+    "tel": "410-869-1213",
+    "email": "",
+    "description": "Community college",
+    "website": "",
+    "category": "COLLEGE"
+  },
+  {
+    "business_name": "Coppin State University",
+    "location": "2500 W. North Ave.",
+    "contact_name": "",
+    "tel": "410-225-9703",
+    "email": "",
+    "description": "university",
+    "website": "",
+    "category": "COLLEGE"
+  },
+  {
+    "business_name": "Morgan State University",
+    "location": "Cold Spring Ln. & Hillen Rd.",
+    "contact_name": "Carl J. Murphy",
+    "tel": "410-444-3333",
+    "email": "",
+    "description": "Fine Arts Center",
+    "website": "",
+    "category": "COLLEGE"
+  },
+  {
+    "business_name": "University of MD School of Medicine",
+    "location": "419 Redwood St., Baltimore, MD 21201",
+    "contact_name": "",
+    "tel": "410-328-4366",
+    "email": "",
+    "description": "Medical school",
+    "website": "",
+    "category": "COLLEGE"
+  },
+  {
+    "business_name": "The Baltimore Teachers Union",
+    "location": "5800 Metro Drive, 2nd Floor, Baltimore, MD 21215",
+    "contact_name": "",
+    "tel": "410-358-6600",
+    "email": "",
+    "description": "Teachers union",
+    "website": "www.baltu.org",
+    "category": "UNION"
+  },
+  {
+    "business_name": "The City Union of Baltimore",
+    "location": "2117 N. Howard St.",
+    "contact_name": "",
+    "tel": "410-962-1495",
+    "email": "cubrezz@cub-aft.org",
+    "description": "City workers union",
+    "website": "www.cub-aft.org",
+    "category": "UNION"
+  }
+]

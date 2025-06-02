@@ -1,1 +1,53 @@
-[]
+[
+{
+"business_name": "Aegis Mechanical Group",
+"location": "2056, Lord Baltimore Dr., MD 21244",
+"contact_name": "",
+"tel": "443-436-6001",
+"email": "barnettc@aegismechanical.com",
+"description": "",
+"website": "www.aegismechanical.com",
+"category": "ENGINEERING"
+},
+{
+"business_name": "Albright Engineering Inc.",
+"location": "500 Boston St., Baltimore, MD 21224",
+"contact_name": "",
+"tel": "410-522-5870",
+"email": "ralbrecht@albrechtengineering.com",
+"description": "",
+"website": "",
+"category": "ENGINEERING"
+},
+{
+"business_name": "Digital Design & Analysis Inc.",
+"location": "3217 Mayfair Rd., Baltimore, MD 21207",
+"contact_name": "410-298-8382",
+"tel": "",
+"email": "osborne@ddatech.com",
+"description": "",
+"website": "www.ddatech.com",
+"category": "ENGINEERING"
+},
+{
+"business_name": "Futech Engineering Solutions",
+"location": "1023 Cameron Road, Baltimore, MD 21212",
+"contact_name": "",
+"tel": "443-814-6329",
+"email": "sdavis@futech-eng.com",
+"description": "",
+"website": "futech-eng.com",
+"category": "ENGINEERING"
+},
+{
+"business_name": "Johnson Consulting Engineers",
+"location": "130 W. 25th St. Suite 200, Baltimore, MD 21218",
+"contact_name": "",
+"tel": "410-235-0057",
+"email": "info@jcengineers.net",
+"description": "",
+"website": "",
+"category": "ENGINEERING"
+}
+]
+

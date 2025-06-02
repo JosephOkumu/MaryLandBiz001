@@ -1,1 +1,62 @@
-[]
+[
+  {
+    "business_name": "Borae' Records, LLC",
+    "location": "P.O. Box 22131, Baltimore, MD 21203",
+    "contact_name": "Debra Martin",
+    "tel": "443-977-2998",
+    "email": "",
+    "description": "Specializing in emerging gospel music. #1 independent gospel record label.",
+    "website": "",
+    "category": "ENTERTAINMENT"
+  },
+  {
+    "business_name": "Four Gray Walls",
+    "location": "322 Lincoln Ave., Glen Burnie, MD 21061",
+    "contact_name": "",
+    "tel": "410-590-3055",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "ENTERTAINMENT"
+  },
+  {
+    "business_name": "L.M.G. Entertainment",
+    "location": "1 South Parke St.",
+    "contact_name": "",
+    "tel": "443-254-5201",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "ENTERTAINMENT"
+  },
+  {
+    "business_name": "C & R Environmental Associates, Inc.",
+    "location": "1415 Bush St, Suite 2, Baltimore, MD 21230",
+    "contact_name": "",
+    "tel": "410-727-8762",
+    "email": "",
+    "description": "Environmental Engineering",
+    "website": "",
+    "category": "ENGINEERING"
+  },
+  {
+    "business_name": "Qodesh CM",
+    "location": "26 W. 25th St., Baltimore, MD 21218",
+    "contact_name": "",
+    "tel": "410-365-5846",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "ENGINEERING"
+  },
+  {
+    "business_name": "Sparkle Occasions by Shirlee",
+    "location": "",
+    "contact_name": "Shirlee Diggs-Moyer",
+    "tel": "443-813-3561",
+    "email": "",
+    "description": "Specializing in WEDDINGS",
+    "website": "",
+    "category": "EVENTS"
+  }
+]

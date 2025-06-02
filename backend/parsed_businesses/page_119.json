@@ -1,1 +1,22 @@
-[]
+[
+  {
+    "business_name": "Mackey's Caribbean Cuisine",
+    "location": "4201 Sanner Avenue, Baltimore, MD 21206",
+    "contact_name": "",
+    "tel": "443-869-2117",
+    "email": "",
+    "description": "Carribean cuisine",
+    "website": "",
+    "category": "RESTAURANTS"
+  },
+  {
+    "business_name": "Taste This",
+    "location": "102 E. 25th St., Baltimore, MD",
+    "contact_name": "",
+    "tel": "443-563-2845",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "RESTAURANTS"
+  }
+]

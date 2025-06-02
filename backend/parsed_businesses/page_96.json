@@ -1,1 +1,32 @@
-[]
+[
+  {
+    "business_name": "Quality Care",
+    "location": "8108 Harford Road, Baltimore",
+    "contact_name": "",
+    "tel": "Toll Free: 877-276-6898 | Local: 410-665-7566",
+    "email": "",
+    "description": "Professional home care services specializing in pediatric and adult care, elder care, and respite care. Provides 24-hour private care with RNs, LPNs, CNAs, and companions.",
+    "website": "",
+    "category": "HEALTH"
+  },
+  {
+    "business_name": "University of MD Medical Center, Midtown",
+    "location": "827 Linden Ave., Baltimore, MD 21217",
+    "contact_name": "",
+    "tel": "410-225-8000",
+    "email": "",
+    "description": "Mecical center",
+    "website": "www.umm.edu",
+    "category": "HEALTH"
+  },
+  {
+    "business_name": "Compassionate HealthCare Nursing Services",
+    "location": "5411 Old Frederick Road, Suite 1A, Baltimore, MD 21229",
+    "contact_name": "Romona Lewis, RN BSN (Director/CEO)",
+    "tel": "Office: 410-719-0672 | Cell: 410-979-1039 | Toll Free: 888-719-0672",
+    "email": "",
+    "description": "Quality private duty nursing and skilled nursing visits with a focus on compassionate care.",
+    "website": "www.compassionatecarenursing.com",
+    "category": "HEALTH"
+  }
+]

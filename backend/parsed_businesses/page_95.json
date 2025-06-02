@@ -1,1 +1,52 @@
-[]
+[
+  {
+    "business_name": "Baltimore Health Care & Wellness",
+    "location": "5200 Garrison Blvd., Suite 100-A, Baltimore, MD 21216",
+    "contact_name": "",
+    "tel": "443-762-5343",
+    "email": "amaris.murray@baltimorehealthcare.org",
+    "description": "",
+    "website": "www.baltimorehealthcare.org",
+    "category": "HEALTH SERVICES"
+  },
+  {
+    "business_name": "Clearview Medical Services",
+    "location": "300 Reisterstown Rd. T-6, Pikesville, MD 21208",
+    "contact_name": "",
+    "tel": "410-779-9162",
+    "email": "clearviewservices@gmail.com",
+    "description": "",
+    "website": "www.clearviewservices.com",
+    "category": "HEALTH"
+  },
+  {
+    "business_name": "Community Care Nursing Services",
+    "location": "8108-B Harford Rd, Parkville, MD 21234",
+    "contact_name": "",
+    "tel": "410-665-7566",
+    "email": "",
+    "description": "Health services",
+    "website": "communitycarenursing.net",
+    "category": "HEALTH"
+  },
+  {
+    "business_name": "Compassionate Health Care Nursing Services Inc.",
+    "location": "5411 Old Frederick Rd - Suite 6, Baltimore, MD 21229",
+    "contact_name": "",
+    "tel": "410-719-0672 | 410-719-0673 | Toll Free: 888-719-0672",
+    "email": "compassionatehns@gmail.com",
+    "description": "",
+    "website": "compassionatecarenursing.com",
+    "category": "HEALTH"
+  },
+  {
+    "business_name": "The Epiliation Clinic",
+    "location": "6600 York Rd., Site. 209, Baltimore, MD 21212",
+    "contact_name": "",
+    "tel": "410-235-2211",
+    "email": "epilationclinic@gmail.com",
+    "description": "",
+    "website": "www.epilationclinic.com",
+    "category": "HEALTH"
+  }
+]

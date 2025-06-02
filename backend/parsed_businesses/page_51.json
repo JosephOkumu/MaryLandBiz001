@@ -1,1 +1,72 @@
-[]
+[
+  {
+    "business_name": "Custom Tee's & More",
+    "location": "1113 McDonough St., Baltimore, MD 21213",
+    "contact_name": "",
+    "tel": "443-467-2838",
+    "email": "jerrytaylor123@msn.com",
+    "description": "",
+    "website": "",
+    "category": "CLOTHING & APPAREL"
+  },
+  {
+    "business_name": "Sankofa African & World Bazaar",
+    "location": "4330 Pimlico Road, Baltimore, MD 21215",
+    "contact_name": "",
+    "tel": "410-366-0886",
+    "email": "sankofa@aceweb.com",
+    "description": "",
+    "website": "www.sankofaafricanbazaar.com",
+    "category": "RETAIL & SPECIALTY SHOPS"
+  },
+  {
+    "business_name": "TALLsmall Productions",
+    "location": "",
+    "contact_name": "Rebecca Klein, Keith Scott",
+    "tel": "443-540-0125",
+    "email": "keithandrebecca@tallsmallproductions.org",
+    "description": "",
+    "website": "TALLsmallproductions.org",
+    "category": "MEDIA & PRODUCTION SERVICES"
+  },
+  {
+    "business_name": "100 BLACK MEN OF MD",
+    "location": "4413 Liberty Heights Ave., Gwynn Oak, MD 21207",
+    "contact_name": "",
+    "tel": "410-664-6726",
+    "email": "wwebb@100bmm.org",
+    "description": "",
+    "website": "100blackmenofmaryland.org",
+    "category": "NONPROFIT & COMMUNITY ORGANIZATIONS"
+  },
+  {
+    "business_name": "Baltimore Job Hunters Support Group",
+    "location": "5802 Roland Ave, Baltimore, MD 21210",
+    "contact_name": "",
+    "tel": "410-435-1506",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "CAREER & EMPLOYMENT SERVICES"
+  },
+  {
+    "business_name": "Baltimore Urban League",
+    "location": "512 Orchard St., Baltimore, MD 21201",
+    "contact_name": "",
+    "tel": "410-523-8150",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "NONPROFIT & CIVIC ORGANIZATIONS"
+  },
+  {
+    "business_name": "Core Counseling Service Support",
+    "location": "5802 Roland Ave., Baltimore, MD 21210",
+    "contact_name": "",
+    "tel": "410-435-1506",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "MENTAL HEALTH & COUNSELING SERVICES"
+  }
+]

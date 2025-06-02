@@ -1,1 +1,102 @@
-[]
+[
+  {
+    "business_name": "Baltimore Educational Scholarship Trust",
+    "location": "701 N. Cathedral St., Baltimore, MD 21201",
+    "contact_name": "",
+    "tel": "410-752-2225",
+    "email": "",
+    "description": "Scholarship services",
+    "website": "",
+    "category": "SCHOLARSHIPS"
+  },
+  {
+    "business_name": "Cristo Rey Jesuit High School",
+    "location": "420 S. Chester St., Baltimore MD 21231",
+    "contact_name": "",
+    "tel": "410-727-3255",
+    "email": "",
+    "description": "Academy",
+    "website": "www.cristoreybalt.org",
+    "category": "SCHOOL"
+  },
+  {
+    "business_name": "Language Instruction",
+    "location": "",
+    "contact_name": "",
+    "tel": "443-695-4083",
+    "email": "",
+    "description": "Learn French or Italian 25 Years Experience. Language instruction for all levels, private or semi-private classes",
+    "website": "",
+    "category": "TRAINING"
+  },
+  {
+    "business_name": "Unseld's School",
+    "location": "250 S. Hilton St., Baltimore, MD 21229",
+    "contact_name": "",
+    "tel": "410-947-1110",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "SCHOOL"
+  },
+  {
+    "business_name": "Joy of Art School",
+    "location": "3617 Chestnut Ave., Baltimore, MD",
+    "contact_name": "",
+    "tel": "410-625-9168",
+    "email": "",
+    "description": "Art education",
+    "website": "",
+    "category": "ART"
+  },
+  {
+    "business_name": "Precision Driving School",
+    "location": "2105 Gwynn Oak Ave., Baltimore, MD 21207",
+    "contact_name": "",
+    "tel": "443-893-3360",
+    "email": "precisiondrivingschool@outlook.com",
+    "description": "Driving school",
+    "website": "precisiondrivingschool.net",
+    "category": "DRIVING"
+  },
+  {
+    "business_name": "M4 Security LLC",
+    "location": "101 N. Haven St., Suite 301, Baltimore, MD 21224",
+    "contact_name": "",
+    "tel": "443-210-4496",
+    "email": "mdayy@m4security.us",
+    "description": "Firearm training",
+    "website": "www.m4security.us",
+    "category": "FIREARM TRAINING"
+  },
+  {
+    "business_name": "Medical & Dental Assistant/Technician",
+    "location": "Medix School 700 York Rd., Baltimore, MD 21204",
+    "contact_name": "",
+    "tel": "",
+    "email": "",
+    "description": "Medical & Dental Assistant/Technician training",
+    "website": "",
+    "category": "MEDICAL"
+  },
+  {
+    "business_name": "Maryland Beauty Academy of Essex ",
+    "location": "505 Eastern Blvd, Essex, MD 21221",
+    "contact_name": "",
+    "tel": "410-686-4477",
+    "email": "",
+    "description": "Beauty training",
+    "website": "",
+    "category": "SCHOOL"
+  },
+  {
+    "business_name": "Maryland Institute of Cosmetology",
+    "location": "10 Carroll Plaza, Westminster, MD 21157",
+    "contact_name": "",
+    "tel": "410-848-1271",
+    "email": "",
+    "description": "Cosmetology training",
+    "website": "",
+    "category": "SCHOOL"
+  }
+]

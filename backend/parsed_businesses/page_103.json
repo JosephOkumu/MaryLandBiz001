@@ -1,1 +1,82 @@
-[]
+[
+  {
+    "business_name": "Harrison Memorial Accessories",
+    "location": "2133 Gwynn Oak Ave., Baltimore, MD 21207",
+    "contact_name": "",
+    "tel": "410-281-0003",
+    "email": "Hma2133@yahoo.com",
+    "description": "",
+    "website": "",
+    "category": "MEMORIALS"
+  },
+  {
+    "business_name": "Above it All Mental Health Program",
+    "location": "638 N. Gilmor St, Baltimore, MD 21217",
+    "contact_name": "",
+    "tel": "410-462-2268",
+    "email": "arock@aiahealth.org",
+    "description": "",
+    "website": "",
+    "category": "HEALTH"
+  },
+  {
+    "business_name": "K.E.Y.E.S.",
+    "location": "7501 Liberty Rd., Baltimore, MD 21207",
+    "contact_name": "",
+    "tel": "443-842-0519 | 443-429-2536",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "HEALTH"
+  },
+  {
+    "business_name": "Roberta's House",
+    "location": "928 E North Ave, Baltimore, MD 21202",
+    "contact_name": "",
+    "tel": "410-235-6633",
+    "email": "",
+    "description": "",
+    "website": "robertashouse.org",
+    "category": "HEALTH"
+  },
+  {
+    "business_name": "Creative Real Estate Services, LLC",
+    "location": "8709 Green Ln., Baltimore, MD 21133",
+    "contact_name": "Mike Cassell",
+    "tel": "Office: 410-922-4262 | Toll-free: 800-378-7905 | Cell: 410-409-7345",
+    "email": "mike@mikecassell.com",
+    "description": "Mortgage services",
+    "website": "www.mikecassell.com",
+    "category": "MORTGAGES"
+  },
+  {
+    "business_name": "Integrity Title & Escrow Company",
+    "location": "8 Greenspring Valley Road, Suite 200, Owings Mills, MD 21117",
+    "contact_name": "",
+    "tel": "410-581-6861",
+    "email": "info@integritytitlellc.com",
+    "description": "",
+    "website": "integritytitlellc.com",
+    "category": "REAL ESTATE"
+  },
+  {
+    "business_name": "Pinnacle Wireless",
+    "location": "8627 Liberty Rd., Suite 1B, Randallstown, MD 21117",
+    "contact_name": "",
+    "tel": "Main: 443-272-7689 | Fax: 443-272-7783 | Cell: 202-607-8784",
+    "email": "",
+    "description": "Money transfer/Western Union services",
+    "website": "",
+    "category": "MONEY TRANSFER/WESTERN UNION"
+  },
+  {
+    "business_name": "Ty's Cycle",
+    "location": "810 N. Dukeland St., Baltimore, MD 21216",
+    "contact_name": "",
+    "tel": "Main: 410-566-6742 | Fax: 410-566-9340",
+    "email": "ty@tyscycle.com",
+    "description": "",
+    "website": "www.tyscycle.com",
+    "category": "MOTORCYCLES"
+  }
+]

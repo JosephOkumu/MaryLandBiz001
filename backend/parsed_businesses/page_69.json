@@ -1,1 +1,92 @@
-[]
+[
+  {
+    "business_name": "Winshire Interiors",
+    "location": "9 Barrow, Ct., Baltimore, MD 21204",
+    "contact_name": "",
+    "tel": "410-494-4722",
+    "email": "",
+    "description": "Interior construction",
+    "website": "",
+    "category": "CONSTRUCTION"
+  },
+  {
+    "business_name": "Carter Landscaping, LLC",
+    "location": "5018 Baltimore Nt'l Pike, Baltimore, MD 21229",
+    "contact_name": "",
+    "tel": "443-320-3474",
+    "email": "Carterlandscaping86@gmail.com",
+    "description": "",
+    "website": "",
+    "category": "LANDSCAPING"
+  },
+  {
+    "business_name": "Sparks Quality Landscaping Company",
+    "location": "4919 Erdman Ave., Baltimore, MD 21205",
+    "contact_name": "",
+    "tel": "410-327-0000 (Office), 441-059-8955 (Cell)",
+    "email": "chsparks@yahoo.com",
+    "description": "",
+    "website": "www.sparksqualityfence.com",
+    "category": "LANDSCAPING"
+  },
+  {
+    "business_name": "Bishop Barry Lead Inspection",
+    "location": "2414 St. Paul St., Baltimore, MD 21218",
+    "contact_name": "",
+    "tel": "410-292-3029",
+    "email": "bishopbarry@bailout.com",
+    "description": "Lead paint & Asbestos",
+    "website": "",
+    "category": "PAINTING"
+  },
+  {
+    "business_name": "Travis Lead Inspection",
+    "location": "4174 The Alameda, Baltimore, MD 21218",
+    "contact_name": "",
+    "tel": "443-413-1679",
+    "email": "Shaw21218@yahoo.com",
+    "description": "Lead paint & asbestos",
+    "website": "",
+    "category": "PAINTING"
+  },
+  {
+    "business_name": "AMC HVAC Mechanical Engineering, LLC",
+    "location": "7 Easter Court Suite F, Owings Mills, MD 21117",
+    "contact_name": "",
+    "tel": "443-955-9905",
+    "email": "calandra@amchvacmech.com",
+    "description": "Mechanical contracting",
+    "website": "www.amcvacmech.com",
+    "category": "MECHANIC"
+  },
+  {
+    "business_name": "GEO'S PLUMBING SERVICES",
+    "location": "",
+    "contact_name": "",
+    "tel": "301-672-5017",
+    "email": "geoejr74@gmail.com",
+    "description": "Drain cleaning, water heaters, kitchen and bath fixture repair or install.",
+    "website": "",
+    "category": "PLUMBING"
+  },
+  {
+    "business_name": "FTC Painting",
+    "location": "5321 Ford Avenue, Baltimore, MD 21206, 1605 Darley Avenue, Baltimore, MD 21213",
+    "contact_name": "",
+    "tel": "443-630-1204",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "PAINTING"
+  },
+  {
+    "business_name": "Seadmok",
+    "location": "6700 Alexander Bell Dr| Columbia MD, 21046",
+    "contact_name": "",
+    "tel": "443-328-4440",
+    "email": "info@seadmokwater.com",
+    "description": "Your water, sewer, & fire hydrant experts",
+    "website": "www.seadmokwater.com",
+    "category": "PLUMBING"
+  }
+]

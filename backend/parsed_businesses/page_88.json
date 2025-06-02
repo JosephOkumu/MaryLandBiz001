@@ -1,1 +1,72 @@
-[]
+[
+  {
+    "business_name": "Gordon’s Florist",
+    "location": "515 E Belvedere Ave, Baltimore, MD 21212",
+    "contact_name": "",
+    "tel": "410-929-1977",
+    "email": "gordonflorist4@earthlink.net",
+    "description": "Florist offering daily worldwide delivery for various occasions. Specializes in plants, balloons, and floral arrangements.",
+    "website": "www.gordonflorist.com",
+    "category": "FLORIST"
+  },
+  {
+    "business_name": "Baltimore Blossoms Studio",
+    "location": "3030 Liberty Heights Ave, Baltimore, MD 21215",
+    "contact_name": "",
+    "tel": "443-449-5324",
+    "email": "baltimoreblossomsstudio@gmail.com",
+    "description": "Floral studio for flower arrangements and event floral services.",
+    "website": "",
+    "category": "FLORIST"
+  },
+  {
+    "business_name": "Fleurs d’Ave",
+    "location": "1200 W North Ave, Baltimore, MD 21217",
+    "contact_name": "",
+    "tel": "410-523-0864",
+    "email": "info@fluersdave.com",
+    "description": "Floral design shop offering personalized arrangements for occasions like weddings, anniversaries, birthdays, and more.",
+    "website": "www.fleursdave.com",
+    "category": "FLORIST"
+  },
+  {
+    "business_name": "Crunchtime Vending LLC",
+    "location": "11 Charles Woods Court, Gwynn Oak, MD 21207",
+    "contact_name": "",
+    "tel": "410-258-5352",
+    "email": "CrunchtimeVending@yahoo.com",
+    "description": "Food service company providing vending solutions.",
+    "website": "",
+    "category": "FOOD SERVICE"
+  },
+  {
+    "business_name": "Alliance Fuel Company",
+    "location": "1400 Moreland Ave, Baltimore, MD 21216",
+    "contact_name": "",
+    "tel": "410-566-8200",
+    "email": "",
+    "description": "Fuel oil supply company.",
+    "website": "",
+    "category": "FUEL OIL"
+  },
+  {
+    "business_name": "Bay Oil, Inc.",
+    "location": "2110 Pulaski Hwy, Havre de Grace, MD 21078",
+    "contact_name": "",
+    "tel": "410-939-1010",
+    "email": "bayoil@verizon.net",
+    "description": "Fuel oil company",
+    "website": "bayoilinc.net",
+    "category": "FUEL OIL"
+  },
+  {
+    "business_name": "JJ Adams Fuel Oil Company LLC",
+    "location": "2113 W. Lafayette Ave, Baltimore, MD 21217",
+    "contact_name": "",
+    "tel": "410-922-2600",
+    "email": "",
+    "description": "Fuel oil supplier",
+    "website": "www.jjadamsfuel.com",
+    "category": "FUEL OIL"
+  }
+]

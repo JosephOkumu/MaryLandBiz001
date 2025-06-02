@@ -1,1 +1,42 @@
-[]
+[
+  {
+    "business_name": "Baltimore Perfect Touch Cleaning Service",
+    "location": "1547 Sheffield Road, Baltimore, MD 21218",
+    "contact_name": "",
+    "tel": "443-876-7566",
+    "email": "PerfectTouch2022@yahoo.com",
+    "description": "Commercial & residential cleaning services.",
+    "website": "https://baltimore-perfect-touch-cleaning-service.ueniweb.com/",
+    "category": "JANITORIAL SERVICES"
+  },
+  {
+    "business_name": "Brighter Dayz Services",
+    "location": "5701 White Ave., Baltimore, MD 21206",
+    "contact_name": "",
+    "tel": "443-500-1146",
+    "email": "brighterdayzservice@gmail.com",
+    "description": "",
+    "website": "",
+    "category": "JANITORIAL SERVICES"
+  },
+  {
+    "business_name": "K P Cleaning Services",
+    "location": "340 Laburnum Rd, Edgewood, MD 21040",
+    "contact_name": "",
+    "tel": "443-257-3072",
+    "email": "Ralvin516@gmail.com",
+    "description": "Janitorial services",
+    "website": "",
+    "category": "JANITORIAL SERVICES"
+  },
+  {
+    "business_name": "Maryland Janitorial Services (MJS)",
+    "location": "2204 N. Charles St, Baltimore, MD 21218",
+    "contact_name": "",
+    "tel": "443-469-4618",
+    "email": "rgreen@marylandjs.com",
+    "description": "Janitorial services",
+    "website": "",
+    "category": "JANITORIAL SERVICES"
+  }
+]

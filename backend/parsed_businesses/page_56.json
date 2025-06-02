@@ -1,1 +1,102 @@
-[]
+[
+  {
+    "business_name": "Adams Environmental Engineering Group",
+    "location": "8055 Ritchie Highway, Suite 207, Pasadena, MD 21122",
+    "contact_name": "",
+    "tel": "443-848-2954",
+    "email": "adamsenveng@gmail.com",
+    "description": "",
+    "website": "adamsenvironmentaleng.net",
+    "category": "ENVIRONMENTAL ENGINEERING CONSULTING"
+  },
+  {
+    "business_name": "Barbour Group",
+    "location": "909 Baltimore Blvd., Suite 144, Westminster, MD 21157",
+    "contact_name": "Karen G.",
+    "tel": "410-876-9610",
+    "email": "kareng@thebarbourgroup.com",
+    "description": "",
+    "website": "thebarbourgroup.com",
+    "category": "CONSULTING"
+  },
+  {
+    "business_name": "PCG & Associates",
+    "location": "5108 Boulder Dr., Oxon Hill, MD 20745",
+    "contact_name": "",
+    "tel": "202-246-2077",
+    "email": "pcgassoc.com",
+    "description": "",
+    "website": "www.pcgassoc@aol.com",
+    "category": "CONSULTING"
+  },
+  {
+    "business_name": "AGA Contractors, Inc.",
+    "location": "4708 Silver Spring Road, Perry Hall, MD 21128",
+    "contact_name": "",
+    "tel": "443-931-8071, 443-854-4224",
+    "email": "agacontractors1@gmail.com",
+    "description": "",
+    "website": "",
+    "category": "GENERAL CONTRACTORS"
+  },
+  {
+    "business_name": "Gutierrez Studios, Inc.",
+    "location": "2010 Clipper Park Rd, Baltimore, MD 21211",
+    "contact_name": "",
+    "tel": "410-889-5341",
+    "email": "",
+    "description": "Architectural Metalwork",
+    "website": "",
+    "category": "METALWORK CONTRACTORS"
+  },
+  {
+    "business_name": "BMW Construction Specialists",
+    "location": "200 Pennington Ave., Glyndon, MD 21071",
+    "contact_name": "",
+    "tel": "410-354-8883",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "CONSTRUCTION SERVICES"
+  },
+  {
+    "business_name": "Iconic Plumbing",
+    "location": "1919 11th Street, NW Washington, DC 20001",
+    "contact_name": "Dee Lofton",
+    "tel": "Office: (202) 560-5807, Mobile: (202) 497-7370",
+    "email": "dlofton@iconicplumbing.com",
+    "description": "",
+    "website": "www.iconicplumbing.com",
+    "category": "PLUMBING CONTRACTORS"
+  },
+  {
+    "business_name": "Harris Brothers Construction Co., Inc.",
+    "location": "PO Box 16120, Baltimore, MD 21218",
+    "contact_name": "",
+    "tel": "443-865-6903",
+    "email": "harrisbrothers21@gmail.com",
+    "description": "Bathrooms & Kitchens",
+    "website": "harrisbrosconstruccion.com",
+    "category": "CONSTRUCTION CONTRACTORS"
+  },
+  {
+    "business_name": "Cafe Millwork",
+    "location": "2321 Homewood Ave., Baltimore, MD 21218",
+    "contact_name": "",
+    "tel": "202-577-6468",
+    "email": "",
+    "description": "Carpentry",
+    "website": "",
+    "category": "CARPENTRY CONTRACTORS"
+  },
+  {
+    "business_name": "Carpet for Pennies, Inc.",
+    "location": "3422 Relaw Road, Gwynn Oak, MD 21207",
+    "contact_name": "",
+    "tel": "410-977-8568",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "CARPETING CONTRACTORS"
+  }
+]

@@ -1,1 +1,62 @@
-[]
+[
+  {
+    "business_name": "EXIT First Realty",
+    "location": "2139 Espey Court, Suite 1, Crofton, MD 21114",
+    "contact_name": "Albert A. Williams",
+    "tel": "Office: 301-352-8100 | Direct: 202-210-1539",
+    "email": "awilliams@exitfirst.com",
+    "description": "Real estate agency.",
+    "website": "www.exitfirstrealty.com",
+    "category": "REAL ESTATE"
+  },
+  {
+    "business_name": "Execuhome Realty - Gregory Daniels",
+    "location": "",
+    "contact_name": "Gregory Daniels (Associate Broker REALTOR)",
+    "tel": "Office: 443-757-3400 | Direct: 443-801-6151 | Fax: 410-730-7151",
+    "email": "gregorydaniels443@gmail.com",
+    "description": "Real estate associate broker, realtor",
+    "website": "www.execuhome.com",
+    "category": "REAL ESTATE"
+  },
+  {
+    "business_name": "Execuhome Realty - Sandra McCoy Hewlett",
+    "location": "5316 Hamilton Ave., Baltimore MD 21206",
+    "contact_name": "Sandra McCoy Hewlett",
+    "tel": "443-531-2947",
+    "email": "Realtorlady4u@yahoo.com",
+    "description": "Real estate associate broker, realtor",
+    "website": "",
+    "category": "REAL ESTATE"
+  },
+  {
+    "business_name": "Exit Realty Perspectives",
+    "location": "1826 Woodlawn Dr. Ste. 1, Woodlawn, MD 21207",
+    "contact_name": "",
+    "tel": "443-551-3442",
+    "email": "exitrealtyperspectives@gmail.com",
+    "description": "Real estate agency.",
+    "website": "",
+    "category": "REAL ESTATE"
+  },
+  {
+    "business_name": "Faith Realty, LLC - Sheila Russell Williams",
+    "location": "Servicing Baltimore and Surrounding Areas",
+    "contact_name": "Sheila Russell Williams",
+    "tel": "Office: 410-426-3456 | Cell: 443-386-7024",
+    "email": "srw_realtor@yahoo.com",
+    "description": "Real estate broker",
+    "website": "",
+    "category": "REAL ESTATE"
+  },
+  {
+    "business_name": "Kemp & Associates",
+    "location": "1430 Reisterstown Rd. #3, Pikesville, MD 21208",
+    "contact_name": "",
+    "tel": "Direct: 410-365-8625",
+    "email": "dkemp@KempandAssociatesRE.com",
+    "description": "Real estate associate broker",
+    "website": "KempAndAssociatesRE.com",
+    "category": "REAL ESTATE"
+  }
+]

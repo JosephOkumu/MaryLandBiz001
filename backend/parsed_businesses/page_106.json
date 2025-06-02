@@ -1,1 +1,32 @@
-[]
+[
+  {
+    "business_name": "Crown's Pharmacy/Clinic",
+    "location": "9705 Fort Meade Laurel, MD 20707",
+    "contact_name": "Ed Okotcha (Pharmacist)",
+    "tel": "301-477-7141 | 240-391-6676",
+    "email": "ed@crownspharmacy.com",
+    "description": "Your community health mart pharmacy",
+    "website": "www.crownspharmacy.com",
+    "category": "PHARMACY/CLINIC"
+  },
+  {
+    "business_name": "Davis Poole Optometry",
+    "location": "1804 W. North Ave, Baltimore, MD 21217",
+    "contact_name": "",
+    "tel": "410-523-1224",
+    "email": "",
+    "description": "Optical services",
+    "website": "",
+    "category": "OPTICIANS"
+  },
+  {
+    "business_name": "Zippy Errands, LLC",
+    "location": "6710 Laurel Bowie Road, Bowie, MD 20718",
+    "contact_name": "",
+    "tel": "443-741-1374 | 410-227-1966",
+    "email": "Elexis@myzippyerrand.com",
+    "description": "We go the extra mile",
+    "website": "www.myzippyerrand.com",
+    "category": ""
+  }
+]

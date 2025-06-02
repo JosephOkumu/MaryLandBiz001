@@ -1,1 +1,52 @@
-[]
+[
+  {
+    "business_name": "Divine Fitness & Health Services, Inc.",
+    "location": "4701 Yellowwood Avenue, Baltimore, MD 21209",
+    "contact_name": "",
+    "tel": "410-491-1779",
+    "email": "divinefitnessinc@gmail.com",
+    "description": "Health & wellness",
+    "website": "www.divinefitnessinc.com",
+    "category": "HEALTH"
+  },
+  {
+    "business_name": "Absolute Supply & Service, LLC",
+    "location": "10 W. Eager St. - Suite 326, Baltimore, MD 21201 | 4592 Beech Rd., Temple Hills, MD 20748",
+    "contact_name": "",
+    "tel": "301-456-4927 | 443-573-9024 | 240-830-2810",
+    "email": "sales@absolute-sas.com",
+    "description": "Heating & Air conditioning",
+    "website": "",
+    "category": "AIR CONDITIONING"
+  },
+  {
+    "business_name": "Jackson Heating & Air Conditioning",
+    "location": "3710 Wolf Trail Dr., Abingdon, MD 21009",
+    "contact_name": "",
+    "tel": "443-243-0850",
+    "email": "tonyjackson@gmail.com",
+    "description": "",
+    "website": "",
+    "category": "AIR CONDITIONING"
+  },
+  {
+    "business_name": "MHCR",
+    "location": "1710 Ryewood Rd, Parkville, MD 21234",
+    "contact_name": "",
+    "tel": "410-688-9488",
+    "email": "kdower1234@gmail.com",
+    "description": "",
+    "website": "",
+    "category": "AIR CONDITIONING"
+  },
+  {
+    "business_name": "Chesapeake Home Health Care",
+    "location": "4500 Forbes Blvd, Suite 110, Lanham, MD 20706",
+    "contact_name": "",
+    "tel": "301-249-4333",
+    "email": "ericad@chhc-md.com",
+    "description": "",
+    "website": "chhccares.com",
+    "category": "HEALTH"
+  }
+]

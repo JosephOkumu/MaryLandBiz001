@@ -1,1 +1,63 @@
-[]
+[
+  {
+    "business_name": "Bay Associates Environmental, Inc.",
+    "location": "2302 Frederick Road – Suite B, Baltimore, MD 21228",
+    "contact_name": "",
+    "tel": "410-418-4880",
+    "email": "",
+    "description": "",
+    "website": "hazardouswastepros.com",
+    "category": "DEBRIS REMOVAL"
+  },
+  {
+    "business_name": "Baltimore Recycling Center, LLC.",
+    "location": "(BRC) 250 S. Kresson St., Baltimore, MD 21224, 1030 Edison Highway, Baltimore, MD 21213",
+    "contact_name": "",
+    "tel": "410-534-2990",
+    "email": "rrobertson@brcmd.com",
+    "description": "",
+    "website": "www.brcmd.com",
+    "category": "DEBRIS REMOVAL"
+  },
+  {
+    "business_name": "Demolition Man Contracting",
+    "location": "3031 East Ave, Parkville, MD 21234",
+    "contact_name": "Paula Richardson",
+    "tel": "443-680-1770 (Cell), 443-360-3011 (Fax)",
+    "email": "demolitionman700@yahoo.com",
+    "description": "",
+    "website": "",
+    "category": "DEMOLITION"
+  },
+  {
+    "business_name": "L. Herring Coyote Demolition",
+    "location": "308 Raft Cove, Stafford, VA 22193",
+    "contact_name": "",
+    "tel": "443-400-4869",
+    "email": "edwardherring495@gmail.com",
+    "description": "",
+    "website": "",
+    "category": "DEMOLITION"
+  },
+  {
+    "business_name": "HOME BASED REMODELING",
+    "location": "6405 Fair Oaks Ave. Baltimore, MD 21214",
+    "contact_name": "Larry Moore",
+    "tel": "(443) 801-4302, Fax: (510) 380-2411",
+    "email": "moore1inc@yahoo.com",
+    "description": "Kitchens, Bathrooms, Basements, Roofing, Additions, Plumbing, Decks & Fencing, Vinyl Windows, Doors",
+    "website": "",
+    "category": "HOME IMPROVEMENT"
+  },
+  {
+    "business_name": "J-ICON Home Remodeling",
+    "location": "",
+    "contact_name": "Marvin Jackson",
+    "tel": "410-977-8568",
+    "email": "cfgroupl@gmail.com",
+    "description": "",
+    "website": "marylandhomeremodel.com",
+    "category": "HOME REMODELING"
+  }
+]
+

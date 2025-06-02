@@ -1,1 +1,32 @@
-[]
+[
+  {
+    "business_name": "Crystal’s Bridal and Tuxedo, Inc.",
+    "location": "7718 Belair Road Baltimore, MD 21236",
+    "contact_name": "",
+    "tel": "410-342-7433",
+    "email": "crystalsbridalandtuxedo@gmail.com",
+    "description": "Bridal and tuxedo rental services including wedding dresses, tuxedos, bridesmaid dresses, tiaras and accessories.",
+    "website": "",
+    "category": "CLOTHING"
+  },
+  {
+    "business_name": "J.C. Lofton’s",
+    "location": "1003 U Street, NW, Washington, DC 20001",
+    "contact_name": "Eddie Lofton",
+    "tel": "(202) 328-4739",
+    "email": "",
+    "description": "Tailor-made suits for male and female clients",
+    "website": "",
+    "category": "CLOTHING"
+  },
+  {
+    "business_name": "Waverly Main Street Hats",
+    "location": "3019-3021 Greenmount Avenue, Baltimore, MD 21218",
+    "contact_name": "Clyde M. Davis-EL.",
+    "tel": "410-235-5272",
+    "email": "waverlymainstreethats@gmail.com",
+    "description": "Men's & Women's hats. Need a hat? By appointment only.",
+    "website": "www.mainstreethats.co",
+    "category": "HATS"
+  }
+]

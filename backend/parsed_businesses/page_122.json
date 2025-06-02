@@ -1,1 +1,52 @@
-[]
+[
+  {
+    "business_name": "All Pro Placement Services",
+    "location": "116 Old Padonia Rd., Cockeysville, MD 21030",
+    "contact_name": "",
+    "tel": "410-308-9050 | 866-308-9050",
+    "email": "jobs@allproplacement.com",
+    "description": "Staffing services",
+    "website": "www.allproplacement.com",
+    "category": "STAFFING"
+  },
+  {
+    "business_name": "Busy Bee Professional Staffing",
+    "location": "8181 Professional Place, Suite 205, Hyatsville, MD 20785",
+    "contact_name": "",
+    "tel": "301-459-1233",
+    "email": "",
+    "description": "Professional staffing services",
+    "website": "",
+    "category": "STAFFING"
+  },
+  {
+    "business_name": "Keller Professional Service",
+    "location": "210 E. Lexington St., Suite 402, Baltimore, MD 21202",
+    "contact_name": "Debra Keller-Green CEO",
+    "tel": "443-540-5901",
+    "email": "debra@kellerproservices.com",
+    "description": "Professional services",
+    "website": "www.kellerproservices.com",
+    "category": "STAFFING"
+  },
+  {
+    "business_name": "Excel Staffing & Personnel Service Inc.",
+    "location": "4 West Rolling Crossroads Suite 1, Baltimore, MD 21228",
+    "contact_name": "",
+    "tel": "410-747-7293",
+    "email": "info@excelstaffingandpersonnel.com",
+    "description": "Staffing and personnel services",
+    "website": "excelstaffingandpersonnel.com",
+    "category": "STAFFING"
+  },
+  {
+    "business_name": "Nicky's Custom Tailoring",
+    "location": "600 N. Etaw St., Baltimore, MD 21201",
+    "contact_name": "",
+    "tel": "410-383-7100 | 443-253-9126",
+    "email": "nickys@nickystailoring.com",
+    "description": "Custom tailoring",
+    "website": "www.nickystailoring.com",
+    "category": "TAILORING"
+  }
+]

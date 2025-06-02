@@ -1,1 +1,112 @@
-[]
+[
+  {
+    "business_name": "FPA Solutions, Inc.",
+    "location": "6400 Baltimore National Pike #506, Catonsville, MD 21228",
+    "contact_name": "",
+    "tel": "301-266-4216",
+    "email": "fphilipp@fpa-solutions.com",
+    "description": "Low voltage installation services.",
+    "website": "fpa-solutions.com",
+    "category": "INSTALLATIONS"
+  },
+  {
+    "business_name": "The Village Magazine",
+    "location": "7501 Liberty Rd., Baltimore, MD 21207",
+    "contact_name": "",
+    "tel": "443-842-0519 | 443-429-2536",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "MAGAZINES"
+  },
+  {
+    "business_name": "Spatial GIS",
+    "location": "2288 Blue Water Blvd., Suite 310, Odenton, MD 21113",
+    "contact_name": "",
+    "tel": "301-442-3914",
+    "email": "kendrick@spatialgisservices.com",
+    "description": "Mapping and drone services.",
+    "website": "",
+    "category": "DRONES SERVICES"
+  },
+  {
+    "business_name": "Baltimore County Chamber of Commerce",
+    "location": "102 W. Pennsylvania Ave. Suite 101, Towson, MD 21204",
+    "contact_name": "",
+    "tel": "410-825-6200",
+    "email": "",
+    "description": "",
+    "website": "www.balicountychamber.com",
+    "category": "MARKETING"
+  },
+  {
+    "business_name": "Our Money Our Community",
+    "location": "2801 Park Center Drive, Alexandria, Virginia 22302",
+    "contact_name": "",
+    "tel": "301-755-8394",
+    "email": "amcole4656@gmail.com",
+    "description": "",
+    "website": "",
+    "category": "TECHNOLOGY"
+  },
+  {
+    "business_name": "Eflat Music and Media",
+    "location": "4726 Belle Forte Rd., Baltimore, MD 21208",
+    "contact_name": "",
+    "tel": "",
+    "email": "eflat2002@aol.com",
+    "description": "",
+    "website": "eflatmusicandmedia.com",
+    "category": "MEDIA"
+  },
+  {
+    "business_name": "U.S Acute Care Solutions",
+    "location": "AHC White Oak Medical Center",
+    "contact_name": "Christopher Watson",
+    "tel": "240-637-6351",
+    "email": "",
+    "description": "Hospital Medicine at U.S. Acute Care Solutions",
+    "website": "",
+    "category": "MEDICAL"
+  },
+  {
+    "business_name": "Park West Medical Center",
+    "location": "3319 W. Belvedere Ave., Baltimore, MD 21215",
+    "contact_name": "",
+    "tel": "410-542-7800",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "MEDICAL"
+  },
+  {
+    "business_name": "Seton Pain & Rehabilitation Center",
+    "location": "3350 Wilkens Ave. #101, Baltimore, MD 21229",
+    "contact_name": "",
+    "tel": "410-644-8500",
+    "email": "ftrail@setonpainrehab.com",
+    "description": "",
+    "website": "",
+    "category": "HEALTH"
+  },
+  {
+    "business_name": "Total Health Care, Inc.",
+    "location": "Seven Convenient Locations Throughout Baltimore",
+    "contact_name": "",
+    "tel": "410-383-8300",
+    "email": "",
+    "description": "Healthcare for All",
+    "website": "",
+    "category": "HEALTH"
+  },
+  {
+    "business_name": "John Bugg, Insurance Agency",
+    "location": "6711 Belair Road",
+    "contact_name": "John C. Bugg III",
+    "tel": "410-661-4949 | 410-661-9290",
+    "email": "john.bugg.ppun@statefarm.com",
+    "description": "Healthcare for All",
+    "website": "Your money. Your future. I can help you make the best of both.",
+    "category": "Insurance"
+  }
+]

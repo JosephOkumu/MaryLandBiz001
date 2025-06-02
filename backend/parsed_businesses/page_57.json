@@ -1,1 +1,82 @@
-[]
+[
+  {
+    "business_name": "Lewis Contractor",
+    "location": "55 Gwyn Mills Ct., Owings Mills, MD 2117",
+    "contact_name": "",
+    "tel": "410-356-4200",
+    "email": "",
+    "description": "",
+    "website": "www.lewis-contractors.com",
+    "category": "CONSTRUCTION MANAGEMENT"
+  },
+  {
+    "business_name": "ACS Property Services",
+    "location": "P.O. Box 335, Darlington, MD 21034",
+    "contact_name": "Samantha Sullivan",
+    "tel": "410-621-9022",
+    "email": "acspropertyservices1@gmail.com",
+    "description": "Concrete & Asphalt",
+    "website": "www.acspropertyservices.com",
+    "category": "CONSTRUCTION SERVICES"
+  },
+  {
+    "business_name": "Brooks Contracting",
+    "location": "4903 Snader Ave., Baltimore, MD 21215",
+    "contact_name": "",
+    "tel": "410-977-6665",
+    "email": "brookscontractinginc@gmail.com",
+    "description": "",
+    "website": "www.brooksasphaltpaving.com",
+    "category": "ASPHALT PAVING"
+  },
+  {
+    "business_name": "Dough-Boy Hauling Inc.",
+    "location": "2805 Indiana St., Baltimore, MD 21230",
+    "contact_name": "",
+    "tel": "410-500-0200",
+    "email": "donteevans@gmail.com",
+    "description": "",
+    "website": "",
+    "category": "PAVING CONTRACTORS"
+  },
+  {
+    "business_name": "Grady Environmental Services",
+    "location": "8063 High Castle Rd., Ellicott City, MD 21043",
+    "contact_name": "",
+    "tel": "301-440-8697",
+    "email": "mgrady@gradyenvironmental.com",
+    "description": "",
+    "website": "gradyenvironmental.com",
+    "category": "ENVIRONMENTAL SERVICES"
+  },
+  {
+    "business_name": "Seadmok Water Construction, LLC",
+    "location": "7242 Maidstone PI., Elkridge, MD 21075",
+    "contact_name": "",
+    "tel": "443-449-9967",
+    "email": "ssogbor@seadmokwater.com",
+    "description": "",
+    "website": "",
+    "category": "WATER CONSTRUCTION"
+  },
+  {
+    "business_name": "Qodesh CM",
+    "location": "26 W. 25th St., Baltimore, MD 21218",
+    "contact_name": "",
+    "tel": "410-365-5846",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "CONSTRUCTION MANAGEMENT"
+  },
+  {
+    "business_name": "Mahogany, Inc.",
+    "location": "910 W. Pratt St., Baltimore MD 21223",
+    "contact_name": "",
+    "tel": "410-727-0334",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "CONSTRUCTION MANAGEMENT"
+  }
+]

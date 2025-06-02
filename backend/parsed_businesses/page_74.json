@@ -1,1 +1,62 @@
-[]
+[
+  {
+    "business_name": "Donald Parker Dentist",
+    "location": "5443 Park Heights Avenue, Baltimore, MD 21215",
+    "contact_name": "",
+    "tel": "410-542-1600",
+    "email": "",
+    "description": "Dentist",
+    "website": "",
+    "category": "DENTIST"
+  },
+  {
+    "business_name": "Hocker Dental Lab, Inc.",
+    "location": "3308 Ayrdale Ave., Baltimore, MD 21216",
+    "contact_name": "",
+    "tel": "443-277-3811",
+    "email": "frankhocker@gmail.com",
+    "description": "Dental laboratory",
+    "website": "",
+    "category": "DENTAL"
+  },
+  {
+    "business_name": "Dr. Garland Davis, DDS",
+    "location": "8730 Cherry Lane #6., Laurel, MD 20707",
+    "contact_name": "Dr. Garland K. Davis",
+    "tel": "240-624-9212",
+    "email": "Doctor@garlanddavisdds.com",
+    "description": "Dentist",
+    "website": "garlanddavisdds.com",
+    "category": "DENTAL"
+  },
+  {
+    "business_name": "Bernies by Gulcha",
+    "location": "Federal Hill 920 Light Street, Baltimore, MD 21230",
+    "contact_name": "",
+    "tel": "410-440-3239",
+    "email": "quicha@gmail.com",
+    "description": "Desserts",
+    "website": "",
+    "category": "Desserts"
+  },
+  {
+    "business_name": "Shelton Family Dental",
+    "location": "1501 East 33rd Street Baltimore, MD 21218",
+    "contact_name": "Benjamin F. Shelton",
+    "tel": "410-243-3714",
+    "email": "",
+    "description": "Family dental",
+    "website": "Sheltonfamilydental.com",
+    "category": "DENTAL"
+  },
+  {
+    "business_name": "Dr. F. Desbordes & Associates",
+    "location": "2300 Garrison Blvd. Baltimore, MD 21216",
+    "contact_name": "",
+    "tel": "410-362-2910",
+    "email": "eldoradonoir@aol.com",
+    "description": "Dentist",
+    "website": "",
+    "category": "DENTAL"
+  }
+]

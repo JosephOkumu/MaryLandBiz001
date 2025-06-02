@@ -1,1 +1,92 @@
-[]
+[
+  {
+    "business_name": "National Spine and Pain Center",
+    "location": "3350 Wilkens Ave., Suite #101, Baltimore, MD 21229",
+    "contact_name": "",
+    "tel": "410-644-8500 | 410-644-8900",
+    "email": "ftrail@setonpainrehab.com",
+    "description": "Physical medicine and rehabilitation center",
+    "website": "",
+    "category": "REHABILITATION"
+  },
+  {
+    "business_name": "D. Felisa Armstrong",
+    "location": "6827 Reisterstown Rd, Suite 203, Baltimore, MD 21215",
+    "contact_name": "D. Felicia Armstrong",
+    "tel": "",
+    "email": "",
+    "description": "Podiatry",
+    "website": "",
+    "category": "PODIATRY"
+  },
+  {
+    "business_name": "Beach Feet Podiatry",
+    "location": "201 Milford Mill Rd, Suite 201, Baltimore, MD 21208",
+    "contact_name": "Dr. Denise Beach Davis",
+    "tel": "410-945-5400",
+    "email": "beachfeet5@aol.com",
+    "description": "",
+    "website": "www.drbeachfeet.com",
+    "category": "PODIATRY"
+  },
+  {
+    "business_name": "Agape House Inc.",
+    "location": "1501 N. Dukeland St., Baltimore, MD 21216",
+    "contact_name": "",
+    "tel": "410-566-5007 | 410-258-2221",
+    "email": "elderrobinson2003@yahoo.com",
+    "description": "Pregnancy center",
+    "website": "www.agapehouseinc.com",
+    "category": "HEALTH"
+  },
+  {
+    "business_name": "Wikerson Donald",
+    "location": "3407 Wilkens Ave, Baltimore, MD 21229",
+    "contact_name": "Donald Wikerson",
+    "tel": "410-646-4888",
+    "email": "",
+    "description": "Vascular surgery",
+    "website": "",
+    "category": "HEALTH"
+  },
+  {
+    "business_name": "Media Support Services, Inc.",
+    "location": "2901 Druid Park Dr. Suite C-105, Baltimore, MD 21215",
+    "contact_name": "",
+    "tel": "410-669-1100",
+    "email": "jlee@mssav.com",
+    "description": "Presentation technology.",
+    "website": "www.mssav.com",
+    "category": "TECHNOLOGY"
+  },
+  {
+    "business_name": "BC's Unlimited Promotions LLC",
+    "location": "2652 W. Patapsco Ave., Baltimore, MD 21230",
+    "contact_name": "",
+    "tel": "410-599-7075",
+    "email": "BCTeez@msn.com",
+    "description": "",
+    "website": "",
+    "category": "PROMOTIONS"
+  },
+  {
+    "business_name": "Premier Business Technologies",
+    "location": "6400 Frankford Ave, Suite 6, Baltimore, MD 21206",
+    "contact_name": "",
+    "tel": "410-483-7200",
+    "email": "",
+    "description": "",
+    "website": "www.pbtechs.com",
+    "category": "PROMOTIONS"
+  },
+  {
+    "business_name": "Specialty Marketing and Printing",
+    "location": "2707 N. Rolling Rd, Suite 112, Baltimore, MD 21244",
+    "contact_name": "",
+    "tel": "410-944-8500",
+    "email": "gbragg@smpshop.com",
+    "description": "",
+    "website": "www.smpshop.com",
+    "category": "PROMOTIONS"
+  }
+]

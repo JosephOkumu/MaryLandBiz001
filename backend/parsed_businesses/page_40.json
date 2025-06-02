@@ -10,16 +10,6 @@
     "category": "BAIL BOND"
   },
   {
-    "business_name": "B-More Enterprise",
-    "location": "6617 Harford Road, Baltimore, MD 21214",
-    "contact_name": "",
-    "tel": "410-982-9995",
-    "email": "natashabmore@gmail.com",
-    "description": "",
-    "website": "",
-    "category": "BAKERY"
-  },
-  {
     "business_name": "The Avenue Bakery",
     "location": "2229 Pennsylvania Ave, Baltimore, MD 21217",
     "contact_name": "",
@@ -98,16 +88,6 @@
     "description": "",
     "website": "",
     "category": "BARBER SHOPS"
-  },
-  {
-    "business_name": "Brooks Clinton Center",
-    "location": "9968 Liberty Rd, Randallstown, MD 21133",
-    "contact_name": "",
-    "tel": "410-921-2004",
-    "email": "brookclintoncenter@gmail.com",
-    "description": "",
-    "website": "",
-    "category": "BANQUET HALLS EVENT RENTALS"
   },
   {
     "business_name": "Slate The Venue",

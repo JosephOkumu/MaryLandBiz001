@@ -50,16 +50,6 @@
     "category": "SECURITY"
   },
   {
-    "business_name": "Baltimore County Chamber of Commerce",
-    "location": "102 W. Pennsylvania Ave., Suite 101, Towson, MD 21204",
-    "contact_name": "",
-    "tel": "410-825-6200",
-    "email": "",
-    "description": "",
-    "website": "www.baltcountychamber.com",
-    "category": "BUSINESS RESOURCES"
-  },
-  {
     "business_name": "Baltimore County Police Department",
     "location": "700 E. Joppa Road, Towson, MD 21286",
     "contact_name": "",
@@ -84,8 +74,8 @@
     "location": "1210 W. Walter Ave., Baltimore, MD 21239",
     "contact_name": "",
     "tel": "410-608-3303",
-    "email": "",
-    "description": "",
+    "email": "socson@comcast.net",
+    "description": "Protection services",
     "website": "www.cssgov.biz",
     "category": "SECURITY"
   },

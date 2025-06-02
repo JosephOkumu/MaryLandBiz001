@@ -1,1 +1,73 @@
-[]
+[
+  {
+    "business_name": "New Beginning Bail Bonds",
+    "location": "2315 Windsor Avenue, Baltimore, MD 21216",
+    "contact_name": "",
+    "tel": "410-462-1488",
+    "email": "",
+    "description": "Bail bonds services",
+    "website": "",
+    "category": "BAIL BONDS"
+  },
+  {
+    "business_name": "Positive I.D. Inc.",
+    "location": "103 Sudbrook Ln. Suite 4, Pikesville, MD 21208",
+    "contact_name": "Debra Brown",
+    "tel": "410-602-2479",
+    "email": "positiveidinc@aol.com",
+    "description": "Fingerprinting services",
+    "website": "",
+    "category": "FINGERPRINTING"
+  },
+  {
+    "business_name": "Absolute Solutions & Associates",
+    "location": "10 W. Eager St. Suite 326, Baltimore, MD 21201",
+    "contact_name": "",
+    "tel": "240-830-2810",
+    "email": "service@absolute-saa.com",
+    "description": "Fire protection services",
+    "website": "absolute-saa.com",
+    "category": "FIRE PROTECTION"
+  },
+  {
+    "business_name": "Fire Safety Company",
+    "location": "5415 Park Heights Ave., Baltimore, MD 21215",
+    "contact_name": "",
+    "tel": "410-367-5612",
+    "email": "",
+    "description": "Fire safety services",
+    "website": "",
+    "category": "FIRE PROTECTION"
+  },
+  {
+    "business_name": "A-1 FIREARMS",
+    "location": "16107 Drayton Farm Drive, Spencerville, MD 20868",
+    "contact_name": "Terence Williams",
+    "tel": "301-828-5300",
+    "email": "Terence.Williams2@verizon.net",
+    "description": "Firearms sales and services",
+    "website": "A1FirearmsMD.com",
+    "category": "FIREARMS"
+  },
+  {
+    "business_name": "Divine Fitness & Health Services, Inc.",
+    "location": "4701 Yellowwood Avenue, Baltimore, MD 21209",
+    "contact_name": "",
+    "tel": "410-491-1779",
+    "email": "divinefitnessinc@gmail.com",
+    "description": "Fitness and health services",
+    "website": "www.divinefitnessinc.com",
+    "category": "FITNESS"
+  },
+  {
+    "business_name": "Audrich Services, LLC",
+    "location": "4315 Belvieu Ave., Baltimore, MD 21215",
+    "contact_name": "",
+    "tel": "443-509-6799",
+    "email": "audrichservices1@gmail.com",
+    "description": "Floor installation services",
+    "website": "",
+    "category": "FLOOR INSTALLATION"
+  }
+]
+

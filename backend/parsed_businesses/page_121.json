@@ -1,1 +1,82 @@
-[]
+[
+  {
+    "business_name": "The Watchmen LLC",
+    "location": "1701 N. Gay St, Baltimore, MD 21213",
+    "contact_name": "",
+    "tel": "443-226-4384",
+    "email": "thewatchmenllc@gmail.com",
+    "description": "Security services",
+    "website": "",
+    "category": "SECURITY"
+  },
+  {
+    "business_name": "Image 360/ Signs by Tomorrow",
+    "location": "1100 Wicomico St., Suite 110, Baltimore, MD 21230",
+    "contact_name": "",
+    "tel": "410-625-7446",
+    "email": "mollorydavis@signsbytomorrow.com",
+    "description": "Sign design and production",
+    "website": "",
+    "category": "SIGNS"
+  },
+  {
+    "business_name": "Spell Signs",
+    "location": "2205 Tall Cedar Ct., Bel Air, MD 21015",
+    "contact_name": "",
+    "tel": "443-876-0214",
+    "email": "spellsigns@aol.com",
+    "description": "Sign design and production",
+    "website": "",
+    "category": "SIGNS"
+  },
+  {
+    "business_name": "BC’s Unlimited Promotions LLC",
+    "location": "2652 W. Patapsco Ave., Baltimore, MD 21230",
+    "contact_name": "",
+    "tel": "410-599-7075",
+    "email": "BCTeez@msn.com",
+    "description": "Silk screen printing and promotions",
+    "website": "",
+    "category": "PROMOTION"
+  },
+  {
+    "business_name": "Arch Social Club",
+    "location": "2426 Pennsylvania Ave., Baltimore, MD 21217",
+    "contact_name": "",
+    "tel": "410-669-9856",
+    "email": "",
+    "description": "Social club",
+    "website": "",
+    "category": "CLUBS"
+  },
+  {
+    "business_name": "NFD Inc.",
+    "location": "124 Lakefront Dr., Hunt Valley, MD 21030",
+    "contact_name": "",
+    "tel": "410-785-7795",
+    "email": "lschlecht@nfd.com",
+    "description": "Space planning services",
+    "website": "",
+    "category": "PLANNING"
+  },
+  {
+    "business_name": "B Rock Body Sculpting",
+    "location": "4012 Edmondson Ave, Baltimore, MD 21229",
+    "contact_name": "",
+    "tel": "443-772-6062",
+    "email": "brockbodyspa@gmail.com",
+    "description": "Body sculpting and spa services",
+    "website": "",
+    "category": "SPAS"
+  },
+  {
+    "business_name": "God’s Total Woman LLC",
+    "location": "5810 York Rd., Baltimore, MD 21212",
+    "contact_name": "",
+    "tel": "410-435-0143",
+    "email": "bonniemoore@verizon.net",
+    "description": "Spa and wellness services",
+    "website": "",
+    "category": "SPAS"
+  }
+]

@@ -1,1 +1,32 @@
-[]
+[
+  {
+    "business_name": "Winkler Investor Group LLC",
+    "location": "3221 Belair Rd, Baltimore, MD 21213",
+    "contact_name": "",
+    "tel": "443-333-2970",
+    "email": "info@winklerinvestorgroup.com",
+    "description": "Real estate.",
+    "website": "www.winklerinvestorgroup.com",
+    "category": "REAL ESTATE"
+  },
+  {
+    "business_name": "Mackey's Crab House & Seafood Catering",
+    "location": "4203 Sanner Avenue, Baltimore, MD 21206",
+    "contact_name": "",
+    "tel": "410-483-CRAB (2722)",
+    "email": "",
+    "description": "Open 7 Days a Week | Delivery Available Online.",
+    "website": "",
+    "category": "RESTAURANT"
+  },
+  {
+    "business_name": "Brudah's Carribean Kitchen",
+    "location": "605 Baker St. Baltimore, MD 21217",
+    "contact_name": "",
+    "tel": "443-869-9004",
+    "email": "",
+    "description": "Delivery only.",
+    "website": "",
+    "category": "RESTAURANT"
+  }
+]

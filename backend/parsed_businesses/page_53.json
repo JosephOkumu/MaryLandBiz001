@@ -1,1 +1,102 @@
-[]
+[
+  {
+    "business_name": "Friendly Loving Opportunities (FLO)",
+    "location": "1900 Bayard Street, Baltimore, MD 21230",
+    "contact_name": "",
+    "tel": "410-834-5311",
+    "email": "gmolen@flogwing.org",
+    "description": "",
+    "website": "",
+    "category": "COMMUNITY ORGANIZATIONS"
+  },
+  {
+    "business_name": "Leathia Dell Moore Foundation",
+    "location": "8108 Harford Rd. Suite A, Baltimore, MD 21234",
+    "contact_name": "",
+    "tel": "443-442-6043",
+    "email": "mcollins@ldmfoundation.org",
+    "description": "",
+    "website": "www.ldmfoundation.org",
+    "category": "NONPROFIT FOUNDATION"
+  },
+  {
+    "business_name": "NAACP National Headquarters",
+    "location": "4805 Mt. Hope Dr.",
+    "contact_name": "",
+    "tel": "410-358-8900",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "CIVIL RIGHTS ORGANIZATION"
+  },
+  {
+    "business_name": "Sheridan Patterson Center for Holistic Family Services",
+    "location": "3100 Lord Baltimore Dr., Executive Park West, Suite 203, Baltimore, MD 21244",
+    "contact_name": "",
+    "tel": "410-594-7141",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "FAMILY SERVICES"
+  },
+  {
+    "business_name": "The Ambrose Housing Aid Center",
+    "location": "321 E. 25th St., Baltimore, MD 21218",
+    "contact_name": "",
+    "tel": "410-235-5770",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "HOUSING ASSISTANCE"
+  },
+  {
+    "business_name": "There Goes My Hero",
+    "location": "30 East Padonia Road, Timonium, MD 21093",
+    "contact_name": "",
+    "tel": "443-266-8881",
+    "email": "",
+    "description": "",
+    "website": "Theregoesmyhero.org",
+    "category": "NONPROFIT ORGANIZATION"
+  },
+  {
+    "business_name": "Young Educated Sisters Club",
+    "location": "3533 Dolfield Ave, Baltimore, MD 21215",
+    "contact_name": "",
+    "tel": "410-367-0776",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "YOUTH ORGANIZATION"
+  },
+  {
+    "business_name": "Arena Players, Inc.",
+    "location": "801 McCulloh St, Baltimore, MD 21217",
+    "contact_name": "",
+    "tel": "410-728-6500",
+    "email": "arenaplayersinc@gmail.com",
+    "description": "Community theater",
+    "website": "arenaplayers.com",
+    "category": "PERFORMING ARTS"
+  },
+  {
+    "business_name": "MCA of Greater Baltimore",
+    "location": "128 W. Franklin St., Baltimore, MD 21201",
+    "contact_name": "",
+    "tel": "410-685-1460",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "COMMUNITY CENTER"
+  }, 
+  {
+    "business_name": "Sybblis Law Firm, LLC",
+    "location": "400 Renfro Drive, Suite 106, Glen Burnie, Maryland 21060",
+    "contact_name": "",
+    "tel": "410-760-2838, 443-281-0135",
+    "email": "nickola@sybblislaw.com",
+    "description": "Zealous Advocacy, Exceptional Service.",
+    "website": "",
+    "category": "LEGAL SERVICES"
+  }
+]

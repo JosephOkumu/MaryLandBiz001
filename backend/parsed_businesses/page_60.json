@@ -1,1 +1,62 @@
-[]
+[
+  {
+    "business_name": "Pro Energy Electric LLC",
+    "location": "5628 Knell Ave., Baltimore, MD 21206",
+    "contact_name": "William Wright-EL",
+    "tel": "443-413-4687",
+    "email": "william@proenergyelectric.org",
+    "description": "",
+    "website": "www.proenergyelectric.org",
+    "category": "ELECTRICAL"
+  },
+  {
+    "business_name": "Jim Bush Plumbing",
+    "location": "",
+    "contact_name": "",
+    "tel": "410-644-1399",
+    "email": "",
+    "description": "Servicing Baltimore & Surrounding Areas",
+    "website": "www.jimbushplumbing.com",
+    "category": "PLUMBING"
+  },
+  {
+    "business_name": "K & K Adams, Inc.",
+    "location": "2901 Druid Park Drive #207, Baltimore, MD 21215",
+    "contact_name": "",
+    "tel": "410-523-0857",
+    "email": "info@kkadamsinc.com",
+    "description": "Demolition continued",
+    "website": "",
+    "category": "DEMOLITION"
+  },
+  {
+    "business_name": "Drain Pro",
+    "location": "474 Riverside Dr., Pasadena, MD 21122",
+    "contact_name": "",
+    "tel": "410-627-6846",
+    "email": "",
+    "description": "Drain cleaning",
+    "website": "",
+    "category": "PLUMBING"
+  },
+  {
+    "business_name": "L.J.W., Inc.",
+    "location": "P.O. Box 33284, Baltimore, MD 21218",
+    "contact_name": "",
+    "tel": "410-566-2323",
+    "email": "lenzie@ljwinc.com",
+    "description": "",
+    "website": "",
+    "category": "DUMPSTER SERVICE"
+  },
+  {
+    "business_name": "Baltimore Residential & Commercial Electric",
+    "location": "2714 E. Strathmore Ave., Baltimore MD 21214",
+    "contact_name": "",
+    "tel": "443-455-3655",
+    "email": "abaseletricllc@yahoo.com",
+    "description": "",
+    "website": "",
+    "category": "ELECTRICAL"
+  }
+]

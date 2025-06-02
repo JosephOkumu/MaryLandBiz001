@@ -1,1 +1,43 @@
-[]
+
+[
+  {
+    "business_name": "H.L. Williams Painting Construction Co.",
+    "location": "9000 Meadow Heights, Randallstown, MD 21133",
+    "contact_name": "",
+    "tel": "443-869-1800",
+    "email": "hlwilliams@yahoo.com",
+    "description": "",
+    "website": "",
+    "category": "PAINTING CONTRACTORS"
+  },
+  {
+    "business_name": "AMC",
+    "location": "7 Easter Ct., Owings Mill, MD 21117",
+    "contact_name": "",
+    "tel": "410-356-5324",
+    "email": "info@amcchosemech.com",
+    "description": "",
+    "website": "",
+    "category": "PAVING"
+  },
+  {
+    "business_name": "Brooks Contracting",
+    "location": "4903 Snader Ave., Baltimore, MD 21215",
+    "contact_name": "",
+    "tel": "410-977-6665",
+    "email": "brookscontractinginc@gmail.com",
+    "description": "",
+    "website": "brooksasphaltpaving.com",
+    "category": "PAVING"
+  },
+  {
+    "business_name": "A & A Plumbing",
+    "location": "P.O. Box 1311, Elliott City, MD 21044",
+    "contact_name": "",
+    "tel": "410-772-5228",
+    "email": "",
+    "description": "Plumbing & heating",
+    "website": "",
+    "category": "PLUMBING"
+  }
+]

@@ -1,1 +1,22 @@
-[]
+[
+  {
+    "business_name": "Rollins & Associate Real Estate",
+    "location": "201 Millord Mill Rd. Ste. 104, Baltimore, MD 21207",
+    "contact_name": "",
+    "tel": "443-865-0824",
+    "email": "ginawatts@gmail.com",
+    "description": "Real estate associate.",
+    "website": "",
+    "category": "REAL ESTATE"
+  },
+  {
+    "business_name": "Key Hole Services",
+    "location": "P.O. Box 18638, Baltimore, MD 21216",
+    "contact_name": "",
+    "tel": "Office: 410-225-7330 | Cell: 202-247-8440",
+    "email": "keyholeservicesmd@gmail.com",
+    "description": "Property management",
+    "website": "www.keyholeservices.net",
+    "category": "REAL ESTATE"
+  }
+]

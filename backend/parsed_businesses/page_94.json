@@ -1,1 +1,72 @@
-[]
+[
+  {
+    "business_name": "Integrative Alopecia Care Centre",
+    "location": "10715 Charter Drive, Suite 260, Columbia, MD 21044",
+    "contact_name": "",
+    "tel": "443-739-7843 | 443-763-9309",
+    "email": "integrativealopeciacarecenter@aol.com",
+    "description": "Comprehensive consultations & assessments on holistic hair restoration & recovery therapies.",
+    "website": "holistichairrecoverytx.com",
+    "category": "HAIR CARE"
+  },
+  {
+    "business_name": "The Epilation Clinic",
+    "location": "6600 York Rd. Suite 209, Bellmore, MD 21212",
+    "contact_name": "",
+    "tel": "410-235-2211",
+    "email": "epilationclinic@gmail.com",
+    "description": "Hair care, hair removal, and hair & skin care products. Appointment needed.",
+    "website": "www.epilationclinic.com",
+    "category": "HAIR CARE"
+  },
+  {
+    "business_name": "Hair 4 Life",
+    "location": "1919 11th Street N.W., Washington, DC 20001",
+    "contact_name": "",
+    "tel": "202-510-0337 | 202-679-6093",
+    "email": "Hair4lifemerch@gmail.com",
+    "description": "",
+    "website": "",
+    "category": "HAIR CARE"
+  },
+  {
+    "business_name": "Leona Watties-Philips Avon Products",
+    "location": "",
+    "contact_name": "",
+    "tel": "410-484-7217",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "HAIR CARE"
+  },
+  {
+    "business_name": "Shea Radiance",
+    "location": "",
+    "contact_name": "",
+    "tel": "443-812-0762 | 443-212-8658",
+    "email": "funlayo@shearradiance.com",
+    "description": "",
+    "website": "www.shearradiance.com",
+    "category": "HAIR CARE"
+  },
+  {
+    "business_name": "Carey Hardware",
+    "location": "202 W. North Ave., Beltimore, MD 21217",
+    "contact_name": "",
+    "tel": "410-523-6600",
+    "email": "",
+    "description": "",
+    "website": "Facebook/carryhardware1",
+    "category": "HARDWARE"
+  },
+  {
+    "business_name": "Myers Impact Holistic Health Club",
+    "location": "2030 Aliceanna St., Baltimore, MD 21231",
+    "contact_name": "",
+    "tel": "443-762-2941",
+    "email": "",
+    "description": "",
+    "website": "www.myersimpact.com",
+    "category": "HEALTH CLUB"
+  }
+]

@@ -1,1 +1,112 @@
-[]
+[
+  {
+    "business_name": "Sinai Hospital",
+    "location": "",
+    "contact_name": "Miles G. Harrison",
+    "tel": "410-601-8104",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "HEALTH"
+  },
+  {
+    "business_name": "Thweatt, Delhi E.",
+    "location": "5602 Baltimore Nt'l Pike, Ste 300",
+    "contact_name": "",
+    "tel": "410-788-1005",
+    "email": "",
+    "description": "Gynecology",
+    "website": "",
+    "category": "GYNECOLOGY"
+  },
+  {
+    "business_name": "Global Vision Center",
+    "location": "2429 Cleanleigh Dr., Parkville, MD 21234",
+    "contact_name": "",
+    "tel": "410-663-8393",
+    "email": "",
+    "description": "Ophthalmology",
+    "website": "",
+    "category": "OPHTHALMOLOGY"
+  },
+  {
+    "business_name": "Morgan, Bsil S.",
+    "location": "4324 York Rd, Baltimore, MD 21212",
+    "contact_name": "",
+    "tel": "410-243-3937",
+    "email": "",
+    "description": "Ophthalmology",
+    "website": "",
+    "category": "OPHTHALMOLOGY"
+  },
+  {
+    "business_name": "Davis Poole Opometer",
+    "location": "1804 W. North Ave.",
+    "contact_name": "",
+    "tel": "410-523-1224",
+    "email": "",
+    "description": "Ophthalmology",
+    "website": "",
+    "category": "OPHTHALMOLOGY"
+  },
+  {
+    "business_name": "DesBorja, Lilia",
+    "location": "4200 Edmondson Ave., Baltimore, MD 21229",
+    "contact_name": "Lila DesEops",
+    "tel": "410-624-0037",
+    "email": "",
+    "description": "Pediatric services.",
+    "website": "",
+    "category": "PEDIATRICS"
+  },
+  {
+    "business_name": "Nicholson Deborah J.",
+    "location": "2 W. Rolling Rd #104",
+    "contact_name": "Deborah J. Nicholson",
+    "tel": "410-719-9630",
+    "email": "",
+    "description": "Pediatric services.",
+    "website": "",
+    "category": "PEDIATRICS"
+  },
+  {
+    "business_name": "Parks, Cheryl L.",
+    "location": "3527 Rolling Rd #1, Baltimore, MD 21244",
+    "contact_name": "",
+    "tel": "410-521-PEDS",
+    "email": "",
+    "description": "Pediatric services.",
+    "website": "",
+    "category": "PEDIATRICS"
+  },
+  {
+    "business_name": "White, Jaclyn Blackwell",
+    "location": "3527 Rolling Rd #1, Baltimore, MD 21244",
+    "contact_name": "",
+    "tel": "410-521-PEDS",
+    "email": "",
+    "description": "Pediatric services.",
+    "website": "",
+    "category": "PEDIATRICS"
+  },
+  {
+    "business_name": "Zoltcoffer Micheal",
+    "location": "3502 W. Rogers Ave., Baltimore, MD 21215",
+    "contact_name": "",
+    "tel": "410-542-1725",
+    "email": "",
+    "description": "Pediatric services.",
+    "website": "",
+    "category": " PEDIATRICS"
+  },
+  {
+    "business_name": "Taylor Integrated Health",
+    "location": "2300 Garrison Blvd, Suite 200 Baltimore, MD 21216",
+    "contact_name": "Janay Taylor",
+    "tel": "443-708-3958 | 443-869-2620",
+    "email": "tihealth14@gmail.com",
+    "description": "Healthcare for the whole family.",
+    "website": "",
+    "category": "HEALTH"
+  }
+]

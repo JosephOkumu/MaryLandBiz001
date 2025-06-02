@@ -1,1 +1,72 @@
-[]
+[
+  {
+    "business_name": "Best Fence",
+    "location": "26 8th St., Baltimore, MD 21061",
+    "contact_name": "",
+    "tel": "410-768-9227",
+    "email": "info@bestfence.biz",
+    "description": "Commercial Fencing DMV Area Certification: Baltimore City and Maryland",
+    "website": "www.bestfence.biz",
+    "category": "FENCING"
+  },
+  {
+    "business_name": "Sparks Quality Fence Co.",
+    "location": "4919 Erdman Ave., Baltimore, MD 21205",
+    "contact_name": "",
+    "tel": "410-327-9000, 410-488-5528",
+    "email": "s4881850@aol.com",
+    "description": "",
+    "website": "www.sparksqualityfence.com",
+    "category": "FENCING"
+  },
+  {
+    "business_name": "Financial Management Strategies, LLC (FMS)",
+    "location": "1330 Smith Avenue, Baltimore, MD 21209",
+    "contact_name": "",
+    "tel": "800-948-8095",
+    "email": "walid@fmsadvisors.com",
+    "description": "Financial management strategies",
+    "website": "",
+    "category": "FINANCE"
+  },
+  {
+    "business_name": "LPL Financial",
+    "location": "10461 Mill Run Circle, Suite 815, Owings Mills, MD 21117",
+    "contact_name": "Danard Smith",
+    "tel": "410-356-8838",
+    "email": "Danard.Smith@lpl.com",
+    "description": "",
+    "website": "",
+    "category": "FINANCE"
+  },
+  {
+    "business_name": "Meridian Management Group",
+    "location": "826 E. Baltimore St., Baltimore, MD 21202",
+    "contact_name": "",
+    "tel": "410-333-2548",
+    "email": "mmgdal@mmgroup.com",
+    "description": "",
+    "website": "www.mmgcapitalgroup.com",
+    "category": "FINANCE"
+  },
+  {
+    "business_name": "Magothy Payments",
+    "location": "517 Benfield Road, Suite 101A, Severna Park, MD 21146",
+    "contact_name": "",
+    "tel": "443-886-5279",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "FINANCE"
+  },
+  {
+    "business_name": "Dominican Republic Luxury Vacations",
+    "location": "3061 Fredrick Ave. Baltimore, MD 21223",
+    "contact_name": "",
+    "tel": "443-914-3470",
+    "email": "travel@dominicanvacations.net",
+    "description": "Enjoy a luxurious private villa, VIP access & amenities!",
+    "website": "www.dominicanvacations.net",
+    "category": "TRAVEL"
+  }
+]

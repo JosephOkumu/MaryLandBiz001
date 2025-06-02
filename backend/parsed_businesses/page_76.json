@@ -1,1 +1,22 @@
-[]
+[
+  {
+    "business_name": "The Law Office of Shari Fleming",
+    "location": "Owings Mills, MD 21117",
+    "contact_name": "Shari Fleming",
+    "tel": "410-316-6800",
+    "email": "info@ShariFleming.com",
+    "description": "Legal services",
+    "website": "www.ShariFleming.com",
+    "category": "LEGAL SERVICES"
+  },
+  {
+    "business_name": "Slate The Venue",
+    "location": "3925 Gough St Suite 1, Baltimore, MD 21224",
+    "contact_name": "",
+    "tel": "443-869-2431",
+    "email": "info@slatethevenue.com",
+    "description": "Our modern glamorous venue has everything you need to get the party started",
+    "website": "slatethevenue.com",
+    "category": "EVENT VENUE"
+  }
+]

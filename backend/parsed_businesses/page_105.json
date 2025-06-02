@@ -1,1 +1,52 @@
-[]
+[
+  {
+    "business_name": "Baltimore Teachers Network",
+    "location": "2701 Charles St., Baltimore, MD 21218",
+    "contact_name": "",
+    "tel": "410-469-9902",
+    "email": "rhowell@btnetwork.org",
+    "description": "",
+    "website": "baltimoreteachernetwork.org",
+    "category": "ASSOCIATION"
+  },
+  {
+    "business_name": "100 Black Men of Maryland",
+    "location": "4113 Liberty Rd., Gwynn Oak, MD 21207",
+    "contact_name": "",
+    "tel": "410-664-6726",
+    "email": "wwebb@100bmm.org",
+    "description": "",
+    "website": "100blackmenofmaryland.org",
+    "category": "NGO"
+  },
+  {
+    "business_name": "K.E.Y.E.S Development",
+    "location": "7501 Liberty Rd., Baltimore, MD 21207",
+    "contact_name": "",
+    "tel": "443-842-0519 | 443-429-2536",
+    "email": "",
+    "description": "",
+    "website": "Keysempowers.org",
+    "category": "NGO"
+  },
+  {
+    "business_name": "Positive ID, Inc.",
+    "location": "103 Sudbrook Ln. Suite 4, Pikesville, MD 21208",
+    "contact_name": "Debra Brown",
+    "tel": "410-602-2479",
+    "email": "positiveidinc@aol.com",
+    "description": "",
+    "website": "",
+    "category": "NOTARY PUBLIC"
+  },
+  {
+    "business_name": "Sue Ann's Office Supply, Inc.",
+    "location": "4147 Hayward Ave, Baltimore, MD 21215",
+    "contact_name": "",
+    "tel": "410-664-6226",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "FURNITURE"
+  }
+]

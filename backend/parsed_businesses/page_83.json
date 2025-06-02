@@ -1,1 +1,72 @@
-[]
+[
+  {
+    "business_name": "Paul Lead Inspection",
+    "location": "538 N. Fulton Ave, Baltimore, MD 21223",
+    "contact_name": "",
+    "tel": "410-814-0301",
+    "email": "",
+    "description": "Environmental testing and consulting.",
+    "website": "",
+    "category": "ENVIRONMENTAL"
+  },
+  {
+    "business_name": "Essential Elements Rentals",
+    "location": "1099 Red Run Blvd Suite 205, Owings Mills, MD 21117",
+    "contact_name": "",
+    "tel": "410-929-6267",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "EQUIPMENTS"
+  },
+  {
+    "business_name": "Ultimate Equipment Repair Services",
+    "location": "1002 N. Kresson St., Baltimore, MD 21205",
+    "contact_name": "",
+    "tel": "410-236-1132",
+    "email": "",
+    "description": "",
+    "website": "",
+    "category": "EQUIPMENTS"
+  },
+  {
+    "business_name": "Bare on the Square",
+    "location": "2835 O'Donnell St., Baltimore, MD 21224",
+    "contact_name": "",
+    "tel": "410-353-0493",
+    "email": "",
+    "description": "Esthecian",
+    "website": "",
+    "category": "ESTHETICIAN"
+  },
+  {
+    "business_name": "Muse Skyn Esthetician/Lash Extensionist & Instructor",
+    "location": "",
+    "contact_name": "Britney Richardson",
+    "tel": "443-850-1863",
+    "email": "BritneyRichardson@museskyn.com",
+    "description": "Esthetician/Lead Extensions & Instructor",
+    "website": "",
+    "category": "ESTHETICIAN"
+  },
+  {
+    "business_name": "Bishop Barry Pest Control",
+    "location": "2222 E. Jefferson St. Suite 3, Baltimore, MD 21205",
+    "contact_name": "",
+    "tel": "410-292-3029",
+    "email": "bishopbarry@bailout.com",
+    "description": "Exterminators/pest control",
+    "website": "",
+    "category": "PEST CONTROL"
+  },
+  {
+    "business_name": "Clean & Clear Pest Control and Janitorial Services",
+    "location": "4008 Amy Ln., Randallstown, MD 21133",
+    "contact_name": "",
+    "tel": "443-985-6565, 410-701-8043",
+    "email": "",
+    "description": "Pest control",
+    "website": "",
+    "category": "PEST CONTROL"
+  }
+]
