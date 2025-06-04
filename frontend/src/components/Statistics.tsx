@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import BusinessCard from "./BusinessCard";
-import { Business, getBusinesses, getFeaturedBusinesses } from "@/lib/api";
+import { Business, getBusinesses, getFeaturedBusinesses } from "../lib/api";
 import useInfiniteScroll from "@/hooks/useInfiniteScroll";
 
 const Statistics = () => {
