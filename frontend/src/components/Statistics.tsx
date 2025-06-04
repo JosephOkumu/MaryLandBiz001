@@ -1,18 +1,30 @@
 import { useEffect, useRef, Fragment } from "react";
 import { motion } from "framer-motion";
 import { useInfiniteQuery } from "@tanstack/react-query";
+import { useSearchParams } from "react-router-dom"; // Added
 import BusinessCard from "./BusinessCard";
 import { Business, getBusinesses } from "../lib/api";
 
 const PAGE_SIZE = 150;
 
-const fetchBusinesses = async ({ pageParam = 0 }: { pageParam?: number }) => {
-  // pageParam here is the offset
-  const result = await getBusinesses({ limit: PAGE_SIZE, offset: pageParam });
+// Updated fetchBusinesses to accept q and category
+const fetchBusinesses = async ({
+  pageParam = 0,
+  q,
+  category,
+}: {
+  pageParam?: number;
+  q: string;
+  category: string;
+}) => {
+  const result = await getBusinesses({ limit: PAGE_SIZE, offset: pageParam, q, category });
   return { ...result, nextPageOffset: pageParam + result.businesses.length };
 };
 
 const Statistics = () => {
+  const [searchParams] = useSearchParams();
+  const queryParamQ = searchParams.get("q") || "";
+  const queryParamCategory = searchParams.get("category") || "";
   const {
     data,
     fetchNextPage,
@@ -22,8 +34,9 @@ const Statistics = () => {
     error,
     isFetchingNextPage,
   } = useInfiniteQuery({
-    queryKey: ['businesses'],
-    queryFn: ({ pageParam }) => fetchBusinesses({ pageParam }),
+    queryKey: ['businesses', queryParamCategory, queryParamQ], // Updated queryKey
+    queryFn: ({ pageParam }) => 
+      fetchBusinesses({ pageParam, q: queryParamQ, category: queryParamCategory }), // Pass q and category
     getNextPageParam: (lastPage) => {
       if (lastPage.nextPageOffset >= lastPage.total) {
         return undefined; // No more pages
@@ -95,7 +108,7 @@ const Statistics = () => {
           transition={{ duration: 0.6 }}
           className="text-3xl font-bold text-center mb-12 text-primary"
         >
-          Featured Businesses
+          {queryParamQ || queryParamCategory ? "Search Results" : "All Businesses"}
         </motion.h2>
         
         {allBusinesses.length > 0 ? (
@@ -110,7 +123,11 @@ const Statistics = () => {
           </div>
         ) : (
           <div className="text-center py-10">
-            <p className="text-lg text-gray-500">No businesses found.</p>
+            <p className="text-lg text-gray-500">
+              {queryParamQ || queryParamCategory 
+                ? "No businesses found matching your criteria."
+                : "No businesses found."}
+            </p>
           </div>
         )}
         
@@ -138,3 +155,14 @@ const Statistics = () => {
 };
 
 export default Statistics;
+
+// Helper to keep track of previous search params for comparison if needed for more complex scenarios
+// Not strictly necessary for this implementation but can be useful.
+// const usePrevious = <T extends unknown>(value: T): T | undefined => {
+//   const ref = useRef<T>();
+//   useEffect(() => {
+//     ref.current = value;
+//   });
+//   return ref.current;
+// };
+
