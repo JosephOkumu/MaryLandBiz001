@@ -40,7 +40,7 @@ def create_database():
             business_name VARCHAR(255) NOT NULL,
             location TEXT,
             contact_name VARCHAR(255),
-            tel VARCHAR(50),
+            tel VARCHAR(255),
             email VARCHAR(255),
             description TEXT,
             website VARCHAR(255),
@@ -49,8 +49,16 @@ def create_database():
             date_added TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )
         """
-        cursor.execute(create_businesses_table)
-        print("Table 'businesses' created or already exists.")
+        try:
+            cursor.execute(create_businesses_table)
+            print("Table 'businesses' created successfully or already exists.")
+        except mysql.connector.Error as err:
+            if err.errno == 1050: # Error code for Table already exists
+                print("Table 'businesses' already exists. Continuing...")
+            else:
+                # Re-raise other errors
+                print(f"Error during 'businesses' table creation: {err}")
+                raise
         
         # Create the categories table for easier filtering
         create_categories_table = """
@@ -59,8 +67,21 @@ def create_database():
             name VARCHAR(100) UNIQUE NOT NULL
         )
         """
-        cursor.execute(create_categories_table)
-        print("Table 'categories' created or already exists.")
+        try:
+            cursor.execute(create_categories_table)
+            print("Table 'categories' created successfully or already exists.")
+        except mysql.connector.Error as err:
+            if err.errno == 1050: # Error code for Table already exists
+                print("Table 'categories' already exists. Continuing...")
+            else:
+                # Re-raise other errors
+                print(f"Error during 'categories' table creation: {err}")
+                raise
+
+        # Alter the businesses table to ensure 'tel' column is VARCHAR(255)
+        alter_businesses_table_tel = "ALTER TABLE businesses MODIFY COLUMN tel VARCHAR(255)"
+        cursor.execute(alter_businesses_table_tel)
+        print("Column 'tel' in 'businesses' table altered to VARCHAR(255) or already was.")
         
         # Commit the changes
         connection.commit()
