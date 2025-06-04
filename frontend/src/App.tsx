@@ -16,6 +16,7 @@ import Analytics from "./components/admin/Analytics";
 import AdminSettings from "./components/admin/AdminSettings";
 import AddMyBusiness from "./pages/AddMyBusiness";
 import AdminLogin from "./pages/AdminLogin";
+import BrowsePage from "./pages/BrowsePage"; // <-- Import BrowsePage
 
 // Create a new QueryClient instance
 const queryClient = new QueryClient();
@@ -39,6 +40,7 @@ const App = () => (
               <Route path="analytics" element={<Analytics />} />
               <Route path="settings" element={<AdminSettings />} />
             </Route>
+            <Route path="/browse" element={<BrowsePage />} /> {/* <-- Add /browse route */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
