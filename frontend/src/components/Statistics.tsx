@@ -1,64 +1,90 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, Fragment } from "react";
 import { motion } from "framer-motion";
+import { useInfiniteQuery } from "@tanstack/react-query";
 import BusinessCard from "./BusinessCard";
-import { Business, getBusinesses, getFeaturedBusinesses } from "../lib/api";
-import useInfiniteScroll from "@/hooks/useInfiniteScroll";
+import { Business, getBusinesses } from "../lib/api";
+
+const PAGE_SIZE = 150;
+
+const fetchBusinesses = async ({ pageParam = 0 }: { pageParam?: number }) => {
+  // pageParam here is the offset
+  const result = await getBusinesses({ limit: PAGE_SIZE, offset: pageParam });
+  return { ...result, nextPageOffset: pageParam + result.businesses.length };
+};
 
 const Statistics = () => {
-  // State for featured businesses from the database
-  const [businesses, setBusinesses] = useState<Business[]>([]);
-  const [totalBusinesses, setTotalBusinesses] = useState(0);
-  const PAGE_SIZE = 12; // Display 12 businesses per page
-  
-  // Use our custom infinite scroll hook
-  const { loading, setLoading, page, setEnd, reset } = useInfiniteScroll({
-    threshold: 200, // Load more when user scrolls within 200px of the bottom
-    initialLoad: true
+  const {
+    data,
+    fetchNextPage,
+    hasNextPage,
+    isLoading,
+    isError,
+    error,
+    isFetchingNextPage,
+  } = useInfiniteQuery({
+    queryKey: ['businesses'],
+    queryFn: ({ pageParam }) => fetchBusinesses({ pageParam }),
+    getNextPageParam: (lastPage) => {
+      if (lastPage.nextPageOffset >= lastPage.total) {
+        return undefined; // No more pages
+      }
+      return lastPage.nextPageOffset;
+    },
+    initialPageParam: 0,
   });
 
-  // Fetch featured businesses on component mount
-  useEffect(() => {
-    const fetchInitialBusinesses = async () => {
-      try {
-        const featuredData = await getFeaturedBusinesses(PAGE_SIZE);
-        setBusinesses(featuredData);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching featured businesses:", error);
-        setLoading(false);
-      }
-    };
+  const observerRef = useRef<IntersectionObserver | null>(null);
+  const loadMoreRef = useRef<HTMLDivElement | null>(null);
 
-    fetchInitialBusinesses();
-  }, []);
-
-  // Load more businesses when user scrolls (infinite scroll)
   useEffect(() => {
-    if (page === 0) return; // Skip on initial render
-    
-    const loadMoreBusinesses = async () => {
-      try {
-        const offset = page * PAGE_SIZE;
-        const result = await getBusinesses({
-          limit: PAGE_SIZE,
-          offset
-        });
-        
-        if (result.businesses.length === 0) {
-          setEnd(true);
-        } else {
-          setBusinesses(prevBusinesses => [...prevBusinesses, ...result.businesses]);
-          setTotalBusinesses(result.total);
+    if (observerRef.current) observerRef.current.disconnect();
+
+    observerRef.current = new IntersectionObserver(
+      entries => {
+        if (entries[0].isIntersecting && hasNextPage && !isFetchingNextPage) {
+          fetchNextPage();
         }
-        setLoading(false);
-      } catch (error) {
-        console.error("Error loading more businesses:", error);
-        setLoading(false);
+      },
+      {
+        rootMargin: "0px 0px 500px 0px", // Trigger when sentinel is 500px from bottom of viewport
+      }
+    );
+
+    if (loadMoreRef.current) {
+      observerRef.current.observe(loadMoreRef.current);
+    }
+
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
       }
     };
+  }, [hasNextPage, fetchNextPage, isFetchingNextPage]);
 
-    loadMoreBusinesses();
-  }, [page, setLoading, setEnd]);
+  if (isLoading) {
+    return (
+      <section className="py-16 bg-white">
+        <div className="container text-center py-10">
+          <div className="inline-block h-12 w-12 animate-spin rounded-full border-4 border-solid border-primary border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]" role="status">
+            <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...</span>
+          </div>
+          <p className="text-lg text-gray-500 mt-4">Loading businesses...</p>
+        </div>
+      </section>
+    );
+  }
+
+  if (isError) {
+    return (
+      <section className="py-16 bg-white">
+        <div className="container text-center py-10">
+          <p className="text-lg text-red-500">Error fetching businesses: {(error as Error)?.message || 'Unknown error'}</p>
+        </div>
+      </section>
+    );
+  }
+
+  const allBusinesses = data?.pages.flatMap((page: { businesses: Business[], total: number, nextPageOffset: number }) => page.businesses) || [];
 
   return (
     <section className="py-16 bg-white">
@@ -72,11 +98,11 @@ const Statistics = () => {
           Featured Businesses
         </motion.h2>
         
-        {businesses.length > 0 ? (
+        {allBusinesses.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {businesses.map((business, index) => (
+            {allBusinesses.map((business, index) => (
               <BusinessCard 
-                key={business.id || index}
+                key={business.id || index} // Ensure unique key
                 business={business}
                 index={index}
               />
@@ -84,11 +110,13 @@ const Statistics = () => {
           </div>
         ) : (
           <div className="text-center py-10">
-            <p className="text-lg text-gray-500">Loading businesses...</p>
+            <p className="text-lg text-gray-500">No businesses found.</p>
           </div>
         )}
         
-        {loading && businesses.length > 0 && (
+        <div ref={loadMoreRef} style={{ height: '1px' }} /> {/* Sentinel for IntersectionObserver */}
+
+        {isFetchingNextPage && (
           <div className="text-center mt-8">
             <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-primary border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]" role="status">
               <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
@@ -96,6 +124,12 @@ const Statistics = () => {
               </span>
             </div>
             <p className="mt-2 text-sm text-gray-500">Loading more businesses...</p>
+          </div>
+        )}
+
+        {!hasNextPage && allBusinesses.length > 0 && (
+           <div className="text-center mt-8">
+            <p className="text-sm text-gray-500">You've reached the end of the list.</p>
           </div>
         )}
       </div>
