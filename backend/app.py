@@ -10,9 +10,10 @@ CORS(app)  # Enable CORS for all routes
 @app.route('/api/businesses', methods=['GET'])
 def get_businesses():
     """
-    Get all businesses or filtered by category
+    Get all businesses, optionally filtered by category and/or a search term.
     """
     category = request.args.get('category', '')
+    search_term = request.args.get('q', '')  # New search term parameter
     limit = request.args.get('limit', 20, type=int)
     offset = request.args.get('offset', 0, type=int)
     
@@ -23,44 +24,55 @@ def get_businesses():
     try:
         cursor = connection.cursor(dictionary=True)
         
-        # Base query
-        query = "SELECT * FROM businesses"
-        params = []
-        
-        # Add category filter if provided
-        if category:
-            query += " WHERE category = %s"
-            params.append(category)
-        
-        # Add pagination
-        query += " ORDER BY business_name LIMIT %s OFFSET %s"
-        params.extend([limit, offset])
-        
-        cursor.execute(query, params)
-        businesses = cursor.fetchall()
-        
-        # Get total count for pagination
-        count_query = "SELECT COUNT(*) as total FROM businesses"
-        count_params = []
+        query_parts = ["SELECT * FROM businesses"]
+        where_clauses = []
+        params_for_data = [] # Parameters for the main data query
+        params_for_count = [] # Parameters for the count query
         
         if category:
-            count_query += " WHERE category = %s"
-            count_params.append(category)
+            where_clauses.append("category = %s")
+            params_for_data.append(category)
+            params_for_count.append(category)
+        
+        if search_term:
+            search_param = f"%{search_term}%"
+            where_clauses.append("(business_name LIKE %s OR description LIKE %s)")
+            params_for_data.extend([search_param, search_param])
+            params_for_count.extend([search_param, search_param])
             
-        cursor.execute(count_query, count_params)
+        if where_clauses:
+            query_parts.append("WHERE " + " AND ".join(where_clauses))
+        
+        # Construct and execute the count query first
+        count_query_sql = "SELECT COUNT(*) as total FROM businesses"
+        if where_clauses:
+            count_query_sql += " WHERE " + " AND ".join(where_clauses)
+        
+        cursor.execute(count_query_sql, tuple(params_for_count))
         total = cursor.fetchone()['total']
+        
+        # Construct and execute the main data query
+        query_parts.append("ORDER BY business_name LIMIT %s OFFSET %s")
+        params_for_data.extend([limit, offset])
+        
+        main_query_sql = " ".join(query_parts)
+        cursor.execute(main_query_sql, tuple(params_for_data))
+        businesses = cursor.fetchall()
         
         return jsonify({
             "businesses": businesses,
             "total": total,
             "limit": limit,
-            "offset": offset
+            "offset": offset,
+            "category_filter": category,
+            "search_term": search_term
         })
         
     except Error as err:
+        app.logger.error(f"Database error: {err}") # Added logging
         return jsonify({"error": str(err)}), 500
     finally:
-        if connection.is_connected():
+        if connection and connection.is_connected():
             cursor.close()
             connection.close()
 
