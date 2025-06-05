@@ -113,3 +113,6 @@ The frontend provides the user interface for the business directory.
 -   `/frontend`: Contains the React (Vite + TypeScript) application, components, pages, and frontend-specific configurations.
 -   `/parsed_businesses`: Contains the JSON business data files used to populate the database (referenced by `backend/import_json_to_db.py`).
 
+## Aurthor
+
+[Joseph OKumu](https://github.com/JosephOkumu)
