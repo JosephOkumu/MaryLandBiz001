@@ -14,6 +14,7 @@ import AddBusiness from "./components/admin/AddBusiness";
 import EditBusiness from "./components/admin/EditBusiness";
 import Analytics from "./components/admin/Analytics";
 import AdminSettings from "./components/admin/AdminSettings";
+import ApplicationsPage from "./pages/admin/ApplicationsPage"; // Added for new Applications page
 import AddMyBusiness from "./pages/AddMyBusiness";
 import AdminLogin from "./pages/AdminLogin";
 import BrowsePage from "./pages/BrowsePage"; // <-- Import BrowsePage
@@ -39,6 +40,7 @@ const App = () => (
               <Route path="businesses/edit/:id" element={<EditBusiness />} />
               <Route path="analytics" element={<Analytics />} />
               <Route path="settings" element={<AdminSettings />} />
+              <Route path="applications" element={<ApplicationsPage />} /> {/* Added route for Applications page */}
             </Route>
             <Route path="/browse" element={<BrowsePage />} /> {/* <-- Add /browse route */}
             <Route path="*" element={<NotFound />} />

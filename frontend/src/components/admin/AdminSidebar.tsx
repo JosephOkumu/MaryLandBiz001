@@ -1,6 +1,6 @@
 
 import { NavLink } from "react-router-dom";
-import { LayoutDashboard, Store, PlusCircle, BarChart3, Settings } from "lucide-react";
+import { LayoutDashboard, Store, BarChart3, Settings, ClipboardList, PlusCircle } from "lucide-react"; // Added ClipboardList, kept PlusCircle for other uses if any
 
 interface AdminSidebarProps {
   open: boolean;
@@ -25,9 +25,9 @@ const AdminSidebar = ({ open }: AdminSidebarProps) => {
       icon: <Store className="h-5 w-5" strokeWidth={2.5} />,
     },
     {
-      title: "Add Business",
-      href: "/dashboard/businesses/add",
-      icon: <PlusCircle className="h-5 w-5" strokeWidth={2.5} />,
+      title: "Applications",
+      href: "/dashboard/applications",
+      icon: <ClipboardList className="h-5 w-5" strokeWidth={2.5} />,
     },
     {
       title: "Analytics",
