@@ -67,38 +67,61 @@ const AddMyBusiness = () => {
               onSubmit={handleSubmit} 
               className="space-y-6"
             >
-              <motion.div variants={inputAnimation} className="space-y-2">
-                <Label htmlFor="businessName">Business Name</Label>
-                <Input id="businessName" required placeholder="Enter your business name" />
+              <motion.div variants={inputAnimation} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="business_name">Business Name <span className="text-red-500">*</span></Label>
+                  <Input id="business_name" required placeholder="Enter business name" />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="location">Location <span className="text-red-500">*</span></Label>
+                  <Input id="location" required placeholder="e.g., 123 Main St, City, MD ZIP" />
+                </div>
               </motion.div>
 
-              <motion.div variants={inputAnimation} className="space-y-2">
-                <Label htmlFor="category">Business Category</Label>
-                <Input id="category" required placeholder="e.g., Restaurant, Retail, Technology" />
+              <motion.div variants={inputAnimation} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="category">Category <span className="text-red-500">*</span></Label>
+                  <Input id="category" required placeholder="e.g., BOUTIQUES, Restaurants, Technology" />
+                </div>
               </motion.div>
 
-              <motion.div variants={inputAnimation} className="space-y-2">
-                <Label htmlFor="contact">Contact Information</Label>
-                <Input id="contact" type="email" required placeholder="Your email address" />
+              <motion.div variants={inputAnimation} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="contact_name">Contact Person Name</Label>
+                  <Input id="contact_name" placeholder="Enter contact person's name (optional)" />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="tel">Telephone <span className="text-red-500">*</span></Label>
+                  <Input id="tel" type="tel" required placeholder="e.g., 410-555-1234" />
+                </div>
+              </motion.div>
+
+              <motion.div variants={inputAnimation} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="email">Email Address <span className="text-red-500">*</span></Label>
+                  <Input id="email" type="email" required placeholder="e.g., contact@example.com" />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="website">Website</Label>
+                  <Input id="website" type="url" placeholder="e.g., https://www.example.com (optional)" />
+                </div>
               </motion.div>
 
               <motion.div variants={inputAnimation} className="space-y-2">
                 <Label htmlFor="description">Business Description</Label>
                 <Textarea 
                   id="description" 
-                  placeholder="Please describe your business..." 
+                  placeholder="Tell us about your business (optional)" 
                   className="h-32"
-                  required
                 />
               </motion.div>
 
               <motion.div variants={inputAnimation} className="space-y-2">
-                <Label htmlFor="message">Additional Information</Label>
-                <Textarea 
-                  id="message" 
-                  placeholder="Any additional information you'd like to share..." 
-                  className="h-24"
-                />
+                <div className="md:w-1/6">
+                  <Label htmlFor="business_image">Upload Image</Label>
+                  <Input id="business_image" type="file" accept="image/*" />
+                  <p className="text-xs text-muted-foreground">Upload an image for your business listing (optional).</p>
+                </div>
               </motion.div>
 
               <motion.div 
