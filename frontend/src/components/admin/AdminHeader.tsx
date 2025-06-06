@@ -11,25 +11,14 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-interface AdminHeaderProps {
-  sidebarOpen: boolean;
-  setSidebarOpen: (open: boolean) => void;
-}
 
-const AdminHeader = ({ sidebarOpen, setSidebarOpen }: AdminHeaderProps) => {
+const AdminHeader = () => {
   return (
     <header className="bg-white border-b border-gray-200 sticky top-0 z-30">
       <div className="px-4 h-16 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <Button 
-            variant="ghost" 
-            size="icon" 
-            onClick={() => setSidebarOpen(!sidebarOpen)}
-            className="mr-2"
-          >
-            <Menu className="h-5 w-5" strokeWidth={2.5} />
-          </Button>
-          <Link to="/" className="flex items-center space-x-2">
+          {/* Hamburger menu button removed */}
+          <Link to="/" className="flex items-center space-x-2 ml-14"> {/* Corrected to ml-14 to accurately restore position */}
             <Building className="h-6 w-6 text-primary" strokeWidth={2.5} />
             <span className="text-xl font-bold">
               <span className="text-[#0061A8]">Maryland</span>

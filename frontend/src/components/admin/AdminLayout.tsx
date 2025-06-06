@@ -6,14 +6,14 @@ import AdminSidebar from "./AdminSidebar";
 import Footer from "../Footer";
 
 const AdminLayout = () => {
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  // const [sidebarOpen, setSidebarOpen] = useState(true); // Removed for permanently open sidebar
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      <AdminHeader setSidebarOpen={setSidebarOpen} sidebarOpen={sidebarOpen} />
+      <AdminHeader /> {/* Removed setSidebarOpen and sidebarOpen props */}
       <div className="flex flex-1">
-        <AdminSidebar open={sidebarOpen} />
-        <div className={`flex-1 transition-all flex flex-col ${sidebarOpen ? "md:ml-64" : ""}`}>
+        <AdminSidebar open={true} /> {/* Sidebar is always open */}
+        <div className={`flex-1 transition-all flex flex-col md:ml-64`}> {/* Sidebar is always open, so margin is always applied */}
           <main className="flex-1 p-4 md:p-8 pt-6">
             <Outlet />
           </main>
