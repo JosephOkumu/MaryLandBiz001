@@ -152,6 +152,7 @@ const Hero = () => {
 
           <Input
             type="text"
+            id="hero-search-input" // Added ID for scrolling
             placeholder="Search businesses, services, or keywords..."
             className="flex-1 bg-white border-none rounded-full text-black"
             value={searchTerm}

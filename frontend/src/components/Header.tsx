@@ -1,9 +1,27 @@
 
 import { Building, Home, Search, PlusCircle, User } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const Header = () => {
+  const navigate = useNavigate();
+
+  const handleBrowseClick = () => {
+    if (window.location.pathname === '/') {
+      const searchInput = document.getElementById('hero-search-input');
+      if (searchInput) {
+        searchInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        // Adding a slight delay for focus to ensure scroll has finished
+        setTimeout(() => {
+          searchInput.focus({ preventScroll: true });
+        }, 300); // Adjust delay if needed
+      }
+    } else {
+      // Navigate to homepage with a query param to trigger focus/scroll
+      navigate('/?focusSearch=true');
+    }
+  };
+
   const navItemVariants = {
     hover: {
       y: -2,
@@ -53,7 +71,7 @@ const Header = () => {
                 </Link>
               </motion.li>
               <motion.li variants={navItemVariants} whileHover="hover">
-                <button className="flex items-center gap-2 px-3 py-2 hover:bg-primary hover:text-white rounded-md transition-all">
+                <button onClick={handleBrowseClick} className="flex items-center gap-2 px-3 py-2 hover:bg-primary hover:text-white rounded-md transition-all">
                   <Search className="h-4 w-4" strokeWidth={2.5} />
                   <span className="font-medium">Browse</span>
                 </button>
