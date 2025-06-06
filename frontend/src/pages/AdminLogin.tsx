@@ -1,5 +1,7 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useAuth } from "../components/AuthContext"; // Import useAuth
+import { AdminLoginCredentials } from "../lib/api"; // Import credentials type
 import { useNavigate, Link } from "react-router-dom";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -12,8 +14,8 @@ import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
 
 const loginSchema = z.object({
-  email: z.string().email({
-    message: "Please enter a valid email address.",
+  username: z.string().min(1, {
+    message: "Username is required.",
   }),
   password: z.string().min(6, {
     message: "Password must be at least 6 characters.",
@@ -23,45 +25,47 @@ const loginSchema = z.object({
 type LoginFormValues = z.infer<typeof loginSchema>;
 
 const AdminLogin = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  // isLoading from AuthContext will be used. Local error can also be from context.
+  // const [localIsLoading, setLocalIsLoading] = useState(false); // Can remove if using context's isLoading directly
+  const { login, currentUser, isLoading, error: authError } = useAuth();
   const navigate = useNavigate();
 
   const form = useForm<LoginFormValues>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
-      email: "",
+      username: "",
       password: "",
     },
   });
 
-  function onSubmit(data: LoginFormValues) {
-    setIsLoading(true);
-    
-    // This is where you would typically authenticate with your backend
-    // For now, we'll just simulate a successful login for client demonstration
-    // IMPORTANT: THIS IS NOT SECURE AND FOR DEMO PURPOSES ONLY
-    setTimeout(() => {
-      const { email, password } = data;
-      console.log("Form Data Submitted:", data); // <-- ADD THIS LOG
-      const validCredentials = [
-        { email: "javezdenzel@gmail.com", password: "pass1234" },
-        { email: "info@pcg.org", password: "pass1234" },
-      ];
-      console.log("Hardcoded Valid Credentials:", validCredentials); // <-- ADD THIS LOG
+  useEffect(() => {
+    if (currentUser) {
+      toast.success("Login successful!");
+      navigate("/dashboard");
+    }
+  }, [currentUser, navigate]);
 
-      const isValid = validCredentials.some(
-        (cred) => cred.email === email && cred.password === password
-      );
-      console.log("Is Login Valid?:", isValid); // <-- ADD THIS LOG
+  useEffect(() => {
+    // Display auth errors from context using toast
+    if (authError) {
+      toast.error(authError);
+    }
+  }, [authError]);
 
-      if (isValid) {
-        toast.success("Login successful (Mock)");
-        navigate("/dashboard");
-      } else {
-        toast.error("Invalid email or password (Mock)");
-      }
-      setIsLoading(false);
-    }, 1000);
+  async function onSubmit(data: LoginFormValues) {
+    // setLocalIsLoading(true); // If using local loading state
+    try {
+      const credentials: AdminLoginCredentials = { username: data.username, password: data.password };
+      await login(credentials);
+      // Navigation is handled by the useEffect watching currentUser
+    } catch (err) {
+      // Error is already set in AuthContext and handled by the useEffect above
+      // No need to toast.error here if authError useEffect is active
+      console.error("Login attempt failed from page:", err);
+    }
+    // finally {
+    //   setLocalIsLoading(false); // If using local loading state
+    // }
   }
 
   return (
@@ -86,15 +90,15 @@ const AdminLogin = () => {
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
               <FormField
                 control={form.control}
-                name="email"
+                name="username"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email</FormLabel>
+                    <FormLabel>Username</FormLabel>
                     <FormControl>
                       <div className="relative">
                         <User className="absolute left-3 top-2.5 h-5 w-5 text-muted-foreground" />
                         <Input 
-                          placeholder="admin@example.com" 
+                          placeholder="Enter your username" 
                           className="pl-10" 
                           {...field} 
                         />
@@ -130,9 +134,9 @@ const AdminLogin = () => {
               <Button 
                 type="submit" 
                 className="w-full" 
-                disabled={isLoading}
+                disabled={isLoading} // Now uses isLoading from AuthContext
               >
-                {isLoading ? "Logging in..." : "Login to Dashboard"}
+                {isLoading ? "Logging in..." : "Login to Dashboard"} {/* Uses isLoading from AuthContext */}
               </Button>
             </form>
           </Form>
