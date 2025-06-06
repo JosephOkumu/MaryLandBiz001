@@ -1,5 +1,6 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { getBusinesses, Business } from "../../lib/api"; // Import API function and type
 import { Link } from "react-router-dom";
 import { 
   Table, 
@@ -20,54 +21,33 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { useToast } from "@/components/ui/use-toast";
 
-// Sample data - Updated for new columns and added contact names
-const initialBusinesses = [
-  { 
-    id: "1", 
-    name: "Chesapeake Tech Solutions", 
-    category: "Technology",
-    location: "Baltimore, MD",
-    contact_name: "Sarah Chen",
-    tel: "(410) 555-1234"
-  },
-  { 
-    id: "2", 
-    name: "Harbor View Restaurant", 
-    category: "Restaurants",
-    location: "Annapolis, MD",
-    contact_name: "Michael Lee",
-    tel: "(443) 555-5678"
-  },
-  { 
-    id: "3", 
-    name: "Blue Ridge Builders", 
-    category: "Construction",
-    location: "Frederick, MD",
-    contact_name: "David Miller",
-    tel: "(301) 555-9012"
-  },
-  { 
-    id: "4", 
-    name: "Evergreen Health Center", 
-    category: "Healthcare",
-    location: "Rockville, MD",
-    contact_name: "Dr. Emily Carter",
-    tel: "(240) 555-3456"
-  },
-  { 
-    id: "5", 
-    name: "Bayside Boutique", 
-    category: "Retail",
-    location: "Ocean City, MD",
-    contact_name: "Jessica Davis",
-    tel: "(410) 555-7890"
-  }
-];
+
 
 const BusinessList = () => {
-  const [businesses, setBusinesses] = useState(initialBusinesses);
+  const [businesses, setBusinesses] = useState<Business[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
   const { toast } = useToast();
+
+  useEffect(() => {
+    const fetchBusinesses = async () => {
+      setIsLoading(true);
+      setError(null);
+      try {
+        // Fetch all businesses for the dashboard view initially
+        // Consider adding pagination if the list can be very long
+        const response = await getBusinesses({ limit: 100, offset: 0 }); // Fetch up to 100 businesses
+        setBusinesses(response.businesses || []); 
+      } catch (err) {
+        console.error("Failed to fetch businesses:", err);
+        setError(err instanceof Error ? err.message : "An unknown error occurred");
+      }
+      setIsLoading(false);
+    };
+
+    fetchBusinesses();
+  }, []);
 
   const handleDelete = (id: string) => {
     setBusinesses(businesses.filter(business => business.id !== id));
@@ -78,11 +58,11 @@ const BusinessList = () => {
   };
 
   const filteredBusinesses = businesses.filter(business => 
-    business.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    business.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    business.location.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    (business.tel && business.tel.toLowerCase().includes(searchTerm.toLowerCase())) ||
-    (business.contact_name && business.contact_name.toLowerCase().includes(searchTerm.toLowerCase()))
+    (business.business_name?.toLowerCase() || '').includes(searchTerm.toLowerCase()) ||
+    (business.category?.toLowerCase() || '').includes(searchTerm.toLowerCase()) ||
+    (business.location?.toLowerCase() || '').includes(searchTerm.toLowerCase()) ||
+    (business.contact_phone?.toLowerCase() || business.tel?.toLowerCase() || '').includes(searchTerm.toLowerCase()) ||
+    (business.contact_name?.toLowerCase() || '').includes(searchTerm.toLowerCase())
   );
 
 
@@ -123,15 +103,29 @@ const BusinessList = () => {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {filteredBusinesses.length > 0 ? (
+            {isLoading && (
+              <TableRow>
+                <TableCell colSpan={5} className="h-24 text-center">
+                  Loading businesses...
+                </TableCell>
+              </TableRow>
+            )}
+            {error && (
+              <TableRow>
+                <TableCell colSpan={5} className="h-24 text-center text-red-600">
+                  Error: {error}
+                </TableCell>
+              </TableRow>
+            )}
+            {!isLoading && !error && filteredBusinesses.length > 0 ? (
               filteredBusinesses.map((business) => (
                 <TableRow key={business.id}>
-                  <TableCell className="font-medium">{business.name}</TableCell>
-                  <TableCell>{business.category}</TableCell>
-                  <TableCell>{business.location}</TableCell>
+                  <TableCell className="font-medium">{business.business_name || 'N/A'}</TableCell>
+                  <TableCell>{business.category || 'N/A'}</TableCell>
+                  <TableCell>{business.location || 'N/A'}</TableCell>
                   <TableCell>
-                    <div>{business.contact_name}</div>
-                    <div className="text-xs text-muted-foreground">{business.tel}</div>
+                    <div>{business.contact_phone || business.tel || 'N/A'}</div>
+                    {business.contact_name && <div className="text-xs text-muted-foreground">{business.contact_name}</div>}
                   </TableCell>
                   <TableCell className="text-right">
                     <div className="flex items-center justify-end gap-2">
@@ -156,11 +150,13 @@ const BusinessList = () => {
                 </TableRow>
               ))
             ) : (
-              <TableRow>
-                <TableCell colSpan={5} className="h-24 text-center">
-                  No businesses found.
-                </TableCell>
-              </TableRow>
+              !isLoading && !error && (
+                <TableRow>
+                  <TableCell colSpan={5} className="h-24 text-center">
+                    No businesses found.
+                  </TableCell>
+                </TableRow>
+              )
             )}
           </TableBody>
         </Table>

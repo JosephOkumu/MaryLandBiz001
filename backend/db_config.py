@@ -59,6 +59,42 @@ def create_admin_table():
             cursor.close()
             connection.close()
 
+def create_businesses_table():
+    """
+    Creates the 'businesses' table in the database if it doesn't already exist.
+    """
+    connection = get_db_connection()
+    if not connection:
+        print("Failed to connect to database. Businesses table not created.")
+        return
+
+    try:
+        cursor = connection.cursor()
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS businesses (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                name VARCHAR(255) NOT NULL,
+                category VARCHAR(100),
+                location VARCHAR(255),
+                contact_name VARCHAR(100),
+                contact_phone VARCHAR(20),
+                contact_email VARCHAR(100),
+                website VARCHAR(255),
+                description TEXT,
+                status VARCHAR(50) DEFAULT 'pending', # e.g., 'pending', 'approved', 'rejected'
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+            )
+        """)
+        connection.commit()
+        print("Businesses table checked/created successfully.")
+    except Error as err:
+        print(f"Error creating businesses table: {err}")
+    finally:
+        if connection and connection.is_connected():
+            cursor.close()
+            connection.close()
+
 def seed_initial_admins(bcrypt_instance):
     """
     Seeds the database with initial admin users if they don't already exist.

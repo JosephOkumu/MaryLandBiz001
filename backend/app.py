@@ -3,7 +3,7 @@ from flask import Flask, jsonify, request, session
 from flask_cors import CORS
 import mysql.connector
 from mysql.connector import Error as DBError # Alias to avoid conflict if any
-from db_config import get_db_connection, create_admin_table, seed_initial_admins
+from db_config import get_db_connection, create_admin_table, seed_initial_admins, create_businesses_table
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
 from flask_bcrypt import Bcrypt
 from dotenv import load_dotenv
@@ -80,6 +80,7 @@ def unauthorized():
 with app.app_context():
     print("Initializing database for admin users...")
     create_admin_table()
+    create_businesses_table() # Create businesses table
     seed_initial_admins(bcrypt) # Pass the bcrypt instance
     print("Admin database initialization complete.")
 
@@ -125,6 +126,7 @@ def get_businesses():
     """
     category = request.args.get('category', '')
     search_term = request.args.get('q', '')  # New search term parameter
+    status = request.args.get('status', None) # Optional status filter
     limit = request.args.get('limit', 20, type=int)
     offset = request.args.get('offset', 0, type=int)
     
@@ -144,6 +146,11 @@ def get_businesses():
             where_clauses.append("category = %s")
             params_for_data.append(category)
             params_for_count.append(category)
+        
+        if status:
+            where_clauses.append("status = %s")
+            params_for_data.append(status)
+            params_for_count.append(status)
         
         if search_term:
             search_param = f"%{search_term}%"
@@ -176,7 +183,8 @@ def get_businesses():
             "limit": limit,
             "offset": offset,
             "category_filter": category,
-            "search_term": search_term
+            "search_term": search_term,
+            "status_filter": status
         })
         
     except Error as err:

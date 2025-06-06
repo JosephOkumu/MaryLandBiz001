@@ -1,10 +1,19 @@
 // Define the Business type
 export type Business = {
-  id: string;
-  name: string;
-  category: string;
-  description: string;
-  featured: boolean;
+  id: string; // or number, depending on your DB's primary key type for businesses
+  business_name: string;
+  category: string | null;
+  location: string | null;
+  contact_name: string | null;
+  contact_phone: string | null;
+  tel?: string | null; // Added for flexibility if source data uses 'tel'
+  contact_email: string | null;
+  website: string | null;
+  description: string | null;
+  status: 'pending' | 'approved' | 'rejected' | string; // string for flexibility if other statuses exist
+  featured?: boolean; // Assuming featured is optional or might not always be present
+  created_at: string; // Assuming ISO date string
+  updated_at: string; // Assuming ISO date string
 };
 
 // Define the Category type
