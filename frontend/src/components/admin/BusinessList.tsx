@@ -90,7 +90,7 @@ const BusinessList = () => {
   return (
     <div className="space-y-6 p-4">
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-        <h1 className="text-2xl font-bold">Businesses</h1>
+        <h1 className="text-2xl font-bold">Listed Businesses</h1>
         <div className="flex gap-2">
           <div className="relative flex-1">
             <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" strokeWidth={2.5} />
