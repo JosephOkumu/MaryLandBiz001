@@ -12,10 +12,28 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { MoreHorizontalIcon, CheckCircle2 as CheckCircle2Icon, XCircle as XCircleIcon, Eye } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from 'react-router-dom';
 import { ApplicationReviewModal } from "@/components/admin/ApplicationReviewModal";
 
 // Define the Application interface
+// Interface for applications from localStorage, mirroring what AddMyBusiness will save
+interface NewBusinessApplication {
+  id: string;
+  businessName: string;
+  location: string;
+  category: string;
+  contactName?: string;
+  tel: string;
+  email: string;
+  website?: string;
+  description?: string;
+  status: 'pending' | 'approved' | 'rejected';
+  submittedAt: string;
+  isNew: boolean;
+}
+
+// Existing interface for table display
 interface Application {
   id: string;
   business_name: string;
@@ -28,7 +46,9 @@ interface Application {
   description: string;
   business_image_name?: string;
   dateSubmitted: string;
-  status: "Pending" | "Approved" | "Rejected"; // Keep internal status if needed for other logic
+  status: "Pending" | "Approved" | "Rejected";
+  isNew?: boolean; // For highlighting new items from localStorage
+  isFromLocalStorage?: boolean; // To differentiate source
 }
 
 const dummyApplications: Application[] = [
@@ -91,9 +111,81 @@ const dummyApplications: Application[] = [
 
 function ApplicationsPage() {
   const { toast } = useToast();
-  const [applications, setApplications] = useState<Application[]>(dummyApplications);
+  const [applications, setApplications] = useState<Application[]>([]);
   const [selectedApplication, setSelectedApplication] = useState<Application | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setIsLoading(true);
+    let newAppsFromStorage: NewBusinessApplication[] = [];
+    try {
+      const storedData = localStorage.getItem('businessApplications');
+      newAppsFromStorage = storedData ? JSON.parse(storedData) : [];
+    } catch (e) {
+      console.error("Failed to parse business applications from localStorage", e);
+      toast({ title: "Error loading applications", variant: "destructive" });
+    }
+
+    const appIdFromUrl = searchParams.get('id');
+    let itemUpdated = false;
+
+    if (appIdFromUrl) {
+      newAppsFromStorage = newAppsFromStorage.map(app => {
+        if (app.id === appIdFromUrl && app.isNew) {
+          itemUpdated = true;
+          return { ...app, isNew: false };
+        }
+        return app;
+      });
+
+      if (itemUpdated) {
+        try {
+          localStorage.setItem('businessApplications', JSON.stringify(newAppsFromStorage));
+          // Dispatch an event that header/sidebar can listen to, to update counts
+          window.dispatchEvent(new CustomEvent('localStorageUpdated'));
+        } catch (e) {
+          console.error("Failed to update localStorage", e);
+        }
+        // Clean URL param
+        const newSearchParams = new URLSearchParams(searchParams);
+        newSearchParams.delete('id');
+        setSearchParams(newSearchParams, { replace: true });
+      }
+    }
+
+    const mappedNewApplications: Application[] = newAppsFromStorage
+      .sort((a, b) => new Date(b.submittedAt).getTime() - new Date(a.submittedAt).getTime())
+      .map(newApp => ({
+        id: newApp.id,
+        business_name: newApp.businessName,
+        location: newApp.location,
+        category: newApp.category,
+        contact_name: newApp.contactName || 'N/A',
+        tel: newApp.tel,
+        email: newApp.email,
+        website: newApp.website,
+        description: newApp.description || '',
+        dateSubmitted: new Date(newApp.submittedAt).toLocaleDateString(),
+        status: newApp.status === 'pending' ? 'Pending' : newApp.status === 'approved' ? 'Approved' : 'Rejected',
+        isNew: newApp.isNew,
+        isFromLocalStorage: true,
+      }));
+
+    // Filter dummy applications to avoid duplicates if IDs could somehow match (unlikely with current ID generation)
+    const newAppIds = new Set(mappedNewApplications.map(a => a.id));
+    const filteredDummyApplications = dummyApplications.filter(dummyApp => !newAppIds.has(dummyApp.id));
+
+    setApplications([...mappedNewApplications, ...filteredDummyApplications]);
+    setIsLoading(false);
+  }, [searchParams, setSearchParams, toast]);
+
+  // Show loading state or empty state more robustly
+  if (isLoading) {
+    return <div className="p-6">Loading applications...</div>;
+  }
+
 
   const openReviewModal = (application: Application) => {
     setSelectedApplication(application);
@@ -128,7 +220,8 @@ function ApplicationsPage() {
   };
 
   // Empty state example:
-  if (applications.length === 0) {
+  // This check should come after isLoading is false
+  if (!isLoading && applications.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center h-full p-4 md:p-6">
         <CheckCircle2Icon className="w-16 h-16 text-green-500 mb-4" />
@@ -161,9 +254,11 @@ function ApplicationsPage() {
             </TableHeader>
             <TableBody>
               {applications.map((app) => (
-                <TableRow key={app.id}>
+                <TableRow key={app.id} className={app.isNew && app.isFromLocalStorage ? 'bg-yellow-100 hover:bg-yellow-200' : ''}>
                   <TableCell>
-                    <div className="font-medium">{app.business_name}</div>
+                    <div className="font-medium">{app.business_name}
+                      {app.isNew && app.isFromLocalStorage && <Badge variant="outline" className="ml-2 border-yellow-500 text-yellow-700 bg-yellow-50">New</Badge>}
+                    </div>
                     <div className="text-sm text-muted-foreground md:hidden">
                       {app.category}
                     </div>

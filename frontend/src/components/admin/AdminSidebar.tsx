@@ -1,6 +1,7 @@
-
 import { NavLink } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { LayoutDashboard, Store, BarChart3, Settings, ClipboardList, PlusCircle } from "lucide-react"; // Added ClipboardList, kept PlusCircle for other uses if any
+import { Badge } from "@/components/ui/badge";
 
 interface AdminSidebarProps {
   open: boolean;
@@ -12,7 +13,56 @@ type NavItem = {
   icon: React.ReactNode;
 };
 
-const AdminSidebar = (/*{ open }: AdminSidebarProps*/) => { // 'open' prop is no longer used as sidebar is always open
+interface NewBusinessApplication {
+  id: string;
+  businessName: string;
+  location: string;
+  category: string;
+  contactName?: string;
+  tel: string;
+  email: string;
+  website?: string;
+  description?: string;
+  status: 'pending' | 'approved' | 'rejected';
+  submittedAt: string;
+  isNew: boolean;
+}
+
+const AdminSidebar = () => {
+  const [newApplicationsCount, setNewApplicationsCount] = useState(0);
+
+  const updateNotificationCount = () => {
+    try {
+      const storedData = localStorage.getItem('businessApplications');
+      const applications: NewBusinessApplication[] = storedData ? JSON.parse(storedData) : [];
+      const newItemsCount = applications.filter(app => app.isNew).length;
+      setNewApplicationsCount(newItemsCount);
+    } catch (e) {
+      console.error("Failed to parse business applications from localStorage for sidebar", e);
+      setNewApplicationsCount(0);
+    }
+  };
+
+  useEffect(() => {
+    updateNotificationCount(); // Initial load
+
+    const handleStorageUpdate = () => {
+      updateNotificationCount();
+    };
+
+    window.addEventListener('localStorageUpdated', handleStorageUpdate);
+    window.addEventListener('storage', (event) => {
+      if (event.key === 'businessApplications') {
+        handleStorageUpdate();
+      }
+    });
+
+    return () => {
+      window.removeEventListener('localStorageUpdated', handleStorageUpdate);
+      window.removeEventListener('storage', handleStorageUpdate);
+    };
+  }, []);
+
   const navItems: NavItem[] = [
     {
       title: "Dashboard",
@@ -36,13 +86,8 @@ const AdminSidebar = (/*{ open }: AdminSidebarProps*/) => { // 'open' prop is no
     },
   ];
 
-  // The 'open' prop is always true, so the collapsed sidebar logic is removed.
-
   return (
-    // Removed: fixed left-0 top-16 bottom-0 z-20
-    // Removed: h-full (height will be determined by parent flex container)
     <aside className="hidden w-64 flex-col border-r border-gray-200 bg-white md:flex">
-      {/* Added: flex-1 to make nav fill aside, overflow-y-auto for scrollable navigation */}
       <nav className="flex flex-col flex-1 gap-1 px-3 py-6 overflow-y-auto">
         {navItems.map((item) => (
           <NavLink
@@ -57,6 +102,11 @@ const AdminSidebar = (/*{ open }: AdminSidebarProps*/) => { // 'open' prop is no
           >
             {item.icon}
             <span className="font-medium">{item.title}</span>
+            {item.title === "Applications" && newApplicationsCount > 0 && (
+              <Badge variant="destructive" className="ml-auto h-5 px-1.5 text-xs">
+                {newApplicationsCount}
+              </Badge>
+            )}
           </NavLink>
         ))}
       </nav>
