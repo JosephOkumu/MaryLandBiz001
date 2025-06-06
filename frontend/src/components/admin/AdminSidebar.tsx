@@ -12,7 +12,7 @@ type NavItem = {
   icon: React.ReactNode;
 };
 
-const AdminSidebar = ({ open }: AdminSidebarProps) => {
+const AdminSidebar = (/*{ open }: AdminSidebarProps*/) => { // 'open' prop is no longer used as sidebar is always open
   const navItems: NavItem[] = [
     {
       title: "Dashboard",
@@ -36,33 +36,14 @@ const AdminSidebar = ({ open }: AdminSidebarProps) => {
     },
   ];
 
-  if (!open) {
-    return (
-      <aside className="fixed left-0 top-16 bottom-0 z-20 hidden w-16 flex-col border-r border-gray-200 bg-white md:flex">
-        <nav className="flex flex-col items-center gap-4 px-2 py-6">
-          {navItems.map((item) => (
-            <NavLink
-              key={item.href}
-              to={item.href}
-              end={item.href === "/dashboard"} // Add end prop for Dashboard link
-              className={({ isActive }) =>
-                `flex h-10 w-10 items-center justify-center rounded-md ${
-                  isActive ? "bg-primary text-white" : "text-gray-600 hover:bg-gray-100"
-                }`
-              }
-              title={item.title}
-            >
-              {item.icon}
-            </NavLink>
-          ))}
-        </nav>
-      </aside>
-    );
-  }
+  // The 'open' prop is always true, so the collapsed sidebar logic is removed.
 
   return (
-    <aside className="fixed left-0 top-16 bottom-0 z-20 hidden w-64 flex-col border-r border-gray-200 bg-white md:flex">
-      <nav className="flex flex-col gap-1 px-3 py-6">
+    // Removed: fixed left-0 top-16 bottom-0 z-20
+    // Removed: h-full (height will be determined by parent flex container)
+    <aside className="hidden w-64 flex-col border-r border-gray-200 bg-white md:flex">
+      {/* Added: flex-1 to make nav fill aside, overflow-y-auto for scrollable navigation */}
+      <nav className="flex flex-col flex-1 gap-1 px-3 py-6 overflow-y-auto">
         {navItems.map((item) => (
           <NavLink
             key={item.href}
