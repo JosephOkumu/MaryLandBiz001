@@ -8,6 +8,25 @@ export type Business = {
 };
 
 // Define the Category type
+// Define the Admin User type (matches backend response)
+export type AdminUser = {
+  id: number;
+  username: string;
+};
+
+// Define credentials for admin login
+export type AdminLoginCredentials = {
+  username: string;
+  password: string;
+};
+
+// Define the expected response structure for auth check
+export type AdminAuthResponse = {
+  is_authenticated: boolean;
+  user?: AdminUser;
+  message?: string; // For error messages or unauthorized
+};
+
 export type Category = {
   id: string; // Or number, depending on your DB schema
   name: string;
@@ -60,4 +79,55 @@ export const getFeaturedBusinesses = async (limit: number) => {
     throw new Error("Failed to fetch featured businesses");
   }
   return await response.json();
+};
+
+// --- Admin Authentication API Functions ---
+
+const ADMIN_API_BASE_URL = 'http://localhost:5000/api/admin';
+
+export const adminLogin = async (credentials: AdminLoginCredentials): Promise<{ message: string; user: AdminUser }> => {
+  const response = await fetch(`${ADMIN_API_BASE_URL}/login`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(credentials),
+    credentials: 'include', // IMPORTANT: For sending/receiving session cookies
+  });
+  const data = await response.json();
+  if (!response.ok) {
+    throw new Error(data.error || 'Admin login failed');
+  }
+  return data;
+};
+
+export const adminLogout = async (): Promise<{ message: string }> => {
+  const response = await fetch(`${ADMIN_API_BASE_URL}/logout`, {
+    method: 'POST',
+    credentials: 'include', // IMPORTANT: For sending/receiving session cookies
+  });
+  const data = await response.json();
+  if (!response.ok) {
+    // Even if logout fails on server, we might want to clear client state
+    console.error('Admin logout failed on server:', data.error);
+    throw new Error(data.error || 'Admin logout failed');
+  }
+  return data;
+};
+
+export const checkAdminAuth = async (): Promise<AdminAuthResponse> => {
+  const response = await fetch(`${ADMIN_API_BASE_URL}/authcheck`, {
+    method: 'GET',
+    credentials: 'include', // IMPORTANT: For sending/receiving session cookies
+  });
+  // For authcheck, a 401 is an expected 'not authenticated' response, not necessarily an error to throw
+  if (response.status === 401) {
+    const data = await response.json().catch(() => ({ is_authenticated: false, message: 'Session expired or not authenticated' }));
+    return { is_authenticated: false, message: data.message };
+  }
+  if (!response.ok) {
+    const errorData = await response.json().catch(() => ({ message: 'Failed to check admin auth status' }));
+    throw new Error(errorData.message || 'Failed to check admin auth status');
+  }
+  return await response.json(); // Should be { is_authenticated: true, user: AdminUser }
 };
