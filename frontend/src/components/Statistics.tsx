@@ -5,7 +5,7 @@ import { useSearchParams } from "react-router-dom"; // Added
 import BusinessCard from "./BusinessCard";
 import { Business, getBusinesses } from "../lib/api";
 
-const PAGE_SIZE = 150;
+const PAGE_SIZE = 75;
 
 // Updated fetchBusinesses to accept q and category
 const fetchBusinesses = async ({
@@ -59,7 +59,7 @@ const Statistics = () => {
         }
       },
       {
-        rootMargin: "0px 0px 500px 0px", // Trigger when sentinel is 500px from bottom of viewport
+        rootMargin: "0px 0px 1200px 0px", // Trigger when sentinel is 1200px from bottom of viewport
       }
     );
 
