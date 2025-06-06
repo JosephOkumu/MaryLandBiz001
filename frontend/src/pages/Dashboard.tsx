@@ -28,7 +28,7 @@ const Dashboard = () => {
               <Building2 className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">1,234</div>
+              <div className="text-2xl font-bold">1,211</div>
               {/* <p className="text-xs text-muted-foreground">
                   +20 from last month
                 </p> */}
@@ -42,7 +42,7 @@ const Dashboard = () => {
               <ClipboardList className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">5</div>
+              <div className="text-2xl font-bold">12</div>
               {/* <p className="text-xs text-muted-foreground">
                   +2 since yesterday
                 </p> */}
@@ -56,7 +56,7 @@ const Dashboard = () => {
               <ListPlus className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">15</div>
+              <div className="text-2xl font-bold">58</div>
               {/* <p className="text-xs text-muted-foreground">
                   Approved this month
                 </p> */}
