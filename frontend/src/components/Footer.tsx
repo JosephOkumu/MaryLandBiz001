@@ -12,20 +12,7 @@ const Footer = () => {
             <p className="text-gray-300 text-sm mb-4">
               Your one-stop directory for discovering and connecting with businesses across Maryland.
             </p>
-            <div className="flex space-x-4">
-              <Link to="#" className="bg-white/10 rounded-full p-2 hover:bg-secondary transition-all hover:-translate-y-1">
-                <Facebook className="w-5 h-5" />
-              </Link>
-              <Link to="#" className="bg-white/10 rounded-full p-2 hover:bg-secondary transition-all hover:-translate-y-1">
-                <Twitter className="w-5 h-5" />
-              </Link>
-              <Link to="#" className="bg-white/10 rounded-full p-2 hover:bg-secondary transition-all hover:-translate-y-1">
-                <Instagram className="w-5 h-5" />
-              </Link>
-              <Link to="#" className="bg-white/10 rounded-full p-2 hover:bg-secondary transition-all hover:-translate-y-1">
-                <Linkedin className="w-5 h-5" />
-              </Link>
-            </div>
+            {/* Social media icons removed */}
           </div>
           
           <div>
@@ -55,15 +42,15 @@ const Footer = () => {
             <div className="text-sm text-gray-300 space-y-2">
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4" />
-                <span>123 Main St, Baltimore, MD</span>
+                <span>5011 Arbutus Ave, Baltimore, MD, United States, 21215</span>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4" />
-                <span>(410) 555-1234</span>
+                <span>1-888-PCG-0630</span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4" />
-                <span>info@marylandbiz.com</span>
+                <span>info@pcg.org</span>
               </div>
             </div>
           </div>
