@@ -1,7 +1,13 @@
 // /frontend/src/pages/admin/ApplicationsPage.tsx
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { 
+  Card, 
+  CardContent, 
+  CardDescription, 
+  CardHeader, 
+  CardTitle 
+} from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { MoreHorizontalIcon, CheckCircle2 as CheckCircle2Icon } from "lucide-react"; // Renamed CheckCircle2 to avoid conflict if used as component
@@ -60,15 +66,12 @@ function ApplicationsPage() {
   return (
     <div className="flex flex-col gap-6 p-4 md:p-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-semibold">Business Applications</h1>
+        <h1 className="text-2xl font-bold mb-6">Pending Applications</h1>
       </div>
 
       <Card>
         <CardHeader>
-          <CardTitle>
-            Pending Review ({pendingApplications.length}{" "}
-            {pendingApplications.length === 1 ? "application" : "applications"})
-          </CardTitle>
+          <CardTitle>Listing Requests</CardTitle>
         </CardHeader>
         <CardContent>
           <Table>
