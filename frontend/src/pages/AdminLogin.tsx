@@ -38,14 +38,27 @@ const AdminLogin = () => {
     setIsLoading(true);
     
     // This is where you would typically authenticate with your backend
-    // For now, we'll just simulate a successful login
+    // For now, we'll just simulate a successful login for client demonstration
+    // IMPORTANT: THIS IS NOT SECURE AND FOR DEMO PURPOSES ONLY
     setTimeout(() => {
-      // Mock successful login
-      if (data.email === "admin@marylandbiz.com" && data.password === "admin123") {
-        toast.success("Login successful");
+      const { email, password } = data;
+      console.log("Form Data Submitted:", data); // <-- ADD THIS LOG
+      const validCredentials = [
+        { email: "javezdenzel@gmail.com", password: "pass1234" },
+        { email: "info@pcg.org", password: "pass1234" },
+      ];
+      console.log("Hardcoded Valid Credentials:", validCredentials); // <-- ADD THIS LOG
+
+      const isValid = validCredentials.some(
+        (cred) => cred.email === email && cred.password === password
+      );
+      console.log("Is Login Valid?:", isValid); // <-- ADD THIS LOG
+
+      if (isValid) {
+        toast.success("Login successful (Mock)");
         navigate("/dashboard");
       } else {
-        toast.error("Invalid email or password");
+        toast.error("Invalid email or password (Mock)");
       }
       setIsLoading(false);
     }, 1000);
