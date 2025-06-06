@@ -20,47 +20,47 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { useToast } from "@/components/ui/use-toast";
 
-// Sample data
+// Sample data - Updated for new columns and added contact names
 const initialBusinesses = [
   { 
     id: "1", 
     name: "Chesapeake Tech Solutions", 
     category: "Technology",
     location: "Baltimore, MD",
-    rating: 4.5,
-    status: "active"
+    contact_name: "Sarah Chen",
+    tel: "(410) 555-1234"
   },
   { 
     id: "2", 
     name: "Harbor View Restaurant", 
     category: "Restaurants",
     location: "Annapolis, MD",
-    rating: 4.9,
-    status: "active"
+    contact_name: "Michael Lee",
+    tel: "(443) 555-5678"
   },
   { 
     id: "3", 
     name: "Blue Ridge Builders", 
     category: "Construction",
     location: "Frederick, MD",
-    rating: 4.0,
-    status: "pending"
+    contact_name: "David Miller",
+    tel: "(301) 555-9012"
   },
   { 
     id: "4", 
     name: "Evergreen Health Center", 
     category: "Healthcare",
     location: "Rockville, MD",
-    rating: 4.7,
-    status: "active"
+    contact_name: "Dr. Emily Carter",
+    tel: "(240) 555-3456"
   },
   { 
     id: "5", 
     name: "Bayside Boutique", 
     category: "Retail",
     location: "Ocean City, MD",
-    rating: 4.2,
-    status: "inactive"
+    contact_name: "Jessica Davis",
+    tel: "(410) 555-7890"
   }
 ];
 
@@ -80,21 +80,12 @@ const BusinessList = () => {
   const filteredBusinesses = businesses.filter(business => 
     business.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     business.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    business.location.toLowerCase().includes(searchTerm.toLowerCase())
+    business.location.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    (business.tel && business.tel.toLowerCase().includes(searchTerm.toLowerCase())) ||
+    (business.contact_name && business.contact_name.toLowerCase().includes(searchTerm.toLowerCase()))
   );
 
-  const getStatusClass = (status: string) => {
-    switch (status) {
-      case "active":
-        return "bg-green-100 text-green-800";
-      case "pending":
-        return "bg-yellow-100 text-yellow-800";
-      case "inactive":
-        return "bg-gray-100 text-gray-800";
-      default:
-        return "bg-gray-100 text-gray-800";
-    }
-  };
+
 
   return (
     <div className="space-y-6 p-4">
@@ -124,12 +115,11 @@ const BusinessList = () => {
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead>Name</TableHead>
-              <TableHead>Category</TableHead>
-              <TableHead>Location</TableHead>
-              <TableHead>Rating</TableHead>
-              <TableHead>Status</TableHead>
-              <TableHead className="text-right">Actions</TableHead>
+              <TableHead className="font-bold">Name</TableHead>
+              <TableHead className="font-bold">Category</TableHead>
+              <TableHead className="font-bold">Location</TableHead>
+              <TableHead className="font-bold">Contact</TableHead>
+              <TableHead className="text-right font-bold">Actions</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -139,41 +129,35 @@ const BusinessList = () => {
                   <TableCell className="font-medium">{business.name}</TableCell>
                   <TableCell>{business.category}</TableCell>
                   <TableCell>{business.location}</TableCell>
-                  <TableCell>{business.rating}</TableCell>
                   <TableCell>
-                    <span className={`inline-block px-2 py-1 text-xs rounded-full ${getStatusClass(business.status)}`}>
-                      {business.status.charAt(0).toUpperCase() + business.status.slice(1)}
-                    </span>
+                    <div>{business.contact_name}</div>
+                    <div className="text-xs text-muted-foreground">{business.tel}</div>
                   </TableCell>
                   <TableCell className="text-right">
-                    <DropdownMenu>
-                      <DropdownMenuTrigger asChild>
-                        <Button variant="ghost" size="sm">
-                          Actions
-                        </Button>
-                      </DropdownMenuTrigger>
-                      <DropdownMenuContent align="end">
-                        <DropdownMenuItem asChild>
-                          <Link to={`/dashboard/businesses/edit/${business.id}`} className="flex items-center">
-                            <Edit className="mr-2 h-4 w-4" strokeWidth={2.5} />
-                            Edit
-                          </Link>
-                        </DropdownMenuItem>
-                        <DropdownMenuItem 
-                          className="flex items-center text-red-600 focus:text-red-600"
-                          onClick={() => handleDelete(business.id)}
-                        >
-                          <Trash2 className="mr-2 h-4 w-4" strokeWidth={2.5} />
-                          Delete
-                        </DropdownMenuItem>
-                      </DropdownMenuContent>
-                    </DropdownMenu>
+                    <div className="flex items-center justify-end gap-2">
+                      <Button asChild variant="ghost" size="icon">
+                        <Link to={`/dashboard/businesses/edit/${business.id}`} title="Edit">
+                          <Edit className="h-4 w-4" strokeWidth={2.5} />
+                          <span className="sr-only">Edit</span>
+                        </Link>
+                      </Button>
+                      <Button 
+                        variant="ghost" 
+                        size="icon" 
+                        className="text-red-600 hover:text-red-700"
+                        onClick={() => handleDelete(business.id)}
+                        title="Delete"
+                      >
+                        <Trash2 className="h-4 w-4" strokeWidth={2.5} />
+                        <span className="sr-only">Delete</span>
+                      </Button>
+                    </div>
                   </TableCell>
                 </TableRow>
               ))
             ) : (
               <TableRow>
-                <TableCell colSpan={6} className="h-24 text-center">
+                <TableCell colSpan={5} className="h-24 text-center">
                   No businesses found.
                 </TableCell>
               </TableRow>

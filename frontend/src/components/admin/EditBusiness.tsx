@@ -14,30 +14,33 @@ import {
 } from "@/components/ui/select";
 import { useToast } from "@/components/ui/use-toast";
 import { Card, CardContent } from "@/components/ui/card";
+import { X } from 'lucide-react'; // Import X icon
 
-// Mock data for the selected business
-const businessData = {
+// Mock data for the selected business - Updated structure
+const businessData: { [key: string]: any } = {
   "1": { 
-    name: "Chesapeake Tech Solutions", 
-    category: "technology",
-    description: "Providing cutting-edge technology solutions for businesses across Maryland with expertise in cloud computing, cybersecurity, and IT consulting.",
-    city: "Baltimore",
-    state: "Maryland",
-    phone: "(410) 555-8765",
+    business_name: "Chesapeake Tech Solutions", 
+    location: "Baltimore, MD",
+    category: "Technology",
+    contact_name: "Jane Doe",
+    tel: "(410) 555-8765",
     email: "info@chesapeaketech.com",
     website: "https://chesapeaketech.com",
-    status: "active"
+    description: "Providing cutting-edge technology solutions for businesses across Maryland with expertise in cloud computing, cybersecurity, and IT consulting.",
+    status: "active",
+    business_image: "" // Placeholder for image path/data
   },
   "2": { 
-    name: "Harbor View Restaurant", 
-    category: "restaurants",
-    description: "Upscale dining with fresh seafood and incredible views of the Chesapeake Bay. Perfect for special occasions and corporate events.",
-    city: "Annapolis",
-    state: "Maryland",
-    phone: "(443) 555-3492",
+    business_name: "Harbor View Restaurant", 
+    location: "Annapolis, MD",
+    category: "Restaurants",
+    contact_name: "John Smith",
+    tel: "(443) 555-3492",
     email: "reservations@harborview.com",
     website: "https://harborviewmd.com",
-    status: "active"
+    description: "Upscale dining with fresh seafood and incredible views of the Chesapeake Bay. Perfect for special occasions and corporate events.",
+    status: "active",
+    business_image: ""
   },
 };
 
@@ -77,7 +80,7 @@ const EditBusiness = () => {
     }, 1000);
   };
 
-  const handleChange = (field: string, value: string) => {
+  const handleChange = (field: string, value: string | File | null) => {
     setFormData((prev: any) => ({
       ...prev,
       [field]: value
@@ -90,135 +93,164 @@ const EditBusiness = () => {
 
   return (
     <div className="space-y-6 p-4">
-      <h1 className="text-2xl font-bold">Edit Business</h1>
-      <Card>
+      <div className="flex justify-between items-center">
+        <h1 className="text-2xl font-bold">Edit Business</h1>
+      </div>
+      <Card className="relative pt-8"> {/* Added relative positioning and padding-top */}
+        <Button 
+          variant="ghost" 
+          size="icon" 
+          className="absolute top-2 right-2 text-muted-foreground hover:text-foreground"
+          onClick={() => navigate("/dashboard/businesses")}
+          title="Close"
+        >
+          <X className="h-5 w-5" />
+          <span className="sr-only">Close</span>
+        </Button>
         <CardContent className="pt-6">
           <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid gap-6 md:grid-cols-2">
+            {/* Row 1: Business Name & Location */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label htmlFor="name">Business Name</Label>
+                <Label htmlFor="business_name">Business Name <span className="text-red-500">*</span></Label>
                 <Input 
-                  id="name" 
+                  id="business_name" 
                   required 
-                  value={formData.name}
-                  onChange={(e) => handleChange("name", e.target.value)}
+                  placeholder="Enter business name"
+                  value={formData.business_name || ''}
+                  onChange={(e) => handleChange("business_name", e.target.value)}
                 />
               </div>
-              
               <div className="space-y-2">
-                <Label htmlFor="category">Category</Label>
-                <Select 
-                  value={formData.category}
-                  onValueChange={(value) => handleChange("category", value)}
-                >
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select a category" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="restaurants">Restaurants</SelectItem>
-                    <SelectItem value="retail">Retail</SelectItem>
-                    <SelectItem value="professional">Professional Services</SelectItem>
-                    <SelectItem value="healthcare">Healthcare</SelectItem>
-                    <SelectItem value="construction">Construction</SelectItem>
-                    <SelectItem value="technology">Technology</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-              
-              <div className="space-y-2">
-                <Label htmlFor="city">City</Label>
+                <Label htmlFor="location">Location <span className="text-red-500">*</span></Label>
                 <Input 
-                  id="city" 
+                  id="location" 
                   required 
-                  value={formData.city}
-                  onChange={(e) => handleChange("city", e.target.value)}
+                  placeholder="e.g., 123 Main St, City, MD ZIP"
+                  value={formData.location || ''}
+                  onChange={(e) => handleChange("location", e.target.value)}
                 />
               </div>
-              
+            </div>
+
+            {/* Row 2: Category & Status */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label htmlFor="state">State</Label>
+                <Label htmlFor="category">Category <span className="text-red-500">*</span></Label>
                 <Input 
-                  id="state" 
+                  id="category" 
                   required 
-                  value={formData.state}
-                  onChange={(e) => handleChange("state", e.target.value)}
+                  placeholder="e.g., BOUTIQUES, Restaurants, Technology"
+                  value={formData.category || ''}
+                  onChange={(e) => handleChange("category", e.target.value)}
                 />
               </div>
-              
-              <div className="space-y-2">
-                <Label htmlFor="phone">Phone Number</Label>
-                <Input 
-                  id="phone" 
-                  required 
-                  value={formData.phone}
-                  onChange={(e) => handleChange("phone", e.target.value)}
-                />
-              </div>
-              
-              <div className="space-y-2">
-                <Label htmlFor="email">Email Address</Label>
-                <Input 
-                  id="email" 
-                  type="email" 
-                  required 
-                  value={formData.email}
-                  onChange={(e) => handleChange("email", e.target.value)}
-                />
-              </div>
-              
-              <div className="space-y-2">
-                <Label htmlFor="website">Website</Label>
-                <Input 
-                  id="website" 
-                  value={formData.website}
-                  onChange={(e) => handleChange("website", e.target.value)}
-                />
-              </div>
-              
               <div className="space-y-2">
                 <Label htmlFor="status">Status</Label>
                 <Select 
-                  value={formData.status}
+                  name="status"
+                  value={formData.status || 'active'}
                   onValueChange={(value) => handleChange("status", value)}
                 >
-                  <SelectTrigger>
+                  <SelectTrigger id="status">
                     <SelectValue placeholder="Select status" />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="active">Active</SelectItem>
-                    <SelectItem value="pending">Pending</SelectItem>
+                    <SelectItem value="pending">Pending Review</SelectItem>
                     <SelectItem value="inactive">Inactive</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
             </div>
-            
+
+            {/* Row 3: Contact Person Name & Telephone */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <Label htmlFor="contact_name">Contact Person Name</Label>
+                <Input 
+                  id="contact_name" 
+                  placeholder="Enter contact person's name (optional)"
+                  value={formData.contact_name || ''}
+                  onChange={(e) => handleChange("contact_name", e.target.value)}
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="tel">Telephone <span className="text-red-500">*</span></Label>
+                <Input 
+                  id="tel" 
+                  type="tel" 
+                  required 
+                  placeholder="e.g., 410-555-1234"
+                  value={formData.tel || ''}
+                  onChange={(e) => handleChange("tel", e.target.value)}
+                />
+              </div>
+            </div>
+
+            {/* Row 4: Email Address & Website */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <Label htmlFor="email">Email Address <span className="text-red-500">*</span></Label>
+                <Input 
+                  id="email" 
+                  type="email" 
+                  required 
+                  placeholder="e.g., contact@example.com"
+                  value={formData.email || ''}
+                  onChange={(e) => handleChange("email", e.target.value)}
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="website">Website</Label>
+                <Input 
+                  id="website" 
+                  type="url" 
+                  placeholder="e.g., https://www.example.com (optional)"
+                  value={formData.website || ''}
+                  onChange={(e) => handleChange("website", e.target.value)}
+                />
+              </div>
+            </div>
+
+            {/* Row 5: Business Description */}
             <div className="space-y-2">
-              <Label htmlFor="description">Description</Label>
+              <Label htmlFor="description">Business Description</Label>
               <Textarea 
                 id="description" 
+                placeholder="Tell us about your business (optional)" 
                 className="h-32"
-                required
-                value={formData.description}
+                value={formData.description || ''}
                 onChange={(e) => handleChange("description", e.target.value)}
               />
             </div>
-            
+
+            {/* Row 6: Upload Image */}
+            {/* Note: File input value is not controlled by React state in the same way. 
+                Handling file uploads and pre-filling existing images requires more complex logic. */}
             <div className="space-y-2">
-              <Label htmlFor="image">Business Image</Label>
-              <Input id="image" type="file" accept="image/*" />
-              {/* If there's an existing image, you might want to show it here */}
-              <p className="text-sm text-muted-foreground mt-2">
-                Leave empty to keep the current image
-              </p>
+              <div className="md:w-1/6">
+                <Label htmlFor="business_image">Upload Image</Label>
+                <Input 
+                  id="business_image" 
+                  type="file" 
+                  accept="image/*" 
+                  onChange={(e) => handleChange("business_image", e.target.files ? e.target.files[0] : null)}
+                />
+                <p className="text-xs text-muted-foreground">Upload new image (optional).</p>
+                {formData.business_image && typeof formData.business_image === 'string' && formData.business_image !== '' && (
+                  <p className="text-xs text-muted-foreground mt-1">Current image: {formData.business_image}</p>
+                )}
+              </div>
             </div>
             
+            {/* Submit and Cancel Buttons */}
             <div className="flex justify-end gap-2">
               <Button type="button" variant="outline" onClick={() => navigate("/dashboard/businesses")}>
                 Cancel
               </Button>
               <Button type="submit" disabled={isSubmitting}>
-                {isSubmitting ? "Saving..." : "Save Changes"}
+                {isSubmitting ? "Updating..." : "Update Business"}
               </Button>
             </div>
           </form>

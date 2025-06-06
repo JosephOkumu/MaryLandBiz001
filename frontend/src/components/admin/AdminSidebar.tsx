@@ -20,11 +20,6 @@ const AdminSidebar = ({ open }: AdminSidebarProps) => {
       icon: <LayoutDashboard className="h-5 w-5" strokeWidth={2.5} />,
     },
     {
-      title: "Businesses",
-      href: "/dashboard/businesses",
-      icon: <Store className="h-5 w-5" strokeWidth={2.5} />,
-    },
-    {
       title: "Applications",
       href: "/dashboard/applications",
       icon: <ClipboardList className="h-5 w-5" strokeWidth={2.5} />,
