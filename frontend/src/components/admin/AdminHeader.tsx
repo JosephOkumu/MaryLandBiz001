@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Building, Bell, Menu, User, Mail } from "lucide-react";
+import { Building, Bell, User, Mail } from "lucide-react"; // Removed Menu as it's not used
+import { useAuth } from "../../components/AuthContext";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -30,6 +31,7 @@ interface NewBusinessApplication {
 
 const AdminHeader = () => {
   const navigate = useNavigate();
+  const { logout, currentUser } = useAuth(); // Added useAuth
   const [newApplicationsCount, setNewApplicationsCount] = useState(0);
   const [newApplicationsList, setNewApplicationsList] = useState<NewBusinessApplication[]>([]);
 
@@ -154,7 +156,7 @@ const AdminHeader = () => {
               <DropdownMenuItem>Profile</DropdownMenuItem>
               <DropdownMenuItem onClick={() => navigate('/dashboard/settings')}>Settings</DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem onClick={() => navigate('/login')}>Log out</DropdownMenuItem>
+              <DropdownMenuItem onClick={async () => { await logout(); navigate('/admin'); /* Navigate to admin login page after logout */ }}>Log out</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
