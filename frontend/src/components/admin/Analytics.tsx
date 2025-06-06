@@ -12,17 +12,23 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-import { BarChart as BarChartIcon, TrendingUp, Smartphone, Users } from "lucide-react";
+import { BarChart as BarChartIcon, TrendingUp, Users, ClipboardList, PlusSquare, CheckCircle2, FileText } from "lucide-react"; // Added ClipboardList, PlusSquare, CheckCircle2, FileText
 
-// Sample data for charts
-const monthlyData = [
-  { name: "Jan", businesses: 12, users: 320 },
-  { name: "Feb", businesses: 19, users: 450 },
-  { name: "Mar", businesses: 23, users: 520 },
-  { name: "Apr", businesses: 31, users: 590 },
-  { name: "May", businesses: 42, users: 680 },
-  { name: "Jun", businesses: 48, users: 810 },
+// Sample data for charts - Updated for relevance
+const newListingsMonthlyData = [
+  { name: "Jan", count: 12 },
+  { name: "Feb", count: 19 },
+  { name: "Mar", count: 23 },
+  { name: "Apr", count: 31 },
+  { name: "May", count: 42 },
+  { name: "Jun", count: 48 },
 ];
+
+// Sample data for stat cards (replace with dynamic data later)
+const totalBusinesses = 1211;
+const pendingApplications = 12;
+const newListingsThisMonth = 58;
+// const recentlyApprovedThisWeek = 7; // Removed
 
 const categoryData = [
   { name: "Restaurants", value: 238 },
@@ -33,90 +39,69 @@ const categoryData = [
   { name: "Technology", value: 124 },
 ];
 
-const deviceData = [
-  { name: "Desktop", value: 45 },
-  { name: "Mobile", value: 40 },
-  { name: "Tablet", value: 15 },
-];
+// deviceData is no longer used and can be removed or commented out
 
 const Analytics = () => {
   return (
     <div className="space-y-6 p-4">
       <h1 className="text-2xl font-bold">Analytics</h1>
       
-      <div className="grid gap-6 md:grid-cols-4">
+      <div className="grid gap-6 md:grid-cols-3"> {/* Adjusted grid to 3 columns */}
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Total Businesses</CardTitle>
+            <CardTitle className="text-sm font-medium">Total Listed Businesses</CardTitle>
             <BarChartIcon className="h-4 w-4 text-muted-foreground" strokeWidth={2.5} />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">1,211</div>
-            <p className="text-xs text-muted-foreground">+8.2% from last month</p>
+            <div className="text-2xl font-bold">{totalBusinesses.toLocaleString()}</div>
+            {/* <p className="text-xs text-muted-foreground">+8.2% from last month</p> */}
           </CardContent>
         </Card>
         
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Total Users</CardTitle>
-            <Users className="h-4 w-4 text-muted-foreground" strokeWidth={2.5} />
+            <CardTitle className="text-sm font-medium">Pending Applications</CardTitle>
+            <ClipboardList className="h-4 w-4 text-muted-foreground" strokeWidth={2.5} />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">23,459</div>
-            <p className="text-xs text-muted-foreground">+12.5% from last month</p>
+            <div className="text-2xl font-bold">{pendingApplications}</div>
+            {/* <p className="text-xs text-muted-foreground">View all</p> */}
           </CardContent>
         </Card>
         
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Conversion Rate</CardTitle>
-            <TrendingUp className="h-4 w-4 text-muted-foreground" strokeWidth={2.5} />
+            <CardTitle className="text-sm font-medium">New Listings (This Month)</CardTitle>
+            <PlusSquare className="h-4 w-4 text-muted-foreground" strokeWidth={2.5} />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">5.2%</div>
-            <p className="text-xs text-muted-foreground">+0.8% from last month</p>
+            <div className="text-2xl font-bold">{newListingsThisMonth}</div>
+            {/* <p className="text-xs text-muted-foreground">+0.8% from last month</p> */}
           </CardContent>
         </Card>
         
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Mobile Usage</CardTitle>
-            <Smartphone className="h-4 w-4 text-muted-foreground" strokeWidth={2.5} />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">68%</div>
-            <p className="text-xs text-muted-foreground">+4% from last month</p>
-          </CardContent>
-        </Card>
       </div>
       
       <div className="grid gap-6 md:grid-cols-2">
         <Card>
           <CardHeader>
-            <CardTitle>Business Growth</CardTitle>
+            <CardTitle>New Listings Over Time</CardTitle>
           </CardHeader>
           <CardContent className="h-[300px]">
             <ResponsiveContainer width="100%" height="100%">
-              <LineChart data={monthlyData}>
+              <LineChart data={newListingsMonthlyData}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="name" />
-                <YAxis />
+                <YAxis allowDecimals={false} />
                 <Tooltip />
                 <Legend />
                 <Line 
                   type="monotone" 
-                  dataKey="businesses" 
-                  name="New Businesses" 
+                  dataKey="count" 
+                  name="New Listings Added"
                   stroke="#0061A8" 
                   strokeWidth={2}
                   activeDot={{ r: 8 }} 
-                />
-                <Line 
-                  type="monotone" 
-                  dataKey="users" 
-                  name="New Users" 
-                  stroke="#E0592A" 
-                  strokeWidth={2}
                 />
               </LineChart>
             </ResponsiveContainer>
@@ -132,7 +117,7 @@ const Analytics = () => {
               <BarChart data={categoryData}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="name" />
-                <YAxis />
+                <YAxis allowDecimals={false} />
                 <Tooltip />
                 <Legend />
                 <Bar dataKey="value" name="Businesses" fill="#0061A8" />
@@ -142,23 +127,7 @@ const Analytics = () => {
         </Card>
       </div>
       
-      <Card>
-        <CardHeader>
-          <CardTitle>Device Usage</CardTitle>
-        </CardHeader>
-        <CardContent className="h-[350px]">
-          <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={deviceData} layout="vertical">
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis type="number" />
-              <YAxis type="category" dataKey="name" />
-              <Tooltip />
-              <Legend />
-              <Bar dataKey="value" name="Percentage" fill="#E0592A" label={{ position: 'right', fill: '#333' }} />
-            </BarChart>
-          </ResponsiveContainer>
-        </CardContent>
-      </Card>
+      {/* Device Usage Card Removed */}
     </div>
   );
 };
