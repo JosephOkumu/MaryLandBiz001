@@ -1,11 +1,122 @@
-from flask import Flask, jsonify, request
+import os
+from flask import Flask, jsonify, request, session
 from flask_cors import CORS
 import mysql.connector
-from mysql.connector import Error
-from db_config import get_db_connection
+from mysql.connector import Error as DBError # Alias to avoid conflict if any
+from db_config import get_db_connection, create_admin_table, seed_initial_admins
+from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
+from flask_bcrypt import Bcrypt
+from dotenv import load_dotenv
+
+load_dotenv() # Load environment variables from .env
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+app.config['SECRET_KEY'] = os.environ.get('FLASK_SECRET_KEY', 'default_dev_secret_key_change_me')
+# Adjust origins for your frontend development server and production domain
+CORS(app, supports_credentials=True, origins=os.environ.get('CORS_ORIGINS', 'http://localhost:5173').split(','))
+
+bcrypt = Bcrypt(app)
+login_manager = LoginManager()
+login_manager.init_app(app)
+login_manager.session_protection = "strong"
+
+# --- Admin User Model (Database-backed) ---
+class Admin(UserMixin):
+    def __init__(self, id, username):
+        self.id = id
+        self.username = username
+
+    @staticmethod
+    def get_by_id(user_id):
+        connection = get_db_connection()
+        if not connection:
+            return None
+        try:
+            cursor = connection.cursor(dictionary=True)
+            cursor.execute("SELECT id, username FROM admins WHERE id = %s", (user_id,))
+            user_data = cursor.fetchone()
+            if user_data:
+                return Admin(id=user_data['id'], username=user_data['username'])
+            return None
+        except DBError as err:
+            app.logger.error(f"Error fetching admin by ID: {err}")
+            return None
+        finally:
+            if connection and connection.is_connected():
+                cursor.close()
+                connection.close()
+
+    @staticmethod
+    def get_by_username(username):
+        connection = get_db_connection()
+        if not connection:
+            return None
+        try:
+            cursor = connection.cursor(dictionary=True)
+            cursor.execute("SELECT id, username, password_hash FROM admins WHERE username = %s", (username,))
+            user_data = cursor.fetchone()
+            if user_data:
+                # Return full data including hash for login check
+                return user_data 
+            return None
+        except DBError as err:
+            app.logger.error(f"Error fetching admin by username: {err}")
+            return None
+        finally:
+            if connection and connection.is_connected():
+                cursor.close()
+                connection.close()
+
+@login_manager.user_loader
+def load_user(user_id):
+    return Admin.get_by_id(user_id)
+
+@login_manager.unauthorized_handler
+def unauthorized():
+    # For API, return 401 instead of redirecting
+    return jsonify(message="Authentication required. Please log in."), 401
+
+# Initialize DB and seed admins (run once on startup)
+with app.app_context():
+    print("Initializing database for admin users...")
+    create_admin_table()
+    seed_initial_admins(bcrypt) # Pass the bcrypt instance
+    print("Admin database initialization complete.")
+
+# --- Admin API Endpoints ---
+@app.route('/api/admin/login', methods=['POST'])
+def admin_login():
+    data = request.get_json()
+    username = data.get('username')
+    password = data.get('password')
+
+    if not username or not password:
+        return jsonify({"error": "Username and password are required"}), 400
+
+    admin_data = Admin.get_by_username(username)
+
+    if admin_data and bcrypt.check_password_hash(admin_data['password_hash'], password):
+        admin_user = Admin(id=admin_data['id'], username=admin_data['username'])
+        login_user(admin_user) # Manages session
+        return jsonify({"message": "Login successful", "user": {"id": admin_user.id, "username": admin_user.username}}), 200
+    else:
+        return jsonify({"error": "Invalid username or password"}), 401
+
+@app.route('/api/admin/logout', methods=['POST'])
+@login_required # Ensures only logged-in users can logout
+def admin_logout():
+    logout_user() # Clears the session
+    return jsonify({"message": "Logout successful"}), 200
+
+@app.route('/api/admin/authcheck', methods=['GET'])
+@login_required
+def admin_authcheck():
+    # If @login_required passes, user is authenticated
+    return jsonify({
+        "is_authenticated": True,
+        "user": {"id": current_user.id, "username": current_user.username}
+    }), 200
+
 
 @app.route('/api/businesses', methods=['GET'])
 def get_businesses():
