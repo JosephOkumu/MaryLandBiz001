@@ -39,6 +39,7 @@ const BusinessList = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState(""); // New state for debounced search
   const [currentPage, setCurrentPage] = useState(1);
   const [totalBusinesses, setTotalBusinesses] = useState(0);
   const { toast } = useToast();
@@ -52,7 +53,7 @@ const BusinessList = () => {
         const response = await getBusinesses({
           limit: BUSINESSES_PER_PAGE,
           offset,
-          q: searchTerm || undefined, // Send search term to backend
+          q: debouncedSearchTerm || undefined, // Send debounced search term to backend
         });
         setBusinesses(response.businesses || []);
         setTotalBusinesses(response.total || 0);
@@ -66,15 +67,25 @@ const BusinessList = () => {
     };
 
     fetchBusinessData();
-  }, [currentPage, searchTerm]); // Refetch when currentPage or searchTerm changes
+  }, [currentPage, debouncedSearchTerm]); // Refetch when currentPage or debouncedSearchTerm changes
 
-  // Reset to page 1 when search term changes
+  // Debounce search term
   useEffect(() => {
-    if (searchTerm !== "") {
-      setCurrentPage(1);
-    } // Or simply setCurrentPage(1) if you always want to reset, even if search is cleared.
-    // For now, only reset if search term is actively set.
+    const handler = setTimeout(() => {
+      setDebouncedSearchTerm(searchTerm);
+    }, 500); // 500ms delay
+
+    return () => {
+      clearTimeout(handler);
+    };
   }, [searchTerm]);
+
+  // Reset to page 1 when debounced search term changes
+  useEffect(() => {
+    if (debouncedSearchTerm !== "" || searchTerm === "") { // Reset if debounced term is set, or if search is cleared
+        setCurrentPage(1);
+    }
+  }, [debouncedSearchTerm, searchTerm]); // Watch both to catch clearing the search
 
   const handleDelete = (id: string) => {
     // Note: This is a frontend-only delete. For persistent deletion, an API call is needed.
