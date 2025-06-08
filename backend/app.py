@@ -187,8 +187,62 @@ def get_businesses():
             "status_filter": status
         })
         
-    except Error as err:
+    except DBError as err:
         app.logger.error(f"Database error: {err}") # Added logging
+        return jsonify({"error": str(err)}), 500
+    finally:
+        if connection and connection.is_connected():
+            cursor.close()
+            connection.close()
+
+@app.route('/api/businesses', methods=['POST'])
+@login_required
+def create_business():
+    """
+    Create a new business entry. Accessible only to logged-in admin users.
+    """
+    data = request.get_json()
+    required_fields = ['business_name', 'category', 'location']
+    
+    # Validate required fields
+    for field in required_fields:
+        if field not in data or not data[field]:
+            return jsonify({"error": f"{field} is required"}), 400
+    
+    connection = get_db_connection()
+    if not connection:
+        return jsonify({"error": "Database connection failed"}), 500
+    
+    try:
+        cursor = connection.cursor()
+        query = """
+            INSERT INTO businesses 
+            (business_name, category, location, contact_name, tel, email, website, description, featured)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+        """
+        values = (
+            data.get('business_name'),
+            data.get('category'),
+            data.get('location'),
+            data.get('contact_name', ''),
+            data.get('tel', ''),
+            data.get('email', ''),
+            data.get('website', ''),
+            data.get('description', ''),
+            data.get('featured', False)
+        )
+        cursor.execute(query, values)
+        connection.commit()
+        
+        business_id = cursor.lastrowid
+        return jsonify({
+            "success": True,
+            "message": "Business created successfully",
+            "business_id": business_id
+        }), 201
+    
+    except DBError as err:
+        app.logger.error(f"Database error when creating business: {err}")
         return jsonify({"error": str(err)}), 500
     finally:
         if connection and connection.is_connected():
@@ -222,7 +276,7 @@ def get_featured_businesses():
         
         return jsonify(featured)
         
-    except Error as err:
+    except DBError as err:
         return jsonify({"error": str(err)}), 500
     finally:
         if connection.is_connected():
@@ -244,7 +298,7 @@ def get_categories():
         categories = cursor.fetchall()
         return jsonify(categories)
         
-    except Error as err:
+    except DBError as err:
         return jsonify({"error": str(err)}), 500
     finally:
         if connection.is_connected():
@@ -300,7 +354,7 @@ def search_businesses():
             "offset": offset
         })
         
-    except Error as err:
+    except DBError as err:
         return jsonify({"error": str(err)}), 500
     finally:
         if connection.is_connected():
@@ -331,7 +385,7 @@ def set_featured_business():
         
         return jsonify({"success": True, "message": "Featured status updated"})
         
-    except Error as err:
+    except DBError as err:
         return jsonify({"error": str(err)}), 500
     finally:
         if connection.is_connected():
