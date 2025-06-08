@@ -90,6 +90,23 @@ export const getFeaturedBusinesses = async (limit: number) => {
   return await response.json();
 };
 
+// Fetch new businesses count from the backend
+export const getNewBusinessesCount = async (): Promise<number> => {
+  const response = await fetch('http://localhost:5000/api/businesses/new-count', {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    credentials: 'include',
+  });
+
+  if (!response.ok) {
+    throw new Error('Failed to fetch new businesses count');
+  }
+
+  const data = await response.json();
+  return data.count;
+};
+
 // --- Admin Authentication API Functions ---
 
 const ADMIN_API_BASE_URL = 'http://localhost:5000/api/admin';

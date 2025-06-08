@@ -338,5 +338,30 @@ def set_featured_business():
             cursor.close()
             connection.close()
 
+@app.route('/api/businesses/new-count', methods=['GET'])
+@login_required
+def get_new_businesses_count():
+    connection = get_db_connection()
+    if not connection:
+        return jsonify({'error': 'Database connection failed'}), 500
+
+    try:
+        cursor = connection.cursor()
+        query = """
+            SELECT COUNT(*) as count 
+            FROM businesses 
+            WHERE created_at >= DATE_SUB(NOW(), INTERVAL 30 DAY)
+        """
+        cursor.execute(query)
+        result = cursor.fetchone()
+        return jsonify({'count': result[0]}), 200
+    except DBError as err:
+        print(f"Database error: {err}")
+        return jsonify({'error': 'Database error'}), 500
+    finally:
+        if connection.is_connected():
+            cursor.close()
+            connection.close()
+
 if __name__ == '__main__':
     app.run(debug=True, port=5000)

@@ -9,29 +9,35 @@ import {
 import { Building2, ClipboardList, ListPlus } from "lucide-react"; // Removed unused icons BarChart, FileText, CheckSquare
 import BusinessList from "../components/admin/BusinessList"; // Added import for BusinessList
 import { useState, useEffect } from "react"
-import { getBusinesses } from "../lib/api"
+import { getBusinesses, getNewBusinessesCount } from "../lib/api"
 
 const Dashboard = () => {
   const [totalBusinesses, setTotalBusinesses] = useState(2376);
   const [isLoading, setIsLoading] = useState(true);
+  const [newListings, setNewListings] = useState<number>(0);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    const fetchTotalBusinesses = async () => {
+    const fetchDashboardData = async () => {
       setIsLoading(true);
+      setLoading(true);
       try {
         const response = await getBusinesses({
           limit: 1, // We only need the total count, so limit to 1 to minimize data transfer
           offset: 0,
         });
         setTotalBusinesses(response.total || 0);
+        const count = await getNewBusinessesCount();
+        setNewListings(count);
       } catch (err) {
-        console.error("Failed to fetch total businesses:", err);
+        console.error("Failed to fetch dashboard data:", err);
       } finally {
         setIsLoading(false);
+        setLoading(false);
       }
     };
 
-    fetchTotalBusinesses();
+    fetchDashboardData();
   }, []);
 
   return (
@@ -79,10 +85,7 @@ const Dashboard = () => {
               <ListPlus className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">58</div>
-              {/* <p className="text-xs text-muted-foreground">
-                  Approved this month
-                </p> */}
+              <div className="text-2xl font-bold">{loading ? "Loading..." : newListings}</div>
             </CardContent>
           </Card>
         </div>

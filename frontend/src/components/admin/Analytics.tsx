@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getBusinesses } from "../../lib/api";
+import { getBusinesses, getNewBusinessesCount } from "../../lib/api";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   BarChart,
@@ -27,9 +27,6 @@ const newListingsMonthlyData = [
 
 // Sample data for stat cards (replace with dynamic data later)
 const pendingApplications = 12;
-const newListingsThisMonth = 58;
-// const recentlyApprovedThisWeek = 7; // Removed
-
 const categoryData = [
   { name: "Restaurants", value: 238 },
   { name: "Retail", value: 412 },
@@ -39,14 +36,15 @@ const categoryData = [
   { name: "Technology", value: 124 },
 ];
 
-// deviceData is no longer used and can be removed or commented out
-
 const Analytics = () => {
   const [totalBusinesses, setTotalBusinesses] = useState(1211);
+  const [newListings, setNewListings] = useState<number>(0);
+  const [loading, setLoading] = useState<boolean>(true);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const fetchTotalBusinesses = async () => {
+    const fetchAnalyticsData = async () => {
+      setLoading(true);
       setIsLoading(true);
       try {
         const response = await getBusinesses({
@@ -54,14 +52,17 @@ const Analytics = () => {
           offset: 0,
         });
         setTotalBusinesses(response.total || 0);
+        const count = await getNewBusinessesCount();
+        setNewListings(count);
       } catch (err) {
-        console.error("Failed to fetch total businesses:", err);
+        console.error("Failed to fetch analytics data:", err);
       } finally {
+        setLoading(false);
         setIsLoading(false);
       }
     };
 
-    fetchTotalBusinesses();
+    fetchAnalyticsData();
   }, []);
 
   return (
@@ -97,8 +98,7 @@ const Analytics = () => {
             <PlusSquare className="h-4 w-4 text-muted-foreground" strokeWidth={2.5} />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{newListingsThisMonth}</div>
-            {/* <p className="text-xs text-muted-foreground">+0.8% from last month</p> */}
+            <div className="text-2xl font-bold">{loading ? "Loading..." : newListings}</div>
           </CardContent>
         </Card>
         
