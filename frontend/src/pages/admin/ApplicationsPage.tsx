@@ -51,63 +51,7 @@ interface Application {
   isFromLocalStorage?: boolean; // To differentiate source
 }
 
-const dummyApplications: Application[] = [
-  {
-    id: "app_001",
-    business_name: "Coastal Breeze Cafe",
-    location: "Ocean City, MD",
-    contact_name: "Alice Wonderland",
-    tel: "(410) 555-0101",
-    email: "alice@coastalbreeze.com",
-    website: "https://coastalbreeze.com",
-    category: "Cafe",
-    description: "A lovely cafe by the sea, offering fresh coffee and pastries.",
-    business_image_name: "cafe_exterior.jpg",
-    dateSubmitted: "2024-05-01",
-    status: "Pending",
-  },
-  {
-    id: "app_002",
-    business_name: "Tech Innovators LLC",
-    location: "Baltimore, MD",
-    contact_name: "David Miller",
-    tel: "410-555-5678",
-    email: "david.miller@techinnovators.io",
-    website: "https://techinnovators.io",
-    category: "Technology",
-    description: "Software development company specializing in AI solutions",
-    business_image_name: "tech_innovators_logo.png",
-    dateSubmitted: "2024-05-03",
-    status: "Pending",
-  },
-  {
-    id: "app_003",
-    business_name: "Green Thumb Landscaping",
-    location: "Rockville, MD",
-    contact_name: "David Banner",
-    tel: "(240) 555-0104",
-    email: "david@greenthumb.com",
-    category: "Landscaping",
-    description: "Professional landscaping and garden design services.",
-    business_image_name: "landscaping_logo.svg",
-    dateSubmitted: "2024-05-08",
-    status: "Pending",
-  },
-  {
-    id: "app_004",
-    business_name: "City Lights Bookstore",
-    location: "Baltimore, MD",
-    contact_name: "Carol Danvers",
-    tel: "(443) 555-0103",
-    email: "carol@citylights.com",
-    website: "https://citylightsbooks.com",
-    category: "Bookstore",
-    description: "Independent bookstore with a wide selection of genres and local authors.",
-    // business_image_name: undefined, // Example for no image
-    dateSubmitted: "2024-05-05",
-    status: "Pending",
-  },
-];
+const dummyApplications: Application[] = [];
 
 function ApplicationsPage() {
   const { toast } = useToast();
@@ -150,11 +94,11 @@ function ApplicationsPage() {
           isNew: false,
           isFromLocalStorage: false,
         }));
-        setApplications([...formattedData, ...dummyApplications]);
+        setApplications([...formattedData]);
       } catch (error) {
         console.error('Error fetching applications:', error);
         toast({ title: "Error loading applications", variant: "destructive" });
-        setApplications([...dummyApplications]);
+        setApplications([]);
       } finally {
         setIsLoading(false);
       }
