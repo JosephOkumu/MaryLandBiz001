@@ -119,73 +119,54 @@ function ApplicationsPage() {
 
   useEffect(() => {
     setIsLoading(true);
-    let newAppsFromStorage: NewBusinessApplication[] = [];
-    try {
-      const storedData = localStorage.getItem('businessApplications');
-      newAppsFromStorage = storedData ? JSON.parse(storedData) : [];
-    } catch (e) {
-      console.error("Failed to parse business applications from localStorage", e);
-      toast({ title: "Error loading applications", variant: "destructive" });
-    }
+    const fetchApplications = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/api/business-applications', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          credentials: 'include',
+        });
 
-    const appIdFromUrl = searchParams.get('id');
-    let itemUpdated = false;
-
-    if (appIdFromUrl) {
-      newAppsFromStorage = newAppsFromStorage.map(app => {
-        if (app.id === appIdFromUrl && app.isNew) {
-          itemUpdated = true;
-          return { ...app, isNew: false };
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
         }
-        return app;
-      });
 
-      if (itemUpdated) {
-        try {
-          localStorage.setItem('businessApplications', JSON.stringify(newAppsFromStorage));
-          // Dispatch an event that header/sidebar can listen to, to update counts
-          window.dispatchEvent(new CustomEvent('localStorageUpdated'));
-        } catch (e) {
-          console.error("Failed to update localStorage", e);
-        }
-        // Clean URL param
-        const newSearchParams = new URLSearchParams(searchParams);
-        newSearchParams.delete('id');
-        setSearchParams(newSearchParams, { replace: true });
+        const data = await response.json();
+        const formattedData = data.map((app: any) => ({
+          id: app.id.toString(),
+          business_name: app.businessName,
+          location: app.location,
+          contact_name: app.contactName || '',
+          tel: app.tel,
+          email: app.email,
+          website: app.website || '',
+          category: app.category,
+          description: app.description || '',
+          business_image_name: '',
+          dateSubmitted: new Date(app.submittedAt).toISOString().split('T')[0],
+          status: app.status.charAt(0).toUpperCase() + app.status.slice(1) as 'Pending' | 'Approved' | 'Rejected',
+          isNew: false,
+          isFromLocalStorage: false,
+        }));
+        setApplications([...formattedData, ...dummyApplications]);
+      } catch (error) {
+        console.error('Error fetching applications:', error);
+        toast({ title: "Error loading applications", variant: "destructive" });
+        setApplications([...dummyApplications]);
+      } finally {
+        setIsLoading(false);
       }
-    }
+    };
 
-    const mappedNewApplications: Application[] = newAppsFromStorage
-      .sort((a, b) => new Date(b.submittedAt).getTime() - new Date(a.submittedAt).getTime())
-      .map(newApp => ({
-        id: newApp.id,
-        business_name: newApp.businessName,
-        location: newApp.location,
-        category: newApp.category,
-        contact_name: newApp.contactName || 'N/A',
-        tel: newApp.tel,
-        email: newApp.email,
-        website: newApp.website,
-        description: newApp.description || '',
-        dateSubmitted: new Date(newApp.submittedAt).toLocaleDateString(),
-        status: newApp.status === 'pending' ? 'Pending' : newApp.status === 'approved' ? 'Approved' : 'Rejected',
-        isNew: newApp.isNew,
-        isFromLocalStorage: true,
-      }));
-
-    // Filter dummy applications to avoid duplicates if IDs could somehow match (unlikely with current ID generation)
-    const newAppIds = new Set(mappedNewApplications.map(a => a.id));
-    const filteredDummyApplications = dummyApplications.filter(dummyApp => !newAppIds.has(dummyApp.id));
-
-    setApplications([...mappedNewApplications, ...filteredDummyApplications]);
-    setIsLoading(false);
-  }, [searchParams, setSearchParams, toast]);
+    fetchApplications();
+  }, [searchParams, toast]);
 
   // Show loading state or empty state more robustly
   if (isLoading) {
     return <div className="p-6">Loading applications...</div>;
   }
-
 
   const openReviewModal = (application: Application) => {
     setSelectedApplication(application);

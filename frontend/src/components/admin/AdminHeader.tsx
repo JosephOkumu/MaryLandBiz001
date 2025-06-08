@@ -35,15 +35,26 @@ const AdminHeader = () => {
   const [newApplicationsCount, setNewApplicationsCount] = useState(0);
   const [newApplicationsList, setNewApplicationsList] = useState<NewBusinessApplication[]>([]);
 
-  const updateNotifications = () => {
+  const updateNotifications = async () => {
     try {
-      const storedData = localStorage.getItem('businessApplications');
-      const applications: NewBusinessApplication[] = storedData ? JSON.parse(storedData) : [];
-      const newItems = applications.filter(app => app.isNew);
+      const response = await fetch('http://localhost:5000/api/business-applications', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const applications = await response.json();
+      const newItems = applications.filter((app: any) => app.status === 'pending');
       setNewApplicationsCount(newItems.length);
-      setNewApplicationsList(newItems.sort((a, b) => new Date(b.submittedAt).getTime() - new Date(a.submittedAt).getTime())); // Show newest first
+      setNewApplicationsList(newItems.sort((a: any, b: any) => new Date(b.submittedAt).getTime() - new Date(a.submittedAt).getTime()));
     } catch (e) {
-      console.error("Failed to parse business applications from localStorage for header", e);
+      console.error("Failed to fetch business applications from backend for header", e);
       setNewApplicationsCount(0);
       setNewApplicationsList([]);
     }
@@ -52,21 +63,12 @@ const AdminHeader = () => {
   useEffect(() => {
     updateNotifications(); // Initial load
 
-    const handleStorageUpdate = () => {
-      updateNotifications();
-    };
-
-    window.addEventListener('localStorageUpdated', handleStorageUpdate);
-    // Also listen to storage events if changes happen in other tabs (though our custom event is more direct for same-tab)
-    window.addEventListener('storage', (event) => {
-      if (event.key === 'businessApplications') {
-        handleStorageUpdate();
-      }
-    });
+    const intervalId = setInterval(() => {
+      updateNotifications(); // Poll every 30 seconds for new applications
+    }, 30000);
 
     return () => {
-      window.removeEventListener('localStorageUpdated', handleStorageUpdate);
-      window.removeEventListener('storage', handleStorageUpdate); 
+      clearInterval(intervalId);
     };
   }, []);
 

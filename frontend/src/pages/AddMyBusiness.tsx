@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -32,36 +31,36 @@ const AddMyBusiness = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     const formData = new FormData(e.currentTarget);
-    const newApplicationData: NewBusinessApplication = {
-      id: `app_${Date.now()}`,
+    const newApplicationData = {
       businessName: formData.get('business_name') as string,
       location: formData.get('location') as string,
       category: formData.get('category') as string,
-      contactName: formData.get('contact_name') as string || undefined,
+      contactName: formData.get('contact_name') as string || '',
       tel: formData.get('tel') as string,
       email: formData.get('email') as string,
-      website: formData.get('website') as string || undefined,
-      description: formData.get('description') as string || undefined,
-      status: 'pending',
-      submittedAt: new Date().toISOString(),
-      isNew: true,
+      website: formData.get('website') as string || '',
+      description: formData.get('description') as string || '',
     };
 
     try {
-      const existingApplicationsJSON = localStorage.getItem('businessApplications');
-      const existingApplications: NewBusinessApplication[] = existingApplicationsJSON ? JSON.parse(existingApplicationsJSON) : [];
-      existingApplications.push(newApplicationData);
-      localStorage.setItem('businessApplications', JSON.stringify(existingApplications));
-      
-      // Dispatch an event that other components (header, sidebar, applications page) can listen to
-      window.dispatchEvent(new CustomEvent('localStorageUpdated'));
-      // localStorage.setItem('newAdminNotification', 'true'); // Optional: general flag
+      const response = await fetch('http://localhost:5000/api/business-applications', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newApplicationData),
+      });
 
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const result = await response.json();
       setTimeout(() => {
         setIsSubmitting(false);
         toast({
@@ -71,11 +70,11 @@ const AddMyBusiness = () => {
         navigate("/");
       }, 1000);
     } catch (error) {
-      console.error("Error saving application to localStorage:", error);
+      console.error("Error submitting application:", error);
       setIsSubmitting(false);
       toast({
         title: "Submission Error",
-        description: "Could not save your request. Please try again.",
+        description: "Could not submit your request. Please try again.",
         variant: "destructive",
       });
     }

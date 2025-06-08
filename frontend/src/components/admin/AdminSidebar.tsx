@@ -31,14 +31,25 @@ interface NewBusinessApplication {
 const AdminSidebar = () => {
   const [newApplicationsCount, setNewApplicationsCount] = useState(0);
 
-  const updateNotificationCount = () => {
+  const updateNotificationCount = async () => {
     try {
-      const storedData = localStorage.getItem('businessApplications');
-      const applications: NewBusinessApplication[] = storedData ? JSON.parse(storedData) : [];
-      const newItemsCount = applications.filter(app => app.isNew).length;
+      const response = await fetch('http://localhost:5000/api/business-applications', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const applications = await response.json();
+      const newItemsCount = applications.filter((app: any) => app.status === 'pending').length;
       setNewApplicationsCount(newItemsCount);
     } catch (e) {
-      console.error("Failed to parse business applications from localStorage for sidebar", e);
+      console.error("Failed to fetch business applications from backend for sidebar", e);
       setNewApplicationsCount(0);
     }
   };
@@ -46,20 +57,12 @@ const AdminSidebar = () => {
   useEffect(() => {
     updateNotificationCount(); // Initial load
 
-    const handleStorageUpdate = () => {
-      updateNotificationCount();
-    };
-
-    window.addEventListener('localStorageUpdated', handleStorageUpdate);
-    window.addEventListener('storage', (event) => {
-      if (event.key === 'businessApplications') {
-        handleStorageUpdate();
-      }
-    });
+    const intervalId = setInterval(() => {
+      updateNotificationCount(); // Poll every 30 seconds for new applications
+    }, 30000);
 
     return () => {
-      window.removeEventListener('localStorageUpdated', handleStorageUpdate);
-      window.removeEventListener('storage', handleStorageUpdate);
+      clearInterval(intervalId);
     };
   }, []);
 

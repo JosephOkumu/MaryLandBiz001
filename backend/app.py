@@ -84,6 +84,44 @@ with app.app_context():
     seed_initial_admins(bcrypt) # Pass the bcrypt instance
     print("Admin database initialization complete.")
 
+# Variable to ensure table creation happens only once
+_tables_created = False
+
+@app.before_request
+def create_tables():
+    global _tables_created
+    if not _tables_created:
+        connection = get_db_connection()
+        if not connection:
+            app.logger.error("Database connection failed during table creation")
+            return
+        try:
+            cursor = connection.cursor()
+            query = """
+                CREATE TABLE IF NOT EXISTS business_applications (
+                    id INT AUTO_INCREMENT PRIMARY KEY,
+                    business_name VARCHAR(255) NOT NULL,
+                    location VARCHAR(255) NOT NULL,
+                    category VARCHAR(100) NOT NULL,
+                    contact_name VARCHAR(100),
+                    tel VARCHAR(20) NOT NULL,
+                    email VARCHAR(255) NOT NULL,
+                    website VARCHAR(255),
+                    description TEXT,
+                    status ENUM('pending', 'approved', 'rejected') DEFAULT 'pending',
+                    submitted_at DATETIME NOT NULL
+                )
+            """
+            cursor.execute(query)
+            connection.commit()
+            app.logger.info("business_applications table created or already exists")
+            _tables_created = True
+        except DBError as err:
+            app.logger.error(f"Database error when creating tables: {err}")
+        finally:
+            cursor.close()
+            connection.close()
+
 # --- Admin API Endpoints ---
 @app.route('/api/admin/login', methods=['POST'])
 def admin_login():
@@ -509,6 +547,72 @@ def delete_business(id):
         if connection and connection.is_connected():
             cursor.close()
             connection.close()
+
+@app.route('/api/business-applications', methods=['POST'])
+def submit_business_application():
+    data = request.get_json()
+    required_fields = ['businessName', 'location', 'category', 'tel', 'email']
+    for field in required_fields:
+        if field not in data or not data[field]:
+            return jsonify({"error": f"{field} is required"}), 400
+    connection = get_db_connection()
+    if not connection:
+        return jsonify({"error": "Database connection failed"}), 500
+    try:
+        cursor = connection.cursor()
+        query = """
+            INSERT INTO business_applications 
+            (business_name, location, category, contact_name, tel, email, website, description, status, submitted_at)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, NOW())
+        """
+        values = (
+            data.get('businessName'),
+            data.get('location'),
+            data.get('category'),
+            data.get('contactName', ''),
+            data.get('tel'),
+            data.get('email'),
+            data.get('website', ''),
+            data.get('description', ''),
+            'pending'
+        )
+        cursor.execute(query, values)
+        connection.commit()
+        application_id = cursor.lastrowid
+        return jsonify({
+            "success": True,
+            "message": "Business application submitted successfully",
+            "application_id": application_id
+        }), 201
+    except DBError as err:
+        app.logger.error(f"Database error when submitting business application: {err}")
+        return jsonify({"error": "Database error occurred"}), 500
+    finally:
+        connection.close()
+
+@app.route('/api/business-applications', methods=['GET'])
+@login_required
+def get_business_applications():
+    connection = get_db_connection()
+    if not connection:
+        return jsonify({"error": "Database connection failed"}), 500
+    try:
+        cursor = connection.cursor(dictionary=True)
+        query = """
+            SELECT id, business_name as businessName, location, category, contact_name as contactName, tel, email,
+                   website, description, status, submitted_at as submittedAt
+            FROM business_applications
+            ORDER BY submitted_at DESC
+        """
+        cursor.execute(query)
+        applications = cursor.fetchall()
+        return jsonify(applications), 200
+    except DBError as err:
+        app.logger.error(f"Database error when fetching business applications: {err}")
+        return jsonify({"error": "Database error occurred"}), 500
+    finally:
+        cursor.close()
+        connection.close()
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
