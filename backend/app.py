@@ -484,5 +484,31 @@ def update_business(id):
             cursor.close()
             connection.close()
 
+@app.route('/api/businesses/<int:id>', methods=['DELETE'])
+@login_required
+def delete_business(id):
+    connection = get_db_connection()
+    if not connection:
+        return jsonify({"error": "Database connection failed"}), 500
+    try:
+        cursor = connection.cursor()
+        query = "DELETE FROM businesses WHERE id = %s"
+        cursor.execute(query, (id,))
+        connection.commit()
+        if cursor.rowcount == 0:
+            return jsonify({"error": "Business not found"}), 404
+        return jsonify({
+            "success": True,
+            "message": "Business deleted successfully",
+            "business_id": id
+        })
+    except DBError as err:
+        app.logger.error(f"Database error when deleting business: {err}")
+        return jsonify({"error": str(err)}), 500
+    finally:
+        if connection and connection.is_connected():
+            cursor.close()
+            connection.close()
+
 if __name__ == '__main__':
     app.run(debug=True, port=5000)

@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { getBusinesses, Business } from "../../lib/api"; // Import API function and type
 import { Link } from "react-router-dom";
@@ -87,16 +86,38 @@ const BusinessList = () => {
     }
   }, [debouncedSearchTerm, searchTerm]); // Watch both to catch clearing the search
 
-  const handleDelete = (id: string) => {
-    // Note: This is a frontend-only delete. For persistent deletion, an API call is needed.
-    setBusinesses(businesses.filter(business => business.id !== id));
-    // Decrement totalBusinesses if the deleted item was part of the current view's total
-    // This is a simplification; a more robust solution would refetch or adjust based on API response
-    setTotalBusinesses(prevTotal => Math.max(0, prevTotal -1)); 
-    toast({
-      title: "Business deleted (from view)",
-      description: "The business has been removed from the current list.",
-    });
+  const handleDelete = async (id: string) => {
+    try {
+      const response = await fetch(`http://localhost:5000/api/businesses/${id}`, {
+        method: 'DELETE',
+        credentials: 'include', // Necessary for session cookies
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // Remove the business from the current list
+        setBusinesses(businesses.filter(business => business.id !== id));
+        // Decrement totalBusinesses
+        setTotalBusinesses(prevTotal => Math.max(0, prevTotal - 1));
+        toast({
+          title: "Business deleted",
+          description: "The business has been permanently deleted.",
+        });
+      } else {
+        toast({
+          title: "Error",
+          description: data.error || "Failed to delete business. Please try again.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "An unexpected error occurred. Please try again.",
+        variant: "destructive",
+      });
+    }
   };
 
   const totalPages = Math.ceil(totalBusinesses / BUSINESSES_PER_PAGE);
