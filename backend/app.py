@@ -417,5 +417,72 @@ def get_new_businesses_count():
             cursor.close()
             connection.close()
 
+@app.route('/api/businesses/<int:id>', methods=['GET'])
+@login_required
+def get_business(id):
+    connection = get_db_connection()
+    if not connection:
+        return jsonify({"error": "Database connection failed"}), 500
+    try:
+        cursor = connection.cursor(dictionary=True)
+        query = "SELECT * FROM businesses WHERE id = %s"
+        cursor.execute(query, (id,))
+        business = cursor.fetchone()
+        if not business:
+            return jsonify({"error": "Business not found"}), 404
+        return jsonify(business)
+    except DBError as err:
+        app.logger.error(f"Database error when fetching business: {err}")
+        return jsonify({"error": str(err)}), 500
+    finally:
+        if connection and connection.is_connected():
+            cursor.close()
+            connection.close()
+
+@app.route('/api/businesses/<int:id>', methods=['PUT'])
+@login_required
+def update_business(id):
+    data = request.get_json()
+    connection = get_db_connection()
+    if not connection:
+        return jsonify({"error": "Database connection failed"}), 500
+    try:
+        cursor = connection.cursor()
+        query = """
+            UPDATE businesses 
+            SET business_name = %s, category = %s, location = %s, 
+                contact_name = %s, tel = %s, email = %s, 
+                website = %s, description = %s, featured = %s
+            WHERE id = %s
+        """
+        values = (
+            data.get('business_name'),
+            data.get('category'),
+            data.get('location'),
+            data.get('contact_name', ''),
+            data.get('tel', ''),
+            data.get('email', ''),
+            data.get('website', ''),
+            data.get('description', ''),
+            data.get('featured', False),
+            id
+        )
+        cursor.execute(query, values)
+        connection.commit()
+        if cursor.rowcount == 0:
+            return jsonify({"error": "Business not found or no changes made"}), 404
+        return jsonify({
+            "success": True,
+            "message": "Business updated successfully",
+            "business_id": id
+        })
+    except DBError as err:
+        app.logger.error(f"Database error when updating business: {err}")
+        return jsonify({"error": str(err)}), 500
+    finally:
+        if connection and connection.is_connected():
+            cursor.close()
+            connection.close()
+
 if __name__ == '__main__':
     app.run(debug=True, port=5000)

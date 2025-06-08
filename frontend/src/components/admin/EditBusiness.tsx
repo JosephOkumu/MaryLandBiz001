@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -16,68 +15,97 @@ import { useToast } from "@/components/ui/use-toast";
 import { Card, CardContent } from "@/components/ui/card";
 import { X } from 'lucide-react'; // Import X icon
 
-// Mock data for the selected business - Updated structure
-const businessData: { [key: string]: any } = {
-  "1": { 
-    business_name: "Chesapeake Tech Solutions", 
-    location: "Baltimore, MD",
-    category: "Technology",
-    contact_name: "Jane Doe",
-    tel: "(410) 555-8765",
-    email: "info@chesapeaketech.com",
-    website: "https://chesapeaketech.com",
-    description: "Providing cutting-edge technology solutions for businesses across Maryland with expertise in cloud computing, cybersecurity, and IT consulting.",
-    status: "active",
-    business_image: "" // Placeholder for image path/data
-  },
-  "2": { 
-    business_name: "Harbor View Restaurant", 
-    location: "Annapolis, MD",
-    category: "Restaurants",
-    contact_name: "John Smith",
-    tel: "(443) 555-3492",
-    email: "reservations@harborview.com",
-    website: "https://harborviewmd.com",
-    description: "Upscale dining with fresh seafood and incredible views of the Chesapeake Bay. Perfect for special occasions and corporate events.",
-    status: "active",
-    business_image: ""
-  },
-};
-
 const EditBusiness = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [formData, setFormData] = useState<any>(null);
   
   useEffect(() => {
-    // In a real app, you would fetch the data from an API
-    if (id && businessData[id as keyof typeof businessData]) {
-      setFormData(businessData[id as keyof typeof businessData]);
-    } else {
-      navigate("/dashboard/businesses");
-      toast({
-        title: "Business not found",
-        description: "The requested business could not be found",
-        variant: "destructive",
-      });
+    const fetchBusinessData = async () => {
+      setIsLoading(true);
+      try {
+        const response = await fetch(`http://localhost:5000/api/businesses/${id}`, {
+          credentials: 'include', // Necessary for session cookies
+        });
+        const data = await response.json();
+        if (response.ok) {
+          setFormData(data);
+        } else {
+          navigate("/dashboard/businesses");
+          toast({
+            title: "Business not found",
+            description: data.error || "The requested business could not be found",
+            variant: "destructive",
+          });
+        }
+      } catch (error) {
+        navigate("/dashboard/businesses");
+        toast({
+          title: "Error",
+          description: "Failed to fetch business data. Please try again.",
+          variant: "destructive",
+        });
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    
+    if (id) {
+      fetchBusinessData();
     }
   }, [id, navigate, toast]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
-      toast({
-        title: "Business updated",
-        description: "The business has been successfully updated",
+    try {
+      const response = await fetch(`http://localhost:5000/api/businesses/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include', // Necessary for session cookies
+        body: JSON.stringify({
+          business_name: formData.business_name,
+          location: formData.location,
+          category: formData.category,
+          contact_name: formData.contact_name || '',
+          tel: formData.tel || '',
+          email: formData.email || '',
+          website: formData.website || '',
+          description: formData.description || '',
+          featured: formData.featured || false
+        }),
       });
-      navigate("/dashboard/businesses");
-    }, 1000);
+
+      const data = await response.json();
+
+      if (response.ok) {
+        toast({
+          title: "Business updated",
+          description: "The business has been successfully updated",
+        });
+        navigate("/dashboard/businesses");
+      } else {
+        toast({
+          title: "Error",
+          description: data.error || "Failed to update business. Please try again.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "An unexpected error occurred. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (field: string, value: string | File | null) => {
@@ -87,8 +115,12 @@ const EditBusiness = () => {
     }));
   };
 
-  if (!formData) {
+  if (isLoading) {
     return <div>Loading...</div>;
+  }
+
+  if (!formData) {
+    return <div>Business not found</div>;
   }
 
   return (
