@@ -87,6 +87,11 @@ const BusinessList = () => {
   }, [debouncedSearchTerm, searchTerm]); // Watch both to catch clearing the search
 
   const handleDelete = async (id: string) => {
+    const confirmed = window.confirm("Are you sure you want to delete this business? This action cannot be undone.");
+    if (!confirmed) {
+      return;
+    }
+    
     try {
       const response = await fetch(`http://localhost:5000/api/businesses/${id}`, {
         method: 'DELETE',
