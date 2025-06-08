@@ -1,4 +1,5 @@
-
+import { useState, useEffect } from "react";
+import { getBusinesses } from "../../lib/api";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   BarChart,
@@ -25,7 +26,6 @@ const newListingsMonthlyData = [
 ];
 
 // Sample data for stat cards (replace with dynamic data later)
-const totalBusinesses = 1211;
 const pendingApplications = 12;
 const newListingsThisMonth = 58;
 // const recentlyApprovedThisWeek = 7; // Removed
@@ -42,6 +42,28 @@ const categoryData = [
 // deviceData is no longer used and can be removed or commented out
 
 const Analytics = () => {
+  const [totalBusinesses, setTotalBusinesses] = useState(1211);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchTotalBusinesses = async () => {
+      setIsLoading(true);
+      try {
+        const response = await getBusinesses({
+          limit: 1, // We only need the total count, so limit to 1 to minimize data transfer
+          offset: 0,
+        });
+        setTotalBusinesses(response.total || 0);
+      } catch (err) {
+        console.error("Failed to fetch total businesses:", err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchTotalBusinesses();
+  }, []);
+
   return (
     <div className="space-y-6 p-4">
       <h1 className="text-2xl font-bold">Analytics</h1>
@@ -53,8 +75,8 @@ const Analytics = () => {
             <BarChartIcon className="h-4 w-4 text-muted-foreground" strokeWidth={2.5} />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{totalBusinesses.toLocaleString()}</div>
-            {/* <p className="text-xs text-muted-foreground">+8.2% from last month</p> */}
+            <div className="text-2xl font-bold">{isLoading ? "Loading..." : totalBusinesses}</div>
+            <p className="text-xs text-muted-foreground">Total in database</p>
           </CardContent>
         </Card>
         

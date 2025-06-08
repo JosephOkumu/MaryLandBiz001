@@ -1,4 +1,3 @@
-
 import {
   Card,
   CardContent,
@@ -9,8 +8,32 @@ import {
 // import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs" // Tabs no longer needed
 import { Building2, ClipboardList, ListPlus } from "lucide-react"; // Removed unused icons BarChart, FileText, CheckSquare
 import BusinessList from "../components/admin/BusinessList"; // Added import for BusinessList
+import { useState, useEffect } from "react"
+import { getBusinesses } from "../lib/api"
 
 const Dashboard = () => {
+  const [totalBusinesses, setTotalBusinesses] = useState(2376);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchTotalBusinesses = async () => {
+      setIsLoading(true);
+      try {
+        const response = await getBusinesses({
+          limit: 1, // We only need the total count, so limit to 1 to minimize data transfer
+          offset: 0,
+        });
+        setTotalBusinesses(response.total || 0);
+      } catch (err) {
+        console.error("Failed to fetch total businesses:", err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchTotalBusinesses();
+  }, []);
+
   return (
     <div className="flex-1 space-y-4 p-4 md:p-8 pt-6">
       <div className="flex items-center justify-between space-y-2">
@@ -28,10 +51,10 @@ const Dashboard = () => {
               <Building2 className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">540</div>
-              {/* <p className="text-xs text-muted-foreground">
-                  +20 from last month
-                </p> */}
+              <div className="text-2xl font-bold">{isLoading ? "Loading..." : totalBusinesses}</div>
+              <p className="text-xs text-muted-foreground">
+                Total in database
+              </p>
             </CardContent>
           </Card>
           <Card>
