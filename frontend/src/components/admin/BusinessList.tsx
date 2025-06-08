@@ -101,14 +101,14 @@ const BusinessList = () => {
       const data = await response.json();
 
       if (response.ok) {
-        // Remove the business from the current list
-        setBusinesses(businesses.filter(business => business.id !== id));
-        // Decrement totalBusinesses
-        setTotalBusinesses(prevTotal => Math.max(0, prevTotal - 1));
         toast({
           title: "Business deleted",
           description: "The business has been permanently deleted.",
         });
+        // Delay page reload to allow user to see toast message
+        setTimeout(() => {
+          window.location.reload();
+        }, 2000); // Delay of 2 seconds
       } else {
         toast({
           title: "Error",
