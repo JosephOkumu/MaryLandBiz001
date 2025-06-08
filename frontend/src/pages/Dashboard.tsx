@@ -58,9 +58,6 @@ const Dashboard = () => {
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">{isLoading ? "Loading..." : totalBusinesses}</div>
-              <p className="text-xs text-muted-foreground">
-                Total in database
-              </p>
             </CardContent>
           </Card>
           <Card>
