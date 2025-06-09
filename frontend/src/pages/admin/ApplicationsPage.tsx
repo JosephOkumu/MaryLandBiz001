@@ -189,6 +189,7 @@ function ApplicationsPage() {
       });
       setIsModalOpen(false);
       setSelectedApplication(null);
+      window.dispatchEvent(new CustomEvent('applicationProcessed'));
 
     } catch (error: any) {
       console.error('Error approving application:', error);
@@ -232,10 +233,11 @@ function ApplicationsPage() {
       toast({
         title: "Application Rejected",
         description: `${applicationToReject.business_name} has been rejected.`,
-        variant: "destructive",
+        variant: "default",
       });
       setIsModalOpen(false);
       setSelectedApplication(null);
+      window.dispatchEvent(new CustomEvent('applicationProcessed'));
 
     } catch (error: any) {
       console.error('Error rejecting application:', error);

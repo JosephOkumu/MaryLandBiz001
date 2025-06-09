@@ -55,7 +55,13 @@ const AdminSidebar = () => {
   };
 
   useEffect(() => {
+    const handleApplicationProcessed = () => {
+      console.log('Application processed event received, updating count.');
+      updateNotificationCount();
+    };
+
     updateNotificationCount(); // Initial load
+    window.addEventListener('applicationProcessed', handleApplicationProcessed);
 
     const intervalId = setInterval(() => {
       updateNotificationCount(); // Poll every 30 seconds for new applications
@@ -63,6 +69,7 @@ const AdminSidebar = () => {
 
     return () => {
       clearInterval(intervalId);
+      window.removeEventListener('applicationProcessed', handleApplicationProcessed);
     };
   }, []);
 
