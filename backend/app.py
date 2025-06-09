@@ -598,13 +598,22 @@ def get_business_applications():
         return jsonify({"error": "Database connection failed"}), 500
     try:
         cursor = connection.cursor(dictionary=True)
-        query = """
+        requested_status = request.args.get('status')
+
+        query_params = []
+        base_query = """
             SELECT id, business_name as businessName, location, category, contact_name as contactName, tel, email,
                    website, description, status, submitted_at as submittedAt
             FROM business_applications
-            ORDER BY submitted_at DESC
         """
-        cursor.execute(query)
+
+        if requested_status:
+            base_query += " WHERE status = %s"
+            query_params.append(requested_status)
+        
+        base_query += " ORDER BY submitted_at DESC"
+
+        cursor.execute(base_query, tuple(query_params))
         applications = cursor.fetchall()
         return jsonify(applications), 200
     except DBError as err:

@@ -65,7 +65,7 @@ function ApplicationsPage() {
     setIsLoading(true);
     const fetchApplications = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/business-applications', {
+        const response = await fetch('http://localhost:5000/api/business-applications?status=pending', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
