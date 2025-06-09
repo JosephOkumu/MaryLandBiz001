@@ -117,31 +117,134 @@ function ApplicationsPage() {
     setIsModalOpen(true);
   };
 
-  const handleApprove = (applicationId: string) => {
-    const app = applications.find(a => a.id === applicationId);
-    setApplications(prev => prev.filter(a => a.id !== applicationId));
-    
-    toast({
-      title: "Application Approved",
-      description: `${app?.business_name || 'The business'} has been approved and will be listed.`,
-      className: "bg-green-100 border-green-400 text-green-700", 
-    });
-    setIsModalOpen(false);
-    setSelectedApplication(null);
-    // TODO: Add logic to move 'app' to the main business list (including image_name/url)
+  const handleApprove = async (applicationToApprove: Application) => {
+    if (!applicationToApprove) {
+      toast({ title: "Error", description: "Application data not found.", variant: "destructive" });
+      return;
+    }
+
+    const businessData = {
+      business_name: applicationToApprove.business_name, // Corrected from 'name' to 'business_name'
+      location: applicationToApprove.location, // Backend expects 'location'
+      category: applicationToApprove.category,
+      phone: applicationToApprove.tel,
+      email: applicationToApprove.email,
+      website: applicationToApprove.website || '',
+      description: applicationToApprove.description || '',
+      contact_name: applicationToApprove.contact_name || '',
+    };
+
+    console.log("Approving application:", applicationToApprove);
+    console.log("Sending data to /api/businesses:", businessData);
+
+    try {
+      // Step 1: Add business to the main database
+      const businessResponse = await fetch('http://localhost:5000/api/businesses', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(businessData),
+        credentials: 'include',
+      });
+
+      if (!businessResponse.ok) {
+        let errorMessage = `Failed to add business: ${businessResponse.statusText}`;
+        try {
+            const errorData = await businessResponse.json();
+            errorMessage = errorData.message || errorData.error || errorMessage;
+        } catch (e) {
+            // Failed to parse JSON, use statusText
+        }
+        throw new Error(errorMessage);
+      }
+      
+      // Step 2: Update the application status to 'approved'
+      const statusResponse = await fetch(`http://localhost:5000/api/business-applications/${applicationToApprove.id}/status`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ status: 'approved' }),
+        credentials: 'include',
+      });
+
+      if (!statusResponse.ok) {
+        let errorMessage = `Failed to update application status: ${statusResponse.statusText}`;
+        try {
+            const errorData = await statusResponse.json();
+            errorMessage = errorData.message || errorData.error || errorMessage;
+        } catch (e) {
+            // Failed to parse JSON, use statusText
+        }
+        throw new Error(errorMessage);
+      }
+
+      // Step 3: Update UI
+      setApplications(prev => prev.filter(a => a.id !== applicationToApprove.id));
+      toast({
+        title: "Application Approved",
+        description: `${applicationToApprove.business_name} has been approved and added to the directory.`,
+        className: "bg-green-100 border-green-400 text-green-700",
+      });
+      setIsModalOpen(false);
+      setSelectedApplication(null);
+
+    } catch (error: any) {
+      console.error('Error approving application:', error);
+      toast({
+        title: "Approval Failed",
+        description: error.message || "An unexpected error occurred while approving the application.",
+        variant: "destructive",
+      });
+    }
   };
 
-  const handleReject = (applicationId: string) => {
-    const app = applications.find(a => a.id === applicationId);
-    setApplications(prev => prev.filter(a => a.id !== applicationId));
+  const handleReject = async (applicationToReject: Application) => {
+    if (!applicationToReject) {
+      toast({ title: "Error", description: "Application data not found.", variant: "destructive" });
+      return;
+    }
+    console.log("Rejecting application:", applicationToReject);
 
-    toast({
-      title: "Application Rejected",
-      description: `${app?.business_name || 'The business'} has been rejected.`,
-      variant: "destructive",
-    });
-    setIsModalOpen(false);
-    setSelectedApplication(null);
+    try {
+      const statusResponse = await fetch(`http://localhost:5000/api/business-applications/${applicationToReject.id}/status`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ status: 'rejected' }),
+        credentials: 'include',
+      });
+
+      if (!statusResponse.ok) {
+        let errorMessage = `Failed to update application status: ${statusResponse.statusText}`;
+        try {
+            const errorData = await statusResponse.json();
+            errorMessage = errorData.message || errorData.error || errorMessage;
+        } catch (e) {
+            // Failed to parse JSON, use statusText
+        }
+        throw new Error(errorMessage);
+      }
+
+      setApplications(prev => prev.filter(a => a.id !== applicationToReject.id));
+      toast({
+        title: "Application Rejected",
+        description: `${applicationToReject.business_name} has been rejected.`,
+        variant: "destructive",
+      });
+      setIsModalOpen(false);
+      setSelectedApplication(null);
+
+    } catch (error: any) {
+      console.error('Error rejecting application:', error);
+      toast({
+        title: "Rejection Failed",
+        description: error.message || "An unexpected error occurred while rejecting the application.",
+        variant: "destructive",
+      });
+    }
   };
 
   // Empty state example:

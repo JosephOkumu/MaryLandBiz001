@@ -13,7 +13,7 @@ load_dotenv() # Load environment variables from .env
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('FLASK_SECRET_KEY', 'default_dev_secret_key_change_me')
 # Adjust origins for your frontend development server and production domain
-CORS(app, supports_credentials=True, origins=os.environ.get('CORS_ORIGINS', 'http://localhost:5173').split(','))
+CORS(app, supports_credentials=True, origins=os.environ.get('CORS_ORIGINS', 'http://localhost:5173,http://localhost:8080').split(','))
 
 bcrypt = Bcrypt(app)
 login_manager = LoginManager()
@@ -611,8 +611,51 @@ def get_business_applications():
         app.logger.error(f"Database error when fetching business applications: {err}")
         return jsonify({"error": "Database error occurred"}), 500
     finally:
-        cursor.close()
-        connection.close()
+        if connection and connection.is_connected():
+            if cursor: # Ensure cursor exists before trying to close
+                cursor.close()
+            connection.close()
+
+@app.route('/api/business-applications/<int:id>/status', methods=['PUT'])
+@login_required
+def update_business_application_status(id):
+    data = request.get_json()
+    new_status = data.get('status')
+
+    if not new_status or new_status not in ['approved', 'rejected', 'pending']:
+        return jsonify({"error": "Invalid status provided. Must be 'approved', 'rejected', or 'pending'."}), 400
+
+    connection = get_db_connection()
+    if not connection:
+        return jsonify({"error": "Database connection failed"}), 500
+    
+    cursor = None
+    try:
+        cursor = connection.cursor()
+        # Check if application exists
+        cursor.execute("SELECT id FROM business_applications WHERE id = %s", (id,))
+        application = cursor.fetchone()
+        if not application:
+            return jsonify({"error": "Application not found"}), 404
+
+        query = "UPDATE business_applications SET status = %s WHERE id = %s"
+        cursor.execute(query, (new_status, id))
+        connection.commit()
+
+        if cursor.rowcount == 0:
+            # This case should ideally be caught by the SELECT above, but as a safeguard
+            return jsonify({"error": "Application not found or status not changed"}), 404
+
+        return jsonify({"success": True, "message": f"Application {id} status updated to {new_status}"}), 200
+    
+    except DBError as err:
+        app.logger.error(f"Database error when updating application status: {err}")
+        return jsonify({"error": str(err)}), 500
+    finally:
+        if connection and connection.is_connected():
+            if cursor:
+                cursor.close()
+            connection.close()
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)

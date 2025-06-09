@@ -32,8 +32,8 @@ interface ApplicationReviewModalProps {
   isOpen: boolean;
   onClose: () => void;
   application: Application | null;
-  onApprove: (applicationId: string) => void;
-  onReject: (applicationId: string) => void;
+  onApprove: (application: Application) => Promise<void>; // Updated to accept Application and expect Promise
+  onReject: (application: Application) => Promise<void>;  // Updated to accept Application and expect Promise
 }
 
 const DetailItem = ({ label, value }: { label: string; value?: string }) => {
@@ -106,13 +106,13 @@ export const ApplicationReviewModal = ({
           <div className="flex gap-2">
             <Button 
               variant="destructive" 
-              onClick={() => onReject(application.id)}
+              onClick={() => { if (application) onReject(application); }}
             >
               Reject
             </Button>
             <Button 
               className="bg-green-600 hover:bg-green-700 text-white"
-              onClick={() => onApprove(application.id)}
+              onClick={() => { if (application) onApprove(application); }}
             >
               Approve
             </Button>
