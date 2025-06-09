@@ -127,7 +127,7 @@ function ApplicationsPage() {
       business_name: applicationToApprove.business_name, // Corrected from 'name' to 'business_name'
       location: applicationToApprove.location, // Backend expects 'location'
       category: applicationToApprove.category,
-      phone: applicationToApprove.tel,
+      tel: applicationToApprove.tel, // Corrected from 'phone' to 'tel'
       email: applicationToApprove.email,
       website: applicationToApprove.website || '',
       description: applicationToApprove.description || '',
