@@ -60,6 +60,7 @@ function ApplicationsPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const [isLoading, setIsLoading] = useState(true);
+  const [pendingCount, setPendingCount] = useState(0);
 
   useEffect(() => {
     setIsLoading(true);
@@ -94,7 +95,9 @@ function ApplicationsPage() {
           isNew: false,
           isFromLocalStorage: false,
         }));
-        setApplications([...formattedData]);
+        const pendingApps = formattedData.filter(app => app.status === 'Pending');
+        setApplications(formattedData);
+        setPendingCount(pendingApps.length);
       } catch (error) {
         console.error('Error fetching applications:', error);
         toast({ title: "Error loading applications", variant: "destructive" });
@@ -264,7 +267,7 @@ function ApplicationsPage() {
   return (
     <div className="flex flex-col gap-6 p-4 md:p-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold mb-6">Pending Applications</h1>
+        <h1 className="text-2xl font-bold mb-6">Pending Applications <span className="ml-2 inline-flex items-center justify-center w-5 h-5 text-xs font-medium text-white bg-red-500 rounded-full">{pendingCount}</span></h1>
       </div>
 
       <Card>

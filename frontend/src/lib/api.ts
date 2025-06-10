@@ -107,6 +107,23 @@ export const getNewBusinessesCount = async (): Promise<number> => {
   return data.count;
 };
 
+// Function to fetch business applications
+export async function getBusinessApplications(): Promise<any[]> {
+  const response = await fetch('http://localhost:5000/api/business-applications', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    credentials: 'include',
+  });
+
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+
+  return await response.json();
+}
+
 // --- Admin Authentication API Functions ---
 
 const ADMIN_API_BASE_URL = 'http://localhost:5000/api/admin';

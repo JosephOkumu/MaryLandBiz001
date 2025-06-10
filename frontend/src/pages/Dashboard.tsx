@@ -9,13 +9,14 @@ import {
 import { Building2, ClipboardList, ListPlus } from "lucide-react"; // Removed unused icons BarChart, FileText, CheckSquare
 import BusinessList from "../components/admin/BusinessList"; // Added import for BusinessList
 import { useState, useEffect } from "react"
-import { getBusinesses, getNewBusinessesCount } from "../lib/api"
+import { getBusinesses, getNewBusinessesCount, getBusinessApplications } from "../lib/api"
 
 const Dashboard = () => {
   const [totalBusinesses, setTotalBusinesses] = useState(2376);
   const [isLoading, setIsLoading] = useState(true);
   const [newListings, setNewListings] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(true);
+  const [pendingApplications, setPendingApplications] = useState(0);
 
   useEffect(() => {
     const fetchDashboardData = async () => {
@@ -29,6 +30,8 @@ const Dashboard = () => {
         setTotalBusinesses(response.total || 0);
         const count = await getNewBusinessesCount();
         setNewListings(count);
+        const applicationsData = await getBusinessApplications();
+        setPendingApplications(applicationsData.filter(app => app.status === 'pending').length);
       } catch (err) {
         console.error("Failed to fetch dashboard data:", err);
       } finally {
@@ -68,10 +71,7 @@ const Dashboard = () => {
               <ClipboardList className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">12</div>
-              {/* <p className="text-xs text-muted-foreground">
-                  +2 since yesterday
-                </p> */}
+              <div className="text-2xl font-bold">{isLoading ? "Loading..." : pendingApplications}</div>
             </CardContent>
           </Card>
           <Card>

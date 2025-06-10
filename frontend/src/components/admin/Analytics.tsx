@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getBusinesses, getNewBusinessesCount } from "../../lib/api";
+import { getBusinesses, getNewBusinessesCount, getBusinessApplications } from "../../lib/api";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   BarChart,
@@ -26,7 +26,6 @@ const newListingsMonthlyData = [
 ];
 
 // Sample data for stat cards (replace with dynamic data later)
-const pendingApplications = 12;
 const categoryData = [
   { name: "Restaurants", value: 238 },
   { name: "Retail", value: 412 },
@@ -39,6 +38,7 @@ const categoryData = [
 const Analytics = () => {
   const [totalBusinesses, setTotalBusinesses] = useState(1211);
   const [newListings, setNewListings] = useState<number>(0);
+  const [pendingApplications, setPendingApplications] = useState(0);
   const [loading, setLoading] = useState<boolean>(true);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -58,11 +58,21 @@ const Analytics = () => {
         console.error("Failed to fetch analytics data:", err);
       } finally {
         setLoading(false);
-        setIsLoading(false);
       }
     };
 
+    const fetchData = async () => {
+      try {
+        const applications = await getBusinessApplications();
+        setPendingApplications(applications.filter(app => app.status === 'pending').length);
+      } catch (error) {
+        console.error("Error fetching analytics data:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
     fetchAnalyticsData();
+    fetchData();
   }, []);
 
   return (
@@ -86,7 +96,7 @@ const Analytics = () => {
             <ClipboardList className="h-4 w-4 text-muted-foreground" strokeWidth={2.5} />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{pendingApplications}</div>
+            <div className="text-2xl font-bold">{isLoading ? "--" : pendingApplications}</div>
             {/* <p className="text-xs text-muted-foreground">View all</p> */}
           </CardContent>
         </Card>
