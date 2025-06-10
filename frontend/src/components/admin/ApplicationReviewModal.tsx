@@ -10,7 +10,8 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-// Removed Textarea, Label, useState imports as they are no longer needed for comments
+import { useState } from 'react';
+import { useToast } from "@/components/ui/use-toast";
 
 // Assuming Application type is defined in ApplicationsPage.tsx or a shared types file
 // For now, let's redefine a similar structure here for clarity if not imported
@@ -53,72 +54,121 @@ export const ApplicationReviewModal = ({
   onApprove, 
   onReject 
 }: ApplicationReviewModalProps) => {
-  // Removed comment state
+  const [isRejectConfirmationOpen, setIsRejectConfirmationOpen] = useState(false);
+  const { toast } = useToast();
+
+  const handleRejectClick = () => {
+    setIsRejectConfirmationOpen(true);
+  };
+
+  const handleConfirmReject = async () => {
+    try {
+      await onReject(application);
+      setIsRejectConfirmationOpen(false);
+      onClose();
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to reject application. Please try again.",
+        variant: "destructive",
+      });
+    }
+  };
+
+  const handleCancelReject = () => {
+    setIsRejectConfirmationOpen(false);
+  };
+
+  const handleApproveClick = async () => {
+    try {
+      await onApprove(application);
+      onClose();
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to approve application. Please try again.",
+        variant: "destructive",
+      });
+    }
+  };
+
   if (!application) return null;
 
   return (
-    <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-lg">
-        <DialogHeader>
-          <DialogTitle>Review Application: {application.business_name}</DialogTitle>
-          <DialogDescription>
-            Submitted by: {application.contact_name} ({application.email})
-          </DialogDescription>
-        </DialogHeader>
-        
-        <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <DetailItem label="Business Name" value={application.business_name} />
-            <DetailItem label="Location" value={application.location} />
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <DetailItem label="Contact Name" value={application.contact_name} />
-            <DetailItem label="Telephone" value={application.tel} />
-          </div>
-          <DetailItem label="Email Address" value={application.email} />
-          {application.website && <DetailItem label="Website" value={application.website} />}
-          <DetailItem label="Category" value={application.category} />
+    <>
+      <Dialog open={isOpen} onOpenChange={onClose}>
+        <DialogContent className="sm:max-w-lg">
+          <DialogHeader>
+            <DialogTitle>Review Application: {application.business_name}</DialogTitle>
+            <DialogDescription>
+              Submitted by: {application.contact_name} ({application.email})
+            </DialogDescription>
+          </DialogHeader>
           
-          <Separator className="my-2" />
-          
-          <div>
-            <p className="text-sm font-medium text-gray-500">Description</p>
-            <p className="text-md text-gray-900 whitespace-pre-wrap">{application.description}</p>
-          </div>
-
-          {application.business_image_name && (
-            <div className="mt-4 p-3 border rounded-md bg-gray-50">
-              <p className="text-sm font-medium text-gray-600">Business Image File:</p>
-              <p className="text-md text-gray-800 font-semibold break-all">{application.business_image_name}</p>
-              <p className="text-xs text-gray-500 mt-1">
-                (Image preview would appear here if a URL was available. Currently showing filename only.)
-              </p>
-              {/* Example: <img src={application.imageUrl} alt={application.business_name} className="mt-2 max-h-48 w-auto rounded" /> */}
+          <div className="grid gap-4 py-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <DetailItem label="Business Name" value={application.business_name} />
+              <DetailItem label="Location" value={application.location} />
             </div>
-          )}
-          {/* Comment section removed */}
-        </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <DetailItem label="Contact Name" value={application.contact_name} />
+              <DetailItem label="Telephone" value={application.tel} />
+            </div>
+            <DetailItem label="Email Address" value={application.email} />
+            {application.website && <DetailItem label="Website" value={application.website} />}
+            <DetailItem label="Category" value={application.category} />
+            
+            <Separator className="my-2" />
+            
+            <div>
+              <p className="text-sm font-medium text-gray-500">Description</p>
+              <p className="text-md text-gray-900 whitespace-pre-wrap">{application.description}</p>
+            </div>
 
-        <DialogFooter className="gap-2 sm:justify-between">
-          <DialogClose asChild>
-            <Button variant="outline">Cancel</Button>
-          </DialogClose>
-          <div className="flex gap-2">
-            <Button 
-              variant="destructive" 
-              onClick={() => { if (application) onReject(application); }}
-            >
+            {application.business_image_name && (
+              <div className="mt-4 p-3 border rounded-md bg-gray-50">
+                <p className="text-sm font-medium text-gray-600">Business Image File:</p>
+                <p className="text-md text-gray-800 font-semibold break-all">{application.business_image_name}</p>
+                <p className="text-xs text-gray-500 mt-1">
+                  (Image preview would appear here if a URL was available. Currently showing filename only.)
+                </p>
+                {/* Example: <img src={application.imageUrl} alt={application.business_name} className="mt-2 max-h-48 w-auto rounded" /> */}
+              </div>
+            )}
+          </div>
+
+          <DialogFooter className="sm:justify-end gap-2 pt-4 border-t border-border mt-6">
+            <Button type="button" variant="outline" onClick={onClose}>
+              Cancel
+            </Button>
+            <Button type="button" variant="destructive" onClick={handleRejectClick}>
               Reject
             </Button>
-            <Button 
-              className="bg-green-600 hover:bg-green-700 text-white"
-              onClick={() => { if (application) onApprove(application); }}
-            >
+            <Button type="button" variant="default" onClick={handleApproveClick} className="bg-green-600 hover:bg-green-700 text-white">
               Approve
             </Button>
-          </div>
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open={isRejectConfirmationOpen} onOpenChange={setIsRejectConfirmationOpen}>
+        <DialogContent className="sm:max-w-[425px]">
+          <DialogHeader>
+            <DialogTitle>Confirm Rejection</DialogTitle>
+            <DialogDescription>
+              Are you sure you want to reject this application? This action cannot be undone.
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter className="sm:justify-end gap-2 pt-4">
+            <Button type="button" variant="outline" onClick={handleCancelReject}>
+              No, Cancel
+            </Button>
+            <Button type="button" variant="destructive" onClick={handleConfirmReject}>
+              Yes, Reject
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+    </>
   );
 };
