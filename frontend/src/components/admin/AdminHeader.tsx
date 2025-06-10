@@ -121,10 +121,11 @@ const AdminHeader = () => {
                   >
                     <Mail className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
                     <div className="flex-grow">
-                      <div className="font-semibold text-sm">New Application:</div>
-                      <div className="text-xs text-muted-foreground truncate" title={app.businessName}>{app.businessName}</div>
-                      <div className="text-xs text-muted-foreground">
-                        {new Date(app.submittedAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} - {new Date(app.submittedAt).toLocaleDateString()}
+                      <div className="truncate text-sm font-medium">
+                        {app.businessName}
+                      </div>
+                      <div className="text-xs text-muted-foreground truncate">
+                        {new Date(app.submittedAt).toISOString().replace('T', ' ').slice(8,10)}-{new Date(app.submittedAt).toISOString().slice(5,7)}-{new Date(app.submittedAt).toISOString().slice(0,4)} {new Date(app.submittedAt).toISOString().slice(11,16)} UTC
                       </div>
                     </div>
                   </DropdownMenuItem>

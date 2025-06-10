@@ -305,7 +305,7 @@ function ApplicationsPage() {
                       {app.email}
                     </div>
                   </TableCell>
-                  <TableCell>{app.dateSubmitted}</TableCell>
+                  <TableCell>{new Date(app.dateSubmitted).toISOString().replace('T', ' ').slice(8,10)}-{new Date(app.dateSubmitted).toISOString().slice(5,7)}-{new Date(app.dateSubmitted).toISOString().slice(0,4)}</TableCell>
                   <TableCell className="text-right">
                     <Button 
                       variant="outline"
