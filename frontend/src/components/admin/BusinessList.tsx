@@ -28,8 +28,14 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
-
-
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter
+} from "@/components/ui/dialog";
 
 const BUSINESSES_PER_PAGE = 50;
 
@@ -41,6 +47,9 @@ const BusinessList = () => {
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState(""); // New state for debounced search
   const [currentPage, setCurrentPage] = useState(1);
   const [totalBusinesses, setTotalBusinesses] = useState(0);
+  const [editingBusiness, setEditingBusiness] = useState<Business | null>(null);
+  const [deleteConfirmationOpen, setDeleteConfirmationOpen] = useState(false);
+  const [businessToDelete, setBusinessToDelete] = useState<Business | null>(null);
   const { toast } = useToast();
 
   useEffect(() => {
@@ -86,43 +95,49 @@ const BusinessList = () => {
     }
   }, [debouncedSearchTerm, searchTerm]); // Watch both to catch clearing the search
 
-  const handleDelete = async (id: string) => {
-    const confirmed = window.confirm("Are you sure you want to delete this business? This action cannot be undone.");
-    if (!confirmed) {
-      return;
-    }
-    
+  const handleDelete = async (business: Business) => {
+    setBusinessToDelete(business);
+    setDeleteConfirmationOpen(true);
+  };
+
+  const handleConfirmDelete = async () => {
+    if (!businessToDelete) return;
     try {
-      const response = await fetch(`http://localhost:5000/api/businesses/${id}`, {
+      const response = await fetch(`http://localhost:5000/api/businesses/${businessToDelete.id}`, {
         method: 'DELETE',
         credentials: 'include', // Necessary for session cookies
       });
 
-      const data = await response.json();
-
-      if (response.ok) {
-        toast({
-          title: "Business deleted",
-          description: "The business has been permanently deleted.",
-        });
-        // Delay page reload to allow user to see toast message
-        setTimeout(() => {
-          window.location.reload();
-        }, 2000); // Delay of 2 seconds
-      } else {
-        toast({
-          title: "Error",
-          description: data.error || "Failed to delete business. Please try again.",
-          variant: "destructive",
-        });
+      if (!response.ok) {
+        throw new Error('Failed to delete business');
       }
+
+      // Show success toast
+      toast({
+        title: "Business Deleted",
+        description: `${businessToDelete.business_name} has been successfully deleted from the directory.`,
+        variant: "default",
+      });
+
+      // Delay page reload to allow toast to be seen
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
     } catch (error) {
       toast({
         title: "Error",
-        description: "An unexpected error occurred. Please try again.",
+        description: "Failed to delete business. Please try again.",
         variant: "destructive",
       });
+    } finally {
+      setDeleteConfirmationOpen(false);
+      setBusinessToDelete(null);
     }
+  };
+
+  const handleCancelDelete = () => {
+    setDeleteConfirmationOpen(false);
+    setBusinessToDelete(null);
   };
 
   const totalPages = Math.ceil(totalBusinesses / BUSINESSES_PER_PAGE);
@@ -256,7 +271,7 @@ const BusinessList = () => {
                         variant="ghost" 
                         size="icon" 
                         className="text-red-600 hover:text-red-700"
-                        onClick={() => handleDelete(business.id)}
+                        onClick={() => handleDelete(business)}
                         title="Delete"
                       >
                         <Trash2 className="h-4 w-4" strokeWidth={2.5} />
@@ -322,6 +337,24 @@ const BusinessList = () => {
           </Pagination>
         </div>
       )}
+      <Dialog open={deleteConfirmationOpen} onOpenChange={setDeleteConfirmationOpen}>
+        <DialogContent className="sm:max-w-[425px]">
+          <DialogHeader>
+            <DialogTitle>Confirm Deletion</DialogTitle>
+            <DialogDescription>
+              Are you sure you want to delete the business "{businessToDelete?.business_name}"? This action cannot be undone.
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter className="sm:justify-end gap-2 pt-4">
+            <Button type="button" variant="outline" onClick={handleCancelDelete}>
+              No, Cancel
+            </Button>
+            <Button type="button" variant="destructive" onClick={handleConfirmDelete}>
+              Yes, Delete
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
