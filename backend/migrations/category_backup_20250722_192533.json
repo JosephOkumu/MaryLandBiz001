@@ -1,0 +1,3372 @@
+{
+  "backup_timestamp": "20250722_192533",
+  "categories": [
+    {
+      "id": 1,
+      "name": "PET SERVICES"
+    },
+    {
+      "id": 2,
+      "name": "HOME REMODELING"
+    },
+    {
+      "id": 3,
+      "name": "FENCING"
+    },
+    {
+      "id": 4,
+      "name": "FLOORING"
+    },
+    {
+      "id": 5,
+      "name": "DAYCARE"
+    },
+    {
+      "id": 6,
+      "name": "Insurance"
+    },
+    {
+      "id": 7,
+      "name": "EQUIPMENTS"
+    },
+    {
+      "id": 8,
+      "name": "CLOTHING"
+    },
+    {
+      "id": 9,
+      "name": "HEALTH SERVICES"
+    },
+    {
+      "id": 10,
+      "name": "CARPETING CONTRACTORS"
+    },
+    {
+      "id": 11,
+      "name": "FOOD SERVICE"
+    },
+    {
+      "id": 12,
+      "name": "ENVIRONMENTAL ENGINEERING CONSULTING"
+    },
+    {
+      "id": 13,
+      "name": "HOME IMPROVEMENT"
+    },
+    {
+      "id": 14,
+      "name": "CONSTRUCTION SERVICES"
+    },
+    {
+      "id": 15,
+      "name": "ELECTRICALS"
+    },
+    {
+      "id": 16,
+      "name": "Desserts"
+    },
+    {
+      "id": 17,
+      "name": "MORTGAGES"
+    },
+    {
+      "id": 18,
+      "name": "ART DEALERS"
+    },
+    {
+      "id": 19,
+      "name": "BARBER SHOPS"
+    },
+    {
+      "id": 20,
+      "name": "FIRE PROTECTION"
+    },
+    {
+      "id": 21,
+      "name": "OPHTHALMOLOGY"
+    },
+    {
+      "id": 23,
+      "name": "LAW OFFICE"
+    },
+    {
+      "id": 24,
+      "name": "MEMORIALS"
+    },
+    {
+      "id": 25,
+      "name": "FITNESS"
+    },
+    {
+      "id": 26,
+      "name": "GENERAL CONTRACTORS"
+    },
+    {
+      "id": 27,
+      "name": "DRONES SERVICES"
+    },
+    {
+      "id": 28,
+      "name": "FIREARMS"
+    },
+    {
+      "id": 29,
+      "name": "HEALTHCARE SERVICES"
+    },
+    {
+      "id": 30,
+      "name": "CONSULTING"
+    },
+    {
+      "id": 31,
+      "name": "LEAD INSPECTION"
+    },
+    {
+      "id": 32,
+      "name": "PAINTING CONTRACTORS"
+    },
+    {
+      "id": 33,
+      "name": "PLANNING"
+    },
+    {
+      "id": 34,
+      "name": "EMPLOYMENT SERVICES"
+    },
+    {
+      "id": 35,
+      "name": "EVENT VENUE"
+    },
+    {
+      "id": 36,
+      "name": "COURIER"
+    },
+    {
+      "id": 37,
+      "name": "TRANSPORTATION SERVICES"
+    },
+    {
+      "id": 38,
+      "name": "INSTALLATIONS"
+    },
+    {
+      "id": 39,
+      "name": "BUSINESS RESOURCES"
+    },
+    {
+      "id": 40,
+      "name": "Entertainment"
+    },
+    {
+      "id": 41,
+      "name": "ACCOUNTING & TAX SERVICES"
+    },
+    {
+      "id": 42,
+      "name": "CIVIL RIGHTS ORGANIZATION"
+    },
+    {
+      "id": 43,
+      "name": "CLUBS"
+    },
+    {
+      "id": 44,
+      "name": "DRY CLEANERS"
+    },
+    {
+      "id": 45,
+      "name": "RADIO STATION"
+    },
+    {
+      "id": 46,
+      "name": "NONPROFIT FOUNDATION"
+    },
+    {
+      "id": 47,
+      "name": "PEDIATRICS"
+    },
+    {
+      "id": 48,
+      "name": "WIRELESS SERVICES"
+    },
+    {
+      "id": 49,
+      "name": "CHARITY"
+    },
+    {
+      "id": 50,
+      "name": "GOURMET PRODUCTS"
+    },
+    {
+      "id": 51,
+      "name": "BARS & LOUNGES"
+    },
+    {
+      "id": 52,
+      "name": "BANQUET HALLS EVENT RENTALS"
+    },
+    {
+      "id": 53,
+      "name": "VENDOR"
+    },
+    {
+      "id": 54,
+      "name": "PLUMBING & HVAC CONTRACTORS"
+    },
+    {
+      "id": 55,
+      "name": "TRANSPORTATION"
+    },
+    {
+      "id": 56,
+      "name": "NOTARY PUBLIC"
+    },
+    {
+      "id": 57,
+      "name": "REALESTATE"
+    },
+    {
+      "id": 58,
+      "name": "FUEL OIL"
+    },
+    {
+      "id": 59,
+      "name": "ENVIRONMENTAL SERVICES"
+    },
+    {
+      "id": 60,
+      "name": "ELEVATOR SERVICE"
+    },
+    {
+      "id": 61,
+      "name": "MEDIA"
+    },
+    {
+      "id": 62,
+      "name": "MEDICAL"
+    },
+    {
+      "id": 63,
+      "name": "Automotive"
+    },
+    {
+      "id": 64,
+      "name": "DENTIST"
+    },
+    {
+      "id": 65,
+      "name": "PAINTING"
+    },
+    {
+      "id": 66,
+      "name": "CLEANING SERVICES"
+    },
+    {
+      "id": 67,
+      "name": "OPTICIANS"
+    },
+    {
+      "id": 68,
+      "name": "RETAIL & SPECIALTY SHOPS"
+    },
+    {
+      "id": 69,
+      "name": "FIREARM TRAINING"
+    },
+    {
+      "id": 70,
+      "name": "TAILORING"
+    },
+    {
+      "id": 71,
+      "name": "RETAIL & GIFT SHOPS"
+    },
+    {
+      "id": 72,
+      "name": "CYBERSECURITY"
+    },
+    {
+      "id": 73,
+      "name": "SPAS"
+    },
+    {
+      "id": 74,
+      "name": "PODIATRY"
+    },
+    {
+      "id": 75,
+      "name": "CONSTRUCTION"
+    },
+    {
+      "id": 76,
+      "name": "CARPET SALES"
+    },
+    {
+      "id": 77,
+      "name": "BAKERY"
+    },
+    {
+      "id": 78,
+      "name": "BAIL BONDS"
+    },
+    {
+      "id": 79,
+      "name": "GATE OPERATORS"
+    },
+    {
+      "id": 80,
+      "name": "PROMOTION"
+    },
+    {
+      "id": 81,
+      "name": "ENVIRONMENT"
+    },
+    {
+      "id": 82,
+      "name": "ENGINEERING"
+    },
+    {
+      "id": 83,
+      "name": "ROOFING"
+    },
+    {
+      "id": 84,
+      "name": "FLOOR INSTALLATION"
+    },
+    {
+      "id": 85,
+      "name": "DEBRIS REMOVAL"
+    },
+    {
+      "id": 86,
+      "name": "GYNECOLOGY"
+    },
+    {
+      "id": 87,
+      "name": "BEAUTY ACADEMIES & SALONS"
+    },
+    {
+      "id": 88,
+      "name": "SALONS"
+    },
+    {
+      "id": 89,
+      "name": "WINDOW DISTRIBUTION"
+    },
+    {
+      "id": 90,
+      "name": "DERMATOLOGY"
+    },
+    {
+      "id": 91,
+      "name": "BUS SERVICES"
+    },
+    {
+      "id": 92,
+      "name": "Legal"
+    },
+    {
+      "id": 93,
+      "name": "MUSEUMS"
+    },
+    {
+      "id": 94,
+      "name": "COMMUNITY ORGANIZATIONS"
+    },
+    {
+      "id": 95,
+      "name": "BUSINESS "
+    },
+    {
+      "id": 96,
+      "name": "MOVERS"
+    },
+    {
+      "id": 97,
+      "name": "EMBROIDERY"
+    },
+    {
+      "id": 98,
+      "name": "DECORATORS"
+    },
+    {
+      "id": 99,
+      "name": "BRIDAL"
+    },
+    {
+      "id": 100,
+      "name": "MANAGEMENT"
+    },
+    {
+      "id": 101,
+      "name": "CONSTRUCTION CONTRACTORS"
+    },
+    {
+      "id": 102,
+      "name": "CARPET CLEANING"
+    },
+    {
+      "id": 103,
+      "name": "LIFE & HEALTH COACHING"
+    },
+    {
+      "id": 104,
+      "name": "PAVING"
+    },
+    {
+      "id": 105,
+      "name": "HEALTH CLUB"
+    },
+    {
+      "id": 106,
+      "name": "HATS"
+    },
+    {
+      "id": 107,
+      "name": "EMPLOYMENT AGENCIES"
+    },
+    {
+      "id": 108,
+      "name": "COMPUTER SERVICES"
+    },
+    {
+      "id": 109,
+      "name": "PROFESSIONAL SERVICES"
+    },
+    {
+      "id": 111,
+      "name": "BAIL BOND"
+    },
+    {
+      "id": 112,
+      "name": "GIFT SHOPS"
+    },
+    {
+      "id": 113,
+      "name": "CAREER & EMPLOYMENT SERVICES"
+    },
+    {
+      "id": 114,
+      "name": "NONPROFIT & CIVIC ORGANIZATIONS"
+    },
+    {
+      "id": 115,
+      "name": "CONTRACTOR"
+    },
+    {
+      "id": 116,
+      "name": "NONPROFIT & COMMUNITY ORGANIZATIONS"
+    },
+    {
+      "id": 117,
+      "name": "TRANSPORT"
+    },
+    {
+      "id": 118,
+      "name": "PHARMACY/CLINIC"
+    },
+    {
+      "id": 119,
+      "name": "HEALTH"
+    },
+    {
+      "id": 120,
+      "name": "AIR CONDITIONING"
+    },
+    {
+      "id": 121,
+      "name": "HOME APPLIANCES"
+    },
+    {
+      "id": 122,
+      "name": "PROPERTIES"
+    },
+    {
+      "id": 123,
+      "name": "CATERING SERVICES"
+    },
+    {
+      "id": 124,
+      "name": "FLORIST"
+    },
+    {
+      "id": 125,
+      "name": "JANITORIAL SERVICES"
+    },
+    {
+      "id": 126,
+      "name": "FENCES"
+    },
+    {
+      "id": 127,
+      "name": "THERAPY"
+    },
+    {
+      "id": 128,
+      "name": "CHURCH"
+    },
+    {
+      "id": 129,
+      "name": "PHOTOGRAPHY"
+    },
+    {
+      "id": 130,
+      "name": "FAMILY SERVICES"
+    },
+    {
+      "id": 131,
+      "name": "CARPET SALES & INSTALLATION"
+    },
+    {
+      "id": 132,
+      "name": "ELECTRICAL"
+    },
+    {
+      "id": 133,
+      "name": "MENTAL HEALTH & COUNSELING SERVICES"
+    },
+    {
+      "id": 134,
+      "name": "HEALTHCARE"
+    },
+    {
+      "id": 135,
+      "name": "CHARITABLE ORGANIZATIONS"
+    },
+    {
+      "id": 136,
+      "name": "WASTE MANAGEMENT"
+    },
+    {
+      "id": 137,
+      "name": "SCHOOL"
+    },
+    {
+      "id": 138,
+      "name": "ARCHITECTS"
+    },
+    {
+      "id": 139,
+      "name": "PERFORMING ARTS"
+    },
+    {
+      "id": 140,
+      "name": "FURNITURE"
+    },
+    {
+      "id": 141,
+      "name": "ADVOCACY"
+    },
+    {
+      "id": 142,
+      "name": "CARPENTRY CONTRACTORS"
+    },
+    {
+      "id": 143,
+      "name": "ASSISTED LIVING"
+    },
+    {
+      "id": 144,
+      "name": "AWARDS"
+    },
+    {
+      "id": 145,
+      "name": "DAYCARE CENTERS"
+    },
+    {
+      "id": 146,
+      "name": "DRAPERIES & WINDOWS"
+    },
+    {
+      "id": 147,
+      "name": "ESTHETICIAN"
+    },
+    {
+      "id": 148,
+      "name": "CONSTRUCTION MANAGEMENT"
+    },
+    {
+      "id": 149,
+      "name": "MEDIA & PRODUCTION SERVICES"
+    },
+    {
+      "id": 150,
+      "name": "DENTAL"
+    },
+    {
+      "id": 151,
+      "name": "REAL ESTATE AGENCIES"
+    },
+    {
+      "id": 152,
+      "name": "MAGAZINES"
+    },
+    {
+      "id": 153,
+      "name": "Audiovisual"
+    },
+    {
+      "id": 154,
+      "name": "LEGAL SERVICES"
+    },
+    {
+      "id": 155,
+      "name": "BANKS"
+    },
+    {
+      "id": 156,
+      "name": "RADIO STATIONS"
+    },
+    {
+      "id": 157,
+      "name": "BUSINESS SERVICES"
+    },
+    {
+      "id": 158,
+      "name": "HUMAN RESOURCES"
+    },
+    {
+      "id": 159,
+      "name": "BOUTIQUES"
+    },
+    {
+      "id": 160,
+      "name": "WELDING"
+    },
+    {
+      "id": 161,
+      "name": "PLUMBING CONTRACTORS"
+    },
+    {
+      "id": 162,
+      "name": "METALWORK CONTRACTORS"
+    },
+    {
+      "id": 163,
+      "name": "DISABILITY SERVICES"
+    },
+    {
+      "id": 164,
+      "name": "ART"
+    },
+    {
+      "id": 165,
+      "name": "PLUMBING"
+    },
+    {
+      "id": 166,
+      "name": "UNION"
+    },
+    {
+      "id": 167,
+      "name": "MARKETING"
+    },
+    {
+      "id": 168,
+      "name": "RESTAURANT"
+    },
+    {
+      "id": 169,
+      "name": "MECHANIC"
+    },
+    {
+      "id": 170,
+      "name": "BUSINESS SERVICES/CONSULTING"
+    },
+    {
+      "id": 171,
+      "name": "DECORATING"
+    },
+    {
+      "id": 172,
+      "name": "TRAINING"
+    },
+    {
+      "id": 173,
+      "name": "REHABILITATION"
+    },
+    {
+      "id": 174,
+      "name": "LANDSCAPING"
+    },
+    {
+      "id": 175,
+      "name": "LEARNING CENTER"
+    },
+    {
+      "id": 176,
+      "name": "GLASS DESIGNERS"
+    },
+    {
+      "id": 177,
+      "name": "YOUTH ORGANIZATION"
+    },
+    {
+      "id": 178,
+      "name": "CLOTHING & APPAREL"
+    },
+    {
+      "id": 179,
+      "name": "STAFFING"
+    },
+    {
+      "id": 180,
+      "name": "CHURCHES"
+    },
+    {
+      "id": 181,
+      "name": "BUSINESS SOLUTIONS"
+    },
+    {
+      "id": 182,
+      "name": "CONFLICT RESOLUTION SERVICES"
+    },
+    {
+      "id": 183,
+      "name": "HOUSING"
+    },
+    {
+      "id": 184,
+      "name": "PHYSICIANS"
+    },
+    {
+      "id": 185,
+      "name": "HOUSING ASSISTANCE"
+    },
+    {
+      "id": 186,
+      "name": "COMMUNITY CENTER"
+    },
+    {
+      "id": 187,
+      "name": " PEDIATRICS"
+    },
+    {
+      "id": 188,
+      "name": "FINGERPRINTING"
+    },
+    {
+      "id": 189,
+      "name": "ORGANIZATIONAL DEVELOPMENT"
+    },
+    {
+      "id": 190,
+      "name": "NGO"
+    },
+    {
+      "id": 191,
+      "name": "HOME SERVICES"
+    },
+    {
+      "id": 192,
+      "name": "PUBLISHING SERVICES"
+    },
+    {
+      "id": 193,
+      "name": "LOTTERY"
+    },
+    {
+      "id": 195,
+      "name": "DESIGN"
+    },
+    {
+      "id": 196,
+      "name": "TELEVISION"
+    },
+    {
+      "id": 197,
+      "name": "CAMPING EQUIPMENT"
+    },
+    {
+      "id": 198,
+      "name": "TRAVEL"
+    },
+    {
+      "id": 199,
+      "name": "PEST CONTROL"
+    },
+    {
+      "id": 200,
+      "name": "PAVING CONTRACTORS"
+    },
+    {
+      "id": 201,
+      "name": "RESTAURANTS"
+    },
+    {
+      "id": 202,
+      "name": "TECHNOLOGY"
+    },
+    {
+      "id": 203,
+      "name": "GOVERNMENT"
+    },
+    {
+      "id": 204,
+      "name": "DRIVING"
+    },
+    {
+      "id": 205,
+      "name": "EVENTS"
+    },
+    {
+      "id": 206,
+      "name": "SECURITY"
+    },
+    {
+      "id": 207,
+      "name": "ACCOUNTING"
+    },
+    {
+      "id": 208,
+      "name": "WATER CONSTRUCTION"
+    },
+    {
+      "id": 209,
+      "name": "CONTRACTORS"
+    },
+    {
+      "id": 210,
+      "name": "FACILITY SUPPLIES"
+    },
+    {
+      "id": 211,
+      "name": "DRIVING SCHOOLS"
+    },
+    {
+      "id": 212,
+      "name": "CAFE"
+    },
+    {
+      "id": 213,
+      "name": "APPLIANCE SERVICE"
+    },
+    {
+      "id": 214,
+      "name": "BEVERAGES"
+    },
+    {
+      "id": 215,
+      "name": "COUNSELING"
+    },
+    {
+      "id": 216,
+      "name": "FINANCE"
+    },
+    {
+      "id": 217,
+      "name": "HARDWARE"
+    },
+    {
+      "id": 218,
+      "name": "REAL ESTATE"
+    },
+    {
+      "id": 219,
+      "name": "HAIR CARE"
+    },
+    {
+      "id": 220,
+      "name": "COMPUTER SALES & SERVICES"
+    },
+    {
+      "id": 221,
+      "name": "COLLEGE"
+    },
+    {
+      "id": 222,
+      "name": "RECYCLING"
+    },
+    {
+      "id": 223,
+      "name": "NONPROFIT ORGANIZATION"
+    },
+    {
+      "id": 224,
+      "name": "AUTO REPAIR & SERVICES"
+    },
+    {
+      "id": 225,
+      "name": "DUMPSTER SERVICE"
+    },
+    {
+      "id": 226,
+      "name": "TRANSPORT SERVICES"
+    },
+    {
+      "id": 227,
+      "name": "ASSOCIATION"
+    },
+    {
+      "id": 228,
+      "name": "EXCAVATION"
+    },
+    {
+      "id": 229,
+      "name": "SCHOLARSHIPS"
+    },
+    {
+      "id": 230,
+      "name": "BUSINESS CONSULTING"
+    },
+    {
+      "id": 231,
+      "name": "TOWING"
+    },
+    {
+      "id": 232,
+      "name": "TECHNOLOGY SERVICES"
+    },
+    {
+      "id": 233,
+      "name": "PROPERTY CLEANOUT SERVICES"
+    },
+    {
+      "id": 234,
+      "name": "ENVIRONMENTAL"
+    },
+    {
+      "id": 235,
+      "name": "DEMOLITION"
+    },
+    {
+      "id": 236,
+      "name": "SIGNS"
+    },
+    {
+      "id": 237,
+      "name": "PROMOTIONS"
+    },
+    {
+      "id": 238,
+      "name": "FUNERAL SERVICES"
+    },
+    {
+      "id": 239,
+      "name": "ASPHALT PAVING"
+    },
+    {
+      "id": 240,
+      "name": "TRUCKING"
+    },
+    {
+      "id": 241,
+      "name": "HEAVY HAULING"
+    },
+    {
+      "id": 277,
+      "name": "MOTORCYCLES"
+    },
+    {
+      "id": 413,
+      "name": "MONEY TRANSFER/WESTERN UNION"
+    }
+  ],
+  "businesses": [
+    {
+      "id": 1,
+      "business_name": "Trustworthy Staffing Solutions",
+      "category": "STAFFING"
+    },
+    {
+      "id": 3,
+      "business_name": "Johnson Consulting Engineers",
+      "category": "ENGINEERING"
+    },
+    {
+      "id": 4,
+      "business_name": "Admiral Elevator",
+      "category": "ELEVATOR SERVICE"
+    },
+    {
+      "id": 5,
+      "business_name": "Universal Elevator Service",
+      "category": "ELEVATOR SERVICE"
+    },
+    {
+      "id": 6,
+      "business_name": "BC's Unlimited Promotions",
+      "category": "EMBROIDERY"
+    },
+    {
+      "id": 7,
+      "business_name": "Kre8ing Your Ideas",
+      "category": "EMBROIDERY"
+    },
+    {
+      "id": 8,
+      "business_name": "Specialty Marketing & Printing",
+      "category": "MARKETING"
+    },
+    {
+      "id": 9,
+      "business_name": "All-Pro Placement Service, Inc.",
+      "category": "EMPLOYMENT AGENCIES"
+    },
+    {
+      "id": 10,
+      "business_name": "Bizybee Professional Staffing",
+      "category": "EMPLOYMENT AGENCIES"
+    },
+    {
+      "id": 11,
+      "business_name": "BPM (Black Professional Men)",
+      "category": "EMPLOYMENT SERVICES"
+    },
+    {
+      "id": 12,
+      "business_name": "Bring the Talent Staffing",
+      "category": "EMPLOYMENT AGENCIES"
+    },
+    {
+      "id": 13,
+      "business_name": "Carpet for Pennies, Inc.",
+      "category": "CARPET SALES & INSTALLATION"
+    },
+    {
+      "id": 14,
+      "business_name": "Morgan's Supernatural Carpet Cleaning",
+      "category": "CARPET CLEANING"
+    },
+    {
+      "id": 15,
+      "business_name": "V & W Carpet Sales, LLC",
+      "category": "CARPET SALES"
+    },
+    {
+      "id": 16,
+      "business_name": "Salsa Grill",
+      "category": "RESTAURANTS"
+    },
+    {
+      "id": 17,
+      "business_name": "Xquisite Catering LLC",
+      "category": "CATERING SERVICES"
+    },
+    {
+      "id": 18,
+      "business_name": "Mackey's Crab House & Seafood Catering",
+      "category": "CATERING SERVICES"
+    },
+    {
+      "id": 19,
+      "business_name": "FPIA Solutions LC",
+      "category": "BUSINESS SOLUTIONS"
+    },
+    {
+      "id": 20,
+      "business_name": "Leading Through Change, Inc.",
+      "category": "ORGANIZATIONAL DEVELOPMENT"
+    },
+    {
+      "id": 21,
+      "business_name": "Reasonable Tech Solutions, Inc.",
+      "category": "TECHNOLOGY SERVICES"
+    },
+    {
+      "id": 22,
+      "business_name": "Speedy Computer Inc.",
+      "category": "COMPUTER SERVICES"
+    },
+    {
+      "id": 23,
+      "business_name": "Oasis Outreach Productivity Systems (OOPS)",
+      "category": "CONFLICT RESOLUTION SERVICES"
+    },
+    {
+      "id": 24,
+      "business_name": "M & C Thompson Services, LLC",
+      "category": "PROPERTY CLEANOUT SERVICES"
+    },
+    {
+      "id": 25,
+      "business_name": "Data Flow Computers",
+      "category": "COMPUTER SALES & SERVICES"
+    },
+    {
+      "id": 26,
+      "business_name": "Crystal’s Bridal and Tuxedo, Inc.",
+      "category": "CLOTHING"
+    },
+    {
+      "id": 27,
+      "business_name": "J.C. Lofton’s",
+      "category": "CLOTHING"
+    },
+    {
+      "id": 28,
+      "business_name": "Waverly Main Street Hats",
+      "category": "HATS"
+    },
+    {
+      "id": 29,
+      "business_name": "Donald Parker Dentist",
+      "category": "DENTIST"
+    },
+    {
+      "id": 30,
+      "business_name": "Hocker Dental Lab, Inc.",
+      "category": "DENTAL"
+    },
+    {
+      "id": 31,
+      "business_name": "Dr. Garland Davis, DDS",
+      "category": "DENTAL"
+    },
+    {
+      "id": 32,
+      "business_name": "Bernies by Gulcha",
+      "category": "Desserts"
+    },
+    {
+      "id": 33,
+      "business_name": "Shelton Family Dental",
+      "category": "DENTAL"
+    },
+    {
+      "id": 34,
+      "business_name": "Dr. F. Desbordes & Associates",
+      "category": "DENTAL"
+    },
+    {
+      "id": 35,
+      "business_name": "9 Five Kitchen & Bar",
+      "category": "BARS & LOUNGES"
+    },
+    {
+      "id": 36,
+      "business_name": "My Office Tax & Business Services",
+      "category": "ACCOUNTING & TAX SERVICES"
+    },
+    {
+      "id": 37,
+      "business_name": "N. Jean Lema Accountant Tax Consultant",
+      "category": "ACCOUNTING & TAX SERVICES"
+    },
+    {
+      "id": 38,
+      "business_name": "Newby's Tax Consultant Services",
+      "category": "ACCOUNTING & TAX SERVICES"
+    },
+    {
+      "id": 39,
+      "business_name": "Reisterstown Tax & Accounting Services",
+      "category": "ACCOUNTING & TAX SERVICES"
+    },
+    {
+      "id": 40,
+      "business_name": "Thornton & Associates",
+      "category": "ACCOUNTING & TAX SERVICES"
+    },
+    {
+      "id": 41,
+      "business_name": "Acupuncture Works, LLC",
+      "category": "HEALTHCARE SERVICES"
+    },
+    {
+      "id": 42,
+      "business_name": "Ma Fa Holistic",
+      "category": "HEALTHCARE SERVICES"
+    },
+    {
+      "id": 43,
+      "business_name": "Minority Business Directory",
+      "category": "BUSINESS SERVICES"
+    },
+    {
+      "id": 44,
+      "business_name": "Publish Your Way",
+      "category": "PUBLISHING SERVICES"
+    },
+    {
+      "id": 45,
+      "business_name": "Aerus Electrolux",
+      "category": "HOME APPLIANCES"
+    },
+    {
+      "id": 46,
+      "business_name": "Blind Industries of Maryland",
+      "category": "DISABILITY SERVICES"
+    },
+    {
+      "id": 49,
+      "business_name": "5 Starr Enterprise",
+      "category": "Entertainment"
+    },
+    {
+      "id": 50,
+      "business_name": "Snip & Clip Pooch Parlor",
+      "category": "PET SERVICES"
+    },
+    {
+      "id": 51,
+      "business_name": "Dots Draperies",
+      "category": "DRAPERIES & WINDOWS"
+    },
+    {
+      "id": 52,
+      "business_name": "Bliss Driving Academy LLC",
+      "category": "DRIVING SCHOOLS"
+    },
+    {
+      "id": 53,
+      "business_name": "Gray Transport Inc.",
+      "category": "TRANSPORT SERVICES"
+    },
+    {
+      "id": 54,
+      "business_name": "Work Dirty Construction, LLC",
+      "category": "EXCAVATION"
+    },
+    {
+      "id": 55,
+      "business_name": "Sterling Shaw Real Property Services, LLC",
+      "category": "REAL ESTATE"
+    },
+    {
+      "id": 56,
+      "business_name": "Best Fence Company",
+      "category": "FENCES"
+    },
+    {
+      "id": 57,
+      "business_name": "Sparks Quality Fence Company",
+      "category": "FENCES"
+    },
+    {
+      "id": 58,
+      "business_name": "Hamilton Construction Service (H.C.S.), LLC",
+      "category": "FLOORING"
+    },
+    {
+      "id": 59,
+      "business_name": "The Hariri Group",
+      "category": "BUSINESS CONSULTING"
+    },
+    {
+      "id": 60,
+      "business_name": "Better Business Bureau of Greater Maryland (BBB)",
+      "category": "BUSINESS SERVICES"
+    },
+    {
+      "id": 61,
+      "business_name": "Expand-Now LLC",
+      "category": "BUSINESS SERVICES"
+    },
+    {
+      "id": 62,
+      "business_name": "Governor's Office of Small, Minority, & Women Business Affairs",
+      "category": "GOVERNMENT"
+    },
+    {
+      "id": 63,
+      "business_name": "We Live VIP Transportation",
+      "category": "TRANSPORT SERVICES"
+    },
+    {
+      "id": 64,
+      "business_name": "Allocated Formula Group",
+      "category": "BUSINESS SERVICES/CONSULTING"
+    },
+    {
+      "id": 65,
+      "business_name": "Baltimore Main Streets",
+      "category": "GOVERNMENT"
+    },
+    {
+      "id": 66,
+      "business_name": "Sheila Lee & Associates",
+      "category": "BUSINESS "
+    },
+    {
+      "id": 67,
+      "business_name": "Mayor's Office of Minority & Woman-Owned Business Development",
+      "category": "GOVERNMENT"
+    },
+    {
+      "id": 68,
+      "business_name": "Baltimore Educational Scholarship Trust",
+      "category": "SCHOLARSHIPS"
+    },
+    {
+      "id": 69,
+      "business_name": "Cristo Rey Jesuit High School",
+      "category": "SCHOOL"
+    },
+    {
+      "id": 70,
+      "business_name": "Language Instruction",
+      "category": "TRAINING"
+    },
+    {
+      "id": 71,
+      "business_name": "Unseld's School",
+      "category": "SCHOOL"
+    },
+    {
+      "id": 72,
+      "business_name": "Joy of Art School",
+      "category": "ART"
+    },
+    {
+      "id": 73,
+      "business_name": "Precision Driving School",
+      "category": "DRIVING"
+    },
+    {
+      "id": 74,
+      "business_name": "M4 Security LLC",
+      "category": "FIREARM TRAINING"
+    },
+    {
+      "id": 75,
+      "business_name": "Medical & Dental Assistant/Technician",
+      "category": "MEDICAL"
+    },
+    {
+      "id": 76,
+      "business_name": "Maryland Beauty Academy of Essex ",
+      "category": "SCHOOL"
+    },
+    {
+      "id": 77,
+      "business_name": "Maryland Institute of Cosmetology",
+      "category": "SCHOOL"
+    },
+    {
+      "id": 78,
+      "business_name": "Our Community Our Money",
+      "category": "BUSINESS SERVICES"
+    },
+    {
+      "id": 79,
+      "business_name": "Meridian Management Group",
+      "category": "BUSINESS SERVICES/CONSULTING"
+    },
+    {
+      "id": 80,
+      "business_name": "SJT Media, LLC",
+      "category": "MEDIA"
+    },
+    {
+      "id": 81,
+      "business_name": "Small Business Resource Center Baltimore City",
+      "category": "BUSINESS RESOURCES"
+    },
+    {
+      "id": 82,
+      "business_name": "Small Business Resource Center Baltimore County",
+      "category": "BUSINESS RESOURCES"
+    },
+    {
+      "id": 83,
+      "business_name": "B.I. Finishes LLC",
+      "category": "GENERAL CONTRACTORS"
+    },
+    {
+      "id": 84,
+      "business_name": "Brooks Contracting",
+      "category": "GENERAL CONTRACTORS"
+    },
+    {
+      "id": 85,
+      "business_name": "Entry Control Systems, Inc",
+      "category": "GATE OPERATORS"
+    },
+    {
+      "id": 86,
+      "business_name": "G & G Real Estate",
+      "category": "REALESTATE"
+    },
+    {
+      "id": 87,
+      "business_name": "KS & D Home Improvement & Construction",
+      "category": "HOME IMPROVEMENT"
+    },
+    {
+      "id": 88,
+      "business_name": "Paul's Lead Inspection",
+      "category": "LEAD INSPECTION"
+    },
+    {
+      "id": 90,
+      "business_name": "FPA Solutions, Inc.",
+      "category": "INSTALLATIONS"
+    },
+    {
+      "id": 91,
+      "business_name": "The Village Magazine",
+      "category": "MAGAZINES"
+    },
+    {
+      "id": 92,
+      "business_name": "Spatial GIS",
+      "category": "DRONES SERVICES"
+    },
+    {
+      "id": 93,
+      "business_name": "Baltimore County Chamber of Commerce",
+      "category": "MARKETING"
+    },
+    {
+      "id": 94,
+      "business_name": "Our Money Our Community",
+      "category": "TECHNOLOGY"
+    },
+    {
+      "id": 95,
+      "business_name": "Eflat Music and Media",
+      "category": "MEDIA"
+    },
+    {
+      "id": 96,
+      "business_name": "U.S Acute Care Solutions",
+      "category": "MEDICAL"
+    },
+    {
+      "id": 97,
+      "business_name": "Park West Medical Center",
+      "category": "MEDICAL"
+    },
+    {
+      "id": 98,
+      "business_name": "Seton Pain & Rehabilitation Center",
+      "category": "HEALTH"
+    },
+    {
+      "id": 99,
+      "business_name": "Total Health Care, Inc.",
+      "category": "HEALTH"
+    },
+    {
+      "id": 100,
+      "business_name": "John Bugg, Insurance Agency",
+      "category": "Insurance"
+    },
+    {
+      "id": 101,
+      "business_name": "Borae' Records, LLC",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": 102,
+      "business_name": "Four Gray Walls",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": 103,
+      "business_name": "L.M.G. Entertainment",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": 104,
+      "business_name": "C & R Environmental Associates, Inc.",
+      "category": "ENGINEERING"
+    },
+    {
+      "id": 105,
+      "business_name": "Qodesh CM",
+      "category": "ENGINEERING"
+    },
+    {
+      "id": 106,
+      "business_name": "Sparkle Occasions by Shirlee",
+      "category": "EVENTS"
+    },
+    {
+      "id": 107,
+      "business_name": "Lewis Contractor",
+      "category": "CONSTRUCTION MANAGEMENT"
+    },
+    {
+      "id": 108,
+      "business_name": "ACS Property Services",
+      "category": "CONSTRUCTION SERVICES"
+    },
+    {
+      "id": 109,
+      "business_name": "Dough-Boy Hauling Inc.",
+      "category": "PAVING CONTRACTORS"
+    },
+    {
+      "id": 110,
+      "business_name": "Grady Environmental Services",
+      "category": "ENVIRONMENTAL SERVICES"
+    },
+    {
+      "id": 111,
+      "business_name": "Seadmok Water Construction, LLC",
+      "category": "WATER CONSTRUCTION"
+    },
+    {
+      "id": 112,
+      "business_name": "Mahogany, Inc.",
+      "category": "CONSTRUCTION MANAGEMENT"
+    },
+    {
+      "id": 113,
+      "business_name": "JL Crawford Law Office, LLC",
+      "category": "LAW OFFICE"
+    },
+    {
+      "id": 114,
+      "business_name": "Moore's Income Tax Service",
+      "category": "ACCOUNTING & TAX SERVICES"
+    },
+    {
+      "id": 115,
+      "business_name": "Brownstone Tax & Financial Services",
+      "category": "ACCOUNTING & TAX SERVICES"
+    },
+    {
+      "id": 116,
+      "business_name": "Sinai Hospital",
+      "category": "HEALTH"
+    },
+    {
+      "id": 117,
+      "business_name": "Thweatt, Delhi E.",
+      "category": "GYNECOLOGY"
+    },
+    {
+      "id": 118,
+      "business_name": "Global Vision Center",
+      "category": "OPHTHALMOLOGY"
+    },
+    {
+      "id": 119,
+      "business_name": "Morgan, Bsil S.",
+      "category": "OPHTHALMOLOGY"
+    },
+    {
+      "id": 120,
+      "business_name": "Davis Poole Opometer",
+      "category": "OPHTHALMOLOGY"
+    },
+    {
+      "id": 121,
+      "business_name": "DesBorja, Lilia",
+      "category": "PEDIATRICS"
+    },
+    {
+      "id": 122,
+      "business_name": "Nicholson Deborah J.",
+      "category": "PEDIATRICS"
+    },
+    {
+      "id": 123,
+      "business_name": "Parks, Cheryl L.",
+      "category": "PEDIATRICS"
+    },
+    {
+      "id": 124,
+      "business_name": "White, Jaclyn Blackwell",
+      "category": "PEDIATRICS"
+    },
+    {
+      "id": 125,
+      "business_name": "Zoltcoffer Micheal",
+      "category": " PEDIATRICS"
+    },
+    {
+      "id": 126,
+      "business_name": "Taylor Integrated Health",
+      "category": "HEALTH"
+    },
+    {
+      "id": 127,
+      "business_name": "Media Support Services, Inc.",
+      "category": "Audiovisual"
+    },
+    {
+      "id": 128,
+      "business_name": "B-More Customs",
+      "category": "Automotive"
+    },
+    {
+      "id": 129,
+      "business_name": "Brunson Healthcare Consultants Group",
+      "category": "Healthcare"
+    },
+    {
+      "id": 130,
+      "business_name": "The Law Office of Shari Fleming",
+      "category": "Legal"
+    },
+    {
+      "id": 131,
+      "business_name": "Charing Cross Car Center",
+      "category": "Automotive"
+    },
+    {
+      "id": 132,
+      "business_name": "Law Office of Carlton Moss",
+      "category": "Legal"
+    },
+    {
+      "id": 133,
+      "business_name": "Law Offices of Kim Parker",
+      "category": "Legal"
+    },
+    {
+      "id": 134,
+      "business_name": "Epic Auto Detailers, Tag, & Title",
+      "category": "Automotive"
+    },
+    {
+      "id": 135,
+      "business_name": "Law Office of Jessie Crawford",
+      "category": "Legal"
+    },
+    {
+      "id": 136,
+      "business_name": "Sybblis Law Firm, LLC",
+      "category": "Legal"
+    },
+    {
+      "id": 137,
+      "business_name": "Herman's Auto Body Repair Shop",
+      "category": "Automotive"
+    },
+    {
+      "id": 138,
+      "business_name": "Harris-Kupfer Architects, Inc.",
+      "category": "ARCHITECTS"
+    },
+    {
+      "id": 139,
+      "business_name": "AAA Appliance Services, Inc.",
+      "category": "APPLIANCE SERVICE"
+    },
+    {
+      "id": 140,
+      "business_name": "SP Arch, Inc.",
+      "category": "ARCHITECTS"
+    },
+    {
+      "id": 141,
+      "business_name": "MIMAR Architects & Engineers",
+      "category": "ARCHITECTS"
+    },
+    {
+      "id": 142,
+      "business_name": "Sankofa African & World Bazaar",
+      "category": "ART DEALERS"
+    },
+    {
+      "id": 143,
+      "business_name": "BCS Supply & Services",
+      "category": "APPLIANCE SERVICE"
+    },
+    {
+      "id": 144,
+      "business_name": "Lacy's Assisted Living",
+      "category": "ASSISTED LIVING"
+    },
+    {
+      "id": 145,
+      "business_name": "Pro Energy Electric LLC",
+      "category": "ELECTRICAL"
+    },
+    {
+      "id": 146,
+      "business_name": "Jim Bush Plumbing",
+      "category": "PLUMBING"
+    },
+    {
+      "id": 147,
+      "business_name": "K & K Adams, Inc.",
+      "category": "DEMOLITION"
+    },
+    {
+      "id": 148,
+      "business_name": "Drain Pro",
+      "category": "PLUMBING"
+    },
+    {
+      "id": 149,
+      "business_name": "L.J.W., Inc.",
+      "category": "DUMPSTER SERVICE"
+    },
+    {
+      "id": 150,
+      "business_name": "Baltimore Residential & Commercial Electric",
+      "category": "ELECTRICAL"
+    },
+    {
+      "id": 152,
+      "business_name": "Express Employment Professionals",
+      "category": "EMPLOYMENT SERVICES"
+    },
+    {
+      "id": 153,
+      "business_name": "Human Resource Management Solutions",
+      "category": "HUMAN RESOURCES"
+    },
+    {
+      "id": 154,
+      "business_name": "Marvin Muffler Works",
+      "category": "AUTO REPAIR & SERVICES"
+    },
+    {
+      "id": 155,
+      "business_name": "Storm Clothing Boutique & Hair Extensions #2",
+      "category": "BOUTIQUES"
+    },
+    {
+      "id": 156,
+      "business_name": "Supreme Impressions",
+      "category": "BOUTIQUES"
+    },
+    {
+      "id": 157,
+      "business_name": "Crystal's Bridal & Tuxedo",
+      "category": "BRIDAL"
+    },
+    {
+      "id": 158,
+      "business_name": "A.S Midway Tours",
+      "category": "BUS SERVICES"
+    },
+    {
+      "id": 159,
+      "business_name": "City Wide Bus Company",
+      "category": "TRANSPORT SERVICES"
+    },
+    {
+      "id": 160,
+      "business_name": "MD Trans Authority",
+      "category": "TRANSPORT SERVICES"
+    },
+    {
+      "id": 161,
+      "business_name": "Nixon Bus Company Inc.",
+      "category": "TRANSPORT SERVICES"
+    },
+    {
+      "id": 162,
+      "business_name": "A & S Refuse LLC",
+      "category": "WASTE MANAGEMENT"
+    },
+    {
+      "id": 163,
+      "business_name": "MAJ General Contracting",
+      "category": "WELDING"
+    },
+    {
+      "id": 164,
+      "business_name": "Maryland & Minority Contractors Association, Inc",
+      "category": "CONTRACTOR"
+    },
+    {
+      "id": 165,
+      "business_name": "Contractors United",
+      "category": "CONTRACTOR"
+    },
+    {
+      "id": 166,
+      "business_name": "C. William Groce Associates",
+      "category": "COUNSELING"
+    },
+    {
+      "id": 167,
+      "business_name": "Morningstar Baptist Church",
+      "category": "COUNSELING"
+    },
+    {
+      "id": 168,
+      "business_name": "Hodges window distribution",
+      "category": "WINDOW DISTRIBUTION"
+    },
+    {
+      "id": 169,
+      "business_name": "Colin's Seafood & Grill",
+      "category": "BARS & LOUNGES"
+    },
+    {
+      "id": 170,
+      "business_name": "Bertha's Soul Food Bar & Grill",
+      "category": "BARS & LOUNGES"
+    },
+    {
+      "id": 171,
+      "business_name": "Rosie's Bar & Lounge",
+      "category": "BARS & LOUNGES"
+    },
+    {
+      "id": 172,
+      "business_name": "The New Five Mile House",
+      "category": "BARS & LOUNGES"
+    },
+    {
+      "id": 173,
+      "business_name": "Baltimore Studio of Hair Design",
+      "category": "BEAUTY ACADEMIES & SALONS"
+    },
+    {
+      "id": 174,
+      "business_name": "Maryland Beauty Academy",
+      "category": "BEAUTY ACADEMIES & SALONS"
+    },
+    {
+      "id": 175,
+      "business_name": "Hairoglyphics Day Spa",
+      "category": "BEAUTY ACADEMIES & SALONS"
+    },
+    {
+      "id": 176,
+      "business_name": "Liz's Place Hair and Nails",
+      "category": "BEAUTY ACADEMIES & SALONS"
+    },
+    {
+      "id": 177,
+      "business_name": "The Purple Peach Nail, Weave and Lash Bar",
+      "category": "SALONS"
+    },
+    {
+      "id": 178,
+      "business_name": "X Cetra Unisex Salon",
+      "category": "BEAUTY ACADEMIES & SALONS"
+    },
+    {
+      "id": 179,
+      "business_name": "Beaningful Services",
+      "category": "BEVERAGES"
+    },
+    {
+      "id": 180,
+      "business_name": "Heritage Bookkeeping & Accounting Service",
+      "category": "ACCOUNTING"
+    },
+    {
+      "id": 181,
+      "business_name": "Hair 4Life",
+      "category": "BEAUTY ACADEMIES & SALONS"
+    },
+    {
+      "id": 182,
+      "business_name": "CBY Enterprises Inc",
+      "category": "TRUCKING"
+    },
+    {
+      "id": 184,
+      "business_name": "Kelley's Trucking",
+      "category": "TRUCKING"
+    },
+    {
+      "id": 185,
+      "business_name": "Baltimore City Community College",
+      "category": "COLLEGE"
+    },
+    {
+      "id": 186,
+      "business_name": "Bowie State College",
+      "category": "COLLEGE"
+    },
+    {
+      "id": 187,
+      "business_name": "Community Colleges of Baltimore County",
+      "category": "COLLEGE"
+    },
+    {
+      "id": 188,
+      "business_name": "Coppin State University",
+      "category": "COLLEGE"
+    },
+    {
+      "id": 189,
+      "business_name": "Morgan State University",
+      "category": "COLLEGE"
+    },
+    {
+      "id": 190,
+      "business_name": "University of MD School of Medicine",
+      "category": "COLLEGE"
+    },
+    {
+      "id": 191,
+      "business_name": "The Baltimore Teachers Union",
+      "category": "UNION"
+    },
+    {
+      "id": 192,
+      "business_name": "The City Union of Baltimore",
+      "category": "UNION"
+    },
+    {
+      "id": 193,
+      "business_name": "All Pro Placement Services",
+      "category": "STAFFING"
+    },
+    {
+      "id": 194,
+      "business_name": "Busy Bee Professional Staffing",
+      "category": "STAFFING"
+    },
+    {
+      "id": 195,
+      "business_name": "Keller Professional Service",
+      "category": "STAFFING"
+    },
+    {
+      "id": 196,
+      "business_name": "Excel Staffing & Personnel Service Inc.",
+      "category": "STAFFING"
+    },
+    {
+      "id": 197,
+      "business_name": "Nicky's Custom Tailoring",
+      "category": "TAILORING"
+    },
+    {
+      "id": 198,
+      "business_name": "Military Memorabilia",
+      "category": "GIFT SHOPS"
+    },
+    {
+      "id": 199,
+      "business_name": "Waverly Designer Glass & Mirror Co., Inc.",
+      "category": "GLASS DESIGNERS"
+    },
+    {
+      "id": 200,
+      "business_name": "Organogold – Tea, Coffee & Hot Chocolate",
+      "category": "GOURMET PRODUCTS"
+    },
+    {
+      "id": 201,
+      "business_name": "Berries by Quicha",
+      "category": "GOURMET PRODUCTS"
+    },
+    {
+      "id": 202,
+      "business_name": "Aegis Mechanical Group",
+      "category": "ENGINEERING"
+    },
+    {
+      "id": 203,
+      "business_name": "Albright Engineering Inc.",
+      "category": "ENGINEERING"
+    },
+    {
+      "id": 204,
+      "business_name": "Digital Design & Analysis Inc.",
+      "category": "ENGINEERING"
+    },
+    {
+      "id": 205,
+      "business_name": "Futech Engineering Solutions",
+      "category": "ENGINEERING"
+    },
+    {
+      "id": 206,
+      "business_name": "Speedy Computers Inc.",
+      "category": "COMPUTER SERVICES"
+    },
+    {
+      "id": 208,
+      "business_name": "Williams, John L.",
+      "category": "FUNERAL SERVICES"
+    },
+    {
+      "id": 209,
+      "business_name": "Wylie, Albert P. Funeral Home",
+      "category": "FUNERAL SERVICES"
+    },
+    {
+      "id": 210,
+      "business_name": "Beverly D. Cromartie Funeral Services",
+      "category": "FUNERAL SERVICES"
+    },
+    {
+      "id": 211,
+      "business_name": "BJ Borden Insurance",
+      "category": "INSURANCE"
+    },
+    {
+      "id": 212,
+      "business_name": "The Brockington Firm, LLC",
+      "category": "ACCOUNTING & TAX SERVICES"
+    },
+    {
+      "id": 213,
+      "business_name": "Blueprint Construction Services, LLC",
+      "category": "CONSTRUCTION SERVICES"
+    },
+    {
+      "id": 214,
+      "business_name": "P.C. Johnson & Son",
+      "category": "CONTRACTORS"
+    },
+    {
+      "id": 221,
+      "business_name": "Woodmark Builders, LLC",
+      "category": "REAL ESTATE"
+    },
+    {
+      "id": 224,
+      "business_name": "The Watchmen LLC",
+      "category": "SECURITY"
+    },
+    {
+      "id": 225,
+      "business_name": "Image 360/ Signs by Tomorrow",
+      "category": "SIGNS"
+    },
+    {
+      "id": 226,
+      "business_name": "Spell Signs",
+      "category": "SIGNS"
+    },
+    {
+      "id": 227,
+      "business_name": "BC’s Unlimited Promotions LLC",
+      "category": "PROMOTION"
+    },
+    {
+      "id": 228,
+      "business_name": "Arch Social Club",
+      "category": "CLUBS"
+    },
+    {
+      "id": 229,
+      "business_name": "NFD Inc.",
+      "category": "PLANNING"
+    },
+    {
+      "id": 230,
+      "business_name": "B Rock Body Sculpting",
+      "category": "SPAS"
+    },
+    {
+      "id": 231,
+      "business_name": "God’s Total Woman LLC",
+      "category": "SPAS"
+    },
+    {
+      "id": 232,
+      "business_name": "Exceed Home Health Care Services",
+      "category": "HEALTH"
+    },
+    {
+      "id": 233,
+      "business_name": "Forbes Home Improvement & Construction Inc.",
+      "category": "HOME IMPROVEMENT"
+    },
+    {
+      "id": 235,
+      "business_name": "Steirling Shaw Real Property Services, LLC",
+      "category": "PROPERTIES"
+    },
+    {
+      "id": 236,
+      "business_name": "Urban Container Living LLC",
+      "category": "HOUSING"
+    },
+    {
+      "id": 237,
+      "business_name": "C & S Jones Group LLC",
+      "category": "MANAGEMENT"
+    },
+    {
+      "id": 239,
+      "business_name": "Roane’s Rigging & Transfer, Inc.",
+      "category": "RECYCLING"
+    },
+    {
+      "id": 240,
+      "business_name": "Dunlap & Sons Roofing Inc.",
+      "category": "ROOFING"
+    },
+    {
+      "id": 245,
+      "business_name": "Pinnacle Wireless Solutions",
+      "category": "WIRELESS SERVICES"
+    },
+    {
+      "id": 246,
+      "business_name": "Carey Hardware",
+      "category": "HOME SERVICES"
+    },
+    {
+      "id": 247,
+      "business_name": "Mackey's Caribbean Cuisine",
+      "category": "RESTAURANTS"
+    },
+    {
+      "id": 248,
+      "business_name": "Taste This",
+      "category": "RESTAURANTS"
+    },
+    {
+      "id": 249,
+      "business_name": "Baltimore Perfect Touch Cleaning Service",
+      "category": "JANITORIAL SERVICES"
+    },
+    {
+      "id": 250,
+      "business_name": "Brighter Dayz Services",
+      "category": "JANITORIAL SERVICES"
+    },
+    {
+      "id": 251,
+      "business_name": "K P Cleaning Services",
+      "category": "JANITORIAL SERVICES"
+    },
+    {
+      "id": 252,
+      "business_name": "Maryland Janitorial Services (MJS)",
+      "category": "JANITORIAL SERVICES"
+    },
+    {
+      "id": 253,
+      "business_name": "White Marsh Creative",
+      "category": "DESIGN"
+    },
+    {
+      "id": 254,
+      "business_name": "Great Black and Wax Museum",
+      "category": "MUSEUMS"
+    },
+    {
+      "id": 255,
+      "business_name": "Reginald F. Lewis Museum of Maryland African American History & Culture",
+      "category": "MUSEUMS"
+    },
+    {
+      "id": 256,
+      "business_name": "Sankofa Children's Museum of African Culture",
+      "category": "MUSEUMS"
+    },
+    {
+      "id": 257,
+      "business_name": "Focus Movers Relocation",
+      "category": "MOVERS"
+    },
+    {
+      "id": 258,
+      "business_name": "African Art Museum of Maryland",
+      "category": "MUSEUMS"
+    },
+    {
+      "id": 259,
+      "business_name": "Baltimore Museum of Art",
+      "category": "MUSEUMS"
+    },
+    {
+      "id": 260,
+      "business_name": "Euble Blake National Jazz Institute and Cultural Center",
+      "category": "MUSEUMS"
+    },
+    {
+      "id": 261,
+      "business_name": "Frederick Douglas-Isaac Myers Maritime Park Museum",
+      "category": "MUSEUMS"
+    },
+    {
+      "id": 262,
+      "business_name": "Adams Environmental Engineering Group",
+      "category": "ENVIRONMENTAL ENGINEERING CONSULTING"
+    },
+    {
+      "id": 263,
+      "business_name": "Barbour Group",
+      "category": "CONSULTING"
+    },
+    {
+      "id": 264,
+      "business_name": "PCG & Associates",
+      "category": "CONSULTING"
+    },
+    {
+      "id": 265,
+      "business_name": "AGA Contractors, Inc.",
+      "category": "GENERAL CONTRACTORS"
+    },
+    {
+      "id": 266,
+      "business_name": "Gutierrez Studios, Inc.",
+      "category": "METALWORK CONTRACTORS"
+    },
+    {
+      "id": 267,
+      "business_name": "BMW Construction Specialists",
+      "category": "CONSTRUCTION SERVICES"
+    },
+    {
+      "id": 268,
+      "business_name": "Iconic Plumbing",
+      "category": "PLUMBING CONTRACTORS"
+    },
+    {
+      "id": 269,
+      "business_name": "Harris Brothers Construction Co., Inc.",
+      "category": "CONSTRUCTION CONTRACTORS"
+    },
+    {
+      "id": 270,
+      "business_name": "Cafe Millwork",
+      "category": "CARPENTRY CONTRACTORS"
+    },
+    {
+      "id": 271,
+      "business_name": "BJ Borden Realtor",
+      "category": "REAL ESTATE"
+    },
+    {
+      "id": 272,
+      "business_name": "Winkler Invester Group LLC",
+      "category": "REAL ESTATE AGENCIES"
+    },
+    {
+      "id": 273,
+      "business_name": "A1 Realty, LLC",
+      "category": "REAL ESTATE"
+    },
+    {
+      "id": 274,
+      "business_name": "Andrea Scott, Realtor",
+      "category": "REAL ESTATE"
+    },
+    {
+      "id": 275,
+      "business_name": "Cornerstone Real Estate",
+      "category": "REAL ESTATE"
+    },
+    {
+      "id": 276,
+      "business_name": "Century 21 Downtown",
+      "category": "REAL ESTATE"
+    },
+    {
+      "id": 277,
+      "business_name": "Douglas Realty - BJ Borden Realtor",
+      "category": "REAL ESTATE"
+    },
+    {
+      "id": 278,
+      "business_name": "Execuhome Realty",
+      "category": "REAL ESTATE"
+    },
+    {
+      "id": 279,
+      "business_name": "Baltimore Cable Access Corporation",
+      "category": "TELEVISION"
+    },
+    {
+      "id": 280,
+      "business_name": "Ariel's Transport LLC",
+      "category": "TOWING"
+    },
+    {
+      "id": 281,
+      "business_name": "Universal Towing",
+      "category": "TOWING"
+    },
+    {
+      "id": 282,
+      "business_name": "MTA MBE Program",
+      "category": "TRANSPORTATION"
+    },
+    {
+      "id": 283,
+      "business_name": "Travel & Events Extraordinaire LLC",
+      "category": "TRAVEL"
+    },
+    {
+      "id": 284,
+      "business_name": "Visionary Entertainment & Travel",
+      "category": "TRAVEL"
+    },
+    {
+      "id": 285,
+      "business_name": "Basil Tree Service",
+      "category": "ENVIRONMENT"
+    },
+    {
+      "id": 286,
+      "business_name": "Legacy Awards & Recognition",
+      "category": "AWARDS"
+    },
+    {
+      "id": 287,
+      "business_name": "Lacy's Professional Nursing Services",
+      "category": "HEALTHCARE SERVICES"
+    },
+    {
+      "id": 288,
+      "business_name": "Harrison Memorial Accessories",
+      "category": "MEMORIALS"
+    },
+    {
+      "id": 289,
+      "business_name": "Above it All Mental Health Program",
+      "category": "HEALTH"
+    },
+    {
+      "id": 290,
+      "business_name": "K.E.Y.E.S.",
+      "category": "HEALTH"
+    },
+    {
+      "id": 291,
+      "business_name": "Roberta's House",
+      "category": "HEALTH"
+    },
+    {
+      "id": 292,
+      "business_name": "Rollins & Associate Real Estate",
+      "category": "REAL ESTATE"
+    },
+    {
+      "id": 293,
+      "business_name": "Key Hole Services",
+      "category": "REAL ESTATE"
+    },
+    {
+      "id": 294,
+      "business_name": "Enhanced Visions",
+      "category": "PHOTOGRAPHY"
+    },
+    {
+      "id": 295,
+      "business_name": "Raves Photography",
+      "category": "PHOTOGRAPHY"
+    },
+    {
+      "id": 296,
+      "business_name": "Burs & Garrett Physical Therapy",
+      "category": "THERAPY"
+    },
+    {
+      "id": 297,
+      "business_name": "Y Motion Physical Therapy",
+      "category": "THERAPY"
+    },
+    {
+      "id": 298,
+      "business_name": "Deborah J. Joner",
+      "category": "PHYSICIANS"
+    },
+    {
+      "id": 299,
+      "business_name": "Thomas B. Day, M.D.",
+      "category": "DERMATOLOGY"
+    },
+    {
+      "id": 300,
+      "business_name": "Sidney Burnett, M.D.",
+      "category": "PHYSICIANS"
+    },
+    {
+      "id": 301,
+      "business_name": "Gordon’s Florist",
+      "category": "FLORIST"
+    },
+    {
+      "id": 302,
+      "business_name": "Baltimore Blossoms Studio",
+      "category": "FLORIST"
+    },
+    {
+      "id": 303,
+      "business_name": "Fleurs d’Ave",
+      "category": "FLORIST"
+    },
+    {
+      "id": 304,
+      "business_name": "Crunchtime Vending LLC",
+      "category": "FOOD SERVICE"
+    },
+    {
+      "id": 305,
+      "business_name": "Alliance Fuel Company",
+      "category": "FUEL OIL"
+    },
+    {
+      "id": 306,
+      "business_name": "Bay Oil, Inc.",
+      "category": "FUEL OIL"
+    },
+    {
+      "id": 307,
+      "business_name": "JJ Adams Fuel Oil Company LLC",
+      "category": "FUEL OIL"
+    },
+    {
+      "id": 308,
+      "business_name": "EXIT First Realty",
+      "category": "REAL ESTATE"
+    },
+    {
+      "id": 309,
+      "business_name": "Slate The Venue",
+      "category": "EVENT VENUE"
+    },
+    {
+      "id": 310,
+      "business_name": "A1 Taxperts",
+      "category": "ACCOUNTING & TAX SERVICES"
+    },
+    {
+      "id": 311,
+      "business_name": "A Little Faith Accounting & Tax Services, LLC",
+      "category": "ACCOUNTING & TAX SERVICES"
+    },
+    {
+      "id": 312,
+      "business_name": "The Brockington Firm LLC",
+      "category": "ACCOUNTING & TAX SERVICES"
+    },
+    {
+      "id": 313,
+      "business_name": "Briscoe & Associates",
+      "category": "ACCOUNTING & TAX SERVICES"
+    },
+    {
+      "id": 314,
+      "business_name": "Carolyyn Gwynn Income Tax",
+      "category": "ACCOUNTING & TAX SERVICES"
+    },
+    {
+      "id": 315,
+      "business_name": "Leathia D. Moore Foundation",
+      "category": "PROFESSIONAL SERVICES"
+    },
+    {
+      "id": 316,
+      "business_name": "Mobile Cleaners",
+      "category": "CLEANING SERVICES"
+    },
+    {
+      "id": 317,
+      "business_name": "New Tabernacle Baptist Church",
+      "category": "CHURCHES"
+    },
+    {
+      "id": 318,
+      "business_name": "AMES United Methodist Church",
+      "category": "CHURCHES"
+    },
+    {
+      "id": 319,
+      "business_name": "C. Morton Mobile Dry Cleaners",
+      "category": "DRY CLEANERS"
+    },
+    {
+      "id": 320,
+      "business_name": "Alzheimer's Association",
+      "category": "CHARITABLE ORGANIZATIONS"
+    },
+    {
+      "id": 321,
+      "business_name": "Associated Black Charities",
+      "category": "CHARITABLE ORGANIZATIONS"
+    },
+    {
+      "id": 322,
+      "business_name": "Centre Landscaping LLC",
+      "category": "LANDSCAPING"
+    },
+    {
+      "id": 323,
+      "business_name": "Native Terrain, LLC",
+      "category": "LANDSCAPING"
+    },
+    {
+      "id": 324,
+      "business_name": "Sparks Quality Landscaping Company",
+      "category": "LANDSCAPING"
+    },
+    {
+      "id": 325,
+      "business_name": "Lead Paint Contractors, Inc.",
+      "category": "LEAD INSPECTION"
+    },
+    {
+      "id": 326,
+      "business_name": "Travis Shaw",
+      "category": "LEAD INSPECTION"
+    },
+    {
+      "id": 327,
+      "business_name": "Maryland Lottery and Gaming Control Agency",
+      "category": "LOTTERY"
+    },
+    {
+      "id": 328,
+      "business_name": "BCS Supply and Services",
+      "category": "FACILITY SUPPLIES"
+    },
+    {
+      "id": 329,
+      "business_name": "FIST Installation",
+      "category": "FURNITURE"
+    },
+    {
+      "id": 330,
+      "business_name": "First Class Plumbing, LLC",
+      "category": "PLUMBING"
+    },
+    {
+      "id": 331,
+      "business_name": "TNM Trucking",
+      "category": "HEAVY HAULING"
+    },
+    {
+      "id": 332,
+      "business_name": "Affordable Electrical AES",
+      "category": "ELECTRICALS"
+    },
+    {
+      "id": 333,
+      "business_name": "Baltimore’s Finest Home Improvement",
+      "category": "ROOFING"
+    },
+    {
+      "id": 334,
+      "business_name": "New Tabernacle Baptist Church",
+      "category": "CHURCH"
+    },
+    {
+      "id": 335,
+      "business_name": "Kairos Development, LLC",
+      "category": "CHARITY"
+    },
+    {
+      "id": 336,
+      "business_name": "Picassew Firm, LLC",
+      "category": "CLOTHING"
+    },
+    {
+      "id": 337,
+      "business_name": "CLH Courier Services",
+      "category": "COURIER"
+    },
+    {
+      "id": 338,
+      "business_name": "Applied Integrated Technologies, Inc.",
+      "category": "CYBERSECURITY"
+    },
+    {
+      "id": 339,
+      "business_name": "A Family Affair",
+      "category": "DAYCARE"
+    },
+    {
+      "id": 340,
+      "business_name": "Bright Stars Learning Center",
+      "category": "DAYCARE"
+    },
+    {
+      "id": 341,
+      "business_name": "Crowns & Tiaras Child Care Center",
+      "category": "DAYCARE"
+    },
+    {
+      "id": 342,
+      "business_name": "Heaven Helpers",
+      "category": "DAYCARE"
+    },
+    {
+      "id": 343,
+      "business_name": "Little Angels Learning Palace",
+      "category": "DAYCARE CENTERS"
+    },
+    {
+      "id": 344,
+      "business_name": "Loftin Love Christian Learning Center",
+      "category": "LEARNING CENTER"
+    },
+    {
+      "id": 345,
+      "business_name": "Millford Mill Church",
+      "category": "CHURCHES"
+    },
+    {
+      "id": 346,
+      "business_name": "New Beginning Bail Bonds",
+      "category": "BAIL BOND"
+    },
+    {
+      "id": 347,
+      "business_name": "The Avenue Bakery",
+      "category": "BAKERY"
+    },
+    {
+      "id": 348,
+      "business_name": "Harbor Bank of Maryland",
+      "category": "BANKS"
+    },
+    {
+      "id": 349,
+      "business_name": "Family Unisex",
+      "category": "BARBER SHOPS"
+    },
+    {
+      "id": 350,
+      "business_name": "Gary Fields Barbershop",
+      "category": "BARBER SHOPS"
+    },
+    {
+      "id": 351,
+      "business_name": "Mr. Do Hair Design",
+      "category": "BARBER SHOPS"
+    },
+    {
+      "id": 352,
+      "business_name": "Ricky's Barbershop",
+      "category": "BARBER SHOPS"
+    },
+    {
+      "id": 353,
+      "business_name": "Theo' Z Barber Shop",
+      "category": "BARBER SHOPS"
+    },
+    {
+      "id": 354,
+      "business_name": "Custom Tee's & More",
+      "category": "CLOTHING & APPAREL"
+    },
+    {
+      "id": 355,
+      "business_name": "Sankofa African & World Bazaar",
+      "category": "RETAIL & SPECIALTY SHOPS"
+    },
+    {
+      "id": 356,
+      "business_name": "TALLsmall Productions",
+      "category": "MEDIA & PRODUCTION SERVICES"
+    },
+    {
+      "id": 357,
+      "business_name": "100 BLACK MEN OF MD",
+      "category": "NONPROFIT & COMMUNITY ORGANIZATIONS"
+    },
+    {
+      "id": 358,
+      "business_name": "Baltimore Job Hunters Support Group",
+      "category": "CAREER & EMPLOYMENT SERVICES"
+    },
+    {
+      "id": 359,
+      "business_name": "Baltimore Urban League",
+      "category": "NONPROFIT & CIVIC ORGANIZATIONS"
+    },
+    {
+      "id": 360,
+      "business_name": "Core Counseling Service Support",
+      "category": "MENTAL HEALTH & COUNSELING SERVICES"
+    },
+    {
+      "id": 361,
+      "business_name": "IMS Auto Clinic",
+      "category": "Automotive"
+    },
+    {
+      "id": 362,
+      "business_name": "Peas & Sliders Auto Body",
+      "category": "Automotive"
+    },
+    {
+      "id": 363,
+      "business_name": "Leading Edge Auto Body & Mechanical Repair",
+      "category": "Automotive"
+    },
+    {
+      "id": 364,
+      "business_name": "M&G Customs",
+      "category": "Automotive"
+    },
+    {
+      "id": 365,
+      "business_name": "Marvin's Muffler Works",
+      "category": "Automotive"
+    },
+    {
+      "id": 366,
+      "business_name": "Unique Auto Mart Inc",
+      "category": "Automotive"
+    },
+    {
+      "id": 367,
+      "business_name": "Friendly Loving Opportunities (FLO)",
+      "category": "COMMUNITY ORGANIZATIONS"
+    },
+    {
+      "id": 368,
+      "business_name": "Leathia Dell Moore Foundation",
+      "category": "NONPROFIT FOUNDATION"
+    },
+    {
+      "id": 369,
+      "business_name": "NAACP National Headquarters",
+      "category": "CIVIL RIGHTS ORGANIZATION"
+    },
+    {
+      "id": 370,
+      "business_name": "Sheridan Patterson Center for Holistic Family Services",
+      "category": "FAMILY SERVICES"
+    },
+    {
+      "id": 371,
+      "business_name": "The Ambrose Housing Aid Center",
+      "category": "HOUSING ASSISTANCE"
+    },
+    {
+      "id": 372,
+      "business_name": "There Goes My Hero",
+      "category": "NONPROFIT ORGANIZATION"
+    },
+    {
+      "id": 373,
+      "business_name": "Young Educated Sisters Club",
+      "category": "YOUTH ORGANIZATION"
+    },
+    {
+      "id": 374,
+      "business_name": "Arena Players, Inc.",
+      "category": "PERFORMING ARTS"
+    },
+    {
+      "id": 375,
+      "business_name": "MCA of Greater Baltimore",
+      "category": "COMMUNITY CENTER"
+    },
+    {
+      "id": 376,
+      "business_name": "Sybblis Law Firm, LLC",
+      "category": "LEGAL SERVICES"
+    },
+    {
+      "id": 377,
+      "business_name": "Bay Associates Environmental, Inc.",
+      "category": "DEBRIS REMOVAL"
+    },
+    {
+      "id": 378,
+      "business_name": "Baltimore Recycling Center, LLC.",
+      "category": "DEBRIS REMOVAL"
+    },
+    {
+      "id": 379,
+      "business_name": "Demolition Man Contracting",
+      "category": "DEMOLITION"
+    },
+    {
+      "id": 380,
+      "business_name": "L. Herring Coyote Demolition",
+      "category": "DEMOLITION"
+    },
+    {
+      "id": 381,
+      "business_name": "HOME BASED REMODELING",
+      "category": "HOME IMPROVEMENT"
+    },
+    {
+      "id": 382,
+      "business_name": "J-ICON Home Remodeling",
+      "category": "HOME REMODELING"
+    },
+    {
+      "id": 383,
+      "business_name": "SD Security Consultants",
+      "category": "SECURITY"
+    },
+    {
+      "id": 384,
+      "business_name": "The Watkins Group",
+      "category": "SECURITY"
+    },
+    {
+      "id": 385,
+      "business_name": "Vision Healthcare Services Inc.",
+      "category": "REHABILITATION"
+    },
+    {
+      "id": 386,
+      "business_name": "Magic 95.9",
+      "category": "RADIO STATIONS"
+    },
+    {
+      "id": 387,
+      "business_name": "WERQ 92Q",
+      "category": "RADIO STATIONS"
+    },
+    {
+      "id": 388,
+      "business_name": "National Spine and Pain Center",
+      "category": "REHABILITATION"
+    },
+    {
+      "id": 389,
+      "business_name": "D. Felisa Armstrong",
+      "category": "PODIATRY"
+    },
+    {
+      "id": 390,
+      "business_name": "Beach Feet Podiatry",
+      "category": "PODIATRY"
+    },
+    {
+      "id": 391,
+      "business_name": "Agape House Inc.",
+      "category": "HEALTH"
+    },
+    {
+      "id": 392,
+      "business_name": "Wikerson Donald",
+      "category": "HEALTH"
+    },
+    {
+      "id": 393,
+      "business_name": "BC's Unlimited Promotions LLC",
+      "category": "PROMOTIONS"
+    },
+    {
+      "id": 394,
+      "business_name": "Premier Business Technologies",
+      "category": "PROMOTIONS"
+    },
+    {
+      "id": 395,
+      "business_name": "Specialty Marketing and Printing",
+      "category": "PROMOTIONS"
+    },
+    {
+      "id": 396,
+      "business_name": "Baltimore Health Care & Wellness",
+      "category": "HEALTH SERVICES"
+    },
+    {
+      "id": 397,
+      "business_name": "Clearview Medical Services",
+      "category": "HEALTH"
+    },
+    {
+      "id": 398,
+      "business_name": "Community Care Nursing Services",
+      "category": "HEALTH"
+    },
+    {
+      "id": 399,
+      "business_name": "H.L. Williams Painting Construction Co.",
+      "category": "PAINTING CONTRACTORS"
+    },
+    {
+      "id": 400,
+      "business_name": "AMC",
+      "category": "PAVING"
+    },
+    {
+      "id": 401,
+      "business_name": "A & A Plumbing",
+      "category": "PLUMBING"
+    },
+    {
+      "id": 402,
+      "business_name": "Quality Care",
+      "category": "HEALTH"
+    },
+    {
+      "id": 403,
+      "business_name": "University of MD Medical Center, Midtown",
+      "category": "HEALTH"
+    },
+    {
+      "id": 404,
+      "business_name": "Cunchtime Vending LLC",
+      "category": "VENDOR"
+    },
+    {
+      "id": 405,
+      "business_name": "State the Venue",
+      "category": "EVENTS"
+    },
+    {
+      "id": 406,
+      "business_name": "RPTalentMedia, LLC",
+      "category": "ENTERTAINMENT"
+    },
+    {
+      "id": 407,
+      "business_name": "A & S Retuse LLC",
+      "category": "WASTE MANAGEMENT"
+    },
+    {
+      "id": 408,
+      "business_name": "C & C Advocacy",
+      "category": "ADVOCACY"
+    },
+    {
+      "id": 409,
+      "business_name": "Paul Lead Inspection",
+      "category": "ENVIRONMENTAL"
+    },
+    {
+      "id": 410,
+      "business_name": "Essential Elements Rentals",
+      "category": "EQUIPMENTS"
+    },
+    {
+      "id": 411,
+      "business_name": "Ultimate Equipment Repair Services",
+      "category": "EQUIPMENTS"
+    },
+    {
+      "id": 412,
+      "business_name": "Bare on the Square",
+      "category": "ESTHETICIAN"
+    },
+    {
+      "id": 413,
+      "business_name": "Muse Skyn Esthetician/Lash Extensionist & Instructor",
+      "category": "ESTHETICIAN"
+    },
+    {
+      "id": 414,
+      "business_name": "Bishop Barry Pest Control",
+      "category": "PEST CONTROL"
+    },
+    {
+      "id": 415,
+      "business_name": "Clean & Clear Pest Control and Janitorial Services",
+      "category": "PEST CONTROL"
+    },
+    {
+      "id": 416,
+      "business_name": "Brooks Clinton Center",
+      "category": "EVENTS"
+    },
+    {
+      "id": 417,
+      "business_name": "Baltimore Teachers Network",
+      "category": "ASSOCIATION"
+    },
+    {
+      "id": 419,
+      "business_name": "K.E.Y.E.S Development",
+      "category": "NGO"
+    },
+    {
+      "id": 420,
+      "business_name": "Positive ID, Inc.",
+      "category": "NOTARY PUBLIC"
+    },
+    {
+      "id": 421,
+      "business_name": "Sue Ann's Office Supply, Inc.",
+      "category": "FURNITURE"
+    },
+    {
+      "id": 422,
+      "business_name": "The Myles Group, LLC",
+      "category": "BUSINESS SERVICES"
+    },
+    {
+      "id": 423,
+      "business_name": "B-More Enterprise",
+      "category": "CAFE"
+    },
+    {
+      "id": 424,
+      "business_name": "H & H Outdoors",
+      "category": "CAMPING EQUIPMENT"
+    },
+    {
+      "id": 425,
+      "business_name": "AASIM Security Agency",
+      "category": "SECURITY"
+    },
+    {
+      "id": 426,
+      "business_name": "Anne Arundel County Police Department",
+      "category": "SECURITY"
+    },
+    {
+      "id": 427,
+      "business_name": "Baltimore County Police Department",
+      "category": "SECURITY"
+    },
+    {
+      "id": 428,
+      "business_name": "Coleman Security Services",
+      "category": "SECURITY"
+    },
+    {
+      "id": 429,
+      "business_name": "Department of Planning and Neighborhood Development",
+      "category": "GOVERNMENT"
+    },
+    {
+      "id": 430,
+      "business_name": "MD Transportation Authority",
+      "category": "TRANSPORT"
+    },
+    {
+      "id": 431,
+      "business_name": "University of Maryland Medical Center Midtown",
+      "category": "HEALTHCARE"
+    },
+    {
+      "id": 432,
+      "business_name": "C. William Groce & Associates",
+      "category": "LIFE & HEALTH COACHING"
+    },
+    {
+      "id": 433,
+      "business_name": "T.L Brown Contractor LLC",
+      "category": "PLUMBING & HVAC CONTRACTORS"
+    },
+    {
+      "id": 434,
+      "business_name": "DRE Construction LLC",
+      "category": "CONSTRUCTION"
+    },
+    {
+      "id": 435,
+      "business_name": "Elite General Services, LLC",
+      "category": "GENERAL CONTRACTORS"
+    },
+    {
+      "id": 436,
+      "business_name": "Forbes Home Improvement & Construction",
+      "category": "CONSTRUCTION SERVICES"
+    },
+    {
+      "id": 437,
+      "business_name": "Commercial Interiors",
+      "category": "CONTRACTORS"
+    },
+    {
+      "id": 438,
+      "business_name": "Harvey Harris Contractors",
+      "category": "CONTRACTORS"
+    },
+    {
+      "id": 439,
+      "business_name": "Positive I.D. Inc.",
+      "category": "FINGERPRINTING"
+    },
+    {
+      "id": 440,
+      "business_name": "Absolute Solutions & Associates",
+      "category": "FIRE PROTECTION"
+    },
+    {
+      "id": 441,
+      "business_name": "Fire Safety Company",
+      "category": "FIRE PROTECTION"
+    },
+    {
+      "id": 442,
+      "business_name": "A-1 FIREARMS",
+      "category": "FIREARMS"
+    },
+    {
+      "id": 443,
+      "business_name": "Divine Fitness & Health Services, Inc.",
+      "category": "FITNESS"
+    },
+    {
+      "id": 444,
+      "business_name": "Audrich Services, LLC",
+      "category": "FLOOR INSTALLATION"
+    },
+    {
+      "id": 445,
+      "business_name": "Allstate Insurance",
+      "category": "INSURANCE"
+    },
+    {
+      "id": 446,
+      "business_name": "Ananiah Insurance, LLC",
+      "category": "INSURANCE"
+    },
+    {
+      "id": 447,
+      "business_name": "Borden Insurance Agency, Inc.",
+      "category": "INSURANCE"
+    },
+    {
+      "id": 448,
+      "business_name": "Farmers Insurance",
+      "category": "INSURANCE"
+    },
+    {
+      "id": 449,
+      "business_name": "State Farm Insurance",
+      "category": "INSURANCE"
+    },
+    {
+      "id": 450,
+      "business_name": "Nationwide",
+      "category": "INSURANCE"
+    },
+    {
+      "id": 451,
+      "business_name": "T.L. Brown Insurance Group, LLC",
+      "category": "INSURANCE"
+    },
+    {
+      "id": 452,
+      "business_name": "Designer Glass & Mirror Co., Inc.",
+      "category": "DECORATING"
+    },
+    {
+      "id": 453,
+      "business_name": "Picture Perfect Windows",
+      "category": "DECORATORS"
+    },
+    {
+      "id": 454,
+      "business_name": "Absolute Supply & Service, LLC",
+      "category": "AIR CONDITIONING"
+    },
+    {
+      "id": 455,
+      "business_name": "Jackson Heating & Air Conditioning",
+      "category": "AIR CONDITIONING"
+    },
+    {
+      "id": 456,
+      "business_name": "MHCR",
+      "category": "AIR CONDITIONING"
+    },
+    {
+      "id": 457,
+      "business_name": "Chesapeake Home Health Care",
+      "category": "HEALTH"
+    },
+    {
+      "id": 458,
+      "business_name": "WEAA.org 88.9 FM",
+      "category": "RADIO STATION"
+    },
+    {
+      "id": 459,
+      "business_name": "Best Fence",
+      "category": "FENCING"
+    },
+    {
+      "id": 460,
+      "business_name": "Sparks Quality Fence Co.",
+      "category": "FENCING"
+    },
+    {
+      "id": 461,
+      "business_name": "Financial Management Strategies, LLC (FMS)",
+      "category": "FINANCE"
+    },
+    {
+      "id": 462,
+      "business_name": "LPL Financial",
+      "category": "FINANCE"
+    },
+    {
+      "id": 463,
+      "business_name": "Magothy Payments",
+      "category": "FINANCE"
+    },
+    {
+      "id": 464,
+      "business_name": "Dominican Republic Luxury Vacations",
+      "category": "TRAVEL"
+    },
+    {
+      "id": 465,
+      "business_name": "Integrative Alopecia Care Centre",
+      "category": "HAIR CARE"
+    },
+    {
+      "id": 466,
+      "business_name": "The Epilation Clinic",
+      "category": "HAIR CARE"
+    },
+    {
+      "id": 467,
+      "business_name": "Hair 4 Life",
+      "category": "HAIR CARE"
+    },
+    {
+      "id": 468,
+      "business_name": "Leona Watties-Philips Avon Products",
+      "category": "HAIR CARE"
+    },
+    {
+      "id": 469,
+      "business_name": "Shea Radiance",
+      "category": "HAIR CARE"
+    },
+    {
+      "id": 470,
+      "business_name": "Myers Impact Holistic Health Club",
+      "category": "HEALTH CLUB"
+    },
+    {
+      "id": 471,
+      "business_name": "Winkler Investor Group LLC",
+      "category": "REAL ESTATE"
+    },
+    {
+      "id": 472,
+      "business_name": "Mackey's Crab House & Seafood Catering",
+      "category": "RESTAURANT"
+    },
+    {
+      "id": 473,
+      "business_name": "Brudah's Carribean Kitchen",
+      "category": "RESTAURANT"
+    },
+    {
+      "id": 474,
+      "business_name": "BrooksClinton Funeral Service",
+      "category": "FUNERAL SERVICES"
+    },
+    {
+      "id": 475,
+      "business_name": "Minority Motoring & Trucking Association",
+      "category": "TRANSPORTATION SERVICES"
+    },
+    {
+      "id": 476,
+      "business_name": "Winshire Interiors",
+      "category": "CONSTRUCTION"
+    },
+    {
+      "id": 477,
+      "business_name": "Carter Landscaping, LLC",
+      "category": "LANDSCAPING"
+    },
+    {
+      "id": 478,
+      "business_name": "Sparks Quality Landscaping Company",
+      "category": "LANDSCAPING"
+    },
+    {
+      "id": 479,
+      "business_name": "Bishop Barry Lead Inspection",
+      "category": "PAINTING"
+    },
+    {
+      "id": 480,
+      "business_name": "Travis Lead Inspection",
+      "category": "PAINTING"
+    },
+    {
+      "id": 481,
+      "business_name": "AMC HVAC Mechanical Engineering, LLC",
+      "category": "MECHANIC"
+    },
+    {
+      "id": 482,
+      "business_name": "GEO'S PLUMBING SERVICES",
+      "category": "PLUMBING"
+    },
+    {
+      "id": 483,
+      "business_name": "FTC Painting",
+      "category": "PAINTING"
+    },
+    {
+      "id": 484,
+      "business_name": "Seadmok",
+      "category": "PLUMBING"
+    },
+    {
+      "id": 485,
+      "business_name": "Crown's Pharmacy/Clinic",
+      "category": "PHARMACY/CLINIC"
+    },
+    {
+      "id": 486,
+      "business_name": "Davis Poole Optometry",
+      "category": "OPTICIANS"
+    },
+    {
+      "id": 488,
+      "business_name": "The Chimes",
+      "category": "REHABILITATION"
+    },
+    {
+      "id": 489,
+      "business_name": "The Crab Queen",
+      "category": "RESTAURANTS"
+    },
+    {
+      "id": 490,
+      "business_name": "Humming Bird Carryout",
+      "category": "RESTAURANTS"
+    },
+    {
+      "id": 491,
+      "business_name": "Creative Real Estate Services, LLC",
+      "category": "MORTGAGES"
+    },
+    {
+      "id": 492,
+      "business_name": "Integrity Title & Escrow Company",
+      "category": "REAL ESTATE"
+    },
+    {
+      "id": 493,
+      "business_name": "Pinnacle Wireless",
+      "category": "MONEY TRANSFER/WESTERN UNION"
+    },
+    {
+      "id": 494,
+      "business_name": "Ty's Cycle",
+      "category": "MOTORCYCLES"
+    },
+    {
+      "id": 495,
+      "business_name": "Execuhome Realty - Gregory Daniels",
+      "category": "REAL ESTATE"
+    },
+    {
+      "id": 496,
+      "business_name": "Execuhome Realty - Sandra McCoy Hewlett",
+      "category": "REAL ESTATE"
+    },
+    {
+      "id": 497,
+      "business_name": "Exit Realty Perspectives",
+      "category": "REAL ESTATE"
+    },
+    {
+      "id": 498,
+      "business_name": "Faith Realty, LLC - Sheila Russell Williams",
+      "category": "REAL ESTATE"
+    },
+    {
+      "id": 499,
+      "business_name": "Kemp & Associates",
+      "category": "REAL ESTATE"
+    },
+    {
+      "id": 500,
+      "business_name": "Compassionate Health Care Nursing Services Inc.",
+      "category": "HEALTH"
+    },
+    {
+      "id": 501,
+      "business_name": "The Epiliation Clinic",
+      "category": "HEALTH"
+    },
+    {
+      "id": 502,
+      "business_name": "Compassionate HealthCare Nursing Services",
+      "category": "HEALTH"
+    },
+    {
+      "id": 510,
+      "business_name": "Unnamed Business",
+      "category": "Uncategorized"
+    },
+    {
+      "id": 528,
+      "business_name": "Mediflon",
+      "category": "Medicals"
+    }
+  ]
+}
