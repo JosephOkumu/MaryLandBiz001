@@ -57,7 +57,7 @@ class Admin(UserMixin):
             user_data = cursor.fetchone()
             if user_data:
                 # Return full data including hash for login check
-                return user_data 
+                return user_data
             return None
         except DBError as err:
             app.logger.error(f"Error fetching admin by username: {err}")
@@ -167,54 +167,54 @@ def get_businesses():
     status = request.args.get('status', None) # Optional status filter
     limit = request.args.get('limit', 20, type=int)
     offset = request.args.get('offset', 0, type=int)
-    
+
     connection = get_db_connection()
     if not connection:
         return jsonify({"error": "Database connection failed"}), 500
-    
+
     try:
         cursor = connection.cursor(dictionary=True)
-        
+
         query_parts = ["SELECT * FROM businesses"]
         where_clauses = []
         params_for_data = [] # Parameters for the main data query
         params_for_count = [] # Parameters for the count query
-        
+
         if category:
             where_clauses.append("category = %s")
             params_for_data.append(category)
             params_for_count.append(category)
-        
+
         if status:
             where_clauses.append("status = %s")
             params_for_data.append(status)
             params_for_count.append(status)
-        
+
         if search_term:
             search_param = f"%{search_term}%"
             where_clauses.append("(business_name LIKE %s OR description LIKE %s)")
             params_for_data.extend([search_param, search_param])
             params_for_count.extend([search_param, search_param])
-            
+
         if where_clauses:
             query_parts.append("WHERE " + " AND ".join(where_clauses))
-        
+
         # Construct and execute the count query first
         count_query_sql = "SELECT COUNT(*) as total FROM businesses"
         if where_clauses:
             count_query_sql += " WHERE " + " AND ".join(where_clauses)
-        
+
         cursor.execute(count_query_sql, tuple(params_for_count))
         total = cursor.fetchone()['total']
-        
+
         # Construct and execute the main data query
         query_parts.append("ORDER BY business_name LIMIT %s OFFSET %s")
         params_for_data.extend([limit, offset])
-        
+
         main_query_sql = " ".join(query_parts)
         cursor.execute(main_query_sql, tuple(params_for_data))
         businesses = cursor.fetchall()
-        
+
         return jsonify({
             "businesses": businesses,
             "total": total,
@@ -224,7 +224,7 @@ def get_businesses():
             "search_term": search_term,
             "status_filter": status
         })
-        
+
     except DBError as err:
         app.logger.error(f"Database error: {err}") # Added logging
         return jsonify({"error": str(err)}), 500
@@ -241,20 +241,20 @@ def create_business():
     """
     data = request.get_json()
     required_fields = ['business_name', 'category', 'location']
-    
+
     # Validate required fields
     for field in required_fields:
         if field not in data or not data[field]:
             return jsonify({"error": f"{field} is required"}), 400
-    
+
     connection = get_db_connection()
     if not connection:
         return jsonify({"error": "Database connection failed"}), 500
-    
+
     try:
         cursor = connection.cursor()
         query = """
-            INSERT INTO businesses 
+            INSERT INTO businesses
             (business_name, category, location, contact_name, tel, email, website, description, featured)
             VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
         """
@@ -271,14 +271,14 @@ def create_business():
         )
         cursor.execute(query, values)
         connection.commit()
-        
+
         business_id = cursor.lastrowid
         return jsonify({
             "success": True,
             "message": "Business created successfully",
             "business_id": business_id
         }), 201
-    
+
     except DBError as err:
         app.logger.error(f"Database error when creating business: {err}")
         return jsonify({"error": str(err)}), 500
@@ -293,27 +293,27 @@ def get_featured_businesses():
     Get featured businesses
     """
     limit = request.args.get('limit', 6, type=int)
-    
+
     connection = get_db_connection()
     if not connection:
         return jsonify({"error": "Database connection failed"}), 500
-    
+
     try:
         cursor = connection.cursor(dictionary=True)
-        
+
         # Query for featured businesses
         query = "SELECT * FROM businesses WHERE featured = TRUE ORDER BY business_name LIMIT %s"
         cursor.execute(query, (limit,))
         featured = cursor.fetchall()
-        
+
         # If no featured businesses are set, return some random ones
         if not featured:
             query = "SELECT * FROM businesses ORDER BY RAND() LIMIT %s"
             cursor.execute(query, (limit,))
             featured = cursor.fetchall()
-        
+
         return jsonify(featured)
-        
+
     except DBError as err:
         return jsonify({"error": str(err)}), 500
     finally:
@@ -329,17 +329,110 @@ def get_categories():
     connection = get_db_connection()
     if not connection:
         return jsonify({"error": "Database connection failed"}), 500
-    
+
     try:
         cursor = connection.cursor(dictionary=True)
         cursor.execute("SELECT * FROM categories ORDER BY name")
         categories = cursor.fetchall()
         return jsonify(categories)
-        
+
     except DBError as err:
         return jsonify({"error": str(err)}), 500
     finally:
         if connection.is_connected():
+            cursor.close()
+            connection.close()
+
+@app.route('/api/categories/top', methods=['GET'])
+def get_top_categories():
+    """
+    Get top categories by business count
+    """
+    limit = request.args.get('limit', 6, type=int)
+
+    connection = get_db_connection()
+    if not connection:
+        app.logger.error("Database connection failed for top categories")
+        return jsonify({"error": "Database connection failed"}), 500
+
+    try:
+        cursor = connection.cursor(dictionary=True)
+
+        # Simple query without status filtering since your table doesn't have status column
+        query = """
+        SELECT category, COUNT(*) as business_count
+        FROM businesses
+        WHERE category IS NOT NULL AND category != '' AND category != 'NULL'
+        GROUP BY category
+        ORDER BY business_count DESC
+        LIMIT %s
+        """
+        cursor.execute(query, (limit,))
+        top_categories = cursor.fetchall()
+
+        # Log the results for debugging
+        app.logger.info(f"Found {len(top_categories)} top categories")
+        for cat in top_categories:
+            app.logger.info(f"Category: {cat['category']}, Count: {cat['business_count']}")
+
+        return jsonify(top_categories)
+
+    except Exception as err:
+        app.logger.error(f"Error in get_top_categories: {str(err)}")
+        return jsonify({"error": f"Internal server error: {str(err)}"}), 500
+    finally:
+        if connection and connection.is_connected():
+            cursor.close()
+            connection.close()
+
+@app.route('/api/debug/categories', methods=['GET'])
+def debug_categories():
+    """
+    Debug endpoint to check database structure and category data
+    """
+    connection = get_db_connection()
+    if not connection:
+        return jsonify({"error": "Database connection failed"}), 500
+
+    try:
+        cursor = connection.cursor(dictionary=True)
+        debug_info = {}
+
+        # Check table structure
+        cursor.execute("SHOW COLUMNS FROM businesses")
+        columns = cursor.fetchall()
+        debug_info['table_structure'] = columns
+
+        # Check total businesses
+        cursor.execute("SELECT COUNT(*) as total FROM businesses")
+        total = cursor.fetchone()
+        debug_info['total_businesses'] = total['total']
+
+        # Check businesses with categories
+        cursor.execute("SELECT COUNT(*) as count FROM businesses WHERE category IS NOT NULL AND category != '' AND category != 'NULL'")
+        with_categories = cursor.fetchone()
+        debug_info['businesses_with_categories'] = with_categories['count']
+
+        # Sample categories
+        cursor.execute("SELECT DISTINCT category FROM businesses WHERE category IS NOT NULL AND category != '' AND category != 'NULL' LIMIT 10")
+        sample_categories = cursor.fetchall()
+        debug_info['sample_categories'] = sample_categories
+
+        # Check if status column exists and sample values
+        column_names = [col['Field'] for col in columns]
+        if 'status' in column_names:
+            cursor.execute("SELECT DISTINCT status FROM businesses LIMIT 10")
+            statuses = cursor.fetchall()
+            debug_info['available_statuses'] = statuses
+        else:
+            debug_info['available_statuses'] = "No status column found"
+
+        return jsonify(debug_info)
+
+    except Exception as err:
+        return jsonify({"error": f"Debug error: {str(err)}"}), 500
+    finally:
+        if connection and connection.is_connected():
             cursor.close()
             connection.close()
 
@@ -351,47 +444,47 @@ def search_businesses():
     search_term = request.args.get('q', '')
     limit = request.args.get('limit', 20, type=int)
     offset = request.args.get('offset', 0, type=int)
-    
+
     if not search_term:
         return jsonify({"error": "Search term is required"}), 400
-    
+
     connection = get_db_connection()
     if not connection:
         return jsonify({"error": "Database connection failed"}), 500
-    
+
     try:
         cursor = connection.cursor(dictionary=True)
-        
+
         # Search query with LIKE for partial matches
         search_param = f"%{search_term}%"
         query = """
-        SELECT * FROM businesses 
-        WHERE business_name LIKE %s 
-        OR description LIKE %s 
-        OR category LIKE %s 
+        SELECT * FROM businesses
+        WHERE business_name LIKE %s
+        OR description LIKE %s
+        OR category LIKE %s
         ORDER BY business_name
         LIMIT %s OFFSET %s
         """
         cursor.execute(query, (search_param, search_param, search_param, limit, offset))
         results = cursor.fetchall()
-        
+
         # Get total count for pagination
         count_query = """
-        SELECT COUNT(*) as total FROM businesses 
-        WHERE business_name LIKE %s 
-        OR description LIKE %s 
+        SELECT COUNT(*) as total FROM businesses
+        WHERE business_name LIKE %s
+        OR description LIKE %s
         OR category LIKE %s
         """
         cursor.execute(count_query, (search_param, search_param, search_param))
         total = cursor.fetchone()['total']
-        
+
         return jsonify({
             "businesses": results,
             "total": total,
             "limit": limit,
             "offset": offset
         })
-        
+
     except DBError as err:
         return jsonify({"error": str(err)}), 500
     finally:
@@ -407,22 +500,22 @@ def set_featured_business():
     data = request.get_json()
     business_id = data.get('id')
     featured = data.get('featured', True)
-    
+
     if not business_id:
         return jsonify({"error": "Business ID is required"}), 400
-    
+
     connection = get_db_connection()
     if not connection:
         return jsonify({"error": "Database connection failed"}), 500
-    
+
     try:
         cursor = connection.cursor()
         query = "UPDATE businesses SET featured = %s WHERE id = %s"
         cursor.execute(query, (featured, business_id))
         connection.commit()
-        
+
         return jsonify({"success": True, "message": "Featured status updated"})
-        
+
     except DBError as err:
         return jsonify({"error": str(err)}), 500
     finally:
@@ -440,8 +533,8 @@ def get_new_businesses_count():
     try:
         cursor = connection.cursor()
         query = """
-            SELECT COUNT(*) as count 
-            FROM businesses 
+            SELECT COUNT(*) as count
+            FROM businesses
             WHERE created_at >= DATE_SUB(NOW(), INTERVAL 30 DAY)
         """
         cursor.execute(query)
@@ -487,9 +580,9 @@ def update_business(id):
     try:
         cursor = connection.cursor()
         query = """
-            UPDATE businesses 
-            SET business_name = %s, category = %s, location = %s, 
-                contact_name = %s, tel = %s, email = %s, 
+            UPDATE businesses
+            SET business_name = %s, category = %s, location = %s,
+                contact_name = %s, tel = %s, email = %s,
                 website = %s, description = %s, featured = %s
             WHERE id = %s
         """
@@ -561,7 +654,7 @@ def submit_business_application():
     try:
         cursor = connection.cursor()
         query = """
-            INSERT INTO business_applications 
+            INSERT INTO business_applications
             (business_name, location, category, contact_name, tel, email, website, description, status, submitted_at)
             VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, NOW())
         """
@@ -610,7 +703,7 @@ def get_business_applications():
         if requested_status:
             base_query += " WHERE status = %s"
             query_params.append(requested_status)
-        
+
         base_query += " ORDER BY submitted_at DESC"
 
         cursor.execute(base_query, tuple(query_params))
@@ -637,7 +730,7 @@ def update_business_application_status(id):
     connection = get_db_connection()
     if not connection:
         return jsonify({"error": "Database connection failed"}), 500
-    
+
     cursor = None
     try:
         cursor = connection.cursor()
@@ -656,7 +749,7 @@ def update_business_application_status(id):
             return jsonify({"error": "Application not found or status not changed"}), 404
 
         return jsonify({"success": True, "message": f"Application {id} status updated to {new_status}"}), 200
-    
+
     except DBError as err:
         app.logger.error(f"Database error when updating application status: {err}")
         return jsonify({"error": str(err)}), 500
