@@ -1,5 +1,7 @@
-import { useState, useEffect } from "react";
-import { getBusinesses, getNewBusinessesCount, getBusinessApplications } from "../../lib/api";
+import React, { useState, useEffect, useRef } from "react";
+import { BarChart as BarChartIcon, ClipboardList, PlusSquare, TrendingUp } from "lucide-react";
+import { motion } from "framer-motion";
+import { getBusinesses, getNewBusinessesCount, getBusinessApplications, getTopCategories } from "../../lib/api";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   BarChart,
@@ -13,7 +15,6 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-import { BarChart as BarChartIcon, TrendingUp, Users, ClipboardList, PlusSquare, CheckCircle2, FileText } from "lucide-react"; // Added ClipboardList, PlusSquare, CheckCircle2, FileText
 
 // Sample data for charts - Updated for relevance
 const newListingsMonthlyData = [
@@ -25,22 +26,51 @@ const newListingsMonthlyData = [
   { name: "Jun", count: 48 },
 ];
 
-// Sample data for stat cards (replace with dynamic data later)
-const categoryData = [
-  { name: "Restaurants", value: 238 },
-  { name: "Retail", value: 412 },
-  { name: "Professional", value: 183 },
-  { name: "Healthcare", value: 156 },
-  { name: "Construction", value: 98 },
-  { name: "Technology", value: 124 },
-];
+// Animated counter hook
+const useAnimatedCounter = (endValue: number, duration: number = 2000) => {
+  const [count, setCount] = useState(0);
+  const countRef = useRef(0);
+
+  useEffect(() => {
+    if (endValue === 0) return;
+    
+    const startTime = Date.now();
+    const startValue = countRef.current;
+    
+    const updateCount = () => {
+      const now = Date.now();
+      const progress = Math.min((now - startTime) / duration, 1);
+      
+      // Easing function for smooth animation
+      const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+      const currentCount = Math.floor(startValue + (endValue - startValue) * easeOutQuart);
+      
+      setCount(currentCount);
+      countRef.current = currentCount;
+      
+      if (progress < 1) {
+        requestAnimationFrame(updateCount);
+      }
+    };
+    
+    requestAnimationFrame(updateCount);
+  }, [endValue, duration]);
+
+  return count;
+};
 
 const Analytics = () => {
-  const [totalBusinesses, setTotalBusinesses] = useState(1211);
+  const [totalBusinesses, setTotalBusinesses] = useState(0);
   const [newListings, setNewListings] = useState<number>(0);
   const [pendingApplications, setPendingApplications] = useState(0);
+  const [categoryData, setCategoryData] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [isLoading, setIsLoading] = useState(true);
+
+  // Animated counters
+  const animatedTotalBusinesses = useAnimatedCounter(totalBusinesses);
+  const animatedNewListings = useAnimatedCounter(newListings);
+  const animatedPendingApplications = useAnimatedCounter(pendingApplications);
 
   useEffect(() => {
     const fetchAnalyticsData = async () => {
@@ -54,6 +84,15 @@ const Analytics = () => {
         setTotalBusinesses(response.total || 0);
         const count = await getNewBusinessesCount();
         setNewListings(count);
+
+        // Fetch category data for chart
+        const categories = await getTopCategories(6);
+        const formattedCategoryData = categories.map(cat => ({
+          name: cat.category,
+          value: cat.business_count
+        }));
+        setCategoryData(formattedCategoryData);
+
       } catch (err) {
         console.error("Failed to fetch analytics data:", err);
       } finally {
@@ -76,86 +115,174 @@ const Analytics = () => {
   }, []);
 
   return (
-    <div className="space-y-6 p-4">
-      <h1 className="text-2xl font-bold">Analytics</h1>
+    <div className="space-y-8 p-6">
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        <h1 className="text-4xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+          Analytics Dashboard
+        </h1>
+        <p className="text-gray-600 mt-2">Real-time insights into your business directory</p>
+      </motion.div>
       
-      <div className="grid gap-6 md:grid-cols-3"> {/* Adjusted grid to 3 columns */}
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Total Listed Businesses</CardTitle>
-            <BarChartIcon className="h-4 w-4 text-muted-foreground" strokeWidth={2.5} />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">{isLoading ? "Loading..." : totalBusinesses}</div>
-          </CardContent>
-        </Card>
+      <div className="grid gap-6 md:grid-cols-3">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
+          <Card className="hover:shadow-lg transition-shadow duration-300 border-l-4 border-l-primary">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-sm font-medium text-gray-600">Total Listed Businesses</CardTitle>
+              <div className="p-2 bg-primary/10 rounded-lg">
+                <BarChartIcon className="h-5 w-5 text-primary" strokeWidth={2.5} />
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="text-3xl font-bold text-primary">
+                {isLoading ? "Loading..." : animatedTotalBusinesses.toLocaleString()}
+              </div>
+              <p className="text-xs text-green-600 mt-1">
+                <TrendingUp className="inline h-3 w-3 mr-1" />
+                Active listings
+              </p>
+            </CardContent>
+          </Card>
+        </motion.div>
         
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Pending Applications</CardTitle>
-            <ClipboardList className="h-4 w-4 text-muted-foreground" strokeWidth={2.5} />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">{isLoading ? "--" : pendingApplications}</div>
-            {/* <p className="text-xs text-muted-foreground">View all</p> */}
-          </CardContent>
-        </Card>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <Card className="hover:shadow-lg transition-shadow duration-300 border-l-4 border-l-orange-500">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-sm font-medium text-gray-600">Pending Applications</CardTitle>
+              <div className="p-2 bg-orange-100 rounded-lg">
+                <ClipboardList className="h-5 w-5 text-orange-600" strokeWidth={2.5} />
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="text-3xl font-bold text-orange-600">
+                {isLoading ? "--" : animatedPendingApplications}
+              </div>
+              <p className="text-xs text-gray-500 mt-1">Awaiting review</p>
+            </CardContent>
+          </Card>
+        </motion.div>
         
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">New Listings (This Month)</CardTitle>
-            <PlusSquare className="h-4 w-4 text-muted-foreground" strokeWidth={2.5} />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">{loading ? "Loading..." : newListings}</div>
-          </CardContent>
-        </Card>
-        
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          <Card className="hover:shadow-lg transition-shadow duration-300 border-l-4 border-l-green-500">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-sm font-medium text-gray-600">New Listings (This Month)</CardTitle>
+              <div className="p-2 bg-green-100 rounded-lg">
+                <PlusSquare className="h-5 w-5 text-green-600" strokeWidth={2.5} />
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="text-3xl font-bold text-green-600">
+                {loading ? "Loading..." : animatedNewListings}
+              </div>
+              <p className="text-xs text-gray-500 mt-1">Recent additions</p>
+            </CardContent>
+          </Card>
+        </motion.div>
       </div>
       
       <div className="grid gap-6 md:grid-cols-2">
-        <Card>
-          <CardHeader>
-            <CardTitle>New Listings Over Time</CardTitle>
-          </CardHeader>
-          <CardContent className="h-[300px]">
-            <ResponsiveContainer width="100%" height="100%">
-              <LineChart data={newListingsMonthlyData}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis allowDecimals={false} />
-                <Tooltip />
-                <Legend />
-                <Line 
-                  type="monotone" 
-                  dataKey="count" 
-                  name="New Listings Added"
-                  stroke="#0061A8" 
-                  strokeWidth={2}
-                  activeDot={{ r: 8 }} 
-                />
-              </LineChart>
-            </ResponsiveContainer>
-          </CardContent>
-        </Card>
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
+          <Card className="hover:shadow-lg transition-shadow duration-300">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <TrendingUp className="h-5 w-5 text-primary" />
+                New Listings Over Time
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="h-[300px]">
+              <ResponsiveContainer width="100%" height="100%">
+                <LineChart data={newListingsMonthlyData}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+                  <XAxis dataKey="name" stroke="#666" />
+                  <YAxis allowDecimals={false} stroke="#666" />
+                  <Tooltip 
+                    contentStyle={{ 
+                      backgroundColor: '#fff', 
+                      border: '1px solid #e0e0e0',
+                      borderRadius: '8px',
+                      boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+                    }}
+                  />
+                  <Legend />
+                  <Line 
+                    type="monotone" 
+                    dataKey="count" 
+                    name="New Listings Added"
+                    stroke="#0061A8" 
+                    strokeWidth={3}
+                    activeDot={{ r: 6, fill: '#E0592A' }} 
+                    dot={{ fill: '#0061A8', strokeWidth: 2, r: 4 }}
+                  />
+                </LineChart>
+              </ResponsiveContainer>
+            </CardContent>
+          </Card>
+        </motion.div>
         
-        <Card>
-          <CardHeader>
-            <CardTitle>Businesses by Category</CardTitle>
-          </CardHeader>
-          <CardContent className="h-[300px]">
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={categoryData}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis allowDecimals={false} />
-                <Tooltip />
-                <Legend />
-                <Bar dataKey="value" name="Businesses" fill="#0061A8" />
-              </BarChart>
-            </ResponsiveContainer>
-          </CardContent>
-        </Card>
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+        >
+          <Card className="hover:shadow-lg transition-shadow duration-300">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <BarChartIcon className="h-5 w-5 text-secondary" />
+                Businesses by Category
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="h-[300px]">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={categoryData}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+                  <XAxis 
+                    dataKey="name" 
+                    stroke="#666"
+                    tick={{ fontSize: 12 }}
+                    angle={-45}
+                    textAnchor="end"
+                    height={80}
+                  />
+                  <YAxis allowDecimals={false} stroke="#666" />
+                  <Tooltip 
+                    contentStyle={{ 
+                      backgroundColor: '#fff', 
+                      border: '1px solid #e0e0e0',
+                      borderRadius: '8px',
+                      boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+                    }}
+                  />
+                  <Legend />
+                  <Bar 
+                    dataKey="value" 
+                    name="Businesses" 
+                    fill="#0061A8"
+                    radius={[4, 4, 0, 0]}
+                  />
+                </BarChart>
+              </ResponsiveContainer>
+            </CardContent>
+          </Card>
+        </motion.div>
       </div>
       
       {/* Device Usage Card Removed */}
