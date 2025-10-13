@@ -100,16 +100,28 @@ const Statistics = () => {
   const allBusinesses = data?.pages.flatMap((page: { businesses: Business[], total: number, nextPageOffset: number }) => page.businesses) || [];
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="container">
-        <motion.h2 
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-3xl font-bold text-center mb-12 text-primary"
-        >
-          {queryParamQ || queryParamCategory ? "Search Results" : "All Businesses"}
-        </motion.h2>
+        <div className="text-center mb-16">
+          <motion.h2 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
+          >
+            {queryParamQ || queryParamCategory ? "Search Results" : "Featured Businesses"}
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed"
+          >
+            {queryParamQ || queryParamCategory 
+              ? "Discover businesses that match your search criteria" 
+              : "Explore our curated selection of Maryland's finest businesses"}
+          </motion.p>
+        </div>
         
         {allBusinesses.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
