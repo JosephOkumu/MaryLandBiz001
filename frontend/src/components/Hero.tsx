@@ -41,6 +41,13 @@ const Hero = () => {
     "/images/Maryland4.png"
   ];
 
+  // Dynamic text colors based on carousel image
+  const textColors = [
+    "bg-gradient-to-r from-blue-200 to-blue-900", // Navy blue for maryland1.png (yellow dominant)
+    "bg-gradient-to-r from-orange-300 to-red-500", // Orange-red for maryland2.jpeg
+    "bg-gradient-to-r from-yellow-300 to-yellow-600" // Yellow for Maryland4.png
+  ];
+
   const scrollTo = useCallback(
     (index: number) => emblaApi && emblaApi.scrollTo(index),
     [emblaApi]
@@ -122,22 +129,29 @@ const Hero = () => {
 
       {/* Content overlay */}
       <div className="container text-center w-full relative z-10">
-        <h1 className="text-4xl md:text-5xl font-bold mb-6 animate">
-          Discover Maryland's Minority Businesses
-        </h1>
-        <p className="text-lg md:text-xl mb-10 max-w-2xl mx-auto opacity-90 animate delay-1">
-          Find local businesses, services, and professionals. Connect with them
-          directly and discover why Maryland is a great place to do business.
-        </p>
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-8 animate leading-tight">
+            <span className="block bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent drop-shadow-lg">
+              Discover Maryland's
+            </span>
+            <span className={`block ${textColors[selectedIndex]} bg-clip-text text-transparent drop-shadow-lg mt-2 transition-all duration-500`}>
+              Minority Businesses
+            </span>
+          </h1>
+          <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto text-gray-100 animate delay-1 leading-relaxed font-light">
+            Find local businesses, services, and professionals. Connect with them
+            directly and discover why Maryland is a great place to do business.
+          </p>
+        </div>
 
-        <div className="max-w-3xl mx-auto bg-white rounded-full p-2 flex flex-col md:flex-row gap-2 shadow-lg animate delay-2">
+        <div className="max-w-4xl mx-auto bg-white/95 backdrop-blur-sm rounded-2xl p-3 flex flex-col md:flex-row gap-3 shadow-2xl animate delay-2 border border-white/20">
           <Popover open={comboboxOpen} onOpenChange={setComboboxOpen}>
             <PopoverTrigger asChild>
               <Button
                 variant="outline"
                 role="combobox"
                 aria-expanded={comboboxOpen}
-                className="w-full md:w-[250px] justify-between bg-[#F5F5F5] rounded-full border-none text-black hover:bg-gray-200"
+                className="w-full md:w-[280px] justify-between bg-gray-50 rounded-xl border-none text-black hover:bg-gray-100 transition-all duration-200 font-medium"
               >
                 {selectedCategory
                   ? selectedCategory.name || "[No Name]"
@@ -211,17 +225,17 @@ const Hero = () => {
             type="text"
             id="hero-search-input" // Added ID for scrolling
             placeholder="Search businesses, services, or keywords..."
-            className="flex-1 bg-white border-none rounded-full text-black"
+            className="flex-1 bg-white border-none rounded-xl text-black text-lg px-6 py-4 font-medium placeholder:text-gray-500"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             onKeyUp={(e) => e.key === "Enter" && handleSearch()}
           />
 
           <Button
-            className="w-full md:w-auto bg-secondary hover:bg-secondary/90 text-white rounded-full font-bold"
+            className="w-full md:w-auto bg-gradient-to-r from-secondary to-orange-600 hover:from-secondary/90 hover:to-orange-700 text-white rounded-xl font-bold px-8 py-4 text-lg shadow-lg hover:shadow-xl transition-all duration-200"
             onClick={handleSearch}
           >
-            <Search className="mr-2 h-4 w-4" strokeWidth={2.5} />
+            <Search className="mr-2 h-5 w-5" strokeWidth={2.5} />
             Search
           </Button>
         </div>
