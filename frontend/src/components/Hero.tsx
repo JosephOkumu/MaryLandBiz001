@@ -151,12 +151,15 @@ const Hero = () => {
                 variant="outline"
                 role="combobox"
                 aria-expanded={comboboxOpen}
-                className="w-full md:w-[280px] justify-between bg-gray-50 rounded-xl border-none text-black hover:bg-gray-100 transition-all duration-200 font-medium"
+                className="w-full md:w-[280px] justify-between bg-gradient-to-r from-blue-50 to-indigo-50 hover:from-blue-100 hover:to-indigo-100 border-2 border-blue-200 hover:border-blue-300 rounded-xl text-gray-800 hover:text-gray-900 transition-all duration-300 font-semibold shadow-md hover:shadow-lg transform hover:scale-[1.02] relative overflow-hidden"
               >
-                {selectedCategory
-                  ? selectedCategory.name || "[No Name]"
-                  : "Select category..."}
-                <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-400/10 to-indigo-400/10 opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+                <span className="relative z-10">
+                  {selectedCategory
+                    ? selectedCategory.name || "[No Name]"
+                    : "Select category..."}
+                </span>
+                <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-70 hover:opacity-100 transition-opacity duration-200 relative z-10" />
               </Button>
             </PopoverTrigger>
             <PopoverContent className="w-full md:w-[250px] p-0">
