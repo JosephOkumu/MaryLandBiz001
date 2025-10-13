@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
+import useEmblaCarousel from "embla-carousel-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -24,11 +25,47 @@ import { cn } from "@/lib/utils"; // For conditional class names
 const Hero = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(
-    null
+    null,
   );
   const [comboboxOpen, setComboboxOpen] = useState(false);
   const { toast } = useToast();
   const navigate = useNavigate();
+
+  // Carousel setup
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const heroImages = [
+    "/images/maryland1.png",
+    "/images/maryland2.jpeg", 
+    "/images/Maryland4.png"
+  ];
+
+  const scrollTo = useCallback(
+    (index: number) => emblaApi && emblaApi.scrollTo(index),
+    [emblaApi]
+  );
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    onSelect();
+    emblaApi.on("select", onSelect);
+    
+    // Auto-play functionality
+    const autoplay = setInterval(() => {
+      emblaApi.scrollNext();
+    }, 5000);
+
+    return () => {
+      clearInterval(autoplay);
+      emblaApi.off("select", onSelect);
+    };
+  }, [emblaApi, onSelect]);
 
   const {
     data: categories,
@@ -63,8 +100,28 @@ const Hero = () => {
   };
 
   return (
-    <section className="hero-gradient py-16 text-white">
-      <div className="container text-center">
+    <section className="relative py-20 text-white min-h-[80vh] flex items-center overflow-hidden">
+      {/* Carousel Background */}
+      <div className="embla absolute inset-0" ref={emblaRef}>
+        <div className="embla__container flex">
+          {heroImages.map((image, index) => (
+            <div key={index} className="embla__slide flex-[0_0_100%] relative">
+              <div 
+                className="w-full h-full bg-cover bg-center bg-no-repeat"
+                style={{ 
+                  backgroundImage: `url(${image})`,
+                  minHeight: '80vh'
+                }}
+              />
+              {/* Dark overlay for text readability */}
+              <div className="absolute inset-0 bg-black/40" />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Content overlay */}
+      <div className="container text-center w-full relative z-10">
         <h1 className="text-4xl md:text-5xl font-bold mb-6 animate">
           Discover Maryland's Minority Businesses
         </h1>
@@ -114,7 +171,7 @@ const Hero = () => {
                       <Check
                         className={cn(
                           "mr-2 h-4 w-4",
-                          !selectedCategory ? "opacity-100" : "opacity-0"
+                          !selectedCategory ? "opacity-100" : "opacity-0",
                         )}
                       />
                       All Categories
@@ -125,11 +182,11 @@ const Hero = () => {
                         value={category.name || ""}
                         onSelect={(currentValue) => {
                           const newSelectedCategory = categories.find(
-                            (c) => (c.name || "").toLowerCase() === currentValue.toLowerCase()
+                            (c) =>
+                              (c.name || "").toLowerCase() ===
+                              currentValue.toLowerCase(),
                           );
-                          setSelectedCategory(
-                            newSelectedCategory || null
-                          );
+                          setSelectedCategory(newSelectedCategory || null);
                           setComboboxOpen(false);
                         }}
                       >
@@ -138,7 +195,7 @@ const Hero = () => {
                             "mr-2 h-4 w-4",
                             selectedCategory?.name === category.name
                               ? "opacity-100"
-                              : "opacity-0"
+                              : "opacity-0",
                           )}
                         />
                         {category.name || "[No Name]"}
@@ -167,6 +224,23 @@ const Hero = () => {
             <Search className="mr-2 h-4 w-4" strokeWidth={2.5} />
             Search
           </Button>
+        </div>
+
+        {/* Navigation Dots */}
+        <div className="flex justify-center space-x-2 mt-8">
+          {heroImages.map((_, index) => (
+            <button
+              key={index}
+              className={cn(
+                "w-3 h-3 rounded-full transition-all duration-300",
+                selectedIndex === index 
+                  ? "bg-white scale-110" 
+                  : "bg-white/50 hover:bg-white/70"
+              )}
+              onClick={() => scrollTo(index)}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
         </div>
       </div>
     </section>
