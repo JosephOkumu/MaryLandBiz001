@@ -20,6 +20,7 @@ import ApplicationsPage from "./pages/admin/ApplicationsPage"; // Added for new 
 import AddMyBusiness from "./pages/AddMyBusiness";
 import AdminLogin from "./pages/AdminLogin"; // Use user's original AdminLogin page
 import BrowsePage from "./pages/BrowsePage"; // <-- Import BrowsePage
+import About from "./pages/About";
 
 // Create a new QueryClient instance
 const queryClient = new QueryClient();
@@ -35,6 +36,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/add-my-business" element={<AddMyBusiness />} />
+            <Route path="/about" element={<About />} />
             {/* Admin Login Route - public */}
             <Route path="/admin" element={<AdminLogin />} />
 
