@@ -37,7 +37,7 @@ const Hero = () => {
 
   const heroImages = [
     "/images/maryland1.png",
-    "/images/maryland2.jpeg", 
+    "/images/maryland2.jpeg",
     "/images/Maryland4.png"
   ];
 
@@ -62,7 +62,7 @@ const Hero = () => {
     if (!emblaApi) return;
     onSelect();
     emblaApi.on("select", onSelect);
-    
+
     // Auto-play functionality
     const autoplay = setInterval(() => {
       emblaApi.scrollNext();
@@ -107,17 +107,17 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative py-20 text-white min-h-[80vh] flex items-center overflow-hidden">
+    <section className="relative py-12 md:py-20 text-white min-h-[70vh] md:min-h-[80vh] flex items-center overflow-hidden">
       {/* Carousel Background */}
       <div className="embla absolute inset-0" ref={emblaRef}>
         <div className="embla__container flex">
           {heroImages.map((image, index) => (
             <div key={index} className="embla__slide flex-[0_0_100%] relative">
-              <div 
+              <div
                 className="w-full h-full bg-cover bg-center bg-no-repeat"
-                style={{ 
+                style={{
                   backgroundImage: `url(${image})`,
-                  minHeight: '80vh'
+                  minHeight: '70vh'
                 }}
               />
               {/* Dark overlay for text readability */}
@@ -129,32 +129,32 @@ const Hero = () => {
 
       {/* Content overlay */}
       <div className="container text-center w-full relative z-10">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-8 animate leading-tight">
+        <div className="max-w-4xl mx-auto px-4">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold mb-4 md:mb-8 animate leading-tight">
             <span className="block bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent drop-shadow-lg">
               Discover Maryland's
             </span>
-            <span className={`block ${textColors[selectedIndex]} bg-clip-text text-transparent drop-shadow-lg mt-2 transition-all duration-500`}>
+            <span className={`block ${textColors[selectedIndex]} bg-clip-text text-transparent drop-shadow-lg mt-1 md:mt-2 transition-all duration-500`}>
               Minority Businesses
             </span>
           </h1>
-          <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto text-gray-100 animate delay-1 leading-relaxed font-light">
+          <p className="text-base sm:text-lg md:text-2xl mb-8 md:mb-12 max-w-3xl mx-auto text-gray-100 animate delay-1 leading-relaxed font-light">
             Find local businesses, services, and professionals. Connect with them
             directly and discover why Maryland is a great place to do business.
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto bg-white/95 backdrop-blur-sm rounded-2xl p-3 flex flex-col md:flex-row gap-3 shadow-2xl animate delay-2 border border-white/20">
+        <div className="max-w-4xl mx-auto bg-white/95 backdrop-blur-sm rounded-2xl p-2 md:p-3 flex flex-col md:flex-row gap-2 md:gap-3 shadow-2xl animate delay-2 border border-white/20 mx-4">
           <Popover open={comboboxOpen} onOpenChange={setComboboxOpen}>
             <PopoverTrigger asChild>
               <Button
                 variant="outline"
                 role="combobox"
                 aria-expanded={comboboxOpen}
-                className="w-full md:w-[280px] justify-between bg-gradient-to-r from-blue-50 to-indigo-50 hover:from-blue-100 hover:to-indigo-100 border-2 border-blue-200 hover:border-blue-300 rounded-xl text-gray-800 hover:text-gray-900 transition-all duration-300 font-semibold shadow-md hover:shadow-lg transform hover:scale-[1.02] relative overflow-hidden"
+                className="w-full md:w-[280px] justify-between bg-gradient-to-r from-blue-50 to-indigo-50 hover:from-blue-100 hover:to-indigo-100 border-2 border-blue-200 hover:border-blue-300 rounded-xl text-gray-800 hover:text-gray-900 transition-all duration-300 font-semibold shadow-md hover:shadow-lg transform hover:scale-[1.02] relative overflow-hidden h-12 md:h-auto"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-400/10 to-indigo-400/10 opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
-                <span className="relative z-10">
+                <span className="relative z-10 truncate">
                   {selectedCategory
                     ? selectedCategory.name || "[No Name]"
                     : "Select category..."}
@@ -162,7 +162,7 @@ const Hero = () => {
                 <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-70 hover:opacity-100 transition-opacity duration-200 relative z-10" />
               </Button>
             </PopoverTrigger>
-            <PopoverContent className="w-full md:w-[250px] p-0">
+            <PopoverContent className="w-[calc(100vw-3rem)] md:w-[250px] p-0">
               <Command>
                 <CommandInput placeholder="Search category..." />
                 <CommandList>
@@ -227,15 +227,15 @@ const Hero = () => {
           <Input
             type="text"
             id="hero-search-input" // Added ID for scrolling
-            placeholder="Search businesses, services, or keywords..."
-            className="flex-1 bg-white border-none rounded-xl text-black text-lg px-6 py-4 font-medium placeholder:text-gray-500"
+            placeholder="Search businesses..."
+            className="flex-1 bg-white border-none rounded-xl text-black text-base md:text-lg px-4 md:px-6 py-3 md:py-4 font-medium placeholder:text-gray-500 h-12 md:h-auto"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             onKeyUp={(e) => e.key === "Enter" && handleSearch()}
           />
 
           <Button
-            className="w-full md:w-auto bg-gradient-to-r from-secondary to-orange-600 hover:from-secondary/90 hover:to-orange-700 text-white rounded-xl font-bold px-8 py-4 text-lg shadow-lg hover:shadow-xl transition-all duration-200"
+            className="w-full md:w-auto bg-gradient-to-r from-secondary to-orange-600 hover:from-secondary/90 hover:to-orange-700 text-white rounded-xl font-bold px-8 py-3 md:py-4 text-base md:text-lg shadow-lg hover:shadow-xl transition-all duration-200 h-12 md:h-auto"
             onClick={handleSearch}
           >
             <Search className="mr-2 h-5 w-5" strokeWidth={2.5} />
@@ -250,8 +250,8 @@ const Hero = () => {
               key={index}
               className={cn(
                 "w-3 h-3 rounded-full transition-all duration-300",
-                selectedIndex === index 
-                  ? "bg-white scale-110" 
+                selectedIndex === index
+                  ? "bg-white scale-110"
                   : "bg-white/50 hover:bg-white/70"
               )}
               onClick={() => scrollTo(index)}
