@@ -148,10 +148,10 @@ const Hero = () => {
           <Popover open={comboboxOpen} onOpenChange={setComboboxOpen}>
             <PopoverTrigger asChild>
               <Button
-                variant="ghost"
+                variant="default"
                 role="combobox"
                 aria-expanded={comboboxOpen}
-                className="flex-shrink-0 w-[110px] sm:w-[160px] md:w-[220px] justify-between hover:bg-gray-50 rounded-full text-gray-700 font-semibold h-10 sm:h-12 md:h-14 px-3 sm:px-6 transition-all duration-200"
+                className="flex-shrink-0 w-[110px] sm:w-[160px] md:w-[220px] justify-between bg-gray-800 hover:bg-gray-900 rounded-full text-white font-semibold h-10 sm:h-12 md:h-14 px-3 sm:px-6 transition-all duration-200"
               >
                 <span className="truncate text-xs sm:text-sm md:text-base">
                   {selectedCategory
