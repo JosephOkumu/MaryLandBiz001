@@ -231,7 +231,7 @@ const Hero = () => {
             type="text"
             id="hero-search-input"
             placeholder="Search..."
-            className="flex-1 bg-transparent border-none focus-visible:ring-0 text-black text-sm sm:text-base md:text-lg px-2 sm:px-4 md:px-6 h-10 sm:h-12 md:h-14 font-medium placeholder:text-gray-400 shadow-none"
+            className="flex-1 bg-gray-100 border-none focus-visible:ring-0 text-black text-sm sm:text-base md:text-lg px-2 sm:px-4 md:px-6 h-10 sm:h-12 md:h-14 font-medium placeholder:text-gray-400 shadow-none rounded-full"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             onKeyUp={(e) => e.key === "Enter" && handleSearch()}
