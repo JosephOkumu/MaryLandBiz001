@@ -144,27 +144,26 @@ const Hero = () => {
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto bg-white/95 backdrop-blur-sm rounded-2xl p-2 md:p-3 flex flex-col md:flex-row gap-2 md:gap-3 shadow-2xl animate delay-2 border border-white/20 mx-4">
+        <div className="max-w-3xl mx-auto bg-white rounded-full p-1.5 flex items-center shadow-2xl animate delay-2 border border-white/10 mx-4">
           <Popover open={comboboxOpen} onOpenChange={setComboboxOpen}>
             <PopoverTrigger asChild>
               <Button
-                variant="outline"
+                variant="ghost"
                 role="combobox"
                 aria-expanded={comboboxOpen}
-                className="w-full md:w-[280px] justify-between bg-gradient-to-r from-blue-50 to-indigo-50 hover:from-blue-100 hover:to-indigo-100 border-2 border-blue-200 hover:border-blue-300 rounded-xl text-gray-800 hover:text-gray-900 transition-all duration-300 font-semibold shadow-md hover:shadow-lg transform hover:scale-[1.02] relative overflow-hidden h-12 md:h-auto"
+                className="flex-shrink-0 w-[110px] sm:w-[160px] md:w-[220px] justify-between hover:bg-gray-50 rounded-full text-gray-700 font-semibold h-10 sm:h-12 md:h-14 px-3 sm:px-6 transition-all duration-200"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-400/10 to-indigo-400/10 opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
-                <span className="relative z-10 truncate">
+                <span className="truncate text-xs sm:text-sm md:text-base">
                   {selectedCategory
                     ? selectedCategory.name || "[No Name]"
-                    : "Select category..."}
+                    : "Category"}
                 </span>
-                <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-70 hover:opacity-100 transition-opacity duration-200 relative z-10" />
+                <ChevronsUpDown className="ml-1 h-3 w-3 sm:h-4 sm:w-4 shrink-0 opacity-50" />
               </Button>
             </PopoverTrigger>
-            <PopoverContent className="w-[calc(100vw-3rem)] md:w-[250px] p-0">
-              <Command>
-                <CommandInput placeholder="Search category..." />
+            <PopoverContent className="w-[calc(100vw-4rem)] md:w-[250px] p-0 rounded-2xl shadow-xl border-gray-100">
+              <Command className="rounded-2xl">
+                <CommandInput placeholder="Search category..." className="h-12" />
                 <CommandList>
                   <CommandEmpty>
                     {isLoadingCategories
@@ -179,11 +178,12 @@ const Hero = () => {
                   <CommandGroup>
                     <CommandItem
                       key="all-categories"
-                      value="" // Representing no specific category
+                      value=""
                       onSelect={() => {
                         setSelectedCategory(null);
                         setComboboxOpen(false);
                       }}
+                      className="rounded-lg mx-1 my-0.5"
                     >
                       <Check
                         className={cn(
@@ -206,6 +206,7 @@ const Hero = () => {
                           setSelectedCategory(newSelectedCategory || null);
                           setComboboxOpen(false);
                         }}
+                        className="rounded-lg mx-1 my-0.5"
                       >
                         <Check
                           className={cn(
@@ -224,22 +225,24 @@ const Hero = () => {
             </PopoverContent>
           </Popover>
 
+          <div className="w-px h-6 sm:h-8 bg-gray-200 mx-1 sm:mx-2" />
+
           <Input
             type="text"
-            id="hero-search-input" // Added ID for scrolling
-            placeholder="Search businesses..."
-            className="flex-1 bg-white border-none rounded-xl text-black text-base md:text-lg px-4 md:px-6 py-3 md:py-4 font-medium placeholder:text-gray-500 h-12 md:h-auto"
+            id="hero-search-input"
+            placeholder="Search..."
+            className="flex-1 bg-transparent border-none focus-visible:ring-0 text-black text-sm sm:text-base md:text-lg px-2 sm:px-4 md:px-6 h-10 sm:h-12 md:h-14 font-medium placeholder:text-gray-400 shadow-none"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             onKeyUp={(e) => e.key === "Enter" && handleSearch()}
           />
 
           <Button
-            className="w-full md:w-auto bg-gradient-to-r from-secondary to-orange-600 hover:from-secondary/90 hover:to-orange-700 text-white rounded-xl font-bold px-8 py-3 md:py-4 text-base md:text-lg shadow-lg hover:shadow-xl transition-all duration-200 h-12 md:h-auto"
+            className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 md:w-auto md:h-14 md:px-8 bg-gradient-to-r from-secondary to-orange-600 hover:from-secondary/90 hover:to-orange-700 text-white rounded-full font-bold p-0 md:p-4 shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2"
             onClick={handleSearch}
           >
-            <Search className="mr-2 h-5 w-5" strokeWidth={2.5} />
-            Search
+            <Search className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={3} />
+            <span className="hidden md:inline text-lg">Search</span>
           </Button>
         </div>
 
