@@ -5,11 +5,11 @@ export type Business = {
   category: string | null;
   location: string | null;
   contact_name: string | null;
-  contact_phone: string | null;
-  tel?: string | null; // Added for flexibility if source data uses 'tel'
-  contact_email: string | null;
+  tel: string | null;
+  email: string | null;
   website: string | null;
   description: string | null;
+  image_url: string | null; // Added for business images
   status: "pending" | "approved" | "rejected" | string; // string for flexibility if other statuses exist
   featured?: boolean; // Assuming featured is optional or might not always be present
   created_at: string; // Assuming ISO date string
