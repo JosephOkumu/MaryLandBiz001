@@ -305,6 +305,7 @@ def create_business():
             data.get('email', ''),
             data.get('website', ''),
             data.get('description', ''),
+            data.get('image_url', None),
             data.get('featured', False)
         )
         cursor.execute(query, values)
@@ -621,7 +622,7 @@ def update_business(id):
             UPDATE businesses
             SET business_name = %s, category = %s, location = %s,
                 contact_name = %s, tel = %s, email = %s,
-                website = %s, description = %s, featured = %s
+                website = %s, description = %s, image_url = %s, featured = %s
             WHERE id = %s
         """
         values = (
@@ -633,6 +634,7 @@ def update_business(id):
             data.get('email', ''),
             data.get('website', ''),
             data.get('description', ''),
+            data.get('image_url', None),
             data.get('featured', False),
             id
         )
