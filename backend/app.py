@@ -758,7 +758,7 @@ def get_business_applications():
         query_params = []
         base_query = """
             SELECT id, business_name as businessName, location, category, contact_name as contactName, tel, email,
-                   website, description, status, submitted_at as submittedAt
+                   website, description, image_url, status, submitted_at as submittedAt
             FROM business_applications
         """
 
@@ -795,25 +795,50 @@ def update_business_application_status(id):
 
     cursor = None
     try:
-        cursor = connection.cursor()
-        # Check if application exists
-        cursor.execute("SELECT id FROM business_applications WHERE id = %s", (id,))
+        cursor = connection.cursor(dictionary=True)
+        
+        # Fetch the full application data
+        cursor.execute("SELECT * FROM business_applications WHERE id = %s", (id,))
         application = cursor.fetchone()
         if not application:
             return jsonify({"error": "Application not found"}), 404
 
+        # If approving, create a business entry with all the application data
+        if new_status == 'approved':
+            # Insert into businesses table with all fields including image_url
+            insert_query = """
+                INSERT INTO businesses
+                (business_name, category, location, contact_name, tel, email, website, description, image_url, featured)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+            """
+            business_values = (
+                application.get('business_name'),
+                application.get('category'),
+                application.get('location'),
+                application.get('contact_name', ''),
+                application.get('tel', ''),
+                application.get('email', ''),
+                application.get('website', ''),
+                application.get('description', ''),
+                application.get('image_url', None),  # Include the image_url
+                False  # featured defaults to False
+            )
+            cursor.execute(insert_query, business_values)
+            app.logger.info(f"Business created from application {id} with image_url: {application.get('image_url')}")
+
+        # Update the application status
         query = "UPDATE business_applications SET status = %s WHERE id = %s"
         cursor.execute(query, (new_status, id))
         connection.commit()
 
         if cursor.rowcount == 0:
-            # This case should ideally be caught by the SELECT above, but as a safeguard
             return jsonify({"error": "Application not found or status not changed"}), 404
 
         return jsonify({"success": True, "message": f"Application {id} status updated to {new_status}"}), 200
 
     except DBError as err:
         app.logger.error(f"Database error when updating application status: {err}")
+        connection.rollback()
         return jsonify({"error": str(err)}), 500
     finally:
         if connection and connection.is_connected():
