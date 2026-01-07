@@ -1,4 +1,5 @@
 import os
+from PIL import Image
 from flask import Flask, jsonify, request, session, send_from_directory
 from werkzeug.utils import secure_filename
 from flask_cors import CORS
@@ -42,20 +43,46 @@ def allowed_file(filename):
 
 def save_uploaded_file(file):
     """
-    Save uploaded file and return the relative path to store in database
-    Returns None if file is invalid
+    Save uploaded file with compression and resizing
+    Returns relative path or None
     """
     if file and allowed_file(file.filename):
-        filename = secure_filename(file.filename)
-        # Add timestamp to filename to avoid conflicts
-        import time
-        timestamp = str(int(time.time()))
-        name, ext = os.path.splitext(filename)
-        unique_filename = f"{name}_{timestamp}{ext}"
-        filepath = os.path.join(app.config['UPLOAD_FOLDER'], unique_filename)
-        file.save(filepath)
-        # Return relative path for database storage
-        return f"/uploads/business_images/{unique_filename}"
+        try:
+            filename = secure_filename(file.filename)
+            import time
+            timestamp = str(int(time.time()))
+            name, ext = os.path.splitext(filename)
+            
+            # Open image using Pillow
+            image = Image.open(file)
+            
+            # Convert to RGB if saving as JPEG (handles RGBA/P modes)
+            if ext.lower() in ['.jpg', '.jpeg'] and image.mode in ('RGBA', 'P'):
+                image = image.convert('RGB')
+                
+            # Resize if dimensions exceed 1080px
+            max_dimension = 1080
+            if image.width > max_dimension or image.height > max_dimension:
+                image.thumbnail((max_dimension, max_dimension), Image.Resampling.LANCZOS)
+            
+            unique_filename = f"{name}_{timestamp}{ext}"
+            filepath = os.path.join(app.config['UPLOAD_FOLDER'], unique_filename)
+            
+            # Save with optimization based on format
+            if ext.lower() in ['.jpg', '.jpeg']:
+                image.save(filepath, optimize=True, quality=85)
+            elif ext.lower() == '.png':
+                # PNG optimization (compress_level=9 is max compression, default is 6)
+                image.save(filepath, optimize=True)
+            elif ext.lower() == '.webp':
+                image.save(filepath, quality=85)
+            else:
+                image.save(filepath)
+                
+            return f"/uploads/business_images/{unique_filename}"
+        except Exception as e:
+            app.logger.error(f"Error processing/saving image: {e}")
+            return None
     return None
 
 # --- Admin User Model (Database-backed) ---
