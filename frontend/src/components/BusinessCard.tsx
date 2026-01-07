@@ -26,7 +26,7 @@ interface BusinessCardProps {
 const BusinessCard = ({ business, index }: BusinessCardProps) => {
   // Get icon based on category or use default
   const IconComponent = categoryIcons[business.category] || DefaultIcon;
-  
+
   const cardVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: (i: number) => ({
@@ -48,19 +48,30 @@ const BusinessCard = ({ business, index }: BusinessCardProps) => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      whileHover={{ 
+      whileHover={{
         scale: 1.03,
         transition: { duration: 0.2 }
       }}
     >
       <Card className="overflow-hidden shadow-md h-full flex flex-col group">
-        <div className="flex justify-center items-center h-32 bg-primary/5 group-hover:bg-primary/10 transition-colors">
-          <motion.div
-            whileHover={{ rotate: 5, scale: 1.1 }}
-            transition={{ type: "spring", stiffness: 300 }}
-          >
-            <IconComponent className="w-16 h-16 text-primary" strokeWidth={1.5} />
-          </motion.div>
+        <div className="flex justify-center items-center h-32 bg-primary/5 group-hover:bg-primary/10 transition-colors overflow-hidden relative">
+          {business.image_url ? (
+            <motion.img
+              src={business.image_url.startsWith('http') ? business.image_url : `http://localhost:5000${business.image_url}`}
+              alt={business.business_name}
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.3 }}
+            />
+          ) : (
+            <motion.div
+              whileHover={{ rotate: 5, scale: 1.1 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <IconComponent className="w-16 h-16 text-primary" strokeWidth={1.5} />
+            </motion.div>
+          )}
         </div>
         <div className="p-6 flex flex-col flex-grow">
           <h3 className="text-lg font-semibold mb-2 text-primary group-hover:text-blue-600 transition-colors">
@@ -72,34 +83,34 @@ const BusinessCard = ({ business, index }: BusinessCardProps) => {
           <p className="text-sm text-foreground mb-4 flex-1">
             {business.description || "No description available"}
           </p>
-          
+
           {business.location && (
             <div className="flex items-center gap-2 text-sm mb-2 hover:text-primary transition-colors">
               <MapPin className="w-4 h-4 text-secondary" strokeWidth={2.5} />
               <span>{business.location}</span>
             </div>
           )}
-          
+
           {business.tel && (
             <div className="flex items-center gap-2 text-sm mb-2 hover:text-primary transition-colors">
               <Phone className="w-4 h-4 text-secondary" strokeWidth={2.5} />
               <span>{business.tel}</span>
             </div>
           )}
-          
+
           {business.email && (
             <div className="flex items-center gap-2 text-sm mb-2 hover:text-primary transition-colors">
               <Mail className="w-4 h-4 text-secondary" strokeWidth={2.5} />
               <span>{business.email}</span>
             </div>
           )}
-          
+
           {business.website && (
             <div className="flex items-center gap-2 text-sm hover:text-primary transition-colors">
               <Globe className="w-4 h-4 text-secondary" strokeWidth={2.5} />
-              <a 
-                href={business.website.startsWith('http') ? business.website : `https://${business.website}`} 
-                target="_blank" 
+              <a
+                href={business.website.startsWith('http') ? business.website : `https://${business.website}`}
+                target="_blank"
                 rel="noopener noreferrer"
                 className="hover:underline"
               >
