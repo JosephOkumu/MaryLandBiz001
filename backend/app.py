@@ -1,5 +1,6 @@
 import os
-from flask import Flask, jsonify, request, session
+from flask import Flask, jsonify, request, session, send_from_directory
+from werkzeug.utils import secure_filename
 from flask_cors import CORS
 import mysql.connector
 from mysql.connector import Error as DBError # Alias to avoid conflict if any
@@ -12,6 +13,18 @@ load_dotenv() # Load environment variables from .env
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('FLASK_SECRET_KEY', 'default_dev_secret_key_change_me')
+
+# File upload configuration
+UPLOAD_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'uploads', 'business_images')
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif', 'webp'}
+MAX_FILE_SIZE = 5 * 1024 * 1024  # 5MB
+
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['MAX_CONTENT_LENGTH'] = MAX_FILE_SIZE
+
+# Ensure upload directory exists
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+
 # Adjust origins for your frontend development server and production domain
 CORS(app, supports_credentials=True, origins=os.environ.get('CORS_ORIGINS', 'http://localhost:5173,http://localhost:8080').split(','))
 
@@ -19,6 +32,31 @@ bcrypt = Bcrypt(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.session_protection = "strong"
+
+# --- File Upload Helper Functions ---
+def allowed_file(filename):
+    """
+    Check if the uploaded file has an allowed extension
+    """
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+def save_uploaded_file(file):
+    """
+    Save uploaded file and return the relative path to store in database
+    Returns None if file is invalid
+    """
+    if file and allowed_file(file.filename):
+        filename = secure_filename(file.filename)
+        # Add timestamp to filename to avoid conflicts
+        import time
+        timestamp = str(int(time.time()))
+        name, ext = os.path.splitext(filename)
+        unique_filename = f"{name}_{timestamp}{ext}"
+        filepath = os.path.join(app.config['UPLOAD_FOLDER'], unique_filename)
+        file.save(filepath)
+        # Return relative path for database storage
+        return f"/uploads/business_images/{unique_filename}"
+    return None
 
 # --- Admin User Model (Database-backed) ---
 class Admin(UserMixin):
@@ -643,20 +681,39 @@ def delete_business(id):
 
 @app.route('/api/business-applications', methods=['POST'])
 def submit_business_application():
-    data = request.get_json()
+    # Check if request has form data (multipart) or JSON
+    if request.content_type and 'multipart/form-data' in request.content_type:
+        # Handle multipart form data with file upload
+        data = request.form.to_dict()
+        file = request.files.get('business_image')
+        
+        # Save uploaded image if present
+        image_url = None
+        if file and file.filename:
+            image_url = save_uploaded_file(file)
+            if not image_url:
+                return jsonify({"error": "Invalid file type. Allowed types: png, jpg, jpeg, gif, webp"}), 400
+    else:
+        # Handle JSON data (backward compatibility)
+        data = request.get_json()
+        image_url = None
+    
+    # Validate required fields
     required_fields = ['businessName', 'location', 'category', 'tel', 'email']
     for field in required_fields:
         if field not in data or not data[field]:
             return jsonify({"error": f"{field} is required"}), 400
+    
     connection = get_db_connection()
     if not connection:
         return jsonify({"error": "Database connection failed"}), 500
+    
     try:
         cursor = connection.cursor()
         query = """
             INSERT INTO business_applications
-            (business_name, location, category, contact_name, tel, email, website, description, status, submitted_at)
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, NOW())
+            (business_name, location, category, contact_name, tel, email, website, description, image_url, status, submitted_at)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, NOW())
         """
         values = (
             data.get('businessName'),
@@ -667,6 +724,7 @@ def submit_business_application():
             data.get('email'),
             data.get('website', ''),
             data.get('description', ''),
+            image_url,
             'pending'
         )
         cursor.execute(query, values)
@@ -675,13 +733,15 @@ def submit_business_application():
         return jsonify({
             "success": True,
             "message": "Business application submitted successfully",
-            "application_id": application_id
+            "application_id": application_id,
+            "image_url": image_url
         }), 201
     except DBError as err:
         app.logger.error(f"Database error when submitting business application: {err}")
         return jsonify({"error": "Database error occurred"}), 500
     finally:
         connection.close()
+
 
 @app.route('/api/business-applications', methods=['GET'])
 @login_required
@@ -759,5 +819,14 @@ def update_business_application_status(id):
                 cursor.close()
             connection.close()
 
+# --- Serve Uploaded Images ---
+@app.route('/uploads/business_images/<filename>')
+def serve_business_image(filename):
+    """
+    Serve uploaded business images
+    """
+    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
+
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
+
