@@ -1,7 +1,9 @@
 import { useEffect, useRef, Fragment } from "react";
 import { motion } from "framer-motion";
 import { useInfiniteQuery } from "@tanstack/react-query";
-import { useSearchParams } from "react-router-dom"; // Added
+import { useSearchParams, useNavigate } from "react-router-dom"; // Added
+import { Button } from "@/components/ui/button";
+import { ArrowLeft } from "lucide-react";
 import BusinessCard from "./BusinessCard";
 import { Business, getBusinesses } from "../lib/api";
 
@@ -23,6 +25,7 @@ const fetchBusinesses = async ({
 
 const Statistics = () => {
   const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
   const queryParamQ = searchParams.get("q") || "";
   const queryParamCategory = searchParams.get("category") || "";
   const {
@@ -122,6 +125,19 @@ const Statistics = () => {
               : "Explore our curated selection of Maryland's finest businesses"}
           </motion.p>
         </div>
+
+        {(queryParamQ || queryParamCategory) && (
+          <div className="flex justify-center mb-10">
+            <Button
+              variant="outline"
+              onClick={() => navigate('/')}
+              className="gap-2 hover:bg-primary hover:text-white transition-colors border-primary/20"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              Back to All Businesses
+            </Button>
+          </div>
+        )}
 
         {allBusinesses.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
