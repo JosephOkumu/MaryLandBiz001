@@ -35,25 +35,31 @@ const AddMyBusiness = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const formData = new FormData(e.currentTarget);
-    const newApplicationData = {
-      businessName: formData.get('business_name') as string,
-      location: formData.get('location') as string,
-      category: formData.get('category') as string,
-      contactName: formData.get('contact_name') as string || '',
-      tel: formData.get('tel') as string,
-      email: formData.get('email') as string,
-      website: formData.get('website') as string || '',
-      description: formData.get('description') as string || '',
-    };
+    const formElement = e.currentTarget;
+    const formData = new FormData(formElement);
+
+    // Rename form fields to match backend expectations
+    const submitData = new FormData();
+    submitData.append('businessName', formData.get('business_name') as string);
+    submitData.append('location', formData.get('location') as string);
+    submitData.append('category', formData.get('category') as string);
+    submitData.append('contactName', formData.get('contact_name') as string || '');
+    submitData.append('tel', formData.get('tel') as string);
+    submitData.append('email', formData.get('email') as string);
+    submitData.append('website', formData.get('website') as string || '');
+    submitData.append('description', formData.get('description') as string || '');
+
+    // Add the image file if present
+    const imageFile = formData.get('business_image') as File;
+    if (imageFile && imageFile.size > 0) {
+      submitData.append('business_image', imageFile);
+    }
 
     try {
       const response = await fetch('http://localhost:5000/api/business-applications', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(newApplicationData),
+        // Don't set Content-Type header - browser will set it automatically with boundary for multipart/form-data
+        body: submitData,
       });
 
       if (!response.ok) {
@@ -82,7 +88,7 @@ const AddMyBusiness = () => {
 
   const formAnimation = {
     hidden: { opacity: 0 },
-    visible: { 
+    visible: {
       opacity: 1,
       transition: {
         staggerChildren: 0.1,
@@ -109,11 +115,11 @@ const AddMyBusiness = () => {
         </motion.h1>
         <Card>
           <CardContent className="pt-6">
-            <motion.form 
+            <motion.form
               variants={formAnimation}
               initial="hidden"
               animate="visible"
-              onSubmit={handleSubmit} 
+              onSubmit={handleSubmit}
               className="space-y-6"
             >
               <motion.div variants={inputAnimation} className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -158,9 +164,9 @@ const AddMyBusiness = () => {
 
               <motion.div variants={inputAnimation} className="space-y-2">
                 <Label htmlFor="description">Business Description</Label>
-                <Textarea 
+                <Textarea
                   id="description" name="description"
-                  placeholder="Tell us about your business (optional)" 
+                  placeholder="Tell us about your business (optional)"
                   className="h-32"
                 />
               </motion.div>
@@ -173,8 +179,8 @@ const AddMyBusiness = () => {
                 </div>
               </motion.div>
 
-              <motion.div 
-                variants={inputAnimation} 
+              <motion.div
+                variants={inputAnimation}
                 className="flex justify-end gap-2"
                 whileHover={{ scale: 1.01 }}
               >
