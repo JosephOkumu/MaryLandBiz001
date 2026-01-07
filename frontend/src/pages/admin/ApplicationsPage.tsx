@@ -1,12 +1,12 @@
 // /frontend/src/pages/admin/ApplicationsPage.tsx
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { 
-  Card, 
-  CardContent, 
-  CardDescription, 
-  CardHeader, 
-  CardTitle 
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle
 } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
@@ -44,6 +44,7 @@ interface Application {
   website?: string;
   category: string;
   description: string;
+  image_url?: string; // Added for uploaded images
   business_image_name?: string;
   dateSubmitted: string;
   status: "Pending" | "Approved" | "Rejected";
@@ -89,6 +90,7 @@ function ApplicationsPage() {
           website: app.website || '',
           category: app.category,
           description: app.description || '',
+          image_url: app.image_url || '', // Include image_url from backend
           business_image_name: '',
           dateSubmitted: new Date(app.submittedAt).toISOString().split('T')[0],
           status: app.status.charAt(0).toUpperCase() + app.status.slice(1) as 'Pending' | 'Approved' | 'Rejected',
@@ -126,43 +128,10 @@ function ApplicationsPage() {
       return;
     }
 
-    const businessData = {
-      business_name: applicationToApprove.business_name, // Corrected from 'name' to 'business_name'
-      location: applicationToApprove.location, // Backend expects 'location'
-      category: applicationToApprove.category,
-      tel: applicationToApprove.tel, // Corrected from 'phone' to 'tel'
-      email: applicationToApprove.email,
-      website: applicationToApprove.website || '',
-      description: applicationToApprove.description || '',
-      contact_name: applicationToApprove.contact_name || '',
-    };
-
     console.log("Approving application:", applicationToApprove);
-    console.log("Sending data to /api/businesses:", businessData);
 
     try {
-      // Step 1: Add business to the main database
-      const businessResponse = await fetch('http://localhost:5000/api/businesses', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(businessData),
-        credentials: 'include',
-      });
-
-      if (!businessResponse.ok) {
-        let errorMessage = `Failed to add business: ${businessResponse.statusText}`;
-        try {
-            const errorData = await businessResponse.json();
-            errorMessage = errorData.message || errorData.error || errorMessage;
-        } catch (e) {
-            // Failed to parse JSON, use statusText
-        }
-        throw new Error(errorMessage);
-      }
-      
-      // Step 2: Update the application status to 'approved'
+      // The backend now handles creating the business entry when status is set to 'approved'
       const statusResponse = await fetch(`http://localhost:5000/api/business-applications/${applicationToApprove.id}/status`, {
         method: 'PUT',
         headers: {
@@ -173,17 +142,17 @@ function ApplicationsPage() {
       });
 
       if (!statusResponse.ok) {
-        let errorMessage = `Failed to update application status: ${statusResponse.statusText}`;
+        let errorMessage = `Failed to approve application: ${statusResponse.statusText}`;
         try {
-            const errorData = await statusResponse.json();
-            errorMessage = errorData.message || errorData.error || errorMessage;
+          const errorData = await statusResponse.json();
+          errorMessage = errorData.message || errorData.error || errorMessage;
         } catch (e) {
-            // Failed to parse JSON, use statusText
+          // Failed to parse JSON, use statusText
         }
         throw new Error(errorMessage);
       }
 
-      // Step 3: Update UI
+      // Update UI
       setApplications(prev => prev.filter(a => a.id !== applicationToApprove.id));
       toast({
         title: "Application Approved",
@@ -224,10 +193,10 @@ function ApplicationsPage() {
       if (!statusResponse.ok) {
         let errorMessage = `Failed to update application status: ${statusResponse.statusText}`;
         try {
-            const errorData = await statusResponse.json();
-            errorMessage = errorData.message || errorData.error || errorMessage;
+          const errorData = await statusResponse.json();
+          errorMessage = errorData.message || errorData.error || errorMessage;
         } catch (e) {
-            // Failed to parse JSON, use statusText
+          // Failed to parse JSON, use statusText
         }
         throw new Error(errorMessage);
       }
@@ -305,9 +274,9 @@ function ApplicationsPage() {
                       {app.email}
                     </div>
                   </TableCell>
-                  <TableCell>{new Date(app.dateSubmitted).toISOString().replace('T', ' ').slice(8,10)}-{new Date(app.dateSubmitted).toISOString().slice(5,7)}-{new Date(app.dateSubmitted).toISOString().slice(0,4)}</TableCell>
+                  <TableCell>{new Date(app.dateSubmitted).toISOString().replace('T', ' ').slice(8, 10)}-{new Date(app.dateSubmitted).toISOString().slice(5, 7)}-{new Date(app.dateSubmitted).toISOString().slice(0, 4)}</TableCell>
                   <TableCell className="text-right">
-                    <Button 
+                    <Button
                       variant="outline"
                       size="sm"
                       className="text-green-600 border-green-600 hover:bg-green-600 hover:text-white focus-visible:ring-green-500"
@@ -323,7 +292,7 @@ function ApplicationsPage() {
         </CardContent>
       </Card>
       {selectedApplication && (
-        <ApplicationReviewModal 
+        <ApplicationReviewModal
           isOpen={isModalOpen}
           onClose={() => {
             setIsModalOpen(false);

@@ -25,6 +25,7 @@ interface Application {
   website?: string;
   category: string;
   description: string;
+  image_url?: string; // Added for uploaded images
   business_image_name?: string;
   dateSubmitted?: string; // Optional for display in modal
 }
@@ -47,12 +48,12 @@ const DetailItem = ({ label, value }: { label: string; value?: string }) => {
   );
 };
 
-export const ApplicationReviewModal = ({ 
-  isOpen, 
-  onClose, 
-  application, 
-  onApprove, 
-  onReject 
+export const ApplicationReviewModal = ({
+  isOpen,
+  onClose,
+  application,
+  onApprove,
+  onReject
 }: ApplicationReviewModalProps) => {
   const [isRejectConfirmationOpen, setIsRejectConfirmationOpen] = useState(false);
   const { toast } = useToast();
@@ -104,7 +105,7 @@ export const ApplicationReviewModal = ({
               Submitted by: {application.contact_name} ({application.email})
             </DialogDescription>
           </DialogHeader>
-          
+
           <div className="grid gap-4 py-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <DetailItem label="Business Name" value={application.business_name} />
@@ -117,22 +118,33 @@ export const ApplicationReviewModal = ({
             <DetailItem label="Email Address" value={application.email} />
             {application.website && <DetailItem label="Website" value={application.website} />}
             <DetailItem label="Category" value={application.category} />
-            
+
             <Separator className="my-2" />
-            
+
             <div>
               <p className="text-sm font-medium text-gray-500">Description</p>
               <p className="text-md text-gray-900 whitespace-pre-wrap">{application.description}</p>
             </div>
 
-            {application.business_image_name && (
+            {application.image_url && (
               <div className="mt-4 p-3 border rounded-md bg-gray-50">
-                <p className="text-sm font-medium text-gray-600">Business Image File:</p>
-                <p className="text-md text-gray-800 font-semibold break-all">{application.business_image_name}</p>
-                <p className="text-xs text-gray-500 mt-1">
-                  (Image preview would appear here if a URL was available. Currently showing filename only.)
-                </p>
-                {/* Example: <img src={application.imageUrl} alt={application.business_name} className="mt-2 max-h-48 w-auto rounded" /> */}
+                <p className="text-sm font-medium text-gray-600 mb-2">Business Image:</p>
+                <img
+                  src={`http://localhost:5000${application.image_url}`}
+                  alt={application.business_name}
+                  className="mt-2 max-h-64 w-auto rounded border border-gray-300 shadow-sm"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                    const parent = target.parentElement;
+                    if (parent) {
+                      const errorDiv = document.createElement('div');
+                      errorDiv.className = 'mt-2 p-3 bg-yellow-50 border border-yellow-200 rounded text-sm text-yellow-800';
+                      errorDiv.textContent = '⚠️ Image file not found on server. The image may need to be re-uploaded.';
+                      parent.appendChild(errorDiv);
+                    }
+                  }}
+                />
               </div>
             )}
           </div>
