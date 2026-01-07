@@ -639,12 +639,42 @@ def get_business(id):
 @app.route('/api/businesses/<int:id>', methods=['PUT'])
 @login_required
 def update_business(id):
-    data = request.get_json()
+    # Handle both JSON and Multipart
+    if request.content_type and 'multipart/form-data' in request.content_type:
+        data = request.form.to_dict()
+        file = request.files.get('business_image')
+    else:
+        data = request.get_json() or {}
+        file = None
+
     connection = get_db_connection()
     if not connection:
         return jsonify({"error": "Database connection failed"}), 500
     try:
-        cursor = connection.cursor()
+        cursor = connection.cursor(dictionary=True)
+        
+        # Fetch existing business to preserve image_url if not updating
+        cursor.execute("SELECT image_url FROM businesses WHERE id = %s", (id,))
+        existing_business = cursor.fetchone()
+        
+        if not existing_business:
+            return jsonify({"error": "Business not found"}), 404
+            
+        new_image_url = existing_business['image_url']
+        
+        # If a new file is uploaded, save it and update the URL
+        if file:
+            saved_path = save_uploaded_file(file)
+            if saved_path:
+                new_image_url = saved_path
+        
+        # Handle featured flag
+        featured = data.get('featured')
+        if isinstance(featured, str):
+            featured = featured.lower() == 'true'
+        elif featured is None:
+            featured = False
+
         query = """
             UPDATE businesses
             SET business_name = %s, category = %s, location = %s,
@@ -661,17 +691,17 @@ def update_business(id):
             data.get('email', ''),
             data.get('website', ''),
             data.get('description', ''),
-            data.get('image_url', None),
-            data.get('featured', False),
+            new_image_url,
+            featured,
             id
         )
         cursor.execute(query, values)
         connection.commit()
-        if cursor.rowcount == 0:
-            return jsonify({"error": "Business not found or no changes made"}), 404
+        
         return jsonify({
-            "success": True,
+            "success": True, 
             "message": "Business updated successfully",
+            "image_url": new_image_url,
             "business_id": id
         })
     except DBError as err:

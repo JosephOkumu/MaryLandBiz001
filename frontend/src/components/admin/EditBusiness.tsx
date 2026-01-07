@@ -22,7 +22,7 @@ const EditBusiness = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [formData, setFormData] = useState<any>(null);
-  
+
   useEffect(() => {
     const fetchBusinessData = async () => {
       setIsLoading(true);
@@ -52,7 +52,7 @@ const EditBusiness = () => {
         setIsLoading(false);
       }
     };
-    
+
     if (id) {
       fetchBusinessData();
     }
@@ -61,25 +61,28 @@ const EditBusiness = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     try {
+      const submitData = new FormData();
+      submitData.append('business_name', formData.business_name);
+      submitData.append('location', formData.location);
+      submitData.append('category', formData.category);
+      submitData.append('contact_name', formData.contact_name || '');
+      submitData.append('tel', formData.tel || '');
+      submitData.append('email', formData.email || '');
+      submitData.append('website', formData.website || '');
+      submitData.append('description', formData.description || '');
+      submitData.append('featured', String(formData.featured || false));
+
+      // If a new file is selected, append it
+      if (formData.business_image instanceof File) {
+        submitData.append('business_image', formData.business_image);
+      }
+
       const response = await fetch(`http://localhost:5000/api/businesses/${id}`, {
         method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
         credentials: 'include', // Necessary for session cookies
-        body: JSON.stringify({
-          business_name: formData.business_name,
-          location: formData.location,
-          category: formData.category,
-          contact_name: formData.contact_name || '',
-          tel: formData.tel || '',
-          email: formData.email || '',
-          website: formData.website || '',
-          description: formData.description || '',
-          featured: formData.featured || false
-        }),
+        body: submitData,
       });
 
       const data = await response.json();
@@ -129,9 +132,9 @@ const EditBusiness = () => {
         <h1 className="text-2xl font-bold">Edit Business</h1>
       </div>
       <Card className="relative pt-8"> {/* Added relative positioning and padding-top */}
-        <Button 
-          variant="ghost" 
-          size="icon" 
+        <Button
+          variant="ghost"
+          size="icon"
           className="absolute top-2 right-2 text-muted-foreground hover:text-foreground"
           onClick={() => navigate("/dashboard/businesses")}
           title="Close"
@@ -145,9 +148,9 @@ const EditBusiness = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label htmlFor="business_name">Business Name <span className="text-red-500">*</span></Label>
-                <Input 
-                  id="business_name" 
-                  required 
+                <Input
+                  id="business_name"
+                  required
                   placeholder="Enter business name"
                   value={formData.business_name || ''}
                   onChange={(e) => handleChange("business_name", e.target.value)}
@@ -155,9 +158,9 @@ const EditBusiness = () => {
               </div>
               <div className="space-y-2">
                 <Label htmlFor="location">Location <span className="text-red-500">*</span></Label>
-                <Input 
-                  id="location" 
-                  required 
+                <Input
+                  id="location"
+                  required
                   placeholder="e.g., 123 Main St, City, MD ZIP"
                   value={formData.location || ''}
                   onChange={(e) => handleChange("location", e.target.value)}
@@ -169,9 +172,9 @@ const EditBusiness = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label htmlFor="category">Category <span className="text-red-500">*</span></Label>
-                <Input 
-                  id="category" 
-                  required 
+                <Input
+                  id="category"
+                  required
                   placeholder="e.g., BOUTIQUES, Restaurants, Technology"
                   value={formData.category || ''}
                   onChange={(e) => handleChange("category", e.target.value)}
@@ -179,7 +182,7 @@ const EditBusiness = () => {
               </div>
               <div className="space-y-2">
                 <Label htmlFor="status">Status</Label>
-                <Select 
+                <Select
                   name="status"
                   value={formData.status || 'active'}
                   onValueChange={(value) => handleChange("status", value)}
@@ -200,8 +203,8 @@ const EditBusiness = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label htmlFor="contact_name">Contact Person Name</Label>
-                <Input 
-                  id="contact_name" 
+                <Input
+                  id="contact_name"
                   placeholder="Enter contact person's name (optional)"
                   value={formData.contact_name || ''}
                   onChange={(e) => handleChange("contact_name", e.target.value)}
@@ -209,10 +212,10 @@ const EditBusiness = () => {
               </div>
               <div className="space-y-2">
                 <Label htmlFor="tel">Telephone <span className="text-red-500">*</span></Label>
-                <Input 
-                  id="tel" 
-                  type="tel" 
-                  required 
+                <Input
+                  id="tel"
+                  type="tel"
+                  required
                   placeholder="e.g., 410-555-1234"
                   value={formData.tel || ''}
                   onChange={(e) => handleChange("tel", e.target.value)}
@@ -224,10 +227,10 @@ const EditBusiness = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label htmlFor="email">Email Address <span className="text-red-500">*</span></Label>
-                <Input 
-                  id="email" 
-                  type="email" 
-                  required 
+                <Input
+                  id="email"
+                  type="email"
+                  required
                   placeholder="e.g., contact@example.com"
                   value={formData.email || ''}
                   onChange={(e) => handleChange("email", e.target.value)}
@@ -235,9 +238,9 @@ const EditBusiness = () => {
               </div>
               <div className="space-y-2">
                 <Label htmlFor="website">Website</Label>
-                <Input 
-                  id="website" 
-                  type="url" 
+                <Input
+                  id="website"
+                  type="url"
                   placeholder="e.g., https://www.example.com (optional)"
                   value={formData.website || ''}
                   onChange={(e) => handleChange("website", e.target.value)}
@@ -248,9 +251,9 @@ const EditBusiness = () => {
             {/* Row 5: Business Description */}
             <div className="space-y-2">
               <Label htmlFor="description">Business Description</Label>
-              <Textarea 
-                id="description" 
-                placeholder="Tell us about your business (optional)" 
+              <Textarea
+                id="description"
+                placeholder="Tell us about your business (optional)"
                 className="h-32"
                 value={formData.description || ''}
                 onChange={(e) => handleChange("description", e.target.value)}
@@ -263,19 +266,33 @@ const EditBusiness = () => {
             <div className="space-y-2">
               <div className="md:w-1/6">
                 <Label htmlFor="business_image">Upload Image</Label>
-                <Input 
-                  id="business_image" 
-                  type="file" 
-                  accept="image/*" 
+                <Input
+                  id="business_image"
+                  type="file"
+                  accept="image/*"
                   onChange={(e) => handleChange("business_image", e.target.files ? e.target.files[0] : null)}
                 />
-                <p className="text-xs text-muted-foreground">Upload new image (optional).</p>
-                {formData.business_image && typeof formData.business_image === 'string' && formData.business_image !== '' && (
-                  <p className="text-xs text-muted-foreground mt-1">Current image: {formData.business_image}</p>
+                <p className="text-xs text-muted-foreground">Upload new image to replace current one (optional).</p>
+
+                {/* Show current image preview */}
+                {formData.image_url && (
+                  <div className="mt-3">
+                    <p className="text-xs font-medium mb-2">Current Image:</p>
+                    <div className="relative w-32 h-32 border rounded overflow-hidden bg-gray-50">
+                      <img
+                        src={`http://localhost:5000${formData.image_url}`}
+                        alt="Current business"
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).style.display = 'none';
+                        }}
+                      />
+                    </div>
+                  </div>
                 )}
               </div>
             </div>
-            
+
             {/* Submit and Cancel Buttons */}
             <div className="flex justify-end gap-2">
               <Button type="button" variant="outline" onClick={() => navigate("/dashboard/businesses")}>
