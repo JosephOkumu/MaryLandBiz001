@@ -129,22 +129,24 @@ export const ApplicationReviewModal = ({
             {application.image_url && (
               <div className="mt-4 p-3 border rounded-md bg-gray-50">
                 <p className="text-sm font-medium text-gray-600 mb-2">Business Image:</p>
-                <img
-                  src={`http://localhost:5000${application.image_url}`}
-                  alt={application.business_name}
-                  className="mt-2 max-h-64 w-auto rounded border border-gray-300 shadow-sm"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = 'none';
-                    const parent = target.parentElement;
-                    if (parent) {
-                      const errorDiv = document.createElement('div');
-                      errorDiv.className = 'mt-2 p-3 bg-yellow-50 border border-yellow-200 rounded text-sm text-yellow-800';
-                      errorDiv.textContent = '⚠️ Image file not found on server. The image may need to be re-uploaded.';
-                      parent.appendChild(errorDiv);
-                    }
-                  }}
-                />
+                <div className="flex justify-center items-center bg-white p-2 rounded">
+                  <img
+                    src={`http://localhost:5000${application.image_url}`}
+                    alt={application.business_name}
+                    className="max-h-96 max-w-full object-contain rounded border border-gray-300 shadow-sm"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                      const parent = target.parentElement;
+                      if (parent) {
+                        const errorDiv = document.createElement('div');
+                        errorDiv.className = 'mt-2 p-3 bg-yellow-50 border border-yellow-200 rounded text-sm text-yellow-800';
+                        errorDiv.textContent = '⚠️ Image file not found on server. The image may need to be re-uploaded.';
+                        parent.appendChild(errorDiv);
+                      }
+                    }}
+                  />
+                </div>
               </div>
             )}
           </div>

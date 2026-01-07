@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Star, StarHalf, MapPin, Phone, Mail, Building2, Globe } from "lucide-react";
 import { motion } from "framer-motion";
@@ -24,6 +25,8 @@ interface BusinessCardProps {
 }
 
 const BusinessCard = ({ business, index }: BusinessCardProps) => {
+  const [imageError, setImageError] = useState(false);
+
   // Get icon based on category or use default
   const IconComponent = categoryIcons[business.category] || DefaultIcon;
 
@@ -40,6 +43,10 @@ const BusinessCard = ({ business, index }: BusinessCardProps) => {
     })
   };
 
+  const imageUrl = business.image_url
+    ? (business.image_url.startsWith('http') ? business.image_url : `http://localhost:5000${business.image_url}`)
+    : null;
+
   return (
     <motion.div
       key={business.id}
@@ -54,30 +61,20 @@ const BusinessCard = ({ business, index }: BusinessCardProps) => {
       }}
     >
       <Card className="overflow-hidden shadow-md h-full flex flex-col group">
-        <div className="flex justify-center items-center h-32 bg-primary/5 group-hover:bg-primary/10 transition-colors overflow-hidden relative">
-          {business.image_url ? (
+        <div className="w-full bg-gray-50 overflow-hidden relative">
+          {imageUrl && !imageError ? (
             <motion.img
-              src={business.image_url.startsWith('http') ? business.image_url : `http://localhost:5000${business.image_url}`}
+              src={imageUrl}
               alt={business.business_name}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              className="w-full h-auto max-h-80 object-contain"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3 }}
-              onError={(e) => {
-                // If image fails to load, hide it and show the icon instead
-                const target = e.target as HTMLImageElement;
-                target.style.display = 'none';
-                const parent = target.parentElement;
-                if (parent) {
-                  const iconDiv = document.createElement('div');
-                  iconDiv.className = 'flex items-center justify-center w-full h-full';
-                  iconDiv.innerHTML = `<svg class="w-16 h-16 text-primary" stroke-width="1.5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>`;
-                  parent.appendChild(iconDiv);
-                }
-              }}
+              onError={() => setImageError(true)}
             />
           ) : (
             <motion.div
+              className="h-48 flex justify-center items-center"
               whileHover={{ rotate: 5, scale: 1.1 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
