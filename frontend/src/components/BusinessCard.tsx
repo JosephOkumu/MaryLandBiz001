@@ -63,6 +63,18 @@ const BusinessCard = ({ business, index }: BusinessCardProps) => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3 }}
+              onError={(e) => {
+                // If image fails to load, hide it and show the icon instead
+                const target = e.target as HTMLImageElement;
+                target.style.display = 'none';
+                const parent = target.parentElement;
+                if (parent) {
+                  const iconDiv = document.createElement('div');
+                  iconDiv.className = 'flex items-center justify-center w-full h-full';
+                  iconDiv.innerHTML = `<svg class="w-16 h-16 text-primary" stroke-width="1.5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>`;
+                  parent.appendChild(iconDiv);
+                }
+              }}
             />
           ) : (
             <motion.div
