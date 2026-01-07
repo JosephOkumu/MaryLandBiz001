@@ -662,15 +662,37 @@ def delete_business(id):
     if not connection:
         return jsonify({"error": "Database connection failed"}), 500
     try:
-        cursor = connection.cursor()
-        query = "DELETE FROM businesses WHERE id = %s"
-        cursor.execute(query, (id,))
-        connection.commit()
-        if cursor.rowcount == 0:
+        cursor = connection.cursor(dictionary=True)
+        
+        # Step 1: Get the image URL before deleting the record
+        cursor.execute("SELECT image_url FROM businesses WHERE id = %s", (id,))
+        business = cursor.fetchone()
+        
+        if not business:
             return jsonify({"error": "Business not found"}), 404
+            
+        # Step 2: Delete the record from database
+        cursor.execute("DELETE FROM businesses WHERE id = %s", (id,))
+        connection.commit()
+        
+        # Step 3: Delete the image file if it exists
+        if business['image_url']:
+            try:
+                # Extract filename from URL (e.g., /uploads/business_images/file.jpg -> file.jpg)
+                filename = os.path.basename(business['image_url'])
+                file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+                
+                if os.path.exists(file_path):
+                    os.remove(file_path)
+                    app.logger.info(f"Deleted image file: {file_path}")
+                else:
+                    app.logger.warning(f"Image file not found for deletion: {file_path}")
+            except Exception as e:
+                app.logger.error(f"Error deleting image file: {e}")
+
         return jsonify({
             "success": True,
-            "message": "Business deleted successfully",
+            "message": "Business and associated image deleted successfully",
             "business_id": id
         })
     except DBError as err:
