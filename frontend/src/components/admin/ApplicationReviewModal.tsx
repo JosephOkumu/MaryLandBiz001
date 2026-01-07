@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { useState } from 'react';
 import { useToast } from "@/components/ui/use-toast";
+import { Eye } from "lucide-react";
 
 // Assuming Application type is defined in ApplicationsPage.tsx or a shared types file
 // For now, let's redefine a similar structure here for clarity if not imported
@@ -56,6 +57,7 @@ export const ApplicationReviewModal = ({
   onReject
 }: ApplicationReviewModalProps) => {
   const [isRejectConfirmationOpen, setIsRejectConfirmationOpen] = useState(false);
+  const [isImagePreviewOpen, setIsImagePreviewOpen] = useState(false);
   const { toast } = useToast();
 
   const handleRejectClick = () => {
@@ -64,9 +66,11 @@ export const ApplicationReviewModal = ({
 
   const handleConfirmReject = async () => {
     try {
-      await onReject(application);
-      setIsRejectConfirmationOpen(false);
-      onClose();
+      if (application) {
+        await onReject(application);
+        setIsRejectConfirmationOpen(false);
+        onClose();
+      }
     } catch (error) {
       toast({
         title: "Error",
@@ -82,8 +86,10 @@ export const ApplicationReviewModal = ({
 
   const handleApproveClick = async () => {
     try {
-      await onApprove(application);
-      onClose();
+      if (application) {
+        await onApprove(application);
+        onClose();
+      }
     } catch (error) {
       toast({
         title: "Error",
@@ -98,7 +104,7 @@ export const ApplicationReviewModal = ({
   return (
     <>
       <Dialog open={isOpen} onOpenChange={onClose}>
-        <DialogContent className="sm:max-w-lg">
+        <DialogContent className="sm:max-w-lg max-h-[85vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle>Review Application: {application.business_name}</DialogTitle>
             <DialogDescription>
@@ -127,31 +133,25 @@ export const ApplicationReviewModal = ({
             </div>
 
             {application.image_url && (
-              <div className="mt-4 p-3 border rounded-md bg-gray-50">
-                <p className="text-sm font-medium text-gray-600 mb-2">Business Image:</p>
-                <div className="flex justify-center items-center bg-white p-2 rounded">
-                  <img
-                    src={`http://localhost:5000${application.image_url}`}
-                    alt={application.business_name}
-                    className="max-h-96 max-w-full object-contain rounded border border-gray-300 shadow-sm"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.style.display = 'none';
-                      const parent = target.parentElement;
-                      if (parent) {
-                        const errorDiv = document.createElement('div');
-                        errorDiv.className = 'mt-2 p-3 bg-yellow-50 border border-yellow-200 rounded text-sm text-yellow-800';
-                        errorDiv.textContent = '⚠️ Image file not found on server. The image may need to be re-uploaded.';
-                        parent.appendChild(errorDiv);
-                      }
-                    }}
-                  />
+              <div className="mt-4 p-3 border rounded-md bg-gray-50 flex items-center justify-between">
+                <div>
+                  <p className="text-sm font-medium text-gray-600 mb-1">Business Image</p>
+                  <p className="text-xs text-gray-500">Click preview to view full image</p>
                 </div>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="gap-2"
+                  onClick={() => setIsImagePreviewOpen(true)}
+                >
+                  <Eye className="h-4 w-4" />
+                  Preview Image
+                </Button>
               </div>
             )}
           </div>
 
-          <DialogFooter className="sm:justify-end gap-2 pt-4 border-t border-border mt-6">
+          <DialogFooter className="sm:justify-end gap-2 pt-4 border-t border-border mt-6 sticky bottom-0 bg-background pb-2">
             <Button type="button" variant="outline" onClick={onClose}>
               Cancel
             </Button>
@@ -162,6 +162,31 @@ export const ApplicationReviewModal = ({
               Approve
             </Button>
           </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      {/* Image Preview Modal */}
+      <Dialog open={isImagePreviewOpen} onOpenChange={setIsImagePreviewOpen}>
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-auto p-0 bg-black/90 border-none">
+          <div className="relative flex justify-center items-center min-h-[50vh]">
+            <Button
+              className="absolute top-4 right-4 z-50 bg-black/50 hover:bg-black/70 text-white rounded-full p-2"
+              variant="ghost"
+              onClick={() => setIsImagePreviewOpen(false)}
+            >
+              ✕
+            </Button>
+            <img
+              src={`http://localhost:5000${application.image_url}`}
+              alt={application.business_name}
+              className="max-w-full max-h-[85vh] object-contain"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.style.display = 'none';
+                // Fallback handled by UI showing nothing or we could add text
+              }}
+            />
+          </div>
         </DialogContent>
       </Dialog>
 
