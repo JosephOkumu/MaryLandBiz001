@@ -21,6 +21,7 @@ import AddMyBusiness from "./pages/AddMyBusiness";
 import AdminLogin from "./pages/AdminLogin"; // Use user's original AdminLogin page
 import BrowsePage from "./pages/BrowsePage"; // <-- Import BrowsePage
 import About from "./pages/About";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 // Create a new QueryClient instance
 const queryClient = new QueryClient();
@@ -33,30 +34,31 @@ const App = () => (
           <Toaster />
           <Sonner />
           <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/add-my-business" element={<AddMyBusiness />} />
-            <Route path="/about" element={<About />} />
-            {/* Admin Login Route - public */}
-            <Route path="/admin" element={<AdminLogin />} />
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/add-my-business" element={<AddMyBusiness />} />
+              <Route path="/about" element={<About />} />
+              {/* Admin Login Route - public */}
+              <Route path="/admin" element={<AdminLogin />} />
 
-            {/* Protected Admin Dashboard Routes */}
-            <Route element={<ProtectedRoute />}>
-              <Route path="/dashboard" element={<AdminLayout />}>
-                {/* Children of AdminLayout are now protected */}
-              <Route index element={<Dashboard />} />
-              <Route path="businesses" element={<BusinessList />} />
-              <Route path="businesses/add" element={<AddBusiness />} />
-              <Route path="businesses/edit/:id" element={<EditBusiness />} />
-              <Route path="analytics" element={<Analytics />} />
-              <Route path="settings" element={<AdminSettings />} />
-                <Route path="applications" element={<ApplicationsPage />} /> {/* Added route for Applications page */}
+              {/* Protected Admin Dashboard Routes */}
+              <Route element={<ProtectedRoute />}>
+                <Route path="/dashboard" element={<AdminLayout />}>
+                  {/* Children of AdminLayout are now protected */}
+                  <Route index element={<Dashboard />} />
+                  <Route path="businesses" element={<BusinessList />} />
+                  <Route path="businesses/add" element={<AddBusiness />} />
+                  <Route path="businesses/edit/:id" element={<EditBusiness />} />
+                  <Route path="analytics" element={<Analytics />} />
+                  <Route path="settings" element={<AdminSettings />} />
+                  <Route path="applications" element={<ApplicationsPage />} /> {/* Added route for Applications page */}
+                </Route>
               </Route>
-            </Route>
-            
-            <Route path="/browse" element={<BrowsePage />} /> {/* <-- Add /browse route */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+
+              <Route path="/browse" element={<BrowsePage />} /> {/* <-- Add /browse route */}
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
           </BrowserRouter>
         </TooltipProvider>
       </AuthProvider>

@@ -1,8 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Building, Users, Target, Award, Heart, MapPin, Phone, Mail } from "lucide-react";
+import { Building, Users, Target, Award, Heart, MapPin, Phone, Mail, ArrowLeft } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import Footer from "@/components/Footer";
 
 const About = () => {
+  const navigate = useNavigate();
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
     animate: { opacity: 1, y: 0 },
@@ -47,7 +50,18 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-orange-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-orange-50 flex flex-col">
+      {/* Back Button */}
+      <div className="container pt-6">
+        <button
+          onClick={() => navigate(-1)}
+          className="flex items-center gap-2 text-gray-600 hover:text-primary transition-colors font-medium group"
+        >
+          <ArrowLeft className="h-5 w-5 group-hover:-translate-x-1 transition-transform" />
+          Back
+        </button>
+      </div>
+
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10"></div>
@@ -87,7 +101,7 @@ const About = () => {
                 Our platform serves as a bridge between entrepreneurs and customers, making it easier than ever to find quality services, products, and experiences while supporting local economic growth and diversity.
               </p>
             </motion.div>
-            <motion.div 
+            <motion.div
               variants={fadeInUp}
               className="relative"
             >
@@ -229,6 +243,7 @@ const About = () => {
           </motion.div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 };

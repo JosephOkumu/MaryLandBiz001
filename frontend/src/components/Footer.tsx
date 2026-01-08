@@ -14,25 +14,21 @@ const Footer = () => {
             </p>
             {/* Social media icons removed */}
           </div>
-          
+
           <div>
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm">
               <li><Link to="/about" className="text-gray-300 hover:text-white">About Us</Link></li>
             </ul>
           </div>
-          
+
           <div>
-            <h3 className="text-lg font-semibold mb-4">Categories</h3>
+            <h3 className="text-lg font-semibold mb-4">Legal</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link to="/category/restaurants" className="text-gray-300 hover:text-white">Restaurants</Link></li>
-              <li><Link to="/category/retail" className="text-gray-300 hover:text-white">Retail</Link></li>
-              <li><Link to="/category/professional" className="text-gray-300 hover:text-white">Professional Services</Link></li>
-              <li><Link to="/category/healthcare" className="text-gray-300 hover:text-white">Healthcare</Link></li>
-              <li><Link to="/categories" className="text-gray-300 hover:text-white">View All</Link></li>
+              <li><Link to="/privacy-policy" className="text-gray-300 hover:text-white">Privacy Policy</Link></li>
             </ul>
           </div>
-          
+
           <div>
             <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
             <div className="text-sm text-gray-300 space-y-2">
@@ -51,7 +47,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        
+
         <div className="border-t border-gray-700 pt-8 text-center text-sm text-gray-400">
           <p>&copy; 2025 MarylandBiz. All rights reserved.</p>
         </div>
