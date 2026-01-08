@@ -1,50 +1,35 @@
 
 import { Link } from "react-router-dom";
-import { Building, MapPin, Phone, Mail, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+
 
 const Footer = () => {
   return (
     <footer className="bg-[#333333] text-white py-12">
       <div className="container">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 items-start">
           <div>
             <h3 className="text-lg font-semibold mb-4">MarylandBiz</h3>
-            <p className="text-gray-300 text-sm mb-4">
+            <p className="text-gray-300 text-sm">
               Your one-stop directory for discovering and connecting with businesses across Maryland.
             </p>
-            {/* Social media icons removed */}
           </div>
 
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2 text-sm">
-              <li><Link to="/about" className="text-gray-300 hover:text-white">About Us</Link></li>
-            </ul>
+          <div className="flex md:justify-center">
+            <Link to="/about" className="text-white hover:text-primary font-bold text-lg transition-colors">
+              About Us
+            </Link>
           </div>
 
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Legal</h3>
-            <ul className="space-y-2 text-sm">
-              <li><Link to="/privacy-policy" className="text-gray-300 hover:text-white">Privacy Policy</Link></li>
-            </ul>
+          <div className="flex md:justify-center">
+            <Link to="/privacy-policy" className="text-white hover:text-primary font-bold text-lg transition-colors">
+              Privacy Policy
+            </Link>
           </div>
 
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
-            <div className="text-sm text-gray-300 space-y-2">
-              <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4" />
-                <span>5011 Arbutus Ave, Baltimore, MD, United States, 21215</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4" />
-                <span>1-888-PCG-0630</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4" />
-                <span>info@pcg.org</span>
-              </div>
-            </div>
+          <div className="flex md:justify-center">
+            <Link to="/contact" className="text-white hover:text-primary font-bold text-lg transition-colors">
+              Contact Us
+            </Link>
           </div>
         </div>
 

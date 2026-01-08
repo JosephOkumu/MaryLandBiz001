@@ -23,6 +23,7 @@ import BrowsePage from "./pages/BrowsePage"; // <-- Import BrowsePage
 import About from "./pages/About";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Contact from "./pages/Contact";
+import ScrollToTop from "./components/ScrollToTop";
 
 // Create a new QueryClient instance
 const queryClient = new QueryClient();
@@ -35,6 +36,7 @@ const App = () => (
           <Toaster />
           <Sonner />
           <BrowserRouter>
+            <ScrollToTop />
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/add-my-business" element={<AddMyBusiness />} />
