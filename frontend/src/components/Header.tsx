@@ -66,7 +66,7 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:block">
-            <ul className="flex items-center space-x-2">
+            <ul className="flex items-center space-x-4">
               <motion.li variants={navItemVariants} whileHover="hover">
                 <Link to="/" className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-primary to-blue-600 text-white hover:from-primary/90 hover:to-blue-600/90 rounded-lg transition-all duration-200 font-medium shadow-sm hover:shadow-md">
                   <Home className="h-4 w-4" strokeWidth={2.5} />
