@@ -1,5 +1,5 @@
 
-import { Building, Home, Search, PlusCircle, User, Menu, X } from "lucide-react";
+import { Building, Home, Search, PlusCircle, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -36,7 +36,7 @@ const Header = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ type: "spring", stiffness: 100 }}
-      className="sticky top-0 z-50 w-full border-b bg-white shadow-md"
+      className="sticky top-0 z-50 w-full border-b bg-gradient-to-r from-white via-blue-50/30 to-white backdrop-blur-sm shadow-sm"
     >
       <div className="container mx-auto px-4">
         <div className="flex h-16 md:h-20 items-center justify-between">
@@ -66,31 +66,26 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:block">
-            <ul className="flex items-center space-x-1 lg:space-x-4">
+            <ul className="flex items-center space-x-2">
               <motion.li variants={navItemVariants} whileHover="hover">
-                <Link to="/" className="flex items-center gap-2 px-3 py-2 hover:bg-primary/10 hover:text-primary rounded-md transition-all">
+                <Link to="/" className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-primary to-blue-600 text-white hover:from-primary/90 hover:to-blue-600/90 rounded-lg transition-all duration-200 font-medium shadow-sm hover:shadow-md">
                   <Home className="h-4 w-4" strokeWidth={2.5} />
-                  <span className="font-medium">Home</span>
+                  <span>Home</span>
                 </Link>
               </motion.li>
               <motion.li variants={navItemVariants} whileHover="hover">
-                <button onClick={handleBrowseClick} className="flex items-center gap-2 px-3 py-2 hover:bg-primary/10 hover:text-primary rounded-md transition-all">
+                <button onClick={handleBrowseClick} className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-primary to-blue-600 text-white hover:from-primary/90 hover:to-blue-600/90 rounded-lg transition-all duration-200 font-medium shadow-sm hover:shadow-md">
                   <Search className="h-4 w-4" strokeWidth={2.5} />
-                  <span className="font-medium">Browse</span>
+                  <span>Browse</span>
                 </button>
               </motion.li>
               <motion.li variants={navItemVariants} whileHover="hover">
-                <Link to="/add-my-business" className="flex items-center gap-2 px-3 py-2 hover:bg-primary/10 hover:text-primary rounded-md transition-all">
+                <Link to="/add-my-business" className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-primary to-blue-600 text-white hover:from-primary/90 hover:to-blue-600/90 rounded-lg transition-all duration-200 font-medium shadow-sm hover:shadow-md">
                   <PlusCircle className="h-4 w-4" strokeWidth={2.5} />
-                  <span className="font-medium">Add My Business</span>
+                  <span>Add Business</span>
                 </Link>
               </motion.li>
-              <motion.li variants={navItemVariants} whileHover="hover">
-                <Link to="/admin" className="flex items-center gap-2 px-3 py-2 bg-primary text-white hover:bg-primary/90 rounded-md transition-all">
-                  <User className="h-4 w-4" strokeWidth={2.5} />
-                  <span className="font-medium">Admin</span>
-                </Link>
-              </motion.li>
+
             </ul>
           </nav>
 
@@ -115,11 +110,11 @@ const Header = () => {
               <li>
                 <Link
                   to="/"
-                  className="flex items-center gap-3 px-4 py-3 hover:bg-primary/10 hover:text-primary rounded-lg transition-all"
+                  className="flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-primary to-blue-600 text-white rounded-lg transition-all shadow-sm"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  <Home className="h-5 w-5" />
-                  <span className="font-medium text-lg">Home</span>
+                  <Home className="h-5 w-5" strokeWidth={2.5} />
+                  <span className="font-medium text-base">Home</span>
                 </Link>
               </li>
               <li>
@@ -128,32 +123,23 @@ const Header = () => {
                     handleBrowseClick();
                     setIsMenuOpen(false);
                   }}
-                  className="w-full flex items-center gap-3 px-4 py-3 hover:bg-primary/10 hover:text-primary rounded-lg transition-all text-left"
+                  className="w-full flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-primary to-blue-600 text-white rounded-lg transition-all shadow-sm text-left"
                 >
-                  <Search className="h-5 w-5" />
-                  <span className="font-medium text-lg">Browse</span>
+                  <Search className="h-5 w-5" strokeWidth={2.5} />
+                  <span className="font-medium text-base">Browse</span>
                 </button>
               </li>
               <li>
                 <Link
                   to="/add-my-business"
-                  className="flex items-center gap-3 px-4 py-3 hover:bg-primary/10 hover:text-primary rounded-lg transition-all"
+                  className="flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-primary to-blue-600 text-white rounded-lg transition-all shadow-sm"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  <PlusCircle className="h-5 w-5" />
-                  <span className="font-medium text-lg">Add My Business</span>
+                  <PlusCircle className="h-5 w-5" strokeWidth={2.5} />
+                  <span className="font-medium text-base">Add Business</span>
                 </Link>
               </li>
-              <li>
-                <Link
-                  to="/admin"
-                  className="flex items-center gap-3 px-4 py-3 bg-primary text-white rounded-lg transition-all"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <User className="h-5 w-5" />
-                  <span className="font-medium text-lg">Admin</span>
-                </Link>
-              </li>
+
             </ul>
           </motion.nav>
         )}
