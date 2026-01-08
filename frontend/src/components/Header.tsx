@@ -68,25 +68,25 @@ const Header = () => {
           <nav className="hidden md:block ml-auto">
             <ul className="flex items-center space-x-4">
               <motion.li variants={navItemVariants} whileHover="hover">
-                <Link to="/" className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-primary to-blue-600 text-white hover:from-primary/90 hover:to-blue-600/90 rounded-lg transition-all duration-200 font-medium shadow-sm hover:shadow-md">
+                <Link to="/" className="flex items-center gap-2 px-4 py-2.5 bg-gray-800 text-white hover:bg-gradient-to-r hover:from-primary hover:to-blue-600 rounded-lg transition-all duration-200 font-medium shadow-sm hover:shadow-md">
                   <Home className="h-4 w-4" strokeWidth={2.5} />
                   <span>Home</span>
                 </Link>
               </motion.li>
               <motion.li variants={navItemVariants} whileHover="hover">
-                <button onClick={handleBrowseClick} className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-primary to-blue-600 text-white hover:from-primary/90 hover:to-blue-600/90 rounded-lg transition-all duration-200 font-medium shadow-sm hover:shadow-md">
+                <button onClick={handleBrowseClick} className="flex items-center gap-2 px-4 py-2.5 bg-gray-800 text-white hover:bg-gradient-to-r hover:from-primary hover:to-blue-600 rounded-lg transition-all duration-200 font-medium shadow-sm hover:shadow-md">
                   <Search className="h-4 w-4" strokeWidth={2.5} />
                   <span>Browse</span>
                 </button>
               </motion.li>
               <motion.li variants={navItemVariants} whileHover="hover">
-                <Link to="/add-my-business" className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-primary to-blue-600 text-white hover:from-primary/90 hover:to-blue-600/90 rounded-lg transition-all duration-200 font-medium shadow-sm hover:shadow-md">
+                <Link to="/add-my-business" className="flex items-center gap-2 px-4 py-2.5 bg-gray-800 text-white hover:bg-gradient-to-r hover:from-primary hover:to-blue-600 rounded-lg transition-all duration-200 font-medium shadow-sm hover:shadow-md">
                   <PlusCircle className="h-4 w-4" strokeWidth={2.5} />
                   <span>Add Business</span>
                 </Link>
               </motion.li>
               <motion.li variants={navItemVariants} whileHover="hover">
-                <Link to="/contact" className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-primary to-blue-600 text-white hover:from-primary/90 hover:to-blue-600/90 rounded-lg transition-all duration-200 font-medium shadow-sm hover:shadow-md">
+                <Link to="/contact" className="flex items-center gap-2 px-4 py-2.5 bg-gray-800 text-white hover:bg-gradient-to-r hover:from-primary hover:to-blue-600 rounded-lg transition-all duration-200 font-medium shadow-sm hover:shadow-md">
                   <MessageCircle className="h-4 w-4" strokeWidth={2.5} />
                   <span>Contact</span>
                 </Link>
@@ -116,7 +116,7 @@ const Header = () => {
               <li>
                 <Link
                   to="/"
-                  className="flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-primary to-blue-600 text-white rounded-lg transition-all shadow-sm"
+                  className="flex items-center gap-3 px-4 py-3 bg-gray-800 text-white hover:bg-gradient-to-r hover:from-primary hover:to-blue-600 rounded-lg transition-all shadow-sm"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <Home className="h-5 w-5" strokeWidth={2.5} />
@@ -129,7 +129,7 @@ const Header = () => {
                     handleBrowseClick();
                     setIsMenuOpen(false);
                   }}
-                  className="w-full flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-primary to-blue-600 text-white rounded-lg transition-all shadow-sm text-left"
+                  className="w-full flex items-center gap-3 px-4 py-3 bg-gray-800 text-white hover:bg-gradient-to-r hover:from-primary hover:to-blue-600 rounded-lg transition-all shadow-sm text-left"
                 >
                   <Search className="h-5 w-5" strokeWidth={2.5} />
                   <span className="font-medium text-base">Browse</span>
@@ -138,7 +138,7 @@ const Header = () => {
               <li>
                 <Link
                   to="/add-my-business"
-                  className="flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-primary to-blue-600 text-white rounded-lg transition-all shadow-sm"
+                  className="flex items-center gap-3 px-4 py-3 bg-gray-800 text-white hover:bg-gradient-to-r hover:from-primary hover:to-blue-600 rounded-lg transition-all shadow-sm"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <PlusCircle className="h-5 w-5" strokeWidth={2.5} />
@@ -148,7 +148,7 @@ const Header = () => {
               <li>
                 <Link
                   to="/contact"
-                  className="flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-primary to-blue-600 text-white rounded-lg transition-all shadow-sm"
+                  className="flex items-center gap-3 px-4 py-3 bg-gray-800 text-white hover:bg-gradient-to-r hover:from-primary hover:to-blue-600 rounded-lg transition-all shadow-sm"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <MessageCircle className="h-5 w-5" strokeWidth={2.5} />
