@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { getCategories, Category } from "@/lib/api";
 import { useNavigate, useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -22,6 +24,11 @@ const EditBusiness = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [formData, setFormData] = useState<any>(null);
+
+  const { data: categories, isLoading: isLoadingCategories } = useQuery<Category[]>({
+    queryKey: ["categories"],
+    queryFn: getCategories,
+  });
 
   useEffect(() => {
     const fetchBusinessData = async () => {
@@ -118,7 +125,7 @@ const EditBusiness = () => {
     }));
   };
 
-  if (isLoading) {
+  if (isLoading || isLoadingCategories) {
     return <div>Loading...</div>;
   }
 
@@ -172,13 +179,28 @@ const EditBusiness = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label htmlFor="category">Category <span className="text-red-500">*</span></Label>
-                <Input
-                  id="category"
-                  required
-                  placeholder="e.g., BOUTIQUES, Restaurants, Technology"
+                <Select
+                  name="category"
                   value={formData.category || ''}
-                  onChange={(e) => handleChange("category", e.target.value)}
-                />
+                  onValueChange={(value) => handleChange("category", value)}
+                >
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select a category" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {categories?.map((category) => (
+                      <SelectItem key={category.id} value={category.name}>
+                        {category.name}
+                      </SelectItem>
+                    ))}
+                    {/* Fallback for existing category not in list */}
+                    {formData.category && !categories?.some(c => c.name === formData.category) && (
+                      <SelectItem value={formData.category}>
+                        {formData.category}
+                      </SelectItem>
+                    )}
+                  </SelectContent>
+                </Select>
               </div>
               <div className="space-y-2">
                 <Label htmlFor="status">Status</Label>

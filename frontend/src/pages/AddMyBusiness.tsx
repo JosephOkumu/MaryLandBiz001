@@ -1,4 +1,13 @@
 import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { getCategories, Category } from "@/lib/api";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -30,6 +39,12 @@ const AddMyBusiness = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState("");
+
+  const { data: categories } = useQuery<Category[]>({
+    queryKey: ["categories"],
+    queryFn: getCategories,
+  });
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -136,7 +151,20 @@ const AddMyBusiness = () => {
               <motion.div variants={inputAnimation} className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="category">Category <span className="text-red-500">*</span></Label>
-                  <Input id="category" name="category" required placeholder="e.g., BOUTIQUES, Restaurants, Technology" />
+                  <Select name="category" required onValueChange={setSelectedCategory}>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select a category" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {categories?.map((category) => (
+                        <SelectItem key={category.id} value={category.name}>
+                          {category.name}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  {/* Fallback hidden input if Select doesn't render one compatible with FormData in this version */}
+                  <input type="hidden" name="category" value={selectedCategory} />
                 </div>
               </motion.div>
 

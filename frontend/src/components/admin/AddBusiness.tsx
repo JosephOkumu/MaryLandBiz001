@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { getCategories, Category } from "@/lib/api";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -19,6 +21,11 @@ const AddBusiness = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { data: categories } = useQuery<Category[]>({
+    queryKey: ["categories"],
+    queryFn: getCategories,
+  });
+
   const [formData, setFormData] = useState({
     business_name: '',
     location: '',
@@ -101,9 +108,9 @@ const AddBusiness = () => {
         <h1 className="text-2xl font-bold">Add New Business</h1>
       </div>
       <Card className="relative pt-8"> {/* Added relative positioning and padding-top */}
-        <Button 
-          variant="ghost" 
-          size="icon" 
+        <Button
+          variant="ghost"
+          size="icon"
           className="absolute top-2 right-2 text-muted-foreground hover:text-foreground"
           onClick={handleClose}
           title="Close"
@@ -129,7 +136,22 @@ const AddBusiness = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label htmlFor="category">Category <span className="text-red-500">*</span></Label>
-                <Input id="category" required name="category" value={formData.category} onChange={handleChange} placeholder="e.g., BOUTIQUES, Restaurants, Technology" />
+                <Select
+                  name="category"
+                  value={formData.category}
+                  onValueChange={(value) => setFormData(prev => ({ ...prev, category: value }))}
+                >
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select a category" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {categories?.map((category) => (
+                      <SelectItem key={category.id} value={category.name}>
+                        {category.name}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </div>
             </div>
 
@@ -160,12 +182,12 @@ const AddBusiness = () => {
             {/* Row 5: Business Description */}
             <div className="space-y-2">
               <Label htmlFor="description">Business Description</Label>
-              <Textarea 
-                id="description" 
+              <Textarea
+                id="description"
                 name="description"
                 value={formData.description}
                 onChange={handleChange}
-                placeholder="Tell us about your business (optional)" 
+                placeholder="Tell us about your business (optional)"
                 className="h-32"
               />
             </div>
@@ -178,7 +200,7 @@ const AddBusiness = () => {
                 <p className="text-xs text-muted-foreground">Upload an image (optional).</p>
               </div>
             </div>
-            
+
             {/* Submit and Cancel Buttons */}
             <div className="flex justify-end gap-2">
               <Button type="button" variant="outline" onClick={handleClose}>
