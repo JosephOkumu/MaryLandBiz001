@@ -30,7 +30,7 @@ import {
 
 // Define the mapping of category names to Lucide icons
 const categoryIconMap: Record<string, LucideIcon> = {
-  "Professional Services": Briefcase,
+  "Business Support Services": Briefcase,
   "Construction & Contractors": HardHat,
   "Healthcare & Medical": Heart,
   "Food & Dining": Utensils,
