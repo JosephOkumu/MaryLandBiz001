@@ -221,6 +221,55 @@ def admin_authcheck():
         "user": {"id": current_user.id, "username": current_user.username}
     }), 200
 
+@app.route('/api/admin/update-password', methods=['POST'])
+@login_required
+def update_admin_password():
+    """
+    Update admin password. Requires current password verification.
+    """
+    data = request.get_json()
+    current_password = data.get('currentPassword')
+    new_password = data.get('newPassword')
+
+    if not current_password or not new_password:
+        return jsonify({"error": "Current password and new password are required"}), 400
+
+    if len(new_password) < 8:
+        return jsonify({"error": "New password must be at least 8 characters"}), 400
+
+    connection = get_db_connection()
+    if not connection:
+        return jsonify({"error": "Database connection failed"}), 500
+
+    try:
+        cursor = connection.cursor(dictionary=True)
+        
+        # Get current admin's password hash
+        cursor.execute("SELECT password_hash FROM admins WHERE id = %s", (current_user.id,))
+        admin_data = cursor.fetchone()
+        
+        if not admin_data:
+            return jsonify({"error": "Admin not found"}), 404
+        
+        # Verify current password
+        if not bcrypt.check_password_hash(admin_data['password_hash'], current_password):
+            return jsonify({"error": "Current password is incorrect"}), 401
+        
+        # Hash new password and update
+        new_password_hash = bcrypt.generate_password_hash(new_password).decode('utf-8')
+        cursor.execute("UPDATE admins SET password_hash = %s WHERE id = %s", (new_password_hash, current_user.id))
+        connection.commit()
+        
+        return jsonify({"message": "Password updated successfully"}), 200
+        
+    except DBError as err:
+        app.logger.error(f"Database error when updating password: {err}")
+        return jsonify({"error": "Failed to update password"}), 500
+    finally:
+        if connection and connection.is_connected():
+            cursor.close()
+            connection.close()
+
 
 @app.route('/api/businesses', methods=['GET'])
 def get_businesses():
