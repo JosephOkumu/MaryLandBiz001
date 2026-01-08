@@ -22,6 +22,7 @@ import AdminLogin from "./pages/AdminLogin"; // Use user's original AdminLogin p
 import BrowsePage from "./pages/BrowsePage"; // <-- Import BrowsePage
 import About from "./pages/About";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Contact from "./pages/Contact";
 
 // Create a new QueryClient instance
 const queryClient = new QueryClient();
@@ -56,6 +57,7 @@ const App = () => (
               </Route>
 
               <Route path="/browse" element={<BrowsePage />} /> {/* <-- Add /browse route */}
+              <Route path="/contact" element={<Contact />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
