@@ -103,7 +103,7 @@ const Statistics = () => {
   const allBusinesses = data?.pages.flatMap((page: { businesses: Business[], total: number, nextPageOffset: number }) => page.businesses) || [];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <section id="businesses-section" className="py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="container">
         <div className="text-center mb-16">
           <motion.h2
