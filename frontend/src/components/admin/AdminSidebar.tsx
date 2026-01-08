@@ -76,22 +76,22 @@ const AdminSidebar = () => {
   const navItems: NavItem[] = [
     {
       title: "Dashboard",
-      href: "/dashboard",
+      href: "/admin",
       icon: <LayoutDashboard className="h-5 w-5" strokeWidth={2.5} />,
     },
     {
       title: "Applications",
-      href: "/dashboard/applications",
+      href: "/admin/applications",
       icon: <ClipboardList className="h-5 w-5" strokeWidth={2.5} />,
     },
     {
       title: "Analytics",
-      href: "/dashboard/analytics",
+      href: "/admin/analytics",
       icon: <BarChart3 className="h-5 w-5" strokeWidth={2.5} />,
     },
     {
       title: "Settings",
-      href: "/dashboard/settings",
+      href: "/admin/settings",
       icon: <Settings className="h-5 w-5" strokeWidth={2.5} />,
     },
   ];
@@ -103,10 +103,9 @@ const AdminSidebar = () => {
           <NavLink
             key={item.href}
             to={item.href}
-            end={item.href === "/dashboard"} // Add end prop for Dashboard link
+            end={item.href === "/admin"} // Add end prop for Dashboard link
             className={({ isActive }) =>
-              `flex items-center gap-3 rounded-md px-3 py-2 ${
-                isActive ? "bg-primary text-white" : "text-gray-600 hover:bg-gray-100"
+              `flex items-center gap-3 rounded-md px-3 py-2 ${isActive ? "bg-primary text-white" : "text-gray-600 hover:bg-gray-100"
               }`
             }
           >

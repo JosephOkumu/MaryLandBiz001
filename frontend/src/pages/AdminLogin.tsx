@@ -42,7 +42,7 @@ const AdminLogin = () => {
   useEffect(() => {
     if (currentUser) {
       toast.success("Login successful!");
-      navigate("/dashboard");
+      navigate("/admin");
     }
   }, [currentUser, navigate]);
 

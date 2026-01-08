@@ -82,7 +82,7 @@ const AddBusiness = () => {
           title: "Success",
           description: "Business added successfully!",
         });
-        navigate('/dashboard');
+        navigate('/admin');
       } else {
         toast({
           title: "Error",
@@ -102,7 +102,7 @@ const AddBusiness = () => {
   };
 
   const handleClose = () => {
-    navigate('/dashboard');
+    navigate('/admin');
   };
 
   return (

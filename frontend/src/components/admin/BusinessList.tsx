@@ -1,18 +1,18 @@
 import { useState, useEffect } from "react";
 import { getBusinesses, Business } from "../../lib/api"; // Import API function and type
 import { Link } from "react-router-dom";
-import { 
-  Table, 
-  TableBody, 
-  TableCell, 
-  TableHead, 
-  TableHeader, 
-  TableRow 
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Edit, Trash2, Plus, Search, ChevronLeft, ChevronRight } from "lucide-react"; // Added Chevrons for pagination
-import { 
+import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
@@ -91,7 +91,7 @@ const BusinessList = () => {
   // Reset to page 1 when debounced search term changes
   useEffect(() => {
     if (debouncedSearchTerm !== "" || searchTerm === "") { // Reset if debounced term is set, or if search is cleared
-        setCurrentPage(1);
+      setCurrentPage(1);
     }
   }, [debouncedSearchTerm, searchTerm]); // Watch both to catch clearing the search
 
@@ -156,7 +156,7 @@ const BusinessList = () => {
 
   const getPageNumbers = (): (number | string)[] => {
     const pageNumbers: (number | string)[] = [];
-    const maxPagesToShow = 5; 
+    const maxPagesToShow = 5;
     const halfMaxPages = Math.floor(maxPagesToShow / 2);
 
     if (totalPages <= maxPagesToShow) {
@@ -168,21 +168,21 @@ const BusinessList = () => {
       let showStartEllipsis = currentPage > halfMaxPages + 1;
       let showEndEllipsis = currentPage < totalPages - halfMaxPages;
 
-      let startPage = Math.max(2, currentPage - halfMaxPages +1);
-      let endPage = Math.min(totalPages - 1, currentPage + halfMaxPages -1);
+      let startPage = Math.max(2, currentPage - halfMaxPages + 1);
+      let endPage = Math.min(totalPages - 1, currentPage + halfMaxPages - 1);
 
-      if (currentPage <= halfMaxPages) { 
+      if (currentPage <= halfMaxPages) {
         startPage = 2;
-        endPage = Math.min(totalPages -1, maxPagesToShow - 2); 
+        endPage = Math.min(totalPages - 1, maxPagesToShow - 2);
         showStartEllipsis = false;
-      } else if (currentPage > totalPages - halfMaxPages) { 
+      } else if (currentPage > totalPages - halfMaxPages) {
         startPage = Math.max(2, totalPages - (maxPagesToShow - 3));
         endPage = totalPages - 1;
         showEndEllipsis = false;
       }
-      
+
       if (showStartEllipsis) {
-        pageNumbers.push('...'); 
+        pageNumbers.push('...');
       }
 
       for (let i = startPage; i <= endPage; i++) {
@@ -190,7 +190,7 @@ const BusinessList = () => {
       }
 
       if (showEndEllipsis) {
-        pageNumbers.push('...'); 
+        pageNumbers.push('...');
       }
       if (totalPages > 1) pageNumbers.push(totalPages);
     }
@@ -229,7 +229,7 @@ const BusinessList = () => {
             />
           </div>
           <Button asChild>
-            <Link to="/dashboard/businesses/add">
+            <Link to="/admin/businesses/add">
               <Plus className="mr-2 h-4 w-4" strokeWidth={2.5} />
               Add Business
             </Link>
@@ -256,20 +256,20 @@ const BusinessList = () => {
                   <TableCell>{business.category || 'N/A'}</TableCell>
                   <TableCell>{business.location || 'N/A'}</TableCell>
                   <TableCell>
-                    <div>{business.contact_phone || business.tel || 'N/A'}</div>
+                    <div>{business.tel || 'N/A'}</div>
                     {business.contact_name && <div className="text-xs text-muted-foreground">{business.contact_name}</div>}
                   </TableCell>
                   <TableCell className="text-right">
                     <div className="flex items-center justify-end gap-2">
                       <Button asChild variant="ghost" size="icon">
-                        <Link to={`/dashboard/businesses/edit/${business.id}`} title="Edit">
+                        <Link to={`/admin/businesses/edit/${business.id}`} title="Edit">
                           <Edit className="h-4 w-4" strokeWidth={2.5} />
                           <span className="sr-only">Edit</span>
                         </Link>
                       </Button>
-                      <Button 
-                        variant="ghost" 
-                        size="icon" 
+                      <Button
+                        variant="ghost"
+                        size="icon"
                         className="text-red-600 hover:text-red-700"
                         onClick={() => handleDelete(business)}
                         title="Delete"
@@ -314,8 +314,8 @@ const BusinessList = () => {
                       onClick={(e) => { e.preventDefault(); handlePageClick(page as number); }}
                       isActive={currentPage === page}
                       className={`
-                        ${currentPage === page 
-                          ? 'bg-blue-600 text-white hover:bg-blue-700' 
+                        ${currentPage === page
+                          ? 'bg-blue-600 text-white hover:bg-blue-700'
                           : 'hover:bg-blue-100 hover:text-blue-700'
                         }
                       `}

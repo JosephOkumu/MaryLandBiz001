@@ -41,7 +41,7 @@ const EditBusiness = () => {
         if (response.ok) {
           setFormData(data);
         } else {
-          navigate("/dashboard/businesses");
+          navigate("/admin/businesses");
           toast({
             title: "Business not found",
             description: data.error || "The requested business could not be found",
@@ -49,7 +49,7 @@ const EditBusiness = () => {
           });
         }
       } catch (error) {
-        navigate("/dashboard/businesses");
+        navigate("/admin/businesses");
         toast({
           title: "Error",
           description: "Failed to fetch business data. Please try again.",
@@ -99,7 +99,7 @@ const EditBusiness = () => {
           title: "Business updated",
           description: "The business has been successfully updated",
         });
-        navigate("/dashboard/businesses");
+        navigate("/admin/businesses");
       } else {
         toast({
           title: "Error",
@@ -143,7 +143,7 @@ const EditBusiness = () => {
           variant="ghost"
           size="icon"
           className="absolute top-2 right-2 text-muted-foreground hover:text-foreground"
-          onClick={() => navigate("/dashboard/businesses")}
+          onClick={() => navigate("/admin/businesses")}
           title="Close"
         >
           <X className="h-5 w-5" />
@@ -317,7 +317,7 @@ const EditBusiness = () => {
 
             {/* Submit and Cancel Buttons */}
             <div className="flex justify-end gap-2">
-              <Button type="button" variant="outline" onClick={() => navigate("/dashboard/businesses")}>
+              <Button type="button" variant="outline" onClick={() => navigate("/admin/businesses")}>
                 Cancel
               </Button>
               <Button type="submit" disabled={isSubmitting}>

@@ -73,7 +73,7 @@ const AdminHeader = () => {
   }, []);
 
   const handleNotificationClick = (appId: string) => {
-    navigate(`/dashboard/applications?id=${appId}`);
+    navigate(`/admin/applications?id=${appId}`);
     // The ApplicationsPage will handle marking it as not new and updating localStorage
   };
 
@@ -90,7 +90,7 @@ const AdminHeader = () => {
             </span>
           </Link>
         </div>
-        
+
         <div className="flex items-center gap-2">
           {/* Notifications Dropdown - Tied to Bell Icon */}
           <DropdownMenu>
@@ -114,8 +114,8 @@ const AdminHeader = () => {
               <DropdownMenuSeparator />
               {newApplicationsCount > 0 ? (
                 newApplicationsList.map(app => (
-                  <DropdownMenuItem 
-                    key={app.id} 
+                  <DropdownMenuItem
+                    key={app.id}
                     className="flex items-start gap-3 p-3 cursor-pointer hover:bg-muted/50"
                     onClick={() => handleNotificationClick(app.id)}
                   >
@@ -125,7 +125,7 @@ const AdminHeader = () => {
                         {app.businessName}
                       </div>
                       <div className="text-xs text-muted-foreground truncate">
-                        {new Date(app.submittedAt).toISOString().replace('T', ' ').slice(8,10)}-{new Date(app.submittedAt).toISOString().slice(5,7)}-{new Date(app.submittedAt).toISOString().slice(0,4)} {new Date(app.submittedAt).toISOString().slice(11,16)} UTC
+                        {new Date(app.submittedAt).toISOString().replace('T', ' ').slice(8, 10)}-{new Date(app.submittedAt).toISOString().slice(5, 7)}-{new Date(app.submittedAt).toISOString().slice(0, 4)} {new Date(app.submittedAt).toISOString().slice(11, 16)} UTC
                       </div>
                     </div>
                   </DropdownMenuItem>
@@ -137,7 +137,7 @@ const AdminHeader = () => {
               )}
               <DropdownMenuSeparator />
               <DropdownMenuItem asChild>
-                <Link to="/dashboard/applications" className="flex items-center justify-center p-2 text-sm font-medium text-primary hover:bg-muted/50">
+                <Link to="/admin/applications" className="flex items-center justify-center p-2 text-sm font-medium text-primary hover:bg-muted/50">
                   View all applications
                 </Link>
               </DropdownMenuItem>
@@ -157,9 +157,9 @@ const AdminHeader = () => {
               <DropdownMenuLabel>My Account</DropdownMenuLabel>
               <DropdownMenuSeparator />
               <DropdownMenuItem>Profile</DropdownMenuItem>
-              <DropdownMenuItem onClick={() => navigate('/dashboard/settings')}>Settings</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => navigate('/admin/settings')}>Settings</DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem onClick={async () => { await logout(); navigate('/admin'); /* Navigate to admin login page after logout */ }}>Log out</DropdownMenuItem>
+              <DropdownMenuItem onClick={async () => { await logout(); navigate('/admin/login'); /* Navigate to admin login page after logout */ }}>Log out</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>

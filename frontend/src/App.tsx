@@ -39,11 +39,11 @@ const App = () => (
               <Route path="/add-my-business" element={<AddMyBusiness />} />
               <Route path="/about" element={<About />} />
               {/* Admin Login Route - public */}
-              <Route path="/admin" element={<AdminLogin />} />
+              <Route path="/admin/login" element={<AdminLogin />} />
 
               {/* Protected Admin Dashboard Routes */}
               <Route element={<ProtectedRoute />}>
-                <Route path="/dashboard" element={<AdminLayout />}>
+                <Route path="/admin" element={<AdminLayout />}>
                   {/* Children of AdminLayout are now protected */}
                   <Route index element={<Dashboard />} />
                   <Route path="businesses" element={<BusinessList />} />
