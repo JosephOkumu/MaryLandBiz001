@@ -54,7 +54,6 @@ const categoryIconMap: Record<string, LucideIcon> = {
   "Engineering & Architecture": Building,
   "Pet Services": PawPrint,
   "Funeral Services": Cross,
-  "Specialty Services": Flower,
   "Government": Building2,
 };
 
