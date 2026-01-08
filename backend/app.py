@@ -304,7 +304,14 @@ def create_business():
     """
     Create a new business entry. Accessible only to logged-in admin users.
     """
-    data = request.get_json()
+    # Handle multipart/form-data for image uploads
+    if request.content_type and 'multipart/form-data' in request.content_type:
+        data = request.form.to_dict()
+        image_file = request.files.get('business_image')
+    else:
+        data = request.get_json()
+        image_file = None
+
     required_fields = ['business_name', 'category', 'location']
 
     # Validate required fields
@@ -317,11 +324,18 @@ def create_business():
         return jsonify({"error": "Database connection failed"}), 500
 
     try:
+        # Process image if provided
+        image_url = None
+        if image_file:
+            image_url = save_uploaded_file(image_file)
+        elif 'image_url' in data: # Fallback if image_url is sent directly
+             image_url = data['image_url']
+
         cursor = connection.cursor()
         query = """
             INSERT INTO businesses
-            (business_name, category, location, contact_name, tel, email, website, description, featured)
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+            (business_name, category, location, contact_name, tel, email, website, description, image_url, featured)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
         """
         values = (
             data.get('business_name'),
@@ -332,7 +346,7 @@ def create_business():
             data.get('email', ''),
             data.get('website', ''),
             data.get('description', ''),
-            data.get('image_url', None),
+            image_url,
             data.get('featured', False)
         )
         cursor.execute(query, values)
@@ -342,7 +356,8 @@ def create_business():
         return jsonify({
             "success": True,
             "message": "Business created successfully",
-            "business_id": business_id
+            "business_id": business_id,
+            "image_url": image_url
         }), 201
 
     except DBError as err:

@@ -54,22 +54,25 @@ const AddBusiness = () => {
     setIsSubmitting(true);
 
     try {
+
+      const submitData = new FormData();
+      submitData.append('business_name', formData.business_name);
+      submitData.append('location', formData.location);
+      submitData.append('category', formData.category);
+      submitData.append('contact_name', formData.contact_name || '');
+      submitData.append('tel', formData.tel || '');
+      submitData.append('email', formData.email || '');
+      submitData.append('website', formData.website || '');
+      submitData.append('description', formData.description || '');
+
+      if (formData.image instanceof File) {
+        submitData.append('business_image', formData.image);
+      }
+
       const response = await fetch('http://localhost:5000/api/businesses', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
         credentials: 'include', // Necessary for session cookies if using Flask-Login
-        body: JSON.stringify({
-          business_name: formData.business_name,
-          location: formData.location,
-          category: formData.category,
-          contact_name: formData.contact_name,
-          tel: formData.tel,
-          email: formData.email,
-          website: formData.website,
-          description: formData.description
-        }),
+        body: submitData,
       });
 
       const data = await response.json();
