@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Building, Users, Target, Award, Heart, MapPin, Phone, Mail, ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 
 const About = () => {
   const navigate = useNavigate();
@@ -50,6 +51,7 @@ const About = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-orange-50 flex flex-col">
+      <Header />
       {/* Back Button */}
       <div className="container pt-6">
         <button

@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Shield, Lock, Eye, Database, UserCheck, ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 
 const PrivacyPolicy = () => {
     const navigate = useNavigate();
@@ -81,6 +82,7 @@ const PrivacyPolicy = () => {
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-orange-50 flex flex-col">
+            <Header />
             {/* Back Button */}
             <div className="container pt-6">
                 <button

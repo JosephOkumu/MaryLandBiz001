@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, ArrowLeft, Clock } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 
 const Contact = () => {
@@ -46,6 +47,7 @@ const Contact = () => {
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-orange-50 flex flex-col">
+            <Header />
             {/* Back Button */}
             <div className="container pt-6">
                 <button
