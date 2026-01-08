@@ -6,7 +6,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { Building, Lock, User } from "lucide-react";
+import { Building, Lock, User, Eye, EyeOff } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
@@ -25,6 +25,7 @@ const loginSchema = z.object({
 type LoginFormValues = z.infer<typeof loginSchema>;
 
 const AdminLogin = () => {
+  const [showPassword, setShowPassword] = useState(false);
   // isLoading from AuthContext will be used. Local error can also be from context.
   // const [localIsLoading, setLocalIsLoading] = useState(false); // Can remove if using context's isLoading directly
   const { login, currentUser, isLoading, error: authError } = useAuth();
@@ -77,7 +78,7 @@ const AdminLogin = () => {
           <span className="text-secondary">Biz</span>
         </span>
       </Link>
-      
+
       <Card className="w-full max-w-md">
         <CardHeader className="space-y-1">
           <CardTitle className="text-2xl font-bold text-center">Admin Login</CardTitle>
@@ -97,10 +98,10 @@ const AdminLogin = () => {
                     <FormControl>
                       <div className="relative">
                         <User className="absolute left-3 top-2.5 h-5 w-5 text-muted-foreground" />
-                        <Input 
-                          placeholder="Enter your username" 
-                          className="pl-10" 
-                          {...field} 
+                        <Input
+                          placeholder="Enter your username"
+                          className="pl-10"
+                          {...field}
                         />
                       </div>
                     </FormControl>
@@ -108,7 +109,7 @@ const AdminLogin = () => {
                   </FormItem>
                 )}
               />
-              
+
               <FormField
                 control={form.control}
                 name="password"
@@ -118,12 +119,25 @@ const AdminLogin = () => {
                     <FormControl>
                       <div className="relative">
                         <Lock className="absolute left-3 top-2.5 h-5 w-5 text-muted-foreground" />
-                        <Input 
-                          type="password" 
-                          placeholder="••••••••" 
-                          className="pl-10"
-                          {...field} 
+                        <Input
+                          type={showPassword ? "text" : "password"}
+                          placeholder="••••••••"
+                          className="pl-10 pr-10"
+                          {...field}
                         />
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="sm"
+                          className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
+                          onClick={() => setShowPassword(!showPassword)}
+                        >
+                          {showPassword ? (
+                            <EyeOff className="h-4 w-4 text-gray-500" />
+                          ) : (
+                            <Eye className="h-4 w-4 text-gray-500" />
+                          )}
+                        </Button>
                       </div>
                     </FormControl>
                     <FormMessage />
@@ -131,16 +145,16 @@ const AdminLogin = () => {
                 )}
               />
 
-              <Button 
-                type="submit" 
-                className="w-full" 
+              <Button
+                type="submit"
+                className="w-full"
                 disabled={isLoading} // Now uses isLoading from AuthContext
               >
                 {isLoading ? "Logging in..." : "Login to Dashboard"} {/* Uses isLoading from AuthContext */}
               </Button>
             </form>
           </Form>
-          
+
           <div className="mt-4 text-center text-sm">
             <Link to="/" className="text-primary hover:underline">
               Return to homepage
