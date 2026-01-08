@@ -8,8 +8,7 @@ const About = () => {
   const navigate = useNavigate();
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 }
+    animate: { opacity: 1, y: 0 }
   };
 
   const staggerContainer = {
@@ -92,7 +91,7 @@ const About = () => {
             whileInView="animate"
             viewport={{ once: true }}
           >
-            <motion.div variants={fadeInUp}>
+            <motion.div variants={fadeInUp} transition={{ duration: 0.6 }}>
               <h2 className="text-4xl font-bold mb-6 text-primary">Our Mission</h2>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                 MarylandBiz was founded with a simple yet powerful vision: to create a comprehensive platform that showcases and supports Maryland's vibrant minority-owned business community. We believe that every business deserves the opportunity to be discovered, celebrated, and supported.
@@ -103,6 +102,7 @@ const About = () => {
             </motion.div>
             <motion.div
               variants={fadeInUp}
+              transition={{ duration: 0.6 }}
               className="relative"
             >
               <div className="bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl p-8 text-center">
@@ -144,6 +144,7 @@ const About = () => {
               <motion.div
                 key={index}
                 variants={fadeInUp}
+                transition={{ duration: 0.6 }}
                 className="bg-gradient-to-br from-gray-50 to-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 text-center"
               >
                 <div className="bg-gradient-to-r from-primary to-secondary p-3 rounded-lg inline-block text-white mb-4">
@@ -184,6 +185,7 @@ const About = () => {
               <motion.div
                 key={index}
                 variants={fadeInUp}
+                transition={{ duration: 0.6 }}
                 className="text-center"
               >
                 <div className="text-5xl font-bold mb-2 text-primary">{stat.number}</div>
