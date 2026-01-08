@@ -213,9 +213,9 @@ const Analytics = () => {
                 New Listings Over Time
               </CardTitle>
             </CardHeader>
-            <CardContent className="h-[300px]">
+            <CardContent className="h-[450px]">
               <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={monthlyGrowthData}>
+                <LineChart data={monthlyGrowthData} margin={{ top: 20, right: 30, left: 20, bottom: 20 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                   <XAxis dataKey="name" stroke="#666" />
                   <YAxis allowDecimals={false} stroke="#666" />
@@ -227,7 +227,7 @@ const Analytics = () => {
                       boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
                     }}
                   />
-                  <Legend />
+                  <Legend verticalAlign="bottom" height={36} />
                   <Line
                     type="monotone"
                     dataKey="count"
@@ -255,9 +255,9 @@ const Analytics = () => {
                 Businesses by Category
               </CardTitle>
             </CardHeader>
-            <CardContent className="h-[300px]">
+            <CardContent className="h-[450px]">
               <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={categoryData}>
+                <BarChart data={categoryData} margin={{ top: 20, right: 30, left: 20, bottom: 40 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                   <XAxis
                     dataKey="name"
@@ -265,7 +265,7 @@ const Analytics = () => {
                     tick={{ fontSize: 12 }}
                     angle={-45}
                     textAnchor="end"
-                    height={80}
+                    height={120}
                   />
                   <YAxis allowDecimals={false} stroke="#666" />
                   <Tooltip
@@ -276,7 +276,7 @@ const Analytics = () => {
                       boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
                     }}
                   />
-                  <Legend />
+                  <Legend verticalAlign="bottom" height={36} />
                   <Bar
                     dataKey="value"
                     name="Businesses"
