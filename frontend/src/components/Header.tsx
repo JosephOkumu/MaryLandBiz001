@@ -3,6 +3,7 @@ import { Building, Home, Search, PlusCircle, Menu, X, MessageCircle } from "luci
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import TypewriterText from "./TypewriterText";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -44,24 +45,27 @@ const Header = () => {
             <motion.div whileHover={{ rotate: 10 }} transition={{ type: "spring", stiffness: 300 }}>
               <Building className="h-6 w-6 md:h-8 md:w-8 text-primary" strokeWidth={2.5} />
             </motion.div>
-            <span className="text-xl md:text-2xl font-bold">
-              <motion.span
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.2 }}
-                className="text-[#0061A8]"
-              >
-                Maryland
-              </motion.span>
-              <motion.span
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4 }}
-                className="text-secondary"
-              >
-                Biz
-              </motion.span>
-            </span>
+            <div className="flex flex-col">
+              <span className="text-xl md:text-2xl font-bold leading-none">
+                <motion.span
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.2 }}
+                  className="text-[#0061A8]"
+                >
+                  Maryland
+                </motion.span>
+                <motion.span
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.4 }}
+                  className="text-secondary"
+                >
+                  Biz
+                </motion.span>
+              </span>
+              <TypewriterText text="Powered by PCG" />
+            </div>
           </Link>
 
           {/* Desktop Navigation */}

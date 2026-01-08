@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Building, Bell, User, Mail } from "lucide-react"; // Removed Menu as it's not used
+import TypewriterText from "../TypewriterText";
 import { useAuth } from "../../components/AuthContext";
 import { API_BASE_URL } from "@/lib/api";
 import { Button } from "@/components/ui/button";
@@ -85,10 +86,13 @@ const AdminHeader = () => {
           {/* Hamburger menu button removed */}
           <Link to="/" className="flex items-center space-x-2 ml-14"> {/* Corrected to ml-14 to accurately restore position */}
             <Building className="h-6 w-6 text-primary" strokeWidth={2.5} />
-            <span className="text-xl font-bold">
-              <span className="text-[#0061A8]">Maryland</span>
-              <span className="text-secondary">Biz</span> Admin
-            </span>
+            <div className="flex flex-col">
+              <span className="text-xl font-bold leading-none">
+                <span className="text-[#0061A8]">Maryland</span>
+                <span className="text-secondary">Biz</span> Admin
+              </span>
+              <TypewriterText text="Powered by PCG" />
+            </div>
           </Link>
         </div>
 
