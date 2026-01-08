@@ -47,7 +47,7 @@ const AdminSettings = () => {
       <div className="flex items-center justify-between space-y-2">
         <h2 className="text-3xl font-bold tracking-tight">Settings</h2>
       </div>
-      
+
       <Card>
         <CardHeader>
           <CardTitle>Password</CardTitle>
@@ -71,7 +71,7 @@ const AdminSettings = () => {
                   </FormItem>
                 )}
               />
-              
+
               <FormField
                 control={form.control}
                 name="newPassword"
@@ -85,7 +85,7 @@ const AdminSettings = () => {
                   </FormItem>
                 )}
               />
-              
+
               <FormField
                 control={form.control}
                 name="confirmPassword"
@@ -99,40 +99,14 @@ const AdminSettings = () => {
                   </FormItem>
                 )}
               />
-              
+
               <Button type="submit">Update Password</Button>
             </form>
           </Form>
         </CardContent>
       </Card>
-      
-      <Card>
-        <CardHeader>
-          <CardTitle>Notification Preferences</CardTitle>
-          <CardDescription>
-            Manage your notification settings
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-4">
-            <div className="flex items-center justify-between">
-              <div>
-                <h3 className="font-medium">Email Notifications</h3>
-                <p className="text-sm text-muted-foreground">Receive email notifications for new business registrations</p>
-              </div>
-              <Button variant="outline">Configure</Button>
-            </div>
-            <Separator />
-            <div className="flex items-center justify-between">
-              <div>
-                <h3 className="font-medium">System Alerts</h3>
-                <p className="text-sm text-muted-foreground">Important system updates and alerts</p>
-              </div>
-              <Button variant="outline">Configure</Button>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
+
+
     </div>
   );
 };
