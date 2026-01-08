@@ -107,7 +107,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative py-12 md:py-20 text-white min-h-[70vh] md:min-h-[80vh] flex items-center overflow-hidden">
+    <section className="relative py-12 md:py-20 text-white min-h-[70vh] md:min-h-[80vh] flex flex-col justify-center overflow-hidden">
       {/* Carousel Background */}
       <div className="embla absolute inset-0" ref={emblaRef}>
         <div className="embla__container flex">
