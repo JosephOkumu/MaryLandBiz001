@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { BarChart as BarChartIcon, ClipboardList, PlusSquare, TrendingUp } from "lucide-react";
 import { motion } from "framer-motion";
-import { getBusinesses, getNewBusinessesCount, getBusinessApplications, getTopCategories } from "../../lib/api";
+import { getBusinesses, getNewBusinessesCount, getBusinessApplications, getTopCategories, getMonthlyGrowth } from "../../lib/api";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   BarChart,
@@ -33,26 +33,26 @@ const useAnimatedCounter = (endValue: number, duration: number = 2000) => {
 
   useEffect(() => {
     if (endValue === 0) return;
-    
+
     const startTime = Date.now();
     const startValue = countRef.current;
-    
+
     const updateCount = () => {
       const now = Date.now();
       const progress = Math.min((now - startTime) / duration, 1);
-      
+
       // Easing function for smooth animation
       const easeOutQuart = 1 - Math.pow(1 - progress, 4);
       const currentCount = Math.floor(startValue + (endValue - startValue) * easeOutQuart);
-      
+
       setCount(currentCount);
       countRef.current = currentCount;
-      
+
       if (progress < 1) {
         requestAnimationFrame(updateCount);
       }
     };
-    
+
     requestAnimationFrame(updateCount);
   }, [endValue, duration]);
 
@@ -64,6 +64,7 @@ const Analytics = () => {
   const [newListings, setNewListings] = useState<number>(0);
   const [pendingApplications, setPendingApplications] = useState(0);
   const [categoryData, setCategoryData] = useState<any[]>([]);
+  const [monthlyGrowthData, setMonthlyGrowthData] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -84,6 +85,10 @@ const Analytics = () => {
         setTotalBusinesses(response.total || 0);
         const count = await getNewBusinessesCount();
         setNewListings(count);
+
+        // Fetch monthly growth data
+        const growthData = await getMonthlyGrowth();
+        setMonthlyGrowthData(growthData);
 
         // Fetch category data for chart
         const categories = await getTopCategories(6);
@@ -126,7 +131,7 @@ const Analytics = () => {
         </h1>
         <p className="text-gray-600 mt-2">Real-time insights into your business directory</p>
       </motion.div>
-      
+
       <div className="grid gap-6 md:grid-cols-3">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -151,7 +156,7 @@ const Analytics = () => {
             </CardContent>
           </Card>
         </motion.div>
-        
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -172,7 +177,7 @@ const Analytics = () => {
             </CardContent>
           </Card>
         </motion.div>
-        
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -194,7 +199,7 @@ const Analytics = () => {
           </Card>
         </motion.div>
       </div>
-      
+
       <div className="grid gap-6 md:grid-cols-2">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
@@ -210,26 +215,26 @@ const Analytics = () => {
             </CardHeader>
             <CardContent className="h-[300px]">
               <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={newListingsMonthlyData}>
+                <LineChart data={monthlyGrowthData}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                   <XAxis dataKey="name" stroke="#666" />
                   <YAxis allowDecimals={false} stroke="#666" />
-                  <Tooltip 
-                    contentStyle={{ 
-                      backgroundColor: '#fff', 
+                  <Tooltip
+                    contentStyle={{
+                      backgroundColor: '#fff',
                       border: '1px solid #e0e0e0',
                       borderRadius: '8px',
                       boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
                     }}
                   />
                   <Legend />
-                  <Line 
-                    type="monotone" 
-                    dataKey="count" 
+                  <Line
+                    type="monotone"
+                    dataKey="count"
                     name="New Listings Added"
-                    stroke="#0061A8" 
+                    stroke="#0061A8"
                     strokeWidth={3}
-                    activeDot={{ r: 6, fill: '#E0592A' }} 
+                    activeDot={{ r: 6, fill: '#E0592A' }}
                     dot={{ fill: '#0061A8', strokeWidth: 2, r: 4 }}
                   />
                 </LineChart>
@@ -237,7 +242,7 @@ const Analytics = () => {
             </CardContent>
           </Card>
         </motion.div>
-        
+
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -254,8 +259,8 @@ const Analytics = () => {
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={categoryData}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-                  <XAxis 
-                    dataKey="name" 
+                  <XAxis
+                    dataKey="name"
                     stroke="#666"
                     tick={{ fontSize: 12 }}
                     angle={-45}
@@ -263,18 +268,18 @@ const Analytics = () => {
                     height={80}
                   />
                   <YAxis allowDecimals={false} stroke="#666" />
-                  <Tooltip 
-                    contentStyle={{ 
-                      backgroundColor: '#fff', 
+                  <Tooltip
+                    contentStyle={{
+                      backgroundColor: '#fff',
                       border: '1px solid #e0e0e0',
                       borderRadius: '8px',
                       boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
                     }}
                   />
                   <Legend />
-                  <Bar 
-                    dataKey="value" 
-                    name="Businesses" 
+                  <Bar
+                    dataKey="value"
+                    name="Businesses"
                     fill="#0061A8"
                     radius={[4, 4, 0, 0]}
                   />
@@ -284,7 +289,7 @@ const Analytics = () => {
           </Card>
         </motion.div>
       </div>
-      
+
       {/* Device Usage Card Removed */}
     </div>
   );

@@ -629,6 +629,41 @@ def get_new_businesses_count():
             cursor.close()
             connection.close()
 
+@app.route('/api/analytics/monthly-growth', methods=['GET'])
+@login_required
+def get_monthly_growth():
+    connection = get_db_connection()
+    if not connection:
+        return jsonify({'error': 'Database connection failed'}), 500
+
+    try:
+        cursor = connection.cursor(dictionary=True)
+        # Get data for the last 6 months using date_added
+        query = """
+            SELECT 
+                DATE_FORMAT(date_added, '%b') as name,
+                COUNT(*) as count,
+                YEAR(date_added) as year,
+                MONTH(date_added) as month
+            FROM businesses 
+            WHERE date_added >= DATE_SUB(NOW(), INTERVAL 6 MONTH)
+            GROUP BY year, month, name
+            ORDER BY year, month
+        """
+        cursor.execute(query)
+        results = cursor.fetchall()
+        
+        # Format for frontend
+        data = [{'name': row['name'], 'count': row['count']} for row in results]
+        
+        return jsonify(data)
+    except DBError as err:
+        return jsonify({'error': str(err)}), 500
+    finally:
+        if connection.is_connected():
+            cursor.close()
+            connection.close()
+
 @app.route('/api/businesses/<int:id>', methods=['GET'])
 @login_required
 def get_business(id):

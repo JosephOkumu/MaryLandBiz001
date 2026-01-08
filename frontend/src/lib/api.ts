@@ -224,3 +224,16 @@ export const checkAdminAuth = async (): Promise<AdminAuthResponse> => {
   }
   return await response.json(); // Should be { is_authenticated: true, user: AdminUser }
 };
+
+// Fetch monthly growth data
+export const getMonthlyGrowth = async (): Promise<{ name: string; count: number }[]> => {
+  const response = await fetch("http://localhost:5000/api/analytics/monthly-growth", {
+    credentials: "include",
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch monthly growth data");
+  }
+
+  return await response.json();
+};
