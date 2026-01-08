@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { getCategories, Category } from "@/lib/api";
+import { getCategories, Category, API_BASE_URL } from "@/lib/api";
 import {
   Select,
   SelectContent,
@@ -71,7 +71,7 @@ const AddMyBusiness = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/api/business-applications', {
+      const response = await fetch(`${API_BASE_URL}/api/business-applications`, {
         method: 'POST',
         // Don't set Content-Type header - browser will set it automatically with boundary for multipart/form-data
         body: submitData,

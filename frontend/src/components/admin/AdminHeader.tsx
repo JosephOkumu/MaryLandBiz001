@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Building, Bell, User, Mail } from "lucide-react"; // Removed Menu as it's not used
 import { useAuth } from "../../components/AuthContext";
+import { API_BASE_URL } from "@/lib/api";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -37,7 +38,7 @@ const AdminHeader = () => {
 
   const updateNotifications = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/business-applications', {
+      const response = await fetch(`${API_BASE_URL}/api/business-applications`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

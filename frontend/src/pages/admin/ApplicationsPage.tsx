@@ -15,6 +15,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { useState, useEffect } from "react";
 import { useSearchParams } from 'react-router-dom';
 import { ApplicationReviewModal } from "@/components/admin/ApplicationReviewModal";
+import { API_BASE_URL } from "@/lib/api";
 
 // Define the Application interface
 // Interface for applications from localStorage, mirroring what AddMyBusiness will save
@@ -67,7 +68,7 @@ function ApplicationsPage() {
     setIsLoading(true);
     const fetchApplications = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/business-applications?status=pending', {
+        const response = await fetch(`${API_BASE_URL}/api/business-applications?status=pending`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -132,7 +133,7 @@ function ApplicationsPage() {
 
     try {
       // The backend now handles creating the business entry when status is set to 'approved'
-      const statusResponse = await fetch(`http://localhost:5000/api/business-applications/${applicationToApprove.id}/status`, {
+      const statusResponse = await fetch(`${API_BASE_URL}/api/business-applications/${applicationToApprove.id}/status`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -181,7 +182,7 @@ function ApplicationsPage() {
     console.log("Rejecting application:", applicationToReject);
 
     try {
-      const statusResponse = await fetch(`http://localhost:5000/api/business-applications/${applicationToReject.id}/status`, {
+      const statusResponse = await fetch(`${API_BASE_URL}/api/business-applications/${applicationToReject.id}/status`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

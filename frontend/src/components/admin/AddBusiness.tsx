@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { getCategories, Category } from "@/lib/api";
+import { getCategories, Category, API_BASE_URL } from "@/lib/api";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -69,7 +69,7 @@ const AddBusiness = () => {
         submitData.append('business_image', formData.image);
       }
 
-      const response = await fetch('http://localhost:5000/api/businesses', {
+      const response = await fetch(`${API_BASE_URL}/api/businesses`, {
         method: 'POST',
         credentials: 'include', // Necessary for session cookies if using Flask-Login
         body: submitData,

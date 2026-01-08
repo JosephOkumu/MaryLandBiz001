@@ -13,6 +13,7 @@ import { Separator } from "@/components/ui/separator";
 import { useState } from 'react';
 import { useToast } from "@/components/ui/use-toast";
 import { Eye } from "lucide-react";
+import { API_BASE_URL } from "@/lib/api";
 
 // Assuming Application type is defined in ApplicationsPage.tsx or a shared types file
 // For now, let's redefine a similar structure here for clarity if not imported
@@ -177,7 +178,7 @@ export const ApplicationReviewModal = ({
               ✕
             </Button>
             <img
-              src={`http://localhost:5000${application.image_url}`}
+              src={`${API_BASE_URL}${application.image_url}`}
               alt={application.business_name}
               className="max-w-full max-h-[85vh] object-contain"
               onError={(e) => {

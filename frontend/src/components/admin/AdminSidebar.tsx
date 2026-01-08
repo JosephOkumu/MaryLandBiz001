@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { LayoutDashboard, Store, BarChart3, Settings, ClipboardList, PlusCircle } from "lucide-react"; // Added ClipboardList, kept PlusCircle for other uses if any
+import { API_BASE_URL } from "@/lib/api";
 import { Badge } from "@/components/ui/badge";
 
 interface AdminSidebarProps {
@@ -33,7 +34,7 @@ const AdminSidebar = () => {
 
   const updateNotificationCount = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/business-applications', {
+      const response = await fetch(`${API_BASE_URL}/api/business-applications`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

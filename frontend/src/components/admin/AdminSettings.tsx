@@ -12,6 +12,7 @@ import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import { useAuth } from "@/components/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { API_BASE_URL } from "@/lib/api";
 
 const passwordSchema = z.object({
   currentPassword: z.string().min(6, {
@@ -50,7 +51,7 @@ const AdminSettings = () => {
   async function onSubmit(data: PasswordFormValues) {
     setIsLoading(true);
     try {
-      const response = await fetch('http://localhost:5000/api/admin/update-password', {
+      const response = await fetch(`${API_BASE_URL}/api/admin/update-password`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

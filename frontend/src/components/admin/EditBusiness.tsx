@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { getCategories, Category } from "@/lib/api";
+import { getCategories, Category, API_BASE_URL } from "@/lib/api";
 import { useNavigate, useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -34,7 +34,7 @@ const EditBusiness = () => {
     const fetchBusinessData = async () => {
       setIsLoading(true);
       try {
-        const response = await fetch(`http://localhost:5000/api/businesses/${id}`, {
+        const response = await fetch(`${API_BASE_URL}/api/businesses/${id}`, {
           credentials: 'include', // Necessary for session cookies
         });
         const data = await response.json();
@@ -86,7 +86,7 @@ const EditBusiness = () => {
         submitData.append('business_image', formData.business_image);
       }
 
-      const response = await fetch(`http://localhost:5000/api/businesses/${id}`, {
+      const response = await fetch(`${API_BASE_URL}/api/businesses/${id}`, {
         method: 'PUT',
         credentials: 'include', // Necessary for session cookies
         body: submitData,
@@ -302,7 +302,7 @@ const EditBusiness = () => {
                     <p className="text-xs font-medium mb-2">Current Image:</p>
                     <div className="relative w-32 h-32 border rounded overflow-hidden bg-gray-50">
                       <img
-                        src={`http://localhost:5000${formData.image_url}`}
+                        src={`${API_BASE_URL}${formData.image_url}`}
                         alt="Current business"
                         className="w-full h-full object-cover"
                         onError={(e) => {

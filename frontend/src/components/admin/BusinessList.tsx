@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getBusinesses, Business } from "../../lib/api"; // Import API function and type
+import { getBusinesses, Business, API_BASE_URL } from "../../lib/api"; // Import API function and type
 import { Link } from "react-router-dom";
 import {
   Table,
@@ -103,7 +103,7 @@ const BusinessList = () => {
   const handleConfirmDelete = async () => {
     if (!businessToDelete) return;
     try {
-      const response = await fetch(`http://localhost:5000/api/businesses/${businessToDelete.id}`, {
+      const response = await fetch(`${API_BASE_URL}/api/businesses/${businessToDelete.id}`, {
         method: 'DELETE',
         credentials: 'include', // Necessary for session cookies
       });

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Star, StarHalf, MapPin, Phone, Mail, Building2, Globe } from "lucide-react";
 import { motion } from "framer-motion";
-import { Business } from "@/lib/api";
+import { Business, API_BASE_URL } from "@/lib/api";
 
 // Category to icon mapping
 const categoryIcons: Record<string, any> = {
@@ -44,7 +44,7 @@ const BusinessCard = ({ business, index }: BusinessCardProps) => {
   };
 
   const imageUrl = business.image_url
-    ? (business.image_url.startsWith('http') ? business.image_url : `http://localhost:5000${business.image_url}`)
+    ? (business.image_url.startsWith('http') ? business.image_url : `${API_BASE_URL}${business.image_url}`)
     : null;
 
   return (

@@ -69,7 +69,7 @@ export const getBusinesses = async ({
   }
 
   const response = await fetch(
-    `http://localhost:5000/api/businesses?${params.toString()}`,
+    `${API_BASE_URL}/api/businesses?${params.toString()}`,
   );
   if (!response.ok) {
     const errorData = await response
@@ -84,7 +84,7 @@ export const getBusinesses = async ({
 
 // Fetch all categories from the backend
 export const getCategories = async (): Promise<Category[]> => {
-  const response = await fetch(`http://localhost:5000/api/categories`);
+  const response = await fetch(`${API_BASE_URL}/api/categories`);
   if (!response.ok) {
     const errorData = await response
       .json()
@@ -101,7 +101,7 @@ export const getTopCategories = async (
   limit: number = 6,
 ): Promise<TopCategory[]> => {
   const response = await fetch(
-    `http://localhost:5000/api/categories/top?limit=${limit}`,
+    `${API_BASE_URL}/api/categories/top?limit=${limit}`,
   );
   if (!response.ok) {
     const errorData = await response
@@ -117,7 +117,7 @@ export const getTopCategories = async (
 // Fetch featured businesses from the backend
 export const getFeaturedBusinesses = async (limit: number) => {
   const response = await fetch(
-    `http://localhost:5000/api/businesses/featured?limit=${limit}`,
+    `${API_BASE_URL}/api/businesses/featured?limit=${limit}`,
   );
   if (!response.ok) {
     throw new Error("Failed to fetch featured businesses");
@@ -128,7 +128,7 @@ export const getFeaturedBusinesses = async (limit: number) => {
 // Fetch new businesses count from the backend
 export const getNewBusinessesCount = async (): Promise<number> => {
   const response = await fetch(
-    "http://localhost:5000/api/businesses/new-count",
+    `${API_BASE_URL}/api/businesses/new-count`,
     {
       headers: {
         "Content-Type": "application/json",
@@ -148,7 +148,7 @@ export const getNewBusinessesCount = async (): Promise<number> => {
 // Function to fetch business applications
 export async function getBusinessApplications(): Promise<any[]> {
   const response = await fetch(
-    "http://localhost:5000/api/business-applications",
+    `${API_BASE_URL}/api/business-applications`,
     {
       method: "GET",
       headers: {
@@ -167,7 +167,13 @@ export async function getBusinessApplications(): Promise<any[]> {
 
 // --- Admin Authentication API Functions ---
 
-const ADMIN_API_BASE_URL = "http://localhost:5000/api/admin";
+// Automatically determine API URL based on current hostname
+export const API_BASE_URL =
+  window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+    ? "http://localhost:5000"
+    : "https://api.pcgbusinessdirectory.com";
+
+const ADMIN_API_BASE_URL = `${API_BASE_URL}/api/admin`;
 
 export const adminLogin = async (
   credentials: AdminLoginCredentials,
@@ -227,7 +233,7 @@ export const checkAdminAuth = async (): Promise<AdminAuthResponse> => {
 
 // Fetch monthly growth data
 export const getMonthlyGrowth = async (): Promise<{ name: string; count: number }[]> => {
-  const response = await fetch("http://localhost:5000/api/analytics/monthly-growth", {
+  const response = await fetch(`${API_BASE_URL}/api/analytics/monthly-growth`, {
     credentials: "include",
   });
 
