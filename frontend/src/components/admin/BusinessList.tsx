@@ -44,7 +44,7 @@ const BusinessList = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
-  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState(""); // New state for debounced search
+  const [activeSearchTerm, setActiveSearchTerm] = useState(""); // State that actually triggers the search
   const [currentPage, setCurrentPage] = useState(1);
   const [totalBusinesses, setTotalBusinesses] = useState(0);
   const [editingBusiness, setEditingBusiness] = useState<Business | null>(null);
@@ -61,39 +61,26 @@ const BusinessList = () => {
         const response = await getBusinesses({
           limit: BUSINESSES_PER_PAGE,
           offset,
-          q: debouncedSearchTerm || undefined, // Send debounced search term to backend
+          q: activeSearchTerm || undefined,
         });
         setBusinesses(response.businesses || []);
         setTotalBusinesses(response.total || 0);
       } catch (err) {
         console.error("Failed to fetch businesses:", err);
         setError(err instanceof Error ? err.message : "An unknown error occurred");
-        setBusinesses([]); // Clear businesses on error
+        setBusinesses([]);
         setTotalBusinesses(0);
       }
       setIsLoading(false);
     };
 
     fetchBusinessData();
-  }, [currentPage, debouncedSearchTerm]); // Refetch when currentPage or debouncedSearchTerm changes
+  }, [currentPage, activeSearchTerm]);
 
-  // Debounce search term
+  // Reset to page 1 when search term changes
   useEffect(() => {
-    const handler = setTimeout(() => {
-      setDebouncedSearchTerm(searchTerm);
-    }, 500); // 500ms delay
-
-    return () => {
-      clearTimeout(handler);
-    };
-  }, [searchTerm]);
-
-  // Reset to page 1 when debounced search term changes
-  useEffect(() => {
-    if (debouncedSearchTerm !== "" || searchTerm === "") { // Reset if debounced term is set, or if search is cleared
-      setCurrentPage(1);
-    }
-  }, [debouncedSearchTerm, searchTerm]); // Watch both to catch clearing the search
+    setCurrentPage(1);
+  }, [activeSearchTerm]);
 
   const handleDelete = async (business: Business) => {
     setBusinessToDelete(business);
@@ -105,21 +92,20 @@ const BusinessList = () => {
     try {
       const response = await fetch(`${API_BASE_URL}/api/businesses/${businessToDelete.id}`, {
         method: 'DELETE',
-        credentials: 'include', // Necessary for session cookies
+        credentials: 'include',
       });
 
       if (!response.ok) {
         throw new Error('Failed to delete business');
       }
 
-      // Show success toast
       toast({
         title: "Business Deleted",
-        description: `${businessToDelete.business_name} has been successfully deleted from the directory.`,
+        description: `${businessToDelete.business_name} has been successfully deleted.`,
         variant: "default",
       });
 
-      // Delay page reload to allow toast to be seen
+      // Delay page reload or just refetch
       setTimeout(() => {
         window.location.reload();
       }, 2000);
@@ -225,7 +211,19 @@ const BusinessList = () => {
               placeholder="Search businesses..."
               className="pl-8 w-full md:w-[250px]"
               value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
+              onChange={(e) => {
+                const val = e.target.value;
+                setSearchTerm(val);
+                // If the user clears the input completely, reset the active search immediately
+                if (val === "") {
+                  setActiveSearchTerm("");
+                }
+              }}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  setActiveSearchTerm(searchTerm);
+                }
+              }}
             />
           </div>
           <Button asChild>

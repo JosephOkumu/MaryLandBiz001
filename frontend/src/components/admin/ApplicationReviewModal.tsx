@@ -12,8 +12,9 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { useState } from 'react';
 import { useToast } from "@/components/ui/use-toast";
-import { Eye } from "lucide-react";
-import { API_BASE_URL } from "@/lib/api";
+import { Eye, RefreshCw } from "lucide-react";
+import { API_BASE_URL, getBusiness, Business } from "@/lib/api";
+import { useQuery } from "@tanstack/react-query";
 
 // Assuming Application type is defined in ApplicationsPage.tsx or a shared types file
 // For now, let's redefine a similar structure here for clarity if not imported
@@ -27,9 +28,10 @@ interface Application {
   website?: string;
   category: string;
   description: string;
-  image_url?: string; // Added for uploaded images
-  business_image_name?: string;
-  dateSubmitted?: string; // Optional for display in modal
+  image_url?: string;
+  applicationType?: 'new' | 'edit';
+  businessId?: string;
+  dateSubmitted?: string;
 }
 
 interface ApplicationReviewModalProps {
@@ -40,12 +42,20 @@ interface ApplicationReviewModalProps {
   onReject: (application: Application) => Promise<void>;  // Updated to accept Application and expect Promise
 }
 
-const DetailItem = ({ label, value }: { label: string; value?: string }) => {
+const DetailItem = ({ label, value, isEdited }: { label: string; value?: string; isEdited?: boolean }) => {
   if (!value) return null;
   return (
     <div>
-      <p className="text-sm font-medium text-gray-500">{label}</p>
-      <p className="text-md text-gray-900">{value}</p>
+      <div className="flex items-center gap-2 mb-1">
+        <p className="text-sm font-medium text-gray-500">{label}</p>
+        {isEdited && (
+          <span className="text-[10px] bg-red-50 text-black px-1.5 py-0.5 rounded font-black uppercase tracking-tighter border border-red-200 flex items-center gap-1 shadow-sm">
+            <span className="h-1 w-1 rounded-full bg-red-500 animate-pulse" />
+            Edited
+          </span>
+        )}
+      </div>
+      <p className="text-md text-gray-900 leading-tight">{value}</p>
     </div>
   );
 };
@@ -100,37 +110,103 @@ export const ApplicationReviewModal = ({
     }
   };
 
+  const { data: originalBusiness } = useQuery({
+    queryKey: ["business", application?.businessId],
+    queryFn: () => getBusiness(application!.businessId!),
+    enabled: !!application?.businessId && application?.applicationType === 'edit' && isOpen,
+  });
+
   if (!application) return null;
+
+  const isFieldEdited = (field: keyof Application, originalField?: keyof Business) => {
+    if (!originalBusiness || application.applicationType !== 'edit') return false;
+    const currentVal = application[field]?.toString().trim() || "";
+    // @ts-ignore - access by key
+    const originalVal = (originalBusiness[originalField || (field as keyof Business)] as any)?.toString().trim() || "";
+    return currentVal !== originalVal;
+  };
 
   return (
     <>
       <Dialog open={isOpen} onOpenChange={onClose}>
         <DialogContent className="sm:max-w-lg max-h-[85vh] overflow-y-auto">
           <DialogHeader>
-            <DialogTitle>Review Application: {application.business_name}</DialogTitle>
+            <div className="flex items-center gap-3">
+              <DialogTitle>Review Application: {application.business_name}</DialogTitle>
+              {application.applicationType === 'edit' && (
+                <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 border border-blue-200 shadow-sm">
+                  <RefreshCw className="h-3 w-3 animate-spin-slow" />
+                  <span className="text-[10px] font-black uppercase tracking-widest">Update Request</span>
+                </div>
+              )}
+            </div>
             <DialogDescription>
               Submitted by: {application.contact_name} ({application.email})
             </DialogDescription>
           </DialogHeader>
 
+          {application.applicationType === 'edit' && (
+            <div className="bg-red-50 border border-red-200 p-3 rounded-lg text-red-800 text-sm mb-4 shadow-sm">
+              <strong>Notice:</strong> This is a request to update an existing business (ID: {application.businessId}). Approving will overwrite the existing details.
+            </div>
+          )}
+
           <div className="grid gap-4 py-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <DetailItem label="Business Name" value={application.business_name} />
-              <DetailItem label="Location" value={application.location} />
+              <DetailItem
+                label="Business Name"
+                value={application.business_name}
+                isEdited={isFieldEdited('business_name')}
+              />
+              <DetailItem
+                label="Location"
+                value={application.location}
+                isEdited={isFieldEdited('location')}
+              />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <DetailItem label="Contact Name" value={application.contact_name} />
-              <DetailItem label="Telephone" value={application.tel} />
+              <DetailItem
+                label="Contact Name"
+                value={application.contact_name}
+                isEdited={isFieldEdited('contact_name')}
+              />
+              <DetailItem
+                label="Telephone"
+                value={application.tel}
+                isEdited={isFieldEdited('tel')}
+              />
             </div>
-            <DetailItem label="Email Address" value={application.email} />
-            {application.website && <DetailItem label="Website" value={application.website} />}
-            <DetailItem label="Category" value={application.category} />
+            <DetailItem
+              label="Email Address"
+              value={application.email}
+              isEdited={isFieldEdited('email')}
+            />
+            {application.website && (
+              <DetailItem
+                label="Website"
+                value={application.website}
+                isEdited={isFieldEdited('website')}
+              />
+            )}
+            <DetailItem
+              label="Category"
+              value={application.category}
+              isEdited={isFieldEdited('category')}
+            />
 
             <Separator className="my-2" />
 
             <div>
-              <p className="text-sm font-medium text-gray-500">Description</p>
-              <p className="text-md text-gray-900 whitespace-pre-wrap">{application.description}</p>
+              <div className="flex items-center gap-2 mb-1">
+                <p className="text-sm font-medium text-gray-500">Description</p>
+                {isFieldEdited('description') && (
+                  <span className="text-[10px] bg-red-50 text-black px-1.5 py-0.5 rounded font-black uppercase tracking-tighter border border-red-200 flex items-center gap-1 shadow-sm">
+                    <span className="h-1 w-1 rounded-full bg-red-500 animate-pulse" />
+                    Edited
+                  </span>
+                )}
+              </div>
+              <p className="text-md text-gray-900 whitespace-pre-wrap leading-relaxed">{application.description}</p>
             </div>
 
             {application.image_url && (

@@ -145,3 +145,30 @@ To push local development data to the production server:
       "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
     }
     ```
+## 10. Updating & Schema Migrations
+To pull the latest changes and apply database schema updates safely:
+
+1. **Update Code**:
+   ```bash
+   cd /var/www/MaryLandBiz001
+   git pull origin main
+   ```
+
+2. **Run Migration Script** (Crucial for Edit Business functionality):
+   ```bash
+   cd backend
+   source venv/bin/activate
+   python3 migrations/update_schema_for_edit_v2.py
+   ```
+   *Note: This script uses `ALTER TABLE` to preserve existing data while renaming columns and adding new ones.*
+
+3. **Restart Services**:
+   ```bash
+   systemctl restart marylandbiz
+   systemctl restart nginx
+   ```
+
+## 11. Troubleshooting
+- **Logs**: `journalctl -u marylandbiz`
+- **Nginx Errors**: `/var/log/nginx/error.log`
+- **DB Check**: `python3 check_db_status.py` inside `backend` folder.

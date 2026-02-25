@@ -173,6 +173,9 @@ def create_tables():
                     email VARCHAR(255) NOT NULL,
                     website VARCHAR(255),
                     description TEXT,
+                    image_url VARCHAR(255),
+                    application_type ENUM('new', 'edit') DEFAULT 'new',
+                    business_id INT NULL,
                     status ENUM('pending', 'approved', 'rejected') DEFAULT 'pending',
                     submitted_at DATETIME NOT NULL
                 )
@@ -278,7 +281,6 @@ def get_businesses():
     """
     category = request.args.get('category', '')
     search_term = request.args.get('q', '')  # New search term parameter
-    status = request.args.get('status', None) # Optional status filter
     limit = request.args.get('limit', 20, type=int)
     offset = request.args.get('offset', 0, type=int)
 
@@ -298,11 +300,6 @@ def get_businesses():
             where_clauses.append("category = %s")
             params_for_data.append(category)
             params_for_count.append(category)
-
-        if status:
-            where_clauses.append("status = %s")
-            params_for_data.append(status)
-            params_for_count.append(status)
 
         if search_term:
             search_param = f"%{search_term}%"
@@ -335,8 +332,7 @@ def get_businesses():
             "limit": limit,
             "offset": offset,
             "category_filter": category,
-            "search_term": search_term,
-            "status_filter": status
+            "search_term": search_term
         })
 
     except DBError as err:
@@ -892,8 +888,8 @@ def submit_business_application():
         cursor = connection.cursor()
         query = """
             INSERT INTO business_applications
-            (business_name, location, category, contact_name, tel, email, website, description, image_url, status, submitted_at)
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, NOW())
+            (business_name, location, category, contact_name, tel, email, website, description, image_url, application_type, business_id, status, submitted_at)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, NOW())
         """
         values = (
             data.get('businessName'),
@@ -905,6 +901,8 @@ def submit_business_application():
             data.get('website', ''),
             data.get('description', ''),
             image_url,
+            data.get('applicationType', 'new'),
+            data.get('businessId'),
             'pending'
         )
         cursor.execute(query, values)
@@ -936,7 +934,7 @@ def get_business_applications():
         query_params = []
         base_query = """
             SELECT id, business_name as businessName, location, category, contact_name as contactName, tel, email,
-                   website, description, image_url, status, submitted_at as submittedAt
+                   website, description, image_url, application_type as applicationType, business_id as businessId, status, submitted_at as submittedAt
             FROM business_applications
         """
 
@@ -981,28 +979,53 @@ def update_business_application_status(id):
         if not application:
             return jsonify({"error": "Application not found"}), 404
 
-        # If approving, create a business entry with all the application data
+        # If approving, create or update a business entry
         if new_status == 'approved':
-            # Insert into businesses table with all fields including image_url
-            insert_query = """
-                INSERT INTO businesses
-                (business_name, category, location, contact_name, tel, email, website, description, image_url, featured)
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-            """
-            business_values = (
-                application.get('business_name'),
-                application.get('category'),
-                application.get('location'),
-                application.get('contact_name', ''),
-                application.get('tel', ''),
-                application.get('email', ''),
-                application.get('website', ''),
-                application.get('description', ''),
-                application.get('image_url', None),  # Include the image_url
-                False  # featured defaults to False
-            )
-            cursor.execute(insert_query, business_values)
-            app.logger.info(f"Business created from application {id} with image_url: {application.get('image_url')}")
+            if application.get('application_type') == 'edit' and application.get('business_id'):
+                # Update existing business
+                update_query = """
+                    UPDATE businesses
+                    SET business_name = %s, category = %s, location = %s,
+                        contact_name = %s, tel = %s, email = %s,
+                        website = %s, description = %s, image_url = COALESCE(%s, image_url)
+                    WHERE id = %s
+                """
+                # For edits, only update image_url if a new one was provided
+                update_values = (
+                    application.get('business_name'),
+                    application.get('category'),
+                    application.get('location'),
+                    application.get('contact_name', ''),
+                    application.get('tel', ''),
+                    application.get('email', ''),
+                    application.get('website', ''),
+                    application.get('description', ''),
+                    application.get('image_url'),
+                    application.get('business_id')
+                )
+                cursor.execute(update_query, update_values)
+                app.logger.info(f"Business {application.get('business_id')} updated from application {id}")
+            else:
+                # Insert into businesses table with all fields including image_url
+                insert_query = """
+                    INSERT INTO businesses
+                    (business_name, category, location, contact_name, tel, email, website, description, image_url, featured)
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                """
+                business_values = (
+                    application.get('business_name'),
+                    application.get('category'),
+                    application.get('location'),
+                    application.get('contact_name', ''),
+                    application.get('tel', ''),
+                    application.get('email', ''),
+                    application.get('website', ''),
+                    application.get('description', ''),
+                    application.get('image_url', None),  # Include the image_url
+                    False  # featured defaults to False
+                )
+                cursor.execute(insert_query, business_values)
+                app.logger.info(f"Business created from application {id} with image_url: {application.get('image_url')}")
 
         # Update the application status
         query = "UPDATE business_applications SET status = %s WHERE id = %s"

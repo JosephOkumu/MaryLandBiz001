@@ -73,16 +73,17 @@ def create_businesses_table():
         cursor.execute("""
             CREATE TABLE IF NOT EXISTS businesses (
                 id INT AUTO_INCREMENT PRIMARY KEY,
-                name VARCHAR(255) NOT NULL,
+                business_name VARCHAR(255) NOT NULL,
                 category VARCHAR(100),
                 location VARCHAR(255),
                 contact_name VARCHAR(100),
-                contact_phone VARCHAR(20),
-                contact_email VARCHAR(100),
+                tel VARCHAR(20),
+                email VARCHAR(100),
                 website VARCHAR(255),
                 description TEXT,
-                status VARCHAR(50) DEFAULT 'pending', # e.g., 'pending', 'approved', 'rejected'
-                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                image_url VARCHAR(255),
+                featured BOOLEAN DEFAULT FALSE,
+                date_added TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                 updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
             )
         """)

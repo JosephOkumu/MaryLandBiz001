@@ -243,3 +243,17 @@ export const getMonthlyGrowth = async (): Promise<{ name: string; count: number 
 
   return await response.json();
 };
+
+// Fetch a single business by ID
+export const getBusiness = async (id: string): Promise<Business> => {
+  const response = await fetch(`${API_BASE_URL}/api/businesses/${id}`, {
+    credentials: "include",
+  });
+
+  if (!response.ok) {
+    const errorData = await response.json().catch(() => ({}));
+    throw new Error(errorData.error || "Failed to fetch business");
+  }
+
+  return await response.json();
+};

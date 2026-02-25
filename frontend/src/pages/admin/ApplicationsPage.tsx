@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { MoreHorizontalIcon, CheckCircle2 as CheckCircle2Icon, XCircle as XCircleIcon, Eye } from "lucide-react";
+import { MoreHorizontalIcon, CheckCircle2 as CheckCircle2Icon, XCircle as XCircleIcon, Eye, RefreshCw } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 import { useState, useEffect } from "react";
 import { useSearchParams } from 'react-router-dom';
@@ -45,12 +45,13 @@ interface Application {
   website?: string;
   category: string;
   description: string;
-  image_url?: string; // Added for uploaded images
-  business_image_name?: string;
+  image_url?: string;
+  applicationType?: 'new' | 'edit';
+  businessId?: string;
   dateSubmitted: string;
   status: "Pending" | "Approved" | "Rejected";
-  isNew?: boolean; // For highlighting new items from localStorage
-  isFromLocalStorage?: boolean; // To differentiate source
+  isNew?: boolean;
+  isFromLocalStorage?: boolean;
 }
 
 const dummyApplications: Application[] = [];
@@ -91,8 +92,9 @@ function ApplicationsPage() {
           website: app.website || '',
           category: app.category,
           description: app.description || '',
-          image_url: app.image_url || '', // Include image_url from backend
-          business_image_name: '',
+          image_url: app.image_url || '',
+          applicationType: app.applicationType || 'new',
+          businessId: app.businessId ? app.businessId.toString() : undefined,
           dateSubmitted: new Date(app.submittedAt).toISOString().split('T')[0],
           status: app.status.charAt(0).toUpperCase() + app.status.slice(1) as 'Pending' | 'Approved' | 'Rejected',
           isNew: false,
@@ -259,8 +261,15 @@ function ApplicationsPage() {
               {applications.map((app) => (
                 <TableRow key={app.id} className={app.isNew && app.isFromLocalStorage ? 'bg-yellow-100 hover:bg-yellow-200' : ''}>
                   <TableCell>
-                    <div className="font-medium">{app.business_name}
-                      {app.isNew && app.isFromLocalStorage && <Badge variant="outline" className="ml-2 border-yellow-500 text-yellow-700 bg-yellow-50">New</Badge>}
+                    <div className="font-medium flex items-center gap-2">
+                      {app.business_name}
+                      {app.applicationType === 'edit' && (
+                        <div className="flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-600 border border-blue-200 shadow-sm animate-pulse">
+                          <RefreshCw className="h-2.5 w-2.5" />
+                          <span className="text-[10px] font-black uppercase tracking-wider">Update Request</span>
+                        </div>
+                      )}
+                      {app.isNew && app.isFromLocalStorage && <Badge variant="outline" className="border-yellow-500 text-yellow-700 bg-yellow-50">New</Badge>}
                     </div>
                     <div className="text-sm text-muted-foreground md:hidden">
                       {app.category}
