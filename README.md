@@ -176,8 +176,10 @@ MaryLandBiz001/
 
 1. **Backend Development:**
    ```bash
+   sudo systemctl start mariadb
+   source venv/bin/activate  # or .\venv\Scripts\activate on 
    cd backend
-   source venv/bin/activate  # or .\venv\Scripts\activate on Windows
+   Windows
    python3 app.py
    ```
 
