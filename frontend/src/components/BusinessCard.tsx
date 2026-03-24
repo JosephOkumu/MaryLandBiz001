@@ -61,12 +61,12 @@ const BusinessCard = ({ business, index }: BusinessCardProps) => {
       }}
     >
       <Card className="overflow-hidden shadow-md h-full flex flex-col group">
-        <div className="w-full bg-gray-50 overflow-hidden relative">
+        <div className="w-full bg-gray-50 overflow-hidden relative aspect-[4/3]">
           {imageUrl && !imageError ? (
             <motion.img
               src={imageUrl}
               alt={business.business_name}
-              className="w-full h-auto max-h-80 object-contain"
+              className="w-full h-full object-contain p-4"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3 }}
@@ -74,11 +74,11 @@ const BusinessCard = ({ business, index }: BusinessCardProps) => {
             />
           ) : (
             <motion.div
-              className="h-48 flex justify-center items-center"
+              className="flex h-full w-full justify-center items-center p-8"
               whileHover={{ rotate: 5, scale: 1.1 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <IconComponent className="w-16 h-16 text-primary" strokeWidth={1.5} />
+              <IconComponent className="w-16 h-16 text-primary opacity-20" strokeWidth={1.5} />
             </motion.div>
           )}
         </div>
@@ -86,47 +86,49 @@ const BusinessCard = ({ business, index }: BusinessCardProps) => {
           <h3 className="text-lg font-semibold mb-2 text-primary group-hover:text-blue-600 transition-colors">
             {business.business_name}
           </h3>
-          <span className="inline-block bg-background py-1 px-3 rounded text-xs mb-4 text-secondary">
+          <span className="inline-block bg-background py-1 px-3 rounded text-xs mb-4 text-secondary self-start">
             {business.category}
           </span>
-          <p className="text-sm text-foreground mb-4 flex-1">
+          <p className="text-sm text-foreground mb-6">
             {business.description}
           </p>
 
-          {business.location && (
-            <div className="flex items-center gap-2 text-sm mb-2 hover:text-primary transition-colors">
-              <MapPin className="w-4 h-4 text-secondary" strokeWidth={2.5} />
-              <span>{business.location}</span>
-            </div>
-          )}
+          <div className="mt-auto space-y-3">
+            {business.location && (
+              <div className="flex items-center gap-2 text-sm mb-2 hover:text-primary transition-colors">
+                <MapPin className="w-4 h-4 text-secondary" strokeWidth={2.5} />
+                <span>{business.location}</span>
+              </div>
+            )}
 
-          {business.tel && (
-            <div className="flex items-center gap-2 text-sm mb-2 hover:text-primary transition-colors">
-              <Phone className="w-4 h-4 text-secondary" strokeWidth={2.5} />
-              <span>{business.tel}</span>
-            </div>
-          )}
+            {business.tel && (
+              <div className="flex items-center gap-2 text-sm mb-2 hover:text-primary transition-colors">
+                <Phone className="w-4 h-4 text-secondary" strokeWidth={2.5} />
+                <span>{business.tel}</span>
+              </div>
+            )}
 
-          {business.email && (
-            <div className="flex items-center gap-2 text-sm mb-2 hover:text-primary transition-colors">
-              <Mail className="w-4 h-4 text-secondary" strokeWidth={2.5} />
-              <span>{business.email}</span>
-            </div>
-          )}
+            {business.email && (
+              <div className="flex items-center gap-2 text-sm mb-2 hover:text-primary transition-colors">
+                <Mail className="w-4 h-4 text-secondary" strokeWidth={2.5} />
+                <span className="truncate">{business.email}</span>
+              </div>
+            )}
 
-          {business.website && (
-            <div className="flex items-center gap-2 text-sm hover:text-primary transition-colors">
-              <Globe className="w-4 h-4 text-secondary" strokeWidth={2.5} />
-              <a
-                href={business.website.startsWith('http') ? business.website : `https://${business.website}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:underline"
-              >
-                Visit Website
-              </a>
-            </div>
-          )}
+            {business.website && (
+              <div className="flex items-center gap-2 text-sm hover:text-primary transition-colors">
+                <Globe className="w-4 h-4 text-secondary" strokeWidth={2.5} />
+                <a
+                  href={business.website.startsWith('http') ? business.website : `https://${business.website}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline truncate"
+                >
+                  Visit Website
+                </a>
+              </div>
+            )}
+          </div>
         </div>
       </Card>
     </motion.div>
