@@ -90,7 +90,7 @@ const BusinessCard = ({ business, index }: BusinessCardProps) => {
             {business.category}
           </span>
           <p className="text-sm text-foreground mb-4 flex-1">
-            {business.description || "No description available"}
+            {business.description}
           </p>
 
           {business.location && (
