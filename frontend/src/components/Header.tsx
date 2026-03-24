@@ -1,5 +1,5 @@
 
-import { Building, Home, Search, PlusCircle, Menu, X, MessageCircle } from "lucide-react";
+import { Building, Home, Search, PlusCircle, Menu, X, MessageCircle, Globe } from "lucide-react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -95,6 +95,17 @@ const Header = () => {
                   <span>Contact</span>
                 </Link>
               </motion.li>
+              <motion.li variants={navItemVariants} whileHover="hover">
+                <a
+                  href="https://www.pcgassoc.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-4 py-2.5 bg-gray-800 text-white hover:bg-gradient-to-r hover:from-primary hover:to-blue-600 rounded-lg transition-all duration-200 font-medium shadow-sm hover:shadow-md"
+                >
+                  <Globe className="h-4 w-4" strokeWidth={2.5} />
+                  <span>PCG</span>
+                </a>
+              </motion.li>
 
             </ul>
           </nav>
@@ -158,6 +169,18 @@ const Header = () => {
                   <MessageCircle className="h-5 w-5" strokeWidth={2.5} />
                   <span className="font-medium text-base">Contact</span>
                 </Link>
+              </li>
+              <li>
+                <a
+                  href="https://www.pcgassoc.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 px-4 py-3 bg-gray-800 text-white hover:bg-gradient-to-r hover:from-primary hover:to-blue-600 rounded-lg transition-all shadow-sm"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <Globe className="h-5 w-5" strokeWidth={2.5} />
+                  <span className="font-medium text-base">PCG</span>
+                </a>
               </li>
 
             </ul>
